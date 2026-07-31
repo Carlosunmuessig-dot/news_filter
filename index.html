@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CARLOS NEWS//HQ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { background-color: #030508; color: #d1d5db; font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .hud-title { font-family: 'Orbitron', sans-serif; }
+        .ui-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .border-neon { border: 1px solid rgba(0, 255, 255, 0.2); }
+        .glow-active {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 5px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff; color: #00ffff;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+            border-color: rgba(0, 255, 255, 0.6); transform: translateY(-2px);
+        }
+        .text-glow { text-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+
+        .scanlines {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px; pointer-events: none; z-index: 50; opacity: 0.3;
+        }
+
+        #intro-screen { transition: opacity 0.6s ease-out; }
+        .intro-text { animation: glitch-anim 1.5s infinite linear alternate-reverse; }
+        
+        @keyframes pulse-cyan {
+            0%, 100% { opacity: 1; text-shadow: 0 0 8px #00ffff; }
+            50% { opacity: 0.4; text-shadow: none; }
+        }
+        .animate-pulse-cyan { animation: pulse-cyan 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        
+        ::-webkit-scrollbar { width: 6px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #00ffff; border-radius: 3px; }
+        
+        /* Versteckt den Scrollbalken im Menü auf dem Handy */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="overflow-hidden">
+
+    <div class="scanlines"></div>
+
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen" class="fixed inset-0 bg-[#020202] z-[100] flex flex-col items-center justify-center">
+        <h1 class="intro-text text-3xl md:text-5xl text-[#00ffff] font-black tracking-[0.2em] text-center px-4 text-glow">
+            CARLOS<br>HQ
+        </h1>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div id="app-container" class="flex flex-col md:flex-row h-screen opacity-0 transition-opacity duration-1000">
+        
+        <!-- SIDEBAR / NAVIGATION (Handy = Oben, Laptop = Links) -->
+        <div class="w-full md:w-64 bg-[#050810] border-b md:border-b-0 md:border-r border-[#0f172a] border-neon flex flex-col z-40 relative flex-shrink-0 shadow-lg">
+            <div class="p-4 md:p-6 flex justify-between md:block items-center border-b border-[#0f172a] border-neon">
+                <div>
+                    <h1 class="text-lg md:text-xl font-bold tracking-widest text-[#00ffff] text-glow">NEWS//HQ</h1>
+                    <p class="ui-font text-[10px] text-cyan-600 mt-1 uppercase tracking-widest hidden md:block">Global Data Feed</p>
+                </div>
+                <!-- Live Indikator fürs Handy (oben rechts) -->
+                <div class="md:hidden flex items-center gap-2 ui-font px-2 py-1 border border-[#00ffff]/30 rounded bg-[#00ffff]/5">
+                    <div class="w-2 h-2 rounded-full bg-[#00ffff] animate-pulse-cyan"></div>
+                    <span class="text-[10px] font-bold text-[#00ffff] tracking-widest">LIVE</span>
+                </div>
+            </div>
+            
+            <nav class="flex flex-row md:flex-col overflow-x-auto md:overflow-y-auto p-2 md:p-4 gap-2 md:space-y-3 ui-font hide-scrollbar" id="sidebar-nav">
+                <!-- Kategorien -->
+            </nav>
+        </div>
+
+        <!-- HAUPTBEREICH -->
+        <div class="flex-1 flex flex-col bg-[#030508] relative overflow-y-auto">
+            
+            <!-- Laptop Header -->
+            <header class="hidden md:flex bg-[#050810]/90 backdrop-blur-md border-b border-[#0f172a] border-neon px-8 py-5 justify-between items-center sticky top-0 z-30">
+                <h2 class="text-2xl font-bold tracking-wide text-white uppercase" id="current-category-title-desktop">Alle Sektoren</h2>
+                <div class="flex items-center gap-2 ui-font px-4 py-1.5 border border-[#00ffff]/30 rounded bg-[#00ffff]/5">
+                    <div class="w-2 h-2 rounded-full bg-[#00ffff] animate-pulse-cyan"></div>
+                    <span class="text-xs font-bold text-[#00ffff] tracking-widest">LIVE FEED</span>
+                </div>
+            </header>
+
+            <main class="p-4 md:p-8">
+                <!-- Handy Titel -->
+                <div class="md:hidden mb-4 mt-2">
+                    <h2 class="text-xl font-bold tracking-wide text-white uppercase text-center" id="current-category-title-mobile">Alle Sektoren</h2>
+                </div>
+                
+                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
+                    <!-- Artikel -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        let allNews = [];
+        let activeCategory = 'Alle';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const intro = document.getElementById('intro-screen');
+                const app = document.getElementById('app-container');
+                intro.style.opacity = '0';
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                    app.style.opacity = '1';
+                }, 600);
+            }, 1000);
+        });
+
+        async function fetchNews() {
+            try {
+                const response = await fetch('nachrichten.json?t=' + new Date().getTime()); 
+                const data = await response.json();
+                
+                if (Array.isArray(data)) {
+                    allNews = data;
+                } else if (data.nachrichten) {
+                    allNews = data.nachrichten;
+                } else if (data.Nachrichten) {
+                    allNews = data.Nachrichten;
+                } else {
+                    const foundArray = Object.values(data).find(val => Array.isArray(val));
+                    allNews = foundArray ? foundArray : [];
+                }
+                
+                renderSidebar();
+                renderNews();
+            } catch (error) {
+                document.getElementById('news-grid').innerHTML = `<p class="text-[#00ffff] col-span-full text-center py-12 ui-font tracking-widest">Verbindung fehlgeschlagen...</p>`;
+            }
+        }
+
+        function renderSidebar() {
+            const nav = document.getElementById('sidebar-nav');
+            const categories = ['Alle', ...new Set(allNews.map(item => item.hauptkategorie || 'Unkategorisiert'))];
+            
+            nav.innerHTML = categories.map(cat => {
+                const isActive = activeCategory === cat;
+                return `
+                <button onclick="setCategory('${cat}')" 
+                    class="whitespace-nowrap flex-shrink-0 w-auto md:w-full text-center md:text-left px-4 py-2 md:py-3 text-[11px] md:text-xs uppercase tracking-widest transition-all duration-300 border-b-2 md:border-b-0 md:border-l-2 
+                    ${isActive ? 'border-[#00ffff] bg-[#00ffff]/10 text-[#00ffff] glow-active' : 'border-transparent text-gray-400 hover:border-[#00ffff]/50 hover:text-gray-200'}">
+                    ${cat === 'Alle' ? 'Alle Sektoren' : cat}
+                </button>
+            `}).join('');
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            const title = cat === 'Alle' ? 'Alle Sektoren' : cat;
+            
+            const desktopTitle = document.getElementById('current-category-title-desktop');
+            const mobileTitle = document.getElementById('current-category-title-mobile');
+            if (desktopTitle) desktopTitle.innerText = title;
+            if (mobileTitle) mobileTitle.innerText = title;
+            
+            renderSidebar();
+            renderNews();
+        }
+
+        function renderNews() {
+            const grid = document.getElementById('news-grid');
+            const filtered = activeCategory === 'Alle' ? allNews : allNews.filter(item => item.hauptkategorie === activeCategory);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="text-cyan-800 col-span-full text-center py-12 ui-font tracking-widest">Keine Datensätze gefunden.</p>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(item => `
+                <div class="bg-[#070b14] border border-neon rounded-sm p-5 md:p-6 flex flex-col justify-start transition-all duration-300 glow-hover relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#00ffff]/20 to-transparent"></div>
+
+                    <div class="flex justify-between items-start gap-2 mb-3">
+                        <span class="ui-font px-2 py-1 text-[9px] md:text-[10px] font-bold tracking-wider text-[#00ffff] bg-[#00ffff]/10 border border-[#00ffff]/30 rounded-sm uppercase">
+                            ${item.sub_sektor || 'Allgemein'}
+                        </span>
+                        <span class="ui-font text-[9px] md:text-[10px] text-gray-500 font-bold tracking-widest uppercase bg-[#000] px-2 py-1 border border-gray-800">
+                            ${item.quelle || 'System'}
+                        </span>
+                    </div>
+
+                    <h3 class="text-base md:text-lg font-bold text-gray-100 mb-3 leading-snug group-hover:text-white transition-colors">
+                        ${item.titel || 'Kein Titel'}
+                    </h3>
+
+                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-light">
+                        ${item.text || 'Kein Inhalt verfügbar.'}
+                    </p>
+                    
+                    <div class="w-12 h-0.5 bg-[#00ffff]/30 mt-5"></div>
+                </div>
+            `).join('');
+        }
+
+        window.onload = fetchNews;
+        setInterval(fetchNews, 300000); 
+    </script>
+</body>
+</html>
