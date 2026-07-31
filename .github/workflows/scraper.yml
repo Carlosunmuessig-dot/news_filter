@@ -1,0 +1,36 @@
+name: Auto Scraper
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Läuft alle 15 Minuten
+  workflow_dispatch: # Erlaubt auch manuelles Starten
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code herunterladen
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          pip install google-genai beautifulsoup4 requests
+
+      - name: Scraper ausführen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scraper.py
+
+      - name: Änderungen speichern & hochladen
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add nachrichten.json
+          git commit -m "Automatisches Update der News [skip ci]" || exit 0
+          git push
