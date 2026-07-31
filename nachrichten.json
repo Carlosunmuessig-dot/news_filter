@@ -2,205 +2,170 @@
   "nachrichten": [
     {
       "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "US-Börsen kaum verändert – Spieleplattform-Aktie stürzt ab",
-      "text": "Zum Wochenausklang zeigte sich die Wall Street nach den starken Gewinnen vom Vortag kaum verändert, mit dem Dow Jones, S&P 500 und Nasdaq stabil. Tech-Aktien standen im Fokus: Amazon Web Services (AWS) überraschte mit einem Umsatzwachstum von 37 Prozent auf 42,2 Milliarden Dollar im zweiten Quartal, was die Amazon-Aktie um 13,6 Prozent steigen ließ. Auch Alphabet und Microsoft verzeichneten Gewinne. Die Apple-Aktie hingegen fiel um fast zehn Prozent. Der Irankrieg bescherte Ölkonzernen zwar Rekordgewinne, deren Aktien half das jedoch nicht.",
-      "quelle": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-sp-500-nasdaq-us-boersen-kaum-veraendert-spieleplattform-aktie-stuerzt-ab/100244298.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "Dax gibt Gewinne nach Rekordjagd ab",
-      "text": "Der Dax näherte sich im Freitagshandel kurzzeitig einem neuen Rekordhoch von 25.900 Punkten, konnte dieses Niveau jedoch nicht halten und schloss unverändert bei 25.629 Punkten. Analysten sehen bei anhaltendem Kaufdruck einen weiteren Anstieg Richtung 26.000 Punkte als technisch möglich an. Gleichzeitig wurde der Inflationsbericht für die Eurozone im Juli veröffentlicht, der einen Anstieg der Teuerungsrate auf 2,9 Prozent gegenüber dem Vorjahresmonat zeigte, was den Erwartungen entsprach. Die Energiepreise im Euroraum stiegen im Juli um 10,0 Prozent, beeinflusst durch den wiederaufflammenden Irankrieg.",
-      "quelle": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-gibt-gewinne-nach-rekordjagd-ab/100244194.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "Ceuta: Gesteuert von Marokko? So reagiert Europa auf den Massenansturm",
-      "text": "Zehntausende Migranten versuchten, die spanische Exklave Ceuta zu erreichen, wobei mindestens 57 Menschen starben. Spaniens Ministerpräsident Sánchez sprach von einem 'Angriff' auf die territoriale Integrität und kündigte Bojen zur Grenzabsicherung an. Ein spanisches Gerichtsurteil, das Pushbacks bei Seeweg-Ankunft einschränkt, gilt als Auslöser. Es bestehen jedoch starke Hinweise, dass Marokko den Ansturm duldet oder sogar politisch steuert, möglicherweise als Druckmittel. Die EU-Kommissionspräsidentin von der Leyen nannte die Bilder inakzeptabel, während Italien, Tschechien und Finnland einen temporären Schengen-Ausschluss Spaniens forderten. Die USA kritisierten Spaniens Migrationspolitik scharf, und Bundeskanzler Merz verlangte hartes Durchgreifen und schnelle Rückführungen nach Marokko.",
-      "quelle": "https://www.handelsblatt.com/politik/international/ceuta-gesteuert-von-marokko-so-reagiert-europa-auf-den-massenansturm/100244252.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Novo Nordisk mit Entwicklungsfehlschlag – Aktienkurs sackt ab",
-      "text": "Der dänische Pharmakonzern Novo Nordisk erlitt einen Rückschlag in einer zulassungsrelevanten Phase-III-Studie für das Herzmittel Ziltivekimab. Obwohl der Wirkstoff seine biologische Wirkung zeigte, führte dies in der Zeus-Studie nicht zu den erwarteten Vorteilen bei der Reduzierung schwerer kardiovaskulärer Ereignisse. Dieser Fehlschlag könnte dem Konzern ein milliardenschweres Umsatzpotenzial kosten. Infolgedessen fielen die Aktien von Novo Nordisk um 7,7 Prozent. Zwei weitere Studien mit Ziltivekimab für Herzinsuffizienz und nach akutem Herzinfarkt sollen fortgesetzt werden, mit Ergebnissen in der ersten Hälfte des Jahres 2027.",
-      "quelle": "https://www.handelsblatt.com/unternehmen/industrie/pharma-novo-nordisk-mit-entwicklungsfehlschlag-aktienkurs-sackt-ab/100244336.html"
+      "titel": "VW-Forderung nach China-Zöllen setzt EU unter Druck",
+      "text": "Volkswagen fordert eine härtere Gangart der EU-Kommission gegen Chinas Subventionspolitik bei Plug-in-Hybriden, was eine Kehrtwende in der Konzernpolitik darstellt. Die EU-Kommission prüft nun die Einführung von Ausgleichszöllen noch in diesem Jahr, wobei eine Entscheidung im Herbst erwartet wird. Deutschlands größte Autofirma, die zuvor aus Sorge vor Gegenmaßnahmen Pekings zurückhaltend war, erhöht den Druck, da chinesische Hersteller ihren Marktanteil bei Plug-in-Hybriden massiv auf 47,2 Prozent der Neuzulassungen im zweiten Quartal gesteigert haben. VW-Chef Oliver Blume fordert gleiche Wettbewerbsbedingungen und eine Beschleunigung politischer Entscheidungen. Die bestehenden EU-Zölle gelten nur für reine Elektroautos, wodurch Plug-in-Hybride ein Schlupfloch bilden, das chinesische Hersteller nutzen.",
+      "quelle": "https://www.handelsblatt.com/politik/international/autobauer-vw-forderung-nach-china-zoellen-setzt-eu-unter-druck/100244207.html"
+    },
+    {
+      "hauptkategorie": "Wirtschaft",
+      "sub_sektor": "Aktien & Börse",
+      "titel": "Wall Street dreht ins Plus – Spieleplattform-Aktie stürzt ab",
+      "text": "Die Wall Street drehte zum Wochenausklang ins Plus, mit dem Dow Jones 0,6 Prozent höher, dem S&P 500 mit einem Plus von 0,7 Prozent und dem Nasdaq mit 0,9 Prozent im Plus. Starke Quartalszahlen mehrerer Tech-Konzerne beflügelten den Markt. Amazons Cloud-Tochter AWS verzeichnete ein Umsatzwachstum von 37 Prozent auf 42,2 Milliarden Dollar, das stärkste seit 18 Quartalen. Auch die Cloud-Sparten von Google und Microsoft wuchsen stark, woraufhin die Aktien von Amazon (+15%), Alphabet (+5,9%) und Microsoft (+2,6%) zulegten. Apple hingegen verzeichnete einen negativen Trend und fiel um 9,8 Prozent aufgrund enttäuschender Aussichten.",
+      "quelle": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-sp-500-nasdaq-wall-street-dreht-ins-plus-spieleplattform-aktie-stuerzt-ab/100244298.html"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "Rund 50.000 Migranten gelangen in spanische Exklave Ceuta",
-      "text": "Innerhalb von 24 Stunden gelangten nach spanischen Angaben rund 50.000 Migranten über See- und Landweg aus Marokko in die spanische Exklave Ceuta. Bei dem Ansturm kamen mindestens 57 Menschen ums Leben. Die Regierung in Madrid entsandte Militär und zusätzliche Polizeikräfte. Bis Freitagnachmittag kehrten bereits 37.500 Menschen nach Marokko zurück. Spaniens Ministerpräsident Pedro Sánchez bezeichnete den Migrantenandrang als einen 'Angriff' auf die territoriale Integrität Spaniens und machte 'Schleusermafia' für die Situation verantwortlich. Die Gewerkschaft der Guardia Civil sprach von einem 'Kollaps' in der Stadt Ceuta.",
-      "quelle": "https://www.handelsblatt.com/politik/international/ceuta-rund-50.000-migranten-gelangen-in-spanische-exklave/100244138.html"
+      "sub_sektor": "Innenpolitik",
+      "titel": "Merz nimmt weiteren Personalwechsel im Kanzleramt vor",
+      "text": "Bundeskanzler Friedrich Merz setzt seine Personalrochade fort und besetzt die Abteilungsleitung für Soziales, Gesundheit, Arbeit, Umwelt und Gesellschaftspolitik im Kanzleramt neu. Die Juristin Christina Ramb, bisher Hauptgeschäftsführerin der Bundesvereinigung der Deutschen Arbeitgeberverbände (BDA), wird die neue Abteilungsleiterin. Ihre Vorgängerin Gesa Miehe-Nordmeyer wird nach fast acht Jahren in den einstweiligen Ruhestand versetzt. Dies ist der neunte Personalwechsel innerhalb von zwei Wochen, der nach dem Rücktritt von Unionsfraktionschef Jens Spahn eingeleitet wurde.",
+      "quelle": "https://www.handelsblatt.com/politik/deutschland/regierung-merz-nimmt-weiteren-personalwechsel-im-kanzleramt-vor/100244351.html"
+    },
+    {
+      "hauptkategorie": "Wirtschaft",
+      "sub_sektor": "Makroökonomie & Zinsen",
+      "titel": "Wie gefährlich ist die Arbeitslosigkeit in Deutschland?",
+      "text": "Die Zahl der Arbeitslosen in Deutschland ist im Juli um 71.000 auf 3,007 Millionen Menschen gestiegen und hat somit die Drei-Millionen-Marke überschritten. Dies ist eine direkte Folge der schwachen Konjunktur und der zunehmenden Ankündigungen von Stellenstreichungen durch große Konzerne. Das Handelsblatt hinterfragt, ob Deutschland auf eine neue Phase der Massenarbeitslosigkeit zusteuert.",
+      "quelle": "https://www.handelsblatt.com/politik/deutschland/beschaeftigung-wie-gefaehrlich-ist-die-arbeitslosigkeit-in-deutschland/100244258.html"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "Entwaffnung der Hamas: Will die Hamas wirklich ihre militärische Macht aufgeben?",
-      "text": "US-Präsident Donald Trump hat eine 'historische Vereinbarung zur vollständigen Entwaffnung der Hamas und aller anderen bewaffneten Gruppen in Gaza' verkündet. Obwohl Trump im vergangenen Herbst eine Waffenruhe im Gazastreifen und die Freilassung israelischer Geiseln erreicht hatte, sind solche Friedensankündigungen mit Vorsicht zu behandeln. Die aktuelle Vereinbarung kann auf zahlreiche Arten scheitern und wirft die Frage auf, ob die Hamas tatsächlich bereit ist, ihre militärische Macht aufzugeben.",
-      "quelle": "https://www.zeit.de/politik/ausland/2026-07/entwaffnung-hamas-gazastreifen-donald-trump"
+      "sub_sektor": "Innenpolitik",
+      "titel": "Rumänien ruft Notstand aus, weil wegen Donau-Niedrigwasser Strom fehlt",
+      "text": "Rumänien hat aufgrund historisch niedriger Wasserstände der Donau und einem massiven Rückgang der Stromproduktion den landesweiten Notstand für August ausgerufen. Ein Reaktor des Atomkraftwerks Cernavoda, das etwa ein Fünftel des rumänischen Strombedarfs deckt, wurde bereits abgeschaltet. Um den zweiten Reaktor am Netz zu halten, werden Wassermengen umgeleitet. Die Regierung führt Gespräche mit der Ukraine, Griechenland und Bulgarien über Stromimporte während der Spitzenzeiten. Der Donaupegel ist mit 1650 Kubikmetern pro Sekunde weit unter dem Juli-Durchschnitt von 4750 Kubikmetern und nähert sich dem historischen Tiefststand von 1985 an. Die aktuelle Hitzewelle und der erhöhte Bedarf an Klimaanlagen verschärfen die Situation zusätzlich.",
+      "quelle": "https://www.handelsblatt.com/politik/international/energie-rumaenien-ruft-notstand-aus-weil-wegen-donau-niedrigwasser-strom-fehlt/100244343.html"
     },
     {
       "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "Finanztipps von der KI: Vorsicht geboten",
-      "text": "KI-Chatbots wie ChatGPT bieten Finanzratschläge an, die oft vernünftig klingen – etwa früh und regelmäßig in breit gestreute ETFs zu investieren. Eine aktuelle Bitkom-Umfrage zeigt jedoch eine geteilte Meinung in Deutschland: 56 Prozent sehen KI als Chance, 40 Prozent als Risiko. Nur jeder Vierte kann sich vorstellen, Finanzentscheidungen weitgehend einer KI zu überlassen, während die Hälfte KI grundsätzlich nicht bei Finanzthemen nutzen möchte. Behörden warnen davor, sich zu sehr auf KI-Finanztipps zu verlassen, da dies zu Geldverlust führen kann.",
-      "quelle": "https://www.zeit.de/geld/2026-07/finanzberatung-kuenstliche-intelligenz-geld-tipps-risiken-gxe"
-    },
-    {
-      "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Leben & Alltag",
-      "titel": "Polizei ermittelt wegen mutmaßlichen Sexualdelikts in Offenbach",
-      "text": "Die Polizei Offenbach ermittelt wegen eines mutmaßlichen Sexualdelikts. Videoaufnahmen einer Überwachungskamera in der Innenstadt und Zeugenaussagen deuteten darauf hin, dass in der Nacht zum Freitag auf dem Marktplatz sexuelle Handlungen stattgefunden haben könnten, die seitens der beteiligten Frau mutmaßlich nicht einvernehmlich waren. Die Frau wurde anschließend in ein Krankenhaus gebracht. Die Ermittler bitten mögliche weitere Zeugen, sich zu melden.",
-      "quelle": "https://www.zeit.de/news/2026-07/31/polizei-ermittelt-wegen-mutmasslichen-sexualdelikts"
+      "sub_sektor": "Klima & Umwelt",
+      "titel": "Wetterdienst warnt vor Unwetter in mehreren Ländern",
+      "text": "Der Deutsche Wetterdienst (DWD) hat vor starken Gewittern in Teilen von Sachsen, Sachsen-Anhalt und Thüringen gewarnt. Es besteht die Gefahr von Blitzschlägen, vereinzelt umstürzenden Bäumen, lokalen Überflutungen von Straßen sowie Hagelschlag. Betroffen sind mehrere Landkreise und Großstädte in den genannten Bundesländern, darunter Bautzen, Görlitz, Leipzig, Dresden, Chemnitz, Magdeburg, Halle, Dessau-Roßlau und Jena.",
+      "quelle": "https://www.zeit.de/news/2026-07/31/wetterdienst-warnt-vor-unwetter-in-mehreren-laendern"
     },
     {
       "hauptkategorie": "Sport",
       "sub_sektor": "Fußball",
-      "titel": "FIFA-Direktor kritisiert Infantino wegen Investorenplänen",
-      "text": "Kevin Lamour, Betriebsdirektor der FIFA, hat schwere Vorwürfe gegen Präsident Gianni Infantino erhoben. Lamour wirft Infantino vor, Mitarbeiter bezüglich seiner Investorenpläne für ein neues Tochterunternehmen (FFE) hintergangen zu haben. Das FFE soll kommerzielle Rechte an FIFA-Wettbewerben bündeln, wobei private Geldgeber 20 Prozent Anteile erwerben könnten. Zuvor war bereits Berater Carlos Cordeiro aus Protest zurückgetreten. Angesichts massiven Widerstands, einschließlich einer Drohung der UEFA mit Nichtteilnahme an FIFA-Wettbewerben, fordert Lamour Konsequenzen und betont, das Projekt sei \"einer Person\" zuzuordnen.",
-      "quelle": "https://www.zeit.de/news/2026-07/31/fifa-nach-uefa-drohung-niemand-verkauft-den-fussball"
+      "titel": "Weiterer Fifa-Funktionär greift Infantino wegen Investorenplänen an",
+      "text": "Der Fifa-Betriebsdirektor Kevin Lamour hat schwere Vorwürfe gegen Präsident Gianni Infantino erhoben und ihm einen Alleingang bei Investorenplänen vorgeworfen, die das Projekt \"Fifa Forward Enterprise (FFE)\" betreffen. Infantino plant, private Geldgeber an diesem FFE zu beteiligen, das kommerzielle Rechte an großen Wettbewerben bündeln soll und mit 20 Milliarden Dollar bewertet wird. Lamour fordert, das Projekt zu stoppen und die Fußball-Politik zu hinterfragen, selbst wenn dies seinen Job kosten sollte. Zuvor war bereits Carlos Cordeiro, ein Berater Infantinos, aus Protest zurückgetreten. Die UEFA droht mit einem Boykott der Fifa-Wettbewerbe, und auch der nord- und mittelamerikanische Verband Concacaf sowie der asiatische Dachverband AFC haben sich von Infantinos Plänen distanziert. US-Präsident Donald Trump dementierte Gespräche mit Infantino über das Vorhaben.",
+      "quelle": "https://www.zeit.de/sport/2026-07/fifa-gianni-infantino-kevin-lamour-investoren-plaene-vorwuerfe"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
-      "titel": "Sánchez: Migrantenandrang in Ceuta ist „Angriff“ auf Spanien",
-      "text": "Der Ansturm Zehntausender Migranten auf die spanische Exklave Ceuta löste in Spanien eine Krise und in Europa Alarmbereitschaft aus. Ministerpräsident Pedro Sánchez bezeichnete den Vorfall als \"Angriff\" und \"Verletzung der territorialen Integrität Spaniens\". Fast 50.000 Migranten, teils schwimmend, gelangten in die Exklave; 34 starben. Tausende kehrten freiwillig zurück. EU-Kommissionspräsidentin von der Leyen verurteilte die Situation, während Italien und Finnland einen temporären Schengen-Ausschluss Spaniens ins Spiel brachten. Die Gründe für den beispiellosen Andrang werden in einem Gerichtsbeschluss zur eingeschränkten sofortigen Zurückweisung von Migranten und dem Verdacht, dass Marokko Migration als politisches Druckmittel einsetzt, vermutet.",
-      "quelle": "https://www.zeit.de/news/2026-07/31/hunderte-migranten-gelangen-auch-in-zweite-spanische-exklave"
+      "titel": "Drohnen gegen »russisches Amazon«",
+      "text": "Die Ukraine hat eine koordinierte Drohnenkampagne gegen Wildberries, Russlands größten Online-Händler, gestartet und dabei zehn Lagerhallen zerstört und fünf weitere beschädigt. Offiziell begründet die Ukraine die Angriffe mit der Rolle von Wildberries bei der Versorgung des russischen Militärs, doch Experten sehen das Hauptmotiv in der Schädigung der russischen Wirtschaft und der Steigerung der zivilen Unzufriedenheit. Der Konzern ist ein Flaggschiff der russischen Wirtschaft mit einem Umsatz von fast 70 Milliarden Euro im vergangenen Jahr und Millionen von Kunden. Die Angriffe erfolgen wenige Wochen vor den Parlamentswahlen in Russland und inmitten sinkender Umfragewerte für Wladimir Putin. Unterdessen zögert US-Präsident Donald Trump, Lizenzen zur Produktion von Patriot-Abfangraketen in der Ukraine freizugeben, die für die ukrainische Luftabwehr entscheidend wären. Die Ukraine benötigt dringend 300 Patriot-Raketen für den Winter. In den letzten Wochen gab es weitere geopolitische Vorfälle, darunter der Abschuss russischer Drohnen in Rumänien und der Absturz eines russischen Marschflugkörpers in Polen.",
+      "quelle": "https://www.zeit.de/politik/ausland/2026-07/ukraine-lage-wildberries-angriffe-polen-russland-woche"
+    },
+    {
+      "hauptkategorie": "Politik",
+      "sub_sektor": "Geopolitik",
+      "titel": "Irankrieg: Trump droht dem Iran mit neuen Angriffen",
+      "text": "US-Präsident Donald Trump hat dem Iran mit weiteren \"sehr harten\" Angriffen gedroht und erklärt, Teheran werde diese bald \"nicht mehr aushalten\" können. Diese Drohung folgt auf die Bestätigung Kuwaits, iranische Drohnenangriffe auf militärische und wichtige Einrichtungen abgefangen zu haben. Die iranische Revolutionsgarde wiederum meldete Angriffe auf zwei Öltanker in der Straße von Hormus und US-Militärstützpunkte in Kuwait und Bahrain. Der Irak widersprach US-Angaben, Angriffe auf pro-iranische Milizen in seinem Land gebilligt zu haben, bei denen es Tote und Verletzte gab. Irans Außenminister Abbas Araghtschi forderte Bulgarien und Zypern auf, die Nutzung ihrer Militärbasen für US-Angriffe gegen den Iran zu untersagen. Eine Explosion auf LNG-Tankern in Ägypten löste Sorge vor einer Ausweitung des Konflikts aus, ein direkter Zusammenhang konnte jedoch nicht festgestellt werden.",
+      "quelle": "https://www.zeit.de/politik/ausland/2026-05/iran-krieg-donald-trump-hormus-live"
+    },
+    {
+      "hauptkategorie": "Politik",
+      "sub_sektor": "Innenpolitik",
+      "titel": "Minister: Italien setzt Schengen-Abkommen mit Spanien aus",
+      "text": "Italien hat aufgrund des massiven Migrantenansturms auf die spanische Exklave Ceuta das Schengen-Abkommen mit Spanien vorübergehend ausgesetzt. Außenminister Antonio Tajani begründete dies mit der Notwendigkeit, die Sicherheit der eigenen Bürger und der europäischen Grenzen zu gewährleisten. Dies führt zur Wiedereinführung von Grenzkontrollen an See- und Luftgrenzen zu Spanien. Die Maßnahme, die von Ministerpräsidentin Giorgia Meloni angekündigt wurde, wird von Kritikern als innenpolitisch motivierte Symbolpolitik bewertet, da die Migranten in Ceuta sich noch nicht im Schengen-Raum oder auf europäischem Festland befinden.",
+      "quelle": "https://www.zeit.de/news/2026-07/31/trump-ueber-migranten-andrang-in-ceuta-das-ist-schrecklich"
+    },
+    {
+      "hauptkategorie": "Technologie & Wissenschaft",
+      "sub_sektor": "Medizin & Forschung",
+      "titel": "Langzeitstudie zu Frühchen - wie gut holen sie im Leben auf?",
+      "text": "Eine britische Langzeitstudie, veröffentlicht in \"JAMA Paediatrics\", untersuchte die Entwicklung von 416 sehr früh geborenen Menschen bis zum Alter von 34 Jahren. Die Ergebnisse zeigen, dass mehr als die Hälfte der Frühchen als Erwachsene ein gutes Leben führen, jedoch fast ein Fünftel (18 Prozent) mehr Probleme in Beziehungen, sozialen Kontakten und der Karriere aufweist als termingeborene Personen. Mögliche Ursachen liegen in biologischen Faktoren wie der Gehirnentwicklung und Umwelteinflüssen nach der Geburt. Die Überlebenschancen von Frühchen haben sich erheblich verbessert, doch das Risiko für Entwicklungsstörungen bleibt. Ein höherer Intelligenzquotient (IQ) im Kindesalter korrelierte mit geringeren späteren Problemen. Entwicklungspsychologe Dieter Wolke betont, dass neben dem IQ auch Temperament, die Eltern-Kind-Beziehung und das Elternverhalten entscheidend für die allgemeine Zufriedenheit und kognitive Entwicklung sind. Eine frühe Förderung und eine stressfreie Lernumgebung sind wichtig.",
+      "quelle": "https://www.tagesschau.de/wissen/gesundheit/fruehgeborene-studie-langzeit-entwicklung-100.html"
+    },
+    {
+      "hauptkategorie": "Politik",
+      "sub_sektor": "Geopolitik",
+      "titel": "Trump-Plan für Gaza: Skepsis in Israel und bei Palästinensern",
+      "text": "US-Präsident Trumps \"historisches\" Abkommen zur Entwaffnung der Hamas im Gazastreifen stößt in Israel und bei den Palästinensern auf Skepsis, da die genauen Inhalte und die Umsetzung unklar sind. Sicherheitskreise in Israel äußern große Zweifel an der Bereitschaft der Hamas zur bedingungslosen Entwaffnung, während die Terrororganisation den Abzug israelischer Truppen als Bedingung nennt. In Gaza herrscht Misstrauen unter der Bevölkerung, da trotz angekündigter Waffenruhen weiterhin israelische Angriffe stattfinden und Zusagen oft nicht eingehalten werden. Israel kontrolliert bereits fast 70 Prozent des Gazastreifens. Die Demilitarisierung wird durch die Existenz weiterer bewaffneter Gruppen und fehlender Übergangsstrukturen erschwert. Die israelische Regierung, besonders im Wahlkampf, könnte Zugeständnisse vermeiden, was im Falle einer Weigerung der Hamas zu einer vollständigen israelischen Besetzung führen könnte.",
+      "quelle": "https://www.tagesschau.de/ausland/gaza-abkommen-hamas-100.html"
+    },
+    {
+      "hauptkategorie": "Wirtschaft",
+      "sub_sektor": "Aktien & Börse",
+      "titel": "Marktbericht: KI-Hoffnung stützt den DAX",
+      "text": "Der DAX schloss mit einem leichten Plus von 0,07 Prozent bei 25.629 Punkten, beflügelt von starken Vorgaben aus den USA und der Hoffnung auf den KI-Sektor. Insbesondere Chipaktien wie Infineon (+6%) waren gefragt, nachdem Anleger nach der jüngsten Korrektur wieder bei Technologiewerten zugriffen. Positive Quartalszahlen von Microsoft und Amazon (insbesondere der Cloud-Sparte AWS) trugen zum Optimismus bei. Apple-Aktien hingegen fielen deutlich aufgrund eines enttäuschenden Umsatzausblicks und Bauteilengpässen. Belastungsfaktoren bleiben geopolitische Spannungen im Nahen Osten und die Inflation (Euroraum 2,9%, Deutschland 2,8% im Juli). Schaeffler (-18%) und Puma verzeichneten Kursverluste nach gesenkten Zielen bzw. schwacher Nachfrage. Die Berichtssaison wird in der kommenden Woche mit Zahlen großer Unternehmen wie Bayer, Lufthansa, Infineon und Deutsche Telekom fortgesetzt.",
+      "quelle": "https://www.tagesschau.de/wirtschaft/finanzen/marktberichte/marktbericht-dax-dow-ki-amazon-100.html"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
       "titel": "UN-Generalsekretär Guterres fordert neue Zypern-Gespräche",
-      "text": "UN-Generalsekretär Antonio Guterres drängt auf eine neue Runde von Gesprächen zur Lösung der Zypernfrage im \"Fünf-plus-eins-Format\", an der Vertreter aus Nord- und Südzypern sowie die Garantiemächte Großbritannien, Griechenland und die Türkei teilnehmen sollen. Guterres betonte die entscheidende Bedeutung einer Lösung für den Frieden Zyperns und die Stabilität der Region. Beide Seiten signalisierten Zustimmung. Die Insel ist seit 1974 geteilt, nachdem ein Putsch griechischer Zyprer und eine türkische Militärintervention stattfanden. Die letzten Verhandlungen scheiterten 2017. Experten fordern politischen Willen und vertrauensbildende Maßnahmen für eine Annäherung.",
+      "text": "UN-Generalsekretär Antonio Guterres drängt auf eine neue Runde von Gesprächen zur Lösung der Zypernfrage und zur Wiedervereinigung der seit 1974 geteilten Insel. Zypern ist durch eine UN-Pufferzone geteilt; die \"Türkische Republik Nordzypern\" wird nur von der Türkei anerkannt. Guterres betonte die Bedeutung einer Lösung für den Frieden auf Zypern und die regionale Stabilität. Er schlägt Gespräche im \"Fünf-plus-eins-Format\" mit Vertretern beider Seiten Zyperns sowie den Garantiemächten Großbritannien, Griechenland und Türkei vor. Beide Präsidenten haben ihre Zustimmung signalisiert. Experten äußern Skepsis und fordern politischen Willen sowie vertrauensbildende Maßnahmen. Die Türkei als Garantiemacht des Nordens bekräftigt ihre Forderung, den Status der türkischen Zyprer nicht zu reduzieren. Der Sonderbeauftragte der EU-Kommission für Zypern, Raffaele Fitto, ist ebenfalls für Gespräche auf der Insel eingetroffen.",
       "quelle": "https://www.tagesschau.de/ausland/europa/guterres-fordert-neue-un-gespraeche-zypern-100.html"
     },
     {
       "hauptkategorie": "Kultur & Gesellschaft",
       "sub_sektor": "Kunst & Unterhaltung",
-      "titel": "„Rave the Planet“: Fortsetzung der Loveparade-Tradition",
-      "text": "„Rave the Planet“ versucht, die Tradition der Loveparade nach deren tragischem Ende 2010 in Duisburg fortzuführen. Die Loveparade, 1989 als Demo für Frieden, Liebe und Toleranz gestartet, wurde ein kommerzielles Großereignis, dessen Kommerzialisierung und interne Konflikte kritisiert wurden. Bei dem Unglück 2010 starben 21 Menschen. Das 2022 von Dr. Motte und Ellen Dosch-Roeingh gegründete \"Rave the Planet\" will den ursprünglichen Demonstrationsgedanken für Frieden und Vielfalt mit strengeren Sicherheitsauflagen und ohne Kommerzialisierung wiederbeleben. Trotz erfolgreicher erster Paraden fehlt die internationale Strahlkraft der Loveparade. Die heutige Rave-Kultur entwickelt sich mit Fokus auf Awareness-Konzepte und neuen Kollektiven weiter, während eine Nostalgie für die 90er-Jahre-Technoszene besteht.",
+      "titel": "Wie \"Rave the Planet\" die Loveparade weiterdenkt",
+      "text": "Die Loveparade, ein Symbol der 90er-Technokultur für Frieden, Liebe und Toleranz, entwickelte sich von einer Demonstration zu einem kommerziellen Massenereignis und endete tragisch im Jahr 2010 in Duisburg. Die Nachfolgeveranstaltung \"Rave The Planet\", gegründet von Dr. Motte und Ellen Dosch-Roeingh, versucht, den ursprünglichen Demonstrationsgedanken für Frieden, Vielfalt und Menschlichkeit wiederzubeleben, mit strengeren Sicherheitsauflagen und ohne Kommerzialisierung. Die erste \"Rave The Planet\" im Jahr 2022 zog 200.000 Menschen an, erreichte aber nicht die internationale Strahlkraft der Loveparade. Der Artikel beleuchtet die oft vergessene Rolle von Frauen in der Technogeschichte und die Sehnsucht jüngerer Generationen nach einer \"purere\", weniger kommerziellen Rave-Kultur, die sich auf Awareness und sichere Räume konzentriert.",
       "quelle": "https://www.tagesschau.de/kultur/loveparade-revival-rave-the-planet-100.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Innenpolitik",
-      "titel": "Innenminister Dobrindt will Grenzkontrollen verlängern",
-      "text": "Angesichts der zehntausenden Migranten in der spanischen Exklave Ceuta hat Bundesinnenminister Alexander Dobrindt (CSU) eine Verlängerung der Grenzkontrollen in Deutschland über September hinaus angekündigt. Er begründete dies mit der \"volatilen Lage bei der illegalen Migration\" und der Notwendigkeit, die \"Erfolge beim Zurückdrängen\" zu sichern. Seit September 2024 finden wieder Kontrollen an allen deutschen Außengrenzen statt. Die Linke hingegen forderte die Bundesregierung auf, die in Ceuta gestrandeten Menschen aufzunehmen und zu versorgen, und kritisierte die Situation als Ergebnis politischer Entscheidungen. Nach spanischen Angaben gelangten rund 60.000 Menschen nach Ceuta, wovon 34 starben und etwa 25.000 bereits zurückkehrten.",
-      "quelle": "https://www.tagesschau.de/inland/dobrindt-grenzkontrollen-116.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "Ceuta und Melilla: Warum die spanischen Exklaven Ziel von Migranten sind",
-      "text": "Die spanischen Exklaven Ceuta und Melilla in Nordafrika sind sowohl historische Relikte aus dem Mittelalter als auch aktuelle Brennpunkte der Migrationspolitik. Diese Städte, seit dem 15. Jahrhundert unter spanischer Kontrolle, sind von Marokko beansprucht und bilden die einzige Landgrenze der EU zu Afrika. Mit rund 84.000 bzw. 87.000 Einwohnern sind sie wiederholt Ziel von Massenanstürmen von Migranten, die versuchen, über Grenzzäune oder das Mittelmeer in die EU zu gelangen, was oft tödlich endet. Es besteht der Verdacht, dass Marokko Migranten als politisches Druckmittel einsetzt, um seine Ansprüche auf die Exklaven gegenüber Spanien und der EU zu untermauern.",
-      "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-melilla-marokko-spanien-100.html"
-    },
-    {
-      "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Gesellschaftliche Debatten",
-      "titel": "CSD-Attentäter: Kamen Deradikalisierungsgespräche zu spät?",
-      "text": "Im Fall des mutmaßlichen CSD-Attentäters Abdul B. wird hinterfragt, ob Deradikalisierungsgespräche zu spät ansetzten. Abdul B., der wegen eines Ausreiseversuchs zum \"Islamischen Staat\" verurteilt und unter Vorbewährung freigelassen wurde, zeigte sich bei Gesprächen als zurückhaltend. Innenpolitikerin Lamya Kaddor (Grüne) fordert, Maßnahmen zur Deradikalisierung bereits in Untersuchungshaft zu beginnen, um Radikalisierung vorzubeugen. Obwohl neun Bundesländer Erstgespräche in U-Haft ermöglichen, sind umfassende Beratungen aufgrund der Unschuldsvermutung und Vertraulichkeit oft erschwert. Experten sehen jedoch in Krisenzeiten wie der U-Haft große Chancen für Distanzierungsberatung. Abdul B.'s Anwalt kritisierte die mangelnde Intensität der Justiz in dem Fall.",
-      "quelle": "https://www.tagesschau.de/inland/gesellschaft/csd-anschlag-islamismus-deradikalisierung-100.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Aktien & Börse",
-      "titel": "Wirtschaftstermine: Wochenvorschau bis 7. August 2026",
-      "text": "Die Wochenvorschau listet wichtige Wirtschafts-, Börsen- und Konjunkturtermine bis zum 7. August 2026 auf. Dazu gehören Einkaufsmanagerindizes aus China, Eurozone, Deutschland und den USA. Im Laufe der Woche werden Quartals- und Halbjahresergebnisse von großen Unternehmen wie Lufthansa, Evonik, Zalando, Bayer, Hugo Boss, Continental, BP, Pfizer, Siemens Energy, DHL, Novo Nordisk, Infineon, Commerzbank, Siemens, Deutsche Telekom, Allianz, Daimler Truck und Munich Re erwartet. Weitere wichtige Daten umfassen US-Bauausgaben, Industrieproduktion Frankreich, Erzeugerpreise EU, US-BIP und diverse Arbeitsmarktdaten.",
+      "titel": "Wochenvorschau: Termine bis 7. August 2026",
+      "text": "Die erste Augustwoche 2026 ist von einer Vielzahl wichtiger Wirtschafts- und Börsentermine geprägt. Es werden zahlreiche Quartals- und Halbjahresergebnisse von großen Unternehmen erwartet, darunter Palantir Technologies, Deutsche Lufthansa, Evonik, Zalando, Bayer, Hugo Boss, Continental, BP, Spotify, Merck, Pfizer, BioNTech, McDonald's, Fresenius, Siemens Energy, Vonovia, DHL, Infineon, Schaeffler, Beiersdorf, Walt Disney, Uber, Commerzbank, Siemens, Merck KGaA, Deutsche Telekom, Allianz, Lanxess, Daimler Truck und Munich Re. Zudem stehen makroökonomische Daten wie Einkaufsmanagerindizes (PMI) für China, die EU, die USA und Japan sowie US-BIP-Daten, Arbeitsmarktdaten und europäische Einzelhandelsumsätze auf dem Programm.",
       "quelle": "https://www.n-tv.de/wirtschaft/termine/Termine-bis-7-August-2026-id31147127.html"
     },
     {
       "hauptkategorie": "Lokales & Regionales",
       "sub_sektor": "Infrastruktur",
       "titel": "Bahn fordert Entfernung von ZDF-Doku aus Mediathek",
-      "text": "Die Deutsche Bahn fordert vom ZDF die Löschung einer Dokumentation über den Zustand des Bahnverkehrs aus der Mediathek, da sie den Film als \"unvollständig und einseitig\" und als \"Zerrbild der Wirklichkeit\" betrachtet. Zwei von der Bahn beanstandete Punkte bezüglich digitaler Stellwerke und des Pünktlichkeitsvergleichs mit Belgien wurden vom ZDF bereits korrigiert. Die Bahn bemängelt zudem, dass Fortschritte bei der Schieneninfrastruktur und Konsequenzen aus dem Unglück von Burgrain verschwiegen würden. Das ZDF weist die Vorwürfe zurück, sieht keine weiteren Anpassungsgründe und lehnt eine Löschung ab.",
+      "text": "Die Deutsche Bahn fordert die Entfernung einer ZDF-Dokumentation mit dem Titel \"Am Puls mit Dunja Hayali – Unsere Bahn: geliebt, verflucht – gefährlich?\" aus der Mediathek. Die Bahn kritisiert den Film als \"unvollständig und einseitig\" und argumentiert, dass wesentliche entlastende Fakten weggelassen wurden, wodurch ein verzerrtes Gesamtbild entstehe. Das ZDF hat bereits zwei strittige Punkte – die Anzahl digitaler Stellwerke und den Pünktlichkeitsvergleich mit Belgien – korrigiert, lehnt aber eine vollständige Löschung ab. Das Medienunternehmen sieht die Forderung der Bahn als unzulässigen Versuch, kritische Berichterstattung zu unterbinden.",
       "quelle": "https://www.n-tv.de/wirtschaft/Bahn-fordert-Entfernung-von-ZDF-Doku-aus-Mediathek-id31146294.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Aktien & Börse",
-      "titel": "Deutsches Wunderkind verzockt mit KI-Hedgefonds Milliarden",
-      "text": "Leopold Aschenbrenner, ein deutsches \"Wunderkind\" und ehemaliger OpenAI-Forscher, gründete mit Anfang 20 den KI-Hedgefonds \"Situational Awareness\". Er erzielte anfangs spektakuläre Gewinne durch Wetten auf eine schnelle KI-Durchsetzung und spekulierte auf Kursrückgänge bei überbewerteten KI-Firmen, wodurch das Fondskapital auf über 20 Milliarden Dollar stieg. Seine risikoreiche, gehebelte Strategie führte jedoch zu einem massiven Absturz, als KI-Aktien einbrachen. Banken forderten Sicherheiten, was zu erzwungenen Aktienverkäufen führte. Der Hedgefonds-Veteran Ken Griffin übernahm schließlich das gesamte Aktienportfolio, um einen geordneten Rückzug zu ermöglichen.",
+      "titel": "Deutsches Wunderkind verzockt mit seinem KI-Hedgefonds Milliarden",
+      "text": "Leopold Aschenbrenner, ein deutsches \"Wunderkind\" ohne Finanzerfahrung, gründete 2024 den KI-Hedgefonds \"Situational Awareness\". Er erzielte mit gehebelten Wetten auf den KI-Boom spektakuläre Renditen von über 1500 Prozent in zwei Jahren, wodurch das Fondsvermögen auf über 20 Milliarden Dollar stieg. Plötzliche Kursverluste bei Chip- und KI-Aktien führten jedoch zu Nachschussforderungen der Banken. Dies zwang den Fonds zum Verkauf großer Aktienpakete, was den Marktabsturz zusätzlich beschleunigte. Ken Griffins Hedgefonds Citadel übernahm schließlich das gesamte Aktienportfolio von Situational Awareness, das zuletzt über 16 Milliarden Dollar wert war. Die Zukunft Aschenbrenners und seines Fonds ist nun ungewiss, und es werden Fragen zur Vergabe solcher Summen an einen unerfahrenen Gründer laut.",
       "quelle": "https://www.n-tv.de/wirtschaft/Deutsches-Wunderkind-verzockt-mit-seinem-KI-Hedgefonds-Milliarden-id31146510.html"
     },
     {
       "hauptkategorie": "Technologie & Wissenschaft",
       "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "Gema gewinnt gegen KI-Musikfirma Suno vor Gericht",
-      "text": "Die Musikverwertungsgesellschaft Gema hat vor dem Landgericht München I einen Teilerfolg gegen die US-KI-Musikfirma Suno erzielt. Das Gericht entschied, dass Suno es künftig unterlassen muss, bestimmte urheberrechtlich geschützte Musikwerke ohne Zustimmung der Gema zu vervielfältigen oder für das Training ihrer KI zu nutzen. Damit wurde das Urheberrecht deutscher Künstler gestärkt. Die Gema argumentierte, Sunos KI erzeuge Lieder, die den Originalen zu ähnlich seien, was auf eine Speicherung der Trainingsdaten hindeute. Kulturstaatsminister Wolfram Weimer begrüßte das noch nicht rechtskräftige Urteil als wichtiges Signal für den Schutz kreativer Leistungen im digitalen Musikmarkt.",
-      "quelle": "https://www.n-tv.de/wirtschaft/KI-musikfirma-suno-darf-bestimmte-songs-nicht-mehr-nutzen-id31145109.html"
+      "titel": "Gema gewinnt vor Gericht: KI-Musikfirma Suno darf bestimmte Songs nicht mehr nutzen",
+      "text": "Die Gema hat vor dem Landgericht München I eine Klage gegen das US-KI-Musikunternehmen Suno gewonnen. Suno ist es künftig untersagt, bestimmte Musikwerke wie \"Atemlos\" oder \"Mambo No. 5\" ohne Einwilligung der Gema zu vervielfältigen oder zur KI-Training zu nutzen. Das Gericht stärkte damit das Urheberrecht deutscher Künstler, da es annahm, dass Sunos KI die geschützten Werke memorisiert hatte. Kulturstaatsminister Wolfram Weimer lobte das Urteil als wichtiges Zeichen für die Rechte von Kreativen und forderte einen Rechtsrahmen, der Innovation und gerechte Vergütung in der KI-Wertschöpfung sichert. Suno, eine führende KI-Musikplattform, hatte zuvor bestritten, die von YouTube stammenden Trainingsdaten zu speichern.",
+      "quelle": "https://www.n-tv.de/wirtschaft/KI-Musikfirma-Suno-darf-bestimmte-Songs-nicht-mehr-nutzen-id31145109.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Elon Musk dementiert Pläne zu Trennung von Teslas China-Geschäft",
-      "text": "Elon Musk hat Berichte des \"Wall Street Journal\" dementiert, wonach Tesla eine Trennung vom China-Geschäft erwägt, um eine Fusion mit SpaceX zu ermöglichen, und bezeichnete diese als \"Fake News\". Spekulationen über einen Zusammenschluss der beiden Musk-Firmen kursieren, werden aber durch das China-Geschäft von Tesla erschwert, da SpaceX viele US-Regierungsaufträge erhält. Das \"Wall Street Journal\" hatte berichtet, Manager seien angewiesen worden, sich auf eine solche Trennung vorzubereiten. Währenddessen plant Tesla eine Produktionsausweitung im Werk Grünheide auf 7500 Fahrzeuge pro Woche.",
+      "titel": "Musk dementiert Pläne zu Trennung von Teslas China-Geschäft",
+      "text": "Elon Musk hat einen Bericht des \"Wall Street Journal\" dementiert, wonach Tesla eine Trennung seines China-Geschäfts erwägt, um eine Fusion mit SpaceX zu ermöglichen. Musk bezeichnete dies als \"Fake News\". Eine solche Trennung wäre notwendig, da SpaceX aufgrund seiner US-Regierungs- und Militäraufträge keine China-Geschäftsbeziehungen unterhalten kann. Teslas Werk in Shanghai produziert über die Hälfte der weltweiten Firmenproduktion. Musk hatte zuvor \"Überschneidungen\" zwischen den Unternehmen angedeutet. Der Elektroautobauer plant unterdessen, die Produktion in seinem Werk Grünheide auf 7500 Fahrzeuge pro Woche auszubauen. SpaceX, das im Juni an die Börse ging und bereits Musks KI-Firma xAI übernommen hat, steht im Fokus weiterer Spekulationen.",
       "quelle": "https://www.n-tv.de/wirtschaft/Musk-dementiert-Plaene-zu-Trennung-von-Teslas-China-Geschaeft-id31144747.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "Nvidia-Aktie stürzt nach China-KI-Durchbruch ab",
-      "text": "Technologieaktien fielen stark, nachdem Chinas DeepSeek einen Durchbruch bei der Entwicklung eines anspruchsvollen KI-Modells zu einem Bruchteil der Kosten der Silicon-Valley-Konkurrenten bekannt gab. Nvidia, ein führender Chiphersteller für KI-Anwendungen, sank daraufhin um 17 %. Dieser Rückgang löschte 589 Milliarden Dollar vom Marktwert des Unternehmens aus und trübte das Bild eines der hellsten Sterne am Aktienmarkt.",
-      "quelle": "https://www.wsj.com/articles/nikkei-may-rise-as-weak-yen-raises-earnings-hopes-776a8056?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "Goldpreis fällt um 1,43 Prozent",
-      "text": "Der Front Month Comex Gold für die Januar-Lieferung fiel um 39,80 Dollar oder 1,43 Prozent und schloss bei 2737,50 Dollar pro Feinunze. Dies stellt den größten Rückgang in Dollar und Prozent seit dem 19. Dezember 2024 dar. Das Augenmerk der Händler lag auf der anstehenden Zinsentscheidung der US-Notenbank Fed.",
-      "quelle": "https://www.wsj.com/articles/gold-edges-lower-feds-rate-decision-in-focus-09dbfceb?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "DeepSeek wird US-KI-Giganten nicht untergehen lassen",
-      "text": "Die Nachricht, dass das chinesische KI-Startup DeepSeek fortschrittliche KI-Modelle zu einem Bruchteil der Kosten (5,6 Millionen Dollar) seiner US-Konkurrenten (OpenAI's GPT-4 kostete über 100 Millionen Dollar) trainiert hat, führte zu Ängsten am US-Markt. Präsident Donald Trump forderte dies als Weckruf für die US-Industrie und kündigte Zölle auf Halbleiterimporte an. Trotz der Panik, die den Ausverkauf von Nvidia und anderen Tech-Giganten antreibt, wird die Befürchtung, dass DeepSeek die US-KI-Titanen \"untergehen lassen\" wird, als übertrieben angesehen.",
-      "quelle": "https://www.wsj.com/articles/deepseek-us-ai-stocks-nvidia-broadcom-6cdfae81?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Experian: Markt unterschätzt Business-to-Consumer-Plattform",
-      "text": "Analysten von Bank of America Global Research sind der Ansicht, dass die Business-to-Consumer-Plattform von Experian vom Markt unterschätzt wird. Sie sehen einen überzeugenden Plan zur weiteren Skalierung und Monetarisierung dieses Geschäfts. Experian hat den Umsatz im nordamerikanischen Verbrauchersegment in den letzten sechs Jahren auf 1,5 Milliarden Dollar verdoppelt und strebt eine erneute Verdoppelung mittelfristig an. Die Aktien des Kreditberichtsunternehmens fielen um 0,2 % auf 3781 Pence.",
-      "quelle": "https://www.wsj.com/articles/financial-services-roundup-market-talk-94f52cba?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Makroökonomie & Zinsen",
-      "titel": "Arabica-Kaffeepreise erreichen neues Hoch",
-      "text": "Die Arabica-Kaffeepreise erreichten ein Rekordniveau, nachdem die Händler die Aufhebung von Präsident Trumps Drohungen mit Zöllen und Wirtschaftssanktionen gegen Kolumbien verdaut hatten. Die Futures stiegen im Abendhandel um 0,1 % auf 3,48 Dollar pro Pfund, nachdem sie ein neues Rekordhoch von 3,56 Dollar erreicht hatten und damit das vorherige Rekord von 3,48 Dollar im Dezember übertrafen. In den letzten drei Monaten stiegen die Preise um über 40 %, im Jahresvergleich um 79 %. Die USA importieren etwa 30 % ihres Kaffees aus Kolumbien.",
-      "quelle": "https://www.wsj.com/articles/arabica-coffee-prices-hit-new-high-on-u-s-colombia-tariff-spat-582446fe?mod=rss_markets_main"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
-      "titel": "Migrantenansturm auf spanische Exklave löst Empörung aus",
-      "text": "Der plötzliche Massenansturm von Migranten auf die spanische Exklave in Nordafrika löste eine neue Welle politischer Angriffe gegen Spaniens Ministerpräsident Pedro Sánchez aus. Rechte Stimmen aus Spanien, Deutschland, Italien und Frankreich, sowie das Weiße Haus, kritisierten die Migrationspolitik Europas scharf. Das Weiße Haus unter Präsident Trump verurteilte Spanien als schwach in der Einwanderungsfrage, während weit verbreitete Videos tausende Marokkaner zeigten, die die spanische Exklave stürmten.",
-      "quelle": "https://www.washingtonpost.com/world/2026/07/31/migrants-overrun-spanish-outpost-stirring-white-house-outrage/"
+      "titel": "60.000 Migranten erreichen Ceuta – Italien setzt Schengen-Abkommen mit Spanien aus",
+      "text": "Rund 60.000 Migranten aus Marokko sind innerhalb weniger Tage in die spanische Exklave Ceuta gelangt, was etwa 70 Prozent der lokalen Bevölkerung entspricht. Bei dem Ansturm kamen mindestens 57 Menschen ums Leben. Spanien setzte das Militär zur Sicherung der Grenze ein, und mehr als 37.500 Migranten wurden bereits nach Marokko zurückgeführt. Spaniens Ministerpräsident Pedro Sánchez bezeichnete den Massenansturm als „Verletzung der territorialen Souveränität“ und machte Schleuserbanden verantwortlich. Bundeskanzler Friedrich Merz (CDU) forderte ein „hartes Durchgreifen“ Spaniens, die Nichtzulassung der Migranten auf den europäischen Kontinent und die sofortige Rücknahme durch Marokko. Italiens Außenminister Antonio Tajani kündigte die vorübergehende Aussetzung des Schengen-Abkommens mit Spanien an, was zu Grenzkontrollen an See- und Flughäfen führt, ein Schritt, der auch von Finnland unterstützt wird. EU-Kommissionspräsidentin Ursula von der Leyen nannte die Bilder „inakzeptabel“ und forderte schnelle Rückführungen. US-Präsident Donald Trump bezeichnete die Situation als „schrecklich“. Die Linke in Deutschland forderte die Aufnahme der Migranten durch Deutschland und die EU. Ceuta und Melilla sind die einzigen Landgrenzen der EU zu Afrika, sind seit Jahrhunderten spanisch, werden aber von Marokko beansprucht.",
+      "quelle": "https://www.spiegel.de/ausland/ceuta-darum-wollen-so-viele-menschen-aus-marokko-nach-spanien-a-53148290-3c2d-4901-b744-62d13c1c8879"
     },
     {
-      "hauptkategorie": "Weltweite Schlagzeilen",
-      "sub_sektor": "Globale Ereignisse",
-      "titel": "US-Krieg mit Iran verschärft Ungleichheit in Afrika",
-      "text": "Der US-Krieg mit dem Iran verschärft die Ungleichheit in afrikanischen Ländern wie Angola. Angola, ein ölproduzierendes Land, das nicht auf die Straße von Hormus angewiesen ist, profitiert vom Anstieg der Ölpreise, was die wohlhabende Elite bereichert. Die ärmere Bevölkerung leidet jedoch unter den steigenden Kosten für Lebensmittel, Kraftstoff und Dünger. Viele Angolaner verdienen weniger als 2,50 Dollar pro Tag, und die Preise für Grundnahrungsmittel sind stark gestiegen. Die Regierung nutzt die Öleinnahmen zur Schuldentilgung, doch die Frustration über Korruption ist hoch, insbesondere vor den anstehenden Präsidentschaftswahlen.",
+      "hauptkategorie": "Wirtschaft",
+      "sub_sektor": "Makroökonomie & Zinsen",
+      "titel": "Wie der US-Krieg mit dem Iran die Ungleichheit in Afrika verstärkt",
+      "text": "Der Krieg zwischen den USA/Israel und dem Iran verschärft die Ungleichheit in Angola, einer ölreichen afrikanischen Nation. Während steigende Ölpreise – Angola ist ein großer Ölproduzent außerhalb der Straße von Hormus – eine kleine Elite bereichern, leidet die Mehrheit der Bevölkerung unter explodierenden Kosten für Lebensmittel, Kraftstoff und Dünger. Viele Händler auf Märkten kämpfen mit vervierfachten Preisen und Schwierigkeiten, Schulgebühren für ihre Kinder zu bezahlen. Die Regierung, deren Haushalt auf einem deutlich niedrigeren Ölpreis basierte, nutzt die Mehreinnahmen zur Schuldentilgung und kündigte Maßnahmen zur Inflationsdämpfung an. Trotzdem bleibt die Frustration über Korruption und Armut hoch, zumal die Menschen vor den anstehenden Präsidentschaftswahlen keinen Nutzen aus den zusätzlichen Öleinnahmen sehen.",
       "quelle": "https://www.washingtonpost.com/world/interactive/2026/07/31/how-us-war-with-iran-is-widening-inequality-africa/"
     },
     {
-      "hauptkategorie": "Klima & Umwelt",
+      "hauptkategorie": "Technologie & Wissenschaft",
       "sub_sektor": "Klima & Umwelt",
-      "titel": "Tod von 15 Elefanten in Kenia löst Empörung aus",
-      "text": "Der unerklärliche Tod von 15 Elefanten innerhalb eines Monats im Amboseli-Nationalpark in Kenia hat im Land Empörung ausgelöst und eine Untersuchung zur Folge. Es wird befürchtet, dass die Tiere vergiftet wurden, was angesichts der Bedeutung des Wildtier-Tourismus als Wirtschaftssäule Kenias besondere Besorgnis hervorruft. Die Vorfälle haben weitreichende Konsequenzen für den Naturschutz und die lokale Wirtschaft.",
+      "titel": "Tod von 15 Elefanten in kenianischem Nationalpark löst Empörung und Untersuchung aus",
+      "text": "Im Amboseli-Nationalpark in Kenia sind innerhalb eines Monats 15 Elefanten unter ungeklärten Umständen gestorben. Die mysteriösen Todesfälle haben im Land, wo der Wildtiertourismus eine wichtige wirtschaftliche Säule ist, große Empörung ausgelöst. Eine Untersuchung wurde eingeleitet, da die Behörden Befürchtungen hegen, dass die Tiere vergiftet worden sein könnten.",
       "quelle": "https://www.washingtonpost.com/world/2026/07/29/death-15-elephants-kenyan-national-park-sparks-outrage-investigation/"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
-      "titel": "Trump droht Iran nach Raketenangriff auf US-Ziele mit „hartem“ Schlag",
-      "text": "US-Präsident Donald Trump drohte dem Iran mit einem \"harten\" Schlag, nachdem US-Beamte mitteilten, der Iran habe einen ballistischen Raketenangriff auf US-Militäranlagen in der Region gestartet, der jedoch abgefangen wurde. Diese Drohung folgte auf gemeinsame US-amerikanische und saudi-arabische Angriffe auf vom Iran unterstützte Kräfte im Irak. Dies deutet auf einen Eintritt Riads in den Konflikt zwischen Washington und Teheran hin und verstärkt die Spannungen in der Region.",
+      "titel": "USA meldeten Abschuss iranischer Raketen, die Truppen im Nahen Osten angriffen",
+      "text": "US-Präsident Donald Trump hat dem Iran mit \"harten\" Maßnahmen gedroht, nachdem US-Beamte gemeldet hatten, dass iranische Raketen, die auf US-Militäranlagen in der Region zielten, abgefangen wurden. Diese Drohung erfolgte nach gemeinsamen Militärschlägen der USA und Saudi-Arabiens gegen vom Iran unterstützte Kräfte im Irak.",
       "quelle": "https://www.washingtonpost.com/national-security/2026/07/28/us-says-it-shot-down-iranian-missiles-targeting-troops-middle-east/"
     }
   ]
