@@ -3,6 +3,7 @@ import json
 import os
 import feedparser
 import ssl
+from bs4 import BeautifulSoup
 import google.generativeai as genai
 from playwright.async_api import async_playwright
 
@@ -30,7 +31,7 @@ KATEGORIEN & SUB-SEKTOREN (Ordne jeden Artikel exakt so ein):
 - Technologie & Wissenschaft (Künstliche Intelligenz & Software, Hardware & Gadgets, Medizin & Forschung, Klima & Umwelt)
 
 AUSGABEFORMAT: Du antwortest AUSSCHLIESSLICH im JSON-Format.
-Struktur: {"nachrichten": [{"hauptkategorie": "...", "sub_sektor": "...", "titel": "...", "text": "...", "quelle": "..."}]}
+Struktur: {"nachrichten": [{"hauptkategorie": "...", "sub_sektor": "...", "titel": "...", "text": "...", "quelle": "...", "bild": "..."}]}
 """
 
 # 3. RSS-FEEDS
@@ -67,18 +68,16 @@ async def scrape_and_summarize():
     print("\nStarte den getarnten Browser für Feeds und Artikel...")
     async with async_playwright() as p:
         browser = await p.firefox.launch(headless=True)
-        # Tarnung aktivieren
         context = await browser.new_context(
             java_script_enabled=True,
             user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         )
         page = await context.new_page()
 
-        # SCHRITT 1: Links sammeln (jetzt sicher mit Playwright)
+        # SCHRITT 1: Links sammeln
         print("Scanne RSS-Feeds nach den jeweils 5 neuesten Artikeln...")
         for name, feed_url in RSS_FEEDS.items():
             try:
-                # context.request.get umgeht den Bot-Schutz von Finanzen.net
                 response = await context.request.get(feed_url, timeout=15000)
                 xml_data = await response.text()
                 feed = feedparser.parse(xml_data)
@@ -97,7 +96,7 @@ async def scrape_and_summarize():
             await browser.close()
             return
 
-        # SCHRITT 2: Artikelinhalte lesen
+        # SCHRITT 2: Artikelinhalte UND Bild-URLs (HTML) lesen
         print(f"\nLese jetzt {len(urls_zum_lesen)} Artikel aus...")
         alle_texte = ""
         for url in urls_zum_lesen:
@@ -109,10 +108,20 @@ async def scrape_and_summarize():
                     await context.add_cookies(cookies_zeit)
                 
                 await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                
+                # Vollständigen HTML-Code der Seite abgreifen, um das Bild zu finden
+                html_code = await page.content()
+                soup = BeautifulSoup(html_code, 'html.parser')
+                image_tag = soup.find("meta", property="og:image")
+                image_url = image_tag["content"] if image_tag and image_tag.get("content") else ""
+
+                # Text für Gemini auslesen
                 text = await page.evaluate("document.body.innerText")
-                alle_texte += f"QUELLE: {url}\n\nTEXT:\n{text}\n\n---\n"
+                
+                # Wir geben Gemini den Text und hängen die gefundene Bild-URL unsichtbar als Metadaten an
+                alle_texte += f"QUELLE: {url}\nBILD_URL: {image_url}\n\nTEXT:\n{text}\n\n---\n"
             except Exception:
-                pass # Fehlerhafte Links leise überspringen
+                pass 
                 
         await browser.close()
 
@@ -132,7 +141,7 @@ async def scrape_and_summarize():
         neue_daten = json.loads(response.text)
         with open("nachrichten.json", "w", encoding="utf-8") as f:
             json.dump(neue_daten, f, ensure_ascii=False, indent=2)
-        print("Erfolg! Das Dashboard wurde mit den neuesten Nachrichten aktualisiert!")
+        print("Erfolg! Das Dashboard wurde mit den neuesten Nachrichten und Bildern aktualisiert!")
     except Exception as e:
         print("Fehler beim Verarbeiten durch Gemini:", e)
 

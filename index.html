@@ -186,9 +186,15 @@
                 return;
             }
 
-            grid.innerHTML = filtered.map(item => `
+            grid.innerHTML = filtered.map(item => {
+                // Automatisches Bild-Element erzeugen, falls eine Bild-URL vorhanden ist
+                const bildHtml = item.bild ? `<img src="${item.bild}" class="w-full h-40 object-cover rounded-sm mb-4 border border-[#00ffff]/20">` : '';
+
+                return `
                 <div class="bg-[#070b14] border border-neon rounded-sm p-5 md:p-6 flex flex-col justify-start transition-all duration-300 glow-hover relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#00ffff]/20 to-transparent"></div>
+
+                    ${bildHtml}
 
                     <div class="flex justify-between items-start gap-2 mb-3">
                         <span class="ui-font px-2 py-1 text-[9px] md:text-[10px] font-bold tracking-wider text-[#00ffff] bg-[#00ffff]/10 border border-[#00ffff]/30 rounded-sm uppercase">
@@ -203,13 +209,18 @@
                         ${item.titel || 'Kein Titel'}
                     </h3>
 
-                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-light">
+                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-light mb-4">
                         ${item.text || 'Kein Inhalt verfügbar.'}
                     </p>
+
+                    <div class="mt-auto pt-2">
+                        <a href="${item.quelle}" target="_blank" class="inline-block text-[10px] ui-font text-[#00ffff] hover:underline tracking-widest uppercase">Zum Original &rarr;</a>
+                    </div>
                     
-                    <div class="w-12 h-0.5 bg-[#00ffff]/30 mt-5"></div>
+                    <div class="w-12 h-0.5 bg-[#00ffff]/30 mt-4"></div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
         }
 
         window.onload = fetchNews;
