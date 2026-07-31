@@ -2,254 +2,275 @@
   "nachrichten": [
     {
       "hauptkategorie": "Wirtschaft",
+      "sub_sektor": "Aktien & Börse",
+      "titel": "Dax gibt Gewinne nach Rekordjagd ab",
+      "text": "Der Dax näherte sich am Freitag einem neuen Rekordhoch, gab aber später Gewinne ab und schloss bei 25.629 Punkten, unverändert zum Vortag. Analysten sehen ein Potenzial bis 26.000 Punkte. Gleichzeitig stieg die Inflation in der Eurozone im Juli auf 2,9 Prozent, nach 2,8 Prozent im Juni. Besonders die Energiepreise legten aufgrund des wiederaufflammenden Irankrieges um 10,0 Prozent zu.",
+      "quelle": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-gibt-gewinne-nach-rekordjagd-ab/100244194.html"
+    },
+    {
+      "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Unternehmen & Strategien",
       "titel": "Novo Nordisk mit Entwicklungsfehlschlag – Aktienkurs sackt ab",
-      "text": "Der dänische Pharmakonzern Novo Nordisk erlitt einen Rückschlag in einer zulassungsrelevanten Phase-III-Studie für sein Herzmittel Ziltivekimab, das das Risiko schwerer kardiovaskulärer Ereignisse reduzieren sollte. Obwohl der Wirkstoff die erwartete biologische Wirkung zeigte, führte dies in der Zeus-Studie nicht zu den gewünschten Vorteilen. Zwei weitere Studien mit Ziltivekimab für Herzinsuffizienz und nach akutem Herzinfarkt werden fortgesetzt, mit Ergebnissen in der ersten Jahreshälfte 2027. Branchenexperten von JPMorgan schätzen das verlorene Umsatzpotenzial auf Milliarden Euro. Die Aktie des Konzerns, bekannt für seine Abnehmspritze Wegovy, fiel daraufhin um 7,7 Prozent auf 305,40 dänische Kronen. Das Unternehmen hält seinen Ausblick für den bereinigten operativen Gewinn 2026 aufrecht, muss jedoch eine nicht barmittelwirksame Wertberichtigung im dritten Quartal verbuchen. Die Ergebnisse für das zweite Quartal werden am 5. August erwartet.",
+      "text": "Der dänische Pharmakonzern Novo Nordisk erlitt einen Fehlschlag in einer zulassungsrelevanten Phase-III-Studie für sein Herzmittel Ziltivekimab, das die Risikoreduzierung für schwere Herz-Kreislauf-Ereignisse untersuchte. Trotz biologischer Wirkung zeigte der Wirkstoff keine Vorteile. Dies führt zu einer nicht-barmittelwirksamen Wertberichtigung im dritten Quartal und einem Rückgang des Aktienkurses um 7,7 Prozent auf 305,40 dänische Kronen. Branchenexperten beziffern das entgangene Umsatzpotenzial auf Milliarden Euro. Weitere Studien mit Ziltivekimab werden fortgesetzt.",
       "quelle": "https://www.handelsblatt.com/unternehmen/industrie/medikament-novo-nordisk-mit-entwicklungsfehlschlag-aktienkurs-sackt-ab/100244336.html"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Ceuta: Rund 50.000 Migranten gelangen in spanische Exklave",
-      "text": "Innerhalb von 24 Stunden sind rund 50.000 Migranten von Marokko aus über See- und Landwege in die spanische Exklave Ceuta gelangt, deren Bevölkerung etwa 83.000 Menschen beträgt. Die spanische Regierung entsandte daraufhin Militär und mehrere Hundert zusätzliche Polizeikräfte zur Unterstützung der Grenzsicherung. Bei dem massiven Ansturm kamen mindestens 57 Menschen ums Leben. Nach Berichten von 'El País' haben bereits 37.500 Menschen den Rückweg nach Marokko angetreten. Ein Vorsitzender einer Gewerkschaft der Guardia Civil sprach von einem 'Kollaps' der Lage in der Stadt.",
+      "sub_sektor": "Geopolitik",
+      "titel": "Rund 50.000 Migranten gelangen in spanische Exklave Ceuta",
+      "text": "Rund 50.000 Migranten sind innerhalb von 24 Stunden von Marokko aus auf See- und Landweg in die spanische Exklave Ceuta gelangt. Die spanische Regierung entsandte Militär und zusätzliche Polizeikräfte. Mindestens 57 Menschen kamen bei dem Ansturm ums Leben. Bislang kehrten bereits 37.500 Menschen nach Marokko zurück. Die Lage in der Stadt wurde als 'Kollaps' beschrieben.",
       "quelle": "https://www.handelsblatt.com/politik/international/ceuta-rund-50.000-migranten-gelangen-in-spanische-exklave/100244138.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Makroökonomie & Zinsen",
-      "titel": "Geldpolitik: Anhänger von Fed-Zinserhöhung äußern sich nach Entscheid",
-      "text": "Nach der intern umstrittenen Zinspause der US-Notenbank Fed haben sich Beth Hammack (Cleveland), Neel Kashkari (Minneapolis) und Lorie Logan (Dallas) öffentlich als Verfechter eines strafferen geldpolitischen Kurses geäußert. Hammack argumentierte, die Inflation liege seit über fünf Jahren hartnäckig über dem 2,0-Prozent-Ziel und werde nicht von selbst dorthin zurückkehren. Kashkari plädierte für schrittweise Zinserhöhungen, um eine Verfestigung der hohen Inflation zu verhindern. Obwohl sie für eine Anhebung des Leitzinses um einen Viertelprozentpunkt stimmten, entschied der Fed-Offenmarktausschuss mit neun zu drei Stimmen, die Zinsspanne von 3,50 bis 3,75 Prozent beizubehalten. Fed-Chef Kevin Warsh blieb bezüglich des weiteren Kurses wortkarg, während die Märkte mit 66 Prozent Wahrscheinlichkeit eine Zinserhöhung im September erwarten.",
-      "quelle": "https://www.handelsblatt.com/finanzen/geldpolitik/geldpolitik-anhaenger-von-fed-zinserhoehung-aeussern-sich-nach-entscheid/100244332.html"
+      "titel": "Zinserhöhung-Verfechter unter Fed-Bankern äußern Kritik",
+      "text": "Nach der jüngsten Zinspause der US-Notenbank äußerten drei hochrangige Fed-Vertreter – Beth Hammack (Cleveland), Neel Kashkari (Minneapolis) und Lorie Logan (Dallas) – öffentlich Kritik an der Entscheidung. Sie hatten alle für eine Zinserhöhung um 0,25 Prozentpunkte gestimmt und argumentieren, die Inflation liege seit Jahren über dem Zielwert und die aktuelle Geldpolitik sei nicht restriktiv genug, um sie nachhaltig zu senken. Der Fed-Offenmarktausschuss hatte die Zinsen jedoch mit 9 zu 3 Stimmen bei 3,50 bis 3,75 Prozent belassen. Die Märkte rechnen dennoch mit einer Zinserhöhung im September.",
+      "quelle": "https://www.handelsblatt.com/finanzen/geldpolitik/geldpolitik-zinserhoehung-verfechter-unter-fed-bankern-aeussern-kritik/100244332.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Aktien & Börse",
-      "titel": "US-Börsen kaum verändert – Spieleplattform-Aktie stürzt ab",
-      "text": "Zum Wochenausklang zeigten die US-Börsen, mit Dow Jones, S&P 500 und Nasdaq, nach den starken Vortagesgewinnen kaum Veränderungen. Die Quartalszahlen mehrerer Tech-Konzerne bestimmten das Geschehen. Die Cloud-Tochter Amazon Web Services (AWS) verzeichnete ein überraschend starkes Umsatzwachstum von 37 Prozent auf 42,2 Milliarden Dollar im zweiten Quartal, das stärkste seit 18 Quartalen, wodurch die Amazon-Aktie um 15,3 Prozent stieg. Auch die Cloud-Sparten von Google und Microsoft wuchsen stark, was deren Aktienkurse positiv beeinflusste. Hingegen fiel die Apple-Aktie um gut neun Prozent, nachdem sie bereits am Donnerstag nachbörslich ins Minus gerutscht war.",
+      "titel": "US-Börsen kaum verändert – Tech-Aktien im Fokus",
+      "text": "Die US-Börsen zeigten zum Wochenausklang wenig Bewegung, nachdem Tech-Aktien im Fokus standen. Der Dow Jones und S&P 500 blieben nahezu unverändert, während der Nasdaq um 0,5 Prozent zulegte. Haupttreiber war Amazon mit einem unerwartet starken Umsatzwachstum von 37 Prozent bei seiner Cloud-Sparte AWS im zweiten Quartal, was die Amazon-Aktie um 15,3 Prozent steigen ließ. Auch Alphabet und Microsoft legten zu. Apple-Aktien hingegen fielen nach enttäuschenden Zahlen um über neun Prozent.",
       "quelle": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-sp-500-nasdaq-us-boersen-kaum-veraendert-spieleplattform-aktie-stuerzt-ab/100244298.html"
     },
     {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Makroökonomie & Zinsen",
-      "titel": "US-Finanzministerium bereitet Banken auf eventuelle Yen-Intervention vor",
-      "text": "Das US-Finanzministerium hat Berichten zufolge Banken über Pläne für eine mögliche Intervention am Yen-Markt am Freitag informiert und sie zur Bereitschaft für 'künftige Maßnahmen' aufgefordert. Dies folgt auf einen japanischen Eingriff zur Stützung des Yen, der zuvor wochenlang auf einem 40-Jahres-Tief verharrte und daraufhin den stärksten Wochenanstieg seit Februar verzeichnete. Bereits am Donnerstag hatten US-Behörden Kursabfragen vorgenommen, was üblicherweise als Vorbote einer Währungsintervention gilt und Spekulationen über eine US-Beteiligung an der Operation nährte.",
-      "quelle": "https://www.handelsblatt.com/finanzen/maerkte/devisen-rohstoffe/devisenmarkt-us-finanzministerium-bereitet-banken-auf-eventuelle-yen-intervention-vor/100244321.html"
+      "hauptkategorie": "Kultur & Gesellschaft",
+      "sub_sektor": "Leben & Alltag",
+      "titel": "Flugtag in Wacken: Crowdsurfing im Rollstuhl",
+      "text": "Beim diesjährigen Wacken Open Air (W:O:A) fand der 'Friday Is Flyday' statt, bei dem Metalfans Menschen in Rollstühlen crowdsurften. Der 78-jährige Günter Jacobs, genannt 'Wacken-Opa' und langjähriger Festivalbesucher, erlebte dies als Premiere und zeigte sich begeistert. Initiator ist der Verein Metality, der sich für Barrierefreiheit und soziale Projekte für Metalheads einsetzt. Das W:O:A bietet zudem eine 'Wheels of Steel Area' für Menschen mit Behinderung an. Das ausverkaufte Festival zählt 85.000 Besucher.",
+      "quelle": "https://www.zeit.de/news/2026-07/31/flugtag-in-wacken-crowdsurfing-im-rollstuhl"
+    },
+    {
+      "hauptkategorie": "Kultur & Gesellschaft",
+      "sub_sektor": "Kunst & Unterhaltung",
+      "titel": "»Spider-Man: Brand New Day«: Warum Spider-Man niemals heiraten darf",
+      "text": "Der Film 'Spider-Man: Brand New Day', der vierte Teil des dritten Kino-Reboots, wird in einer Rezension kritisiert. Der Autor bemängelt, dass der Film unter dem Ballast des Marvel Cinematic Universe (MCU) leide und ohne die Superheldenelemente, als reiner New-York-Film à la Woody Allen, besser gewesen wäre. Tom Holland spielt Spider-Man; Regie führte Destin Daniel Cretton.",
+      "quelle": "https://www.zeit.de/feuilleton/film/2026-07/spider-man-brand-new-day-marvel-film-rezension"
+    },
+    {
+      "hauptkategorie": "Kultur & Gesellschaft",
+      "sub_sektor": "Kunst & Unterhaltung",
+      "titel": "Wenders schneidet Nacktszene mit Nastassja Kinski aus Film",
+      "text": "Schauspielerin Nastassja Kinski und Regisseur Wim Wenders haben ihren Streit um eine Nacktszene im Film „Falsche Bewegung“ (1975) beigelegt. Wenders entschuldigte sich und kam Kinskis Wunsch nach, die etwa zweiminütige Szene aus dem Film zu entfernen. Kinski war bei den Aufnahmen 13 Jahre alt und hatte die Entfernung seit Jahren gefordert. Der Film war bereits Anfang Juni aus der öffentlichen Zugänglichkeit zurückgezogen worden. Wenders betonte, die Szene würde er heute nicht mehr drehen und Kinski hätte besser geschützt werden müssen.",
+      "quelle": "https://www.zeit.de/news/2026-07/31/wenders-schneidet-nacktszene-mit-nastassja-kinski-aus-film"
+    },
+    {
+      "hauptkategorie": "Weltweite Schlagzeilen",
+      "sub_sektor": "Breaking News",
+      "titel": "Bilder des Tages",
+      "text": "Der Artikel bietet eine Übersicht der 'Bilder des Tages' und listet diverse Schlagzeilen auf, darunter 'Badewetter in Stuttgart', eine Geiselnahme in Berlin, die Fortsetzung der AfD-Mitgliedschaft für Matthias Helferich und stark gestiegene Mieten in deutschen Großstädten.",
+      "quelle": "https://www.zeit.de/news/2026-07/31/bilder-des-tages"
     },
     {
       "hauptkategorie": "Technologie & Wissenschaft",
       "sub_sektor": "Hardware & Gadgets",
       "titel": "Apple kämpft vor neuer iPhone-Saison mit Bauteile-Engpässen",
-      "text": "Vor dem erwarteten Start der nächsten iPhone-Generation sieht sich Apple mit Engpässen bei wichtigen Bauteilen konfrontiert, insbesondere bei kombinierten Chipsystemen. CEO Tim Cook räumte ein, die Nachfrage nach iPhones und Macs unterschätzt zu haben. Die Situation wird durch den boomenden Bedarf an Halbleitern für KI-Rechenzentren verschärft, was die Chipkapazitäten auslastet und Apples Flexibilität bei Zulieferern einschränkt. Im letzten Quartal stieg der iPhone-Umsatz um nahezu 22 Prozent auf 54,25 Milliarden Dollar. Der Gesamtumsatz wuchs um 16 Prozent auf 109,4 Milliarden Dollar, und der Gewinn legte um 27 Prozent zu. Trotzdem fiel die Apple-Aktie am Freitag um mehr als neun Prozent, da das Unternehmen für das laufende Quartal ein verlangsamtes Wachstum prognostizierte. Tim Cook wird im September nach 15 Jahren seinen Posten räumen und von Hardware-Boss John Ternus abgelöst.",
+      "text": "Apple kämpft vor der Markteinführung der nächsten iPhone-Generation mit Engpässen bei wichtigen kombinierten Chipsystemen. Konzernchef Tim Cook räumte ein, die Nachfrage unterschätzt zu haben, was durch den boomenden Bedarf an Halbleitern für KI-Rechenzentren verschärft wird. Im vergangenen Quartal stieg der iPhone-Umsatz um fast 22 Prozent auf 54,25 Milliarden Dollar, der Gesamtumsatz um 16 Prozent auf 109,4 Milliarden Dollar. Trotzdem fiel die Apple-Aktie um über neun Prozent, da der Konzern ein verlangsamtes Wachstum prognostizierte. Tim Cook übergibt die Führung im September an John Ternus.",
       "quelle": "https://www.zeit.de/news/2026-07/30/apples-iphone-umsatz-waechst-um-mehr-als-ein-fuenftel"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Wahlen & Parteien",
-      "titel": "Sie kämpfen mit den falschen Waffen gegen die AfD",
-      "text": "Obwohl die AfD laut aktuellen Umfragen die stärkste Partei Deutschlands ist, versuchen linke Politiker, sie mit sozialpolitischen Maßnahmen wie Mietpreisbremsen oder höheren Löhnen zu bekämpfen, indem sie AfD-Wähler als 'Modernisierungsverlierer' adressieren. Eine Analyse von über 100.000 Beobachtungen aus dem Sozio-oekonomischen Panel zeigt jedoch, dass diese Annahme 'grundfalsch' ist. Die Ablehnung von Zuwanderung erklärt die Wahl der AfD fast zehnmal stärker als ökonomische Not oder die Angst davor. Die Moral-Foundations-Theorie deutet darauf hin, dass linke moralische Urteile stark auf Fürsorge und Fairness basieren, während rechte Moralvorstellungen zusätzlich Loyalität, Autorität und 'Reinheit' umfassen. Dies führt dazu, dass rechte Wähler in Zuwanderung eine Bedrohung für gesellschaftlichen Zusammenhalt und kulturelle Regeln sehen.",
-      "quelle": "https://www.zeit.de/wirtschaft/2026-07/afd-linke-parteien-waehler-strategie-moralvorstellungen"
-    },
-    {
-      "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Leben & Alltag",
-      "titel": "Weiter wenig Einsätze für Polizei auf Wacken Open Air",
-      "text": "Die Polizei meldet bislang wenig Einsätze auf dem Wacken Open Air (W:O:A) und spricht von einem überwiegend ruhigen Verlauf. Zu den wenigen Vorfällen zählten eine Körperverletzung auf den Campingflächen und ein Vorfall mit einem alkoholisierten Motorradfahrer, der einen Polizisten leicht verletzte. Zwei gesuchte Verdächtige am Rande des Festivals wurden gefasst und für Ermittlungen auf eine Dienststelle gebracht; eine Gefahr für die Festivalbesucher bestand nicht. Vorsorglich untersuchte der Kampfmittelräumdienst ein Fahrzeug auf einen verdächtigen Gegenstand, gab aber Entwarnung. Das größte Heavy-Metal-Festival der Welt ist mit 85.000 Besuchern ausverkauft und läuft noch bis Samstag.",
-      "quelle": "https://www.zeit.de/news/2026-07/31/weiter-wenig-einsaetze-fuer-polizei-auf-wacken-open-air"
-    },
-    {
-      "hauptkategorie": "Sport",
-      "sub_sektor": "Fußball",
-      "titel": "Pyro beim Derby: Hohe Geldstrafe für Eintracht Braunschweig",
-      "text": "Eintracht Braunschweig muss eine hohe Geldstrafe von 118.200 Euro zahlen, die vom Sportgericht des Deutschen Fußball-Bundes verhängt wurde. Grund ist das massive Abbrennen von Pyrotechnik durch Fans im Niedersachsen-Derby gegen Hannover 96, bei dem fast 100 Blinker, Bengalische Feuer, zwei Raketen und zwei Böller gezündet wurden. Der Verein hat dem Urteil zugestimmt, welches damit rechtskräftig ist. Bis zu 39.400 Euro der Strafe können für eigene sicherheitstechnische oder gewaltpräventive Maßnahmen verwendet werden.",
-      "quelle": "https://www.zeit.de/news/2026-07/31/pyro-beim-derby-hohe-geldstrafe-fuer-eintracht-braunschweig"
+      "sub_sektor": "Innenpolitik",
+      "titel": "Dobrindt will Grenzkontrollen in Deutschland verlängern",
+      "text": "Bundesinnenminister Alexander Dobrindt (CSU) plant, die deutschen Binnengrenzkontrollen über September hinaus zu verlängern. Als Grund nannte er die 'volatile Lage bei der illegalen Migration', insbesondere den Zustrom zehntausender Migranten in die spanische Exklave Ceuta. Die Kontrollen bestehen seit September 2024 und wurden bereits dreimal verlängert. Während die Gewerkschaft der Polizei vor einem Zuwachs illegaler Einreisen warnt, fordert die Linke die Aufnahme der in Ceuta gestrandeten Menschen. In Ceuta kamen rund 60.000 Migranten aus Marokko an, 34 starben; etwa 25.000 kehrten zurück.",
+      "quelle": "https://www.tagesschau.de/inland/dobrindt-grenzkontrollen-116.html"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
       "titel": "Warum Ceuta und Melilla Ziel vieler Migranten sind",
-      "text": "Die spanischen Exklaven Ceuta und Melilla in Nordafrika sind historische Relikte und zugleich ein wiederkehrendes Politikum im 21. Jahrhundert, da sie immer wieder Ziel von Migranten sind, die irregulär nach Europa gelangen wollen. Die Städte, im 15. Jahrhundert von Spaniern und Portugiesen erobert, besitzen seit 1995 Autonomiestatus und dienen als Militärstützpunkte. Sie sind von Marokko und dem Mittelmeer umschlossen und erleben seit Jahrzehnten Massenanstürme von Migranten, die versuchen, den schwer bewachten Grenzzaun zu überwinden oder durch das Mittelmeer zu schwimmen, oft mit Todesfolge. Die EU forderte Spanien bereits 2018 auf, die Grenzen besser zu sichern. Marokko steht im Verdacht, Migranten kontrolliert durchzulassen, um politischen Druck auszuüben, etwa im Streit um die Westsahara.",
+      "text": "Die spanischen Exklaven Ceuta und Melilla in Nordafrika sind aufgrund ihrer geografischen Lage und Geschichte wiederholt Ziel von Migranten, die irregulär nach Europa gelangen wollen. Die beiden Städte, die seit dem 15. Jahrhundert unter spanischer Kontrolle stehen und seit 1995 Autonomiestatus besitzen, werden von Marokko beansprucht, was regelmäßig zu Spannungen führt. Massenanstürme sind häufig, wobei Migranten versuchen, Grenzzäune zu überwinden oder das Mittelmeer zu durchschwimmen. Marokko wird verdächtigt, Migranten als politisches Druckmittel einzusetzen, etwa im Westsahara-Konflikt.",
       "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-melilla-marokko-spanien-100.html"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Innenpolitik",
       "titel": "Mutmaßlicher CSD-Attentäter: Kamen Deradikalisierungsgespräche zu spät?",
-      "text": "Im Fall des mutmaßlichen CSD-Attentäters Abdul B. wird diskutiert, ob Deradikalisierungsgespräche zu spät ansetzten. Abdul B. sollte nach einem Urteil wegen seines Versuchs, sich dem IS anzuschließen, an einem Deradikalisierungsprogramm teilnehmen, doch Vorgespräche verliefen ergebnislos. Sein Anwalt, Yalcin Geyhan, und die Innenpolitikerin Lamya Kaddor (Grüne) plädieren dafür, solche Maßnahmen bereits in der Untersuchungshaft zu beginnen, um einer weiteren Radikalisierung vorzubeugen. Aktuell erlauben neun Bundesländer Erstgespräche in U-Haft, meist unter Auflagen und mit Zustimmung des Gerichts. Einige Deradikalisierungsstellen betonen jedoch, dass Lebenskrisen wie die Untersuchungshaft gute Anknüpfungspunkte für Ausstiegsberatungen bieten. Geyhan kritisierte zudem die Justiz, den Fall Abdul B. nicht intensiv genug aufgeklärt zu haben.",
+      "text": "Im Fall des mutmaßlichen CSD-Attentäters Abdul B. wird diskutiert, ob Deradikalisierungsgespräche zu spät ansetzten. Nach einer Verurteilung wegen eines IS-Ausreiseversuchs sollte er ein Deradikalisierungsprogramm durchlaufen, doch erste Gespräche waren schwierig und er wurde vorläufig freigelassen. Innenpolitiker fordern den Beginn solcher Maßnahmen bereits in der Untersuchungshaft, da diese Phase eine gute Anknüpfung für Distanzierungsberatung biete. Allerdings gibt es rechtliche Hürden wie die Unschuldsvermutung und die Sicherstellung der Vertraulichkeit. Sein Anwalt kritisiert eine unzureichende Aufklärung des Falles durch die Justiz.",
       "quelle": "https://www.tagesschau.de/inland/gesellschaft/csd-anschlag-islamismus-deradikalisierung-100.html"
     },
     {
       "hauptkategorie": "Lokales & Regionales",
       "sub_sektor": "Infrastruktur",
-      "titel": "Tschechien plant Staustufe: Schnellere Durchfahrt auf der Elbe?",
-      "text": "Tschechien plant den Bau einer Staustufe bei Děčín an der Elbe, nur 15 Kilometer vor der deutschen Grenze, um die Befahrbarkeit des Flusses für Güterschiffe zu verbessern und lange Wartezeiten aufgrund von Niedrigwasser zu verhindern. Das Projekt, das seit Jahrzehnten geplant ist, steckte seit 2005 im Umweltverfahren fest, unter anderem wegen Einwänden aus Sachsen und der Bundesregierung bezüglich Natur- und Gewässerschutz. Der überarbeitete Plan sieht ein niedrigeres, bewegliches Wehr vor, dessen Bau im Spätsommer 2029 beginnen und drei Jahre dauern soll. Die Kosten werden auf 300 Millionen Euro geschätzt, wovon ein Viertel in Natur- und Ausgleichsmaßnahmen fließt. Sachsens Umweltminister zeigt sich offener, während Umweltverbände das Projekt weiterhin kritisch sehen. Die tschechische Regierung drängt auf eine Beschleunigung des Prozesses, während der tschechische Verkehrsminister auch Deutschland zum Handeln aufruft, um die Elbeschifffahrt auf der gesamten Strecke bis Hamburg zu verbessern.",
+      "titel": "Tschechien plant Staustufe an der Elbe für schnellere Durchfahrt",
+      "text": "Tschechien plant den Bau einer Staustufe an der Elbe nahe Děčín, um die Befahrbarkeit für Güterschiffe, besonders bei Niedrigwasser, zu verbessern. Der Hafen Děčín leidet unter langen Wartezeiten für Schwertransporte. Das seit Jahrzehnten geplante Projekt, das 2005 im Umweltverfahren steckte, soll beschleunigt werden. Die neue Planung sieht ein bewegliches, niedrigeres Wehr vor. Baubeginn ist für Ende 2029 geplant, Kosten von rund 300 Millionen Euro. Obwohl ein Viertel der Kosten in Ausgleichsmaßnahmen fließt, äußern Umweltverbände Skepsis. Sachsen prüft die Pläne wohlwollend, während die Grünen einen „Dammbruch“ befürchten. Die Staustufe soll die wirtschaftliche Nutzbarkeit des Abschnitts von 90-100 auf bis zu 345 Tage im Jahr erhöhen.",
       "quelle": "https://www.tagesschau.de/ausland/europa/tschechien-elbe-staustufe-100.html"
     },
     {
-      "hauptkategorie": "Lokales & Regionales",
-      "sub_sektor": "Infrastruktur",
+      "hauptkategorie": "Kultur & Gesellschaft",
+      "sub_sektor": "Leben & Alltag",
       "titel": "Ganz Deutschland hat Ferien: ADAC rechnet mit vollen Straßen",
-      "text": "Da mit Baden-Württemberg und Bayern auch die letzten Bundesländer in die Sommerferien starten, erwartet der ADAC am kommenden Wochenende eines der staureichsten Wochenenden der Saison. Besondere Überlastung wird auf Autobahnen in Richtung Alpen, Mittelmeer sowie Nord- und Ostsee erwartet, einschließlich der Nord-Süd-Verbindungen (A1, A5, A7, A9, A61, A81), Ost-West-Achsen (A2, A3, A4, A6, A8) sowie den Umfahrungen von Hamburg, Berlin und München. Auch die A23 Hamburg-Heide ist wegen des Wacken Open Airs stark betroffen. Rund 1.000 Baustellen und mehrere Vollsperrungen, wie auf der A2, A14, A44 und A61, verschärfen die Lage zusätzlich. An Grenzübergängen, etwa zu Dänemark, am Fernpass oder am Gotthardtunnel, sind ebenfalls lange Wartezeiten zu befürchten. Der ADAC empfiehlt, flexible Reisezeiten und alternative Routen zu wählen.",
+      "text": "Mit dem Beginn der Sommerferien in Baden-Württemberg und Bayern sind nun alle deutschen Bundesländer in der schulfreien Zeit, was der ADAC als eines der staureichsten Wochenenden des Jahres prognostiziert. Besonders betroffen sind Autobahnen in Richtung Alpen, Mittelmeer sowie Nord- und Ostsee, Nord-Süd- und Ost-West-Verbindungen sowie städtische Umfahrungen. Rund 1.000 Baustellen und zusätzliche Vollsperrungen verschärfen die Lage. Auch an Grenzübergängen und auf Routen wie dem Fernpass und dem Gotthardtunnel wird mit langen Wartezeiten gerechnet. Der ADAC empfiehlt flexible Reisezeiten und Pausen.",
       "quelle": "https://www.tagesschau.de/inland/gesellschaft/stauprognose-sommerferien-ratgeber-100.html"
-    },
-    {
-      "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "GEMA vs. Suno: KI-Firma darf Melodien nicht ungefragt nutzen",
-      "text": "Das Landgericht München I hat weitgehend zugunsten der GEMA im Rechtsstreit gegen das US-amerikanische KI-Unternehmen Suno entschieden. Suno wird untersagt, bestimmte geschützte Musikwerke, darunter Kompositionen wie 'Atemlos' und 'Daddy Cool', ohne Einwilligung zu vervielfältigen oder für das Training seines KI-Modells zu nutzen. Die GEMA argumentierte, dass die von Suno generierten Musiktitel den Originalen stark ähnelten, was auf eine unlizenzierte Übernahme geschützter Elemente während des Trainings hindeute. Suno bestritt die Speicherung der Musik im Modell und berief sich auf die US-Doktrin des 'Fair Use'. Das Urteil, das noch nicht rechtskräftig ist, verpflichtet Suno zur Auskunft über Einnahmen und zur Zahlung von Schadensersatz, dessen Höhe noch festzulegen ist. Kulturstaatsminister Wolfram Weimer bezeichnete das Urteil als 'wichtiges Zeichen' für die Rechte von Kreativen. Suno kündigte an, eine Berufung zu prüfen, da es die Entscheidung als Fehlinterpretation seiner Technologie und des US-Rechts ansieht.",
-      "quelle": "https://www.tagesschau.de/kultur/urteil-gema-vs-suno-100.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Aktien & Börse",
       "titel": "Wochenvorschau: Termine bis 7. August 2026",
-      "text": "Die kommende Woche bis zum 7. August 2026 ist geprägt von zahlreichen Wirtschafts- und Unternehmensmeldungen. Am Montag stehen Einkaufsmanagerindizes für das verarbeitende Gewerbe aus China, der EU und den USA sowie US-Bauausgaben auf dem Programm. Dienstag folgen Halbjahres- und Quartalszahlen von Unternehmen wie Lufthansa, Bayer und Continental. Am Mittwoch werden weitere wichtige PMI-Daten für den Dienstleistungssektor veröffentlicht, begleitet von Quartalszahlen unter anderem von Siemens Energy, DHL Group, Novo Nordisk und Infineon. Donnerstag und Freitag präsentieren Konzerne wie Commerzbank, Siemens, Deutsche Telekom, Allianz und Daimler Truck ihre Geschäftszahlen. Zudem werden wichtige Makrodaten wie das US-BIP und der monatliche US-Arbeitsmarktbericht erwartet.",
+      "text": "Der Artikel bietet eine detaillierte Wochenvorschau wichtiger Termine für Wirtschaft, Börse und Konjunktur bis zum 7. August 2026. Sie umfasst die Veröffentlichung von Einkaufsmanagerindizes für das verarbeitende und nicht-verarbeitende Gewerbe in verschiedenen Regionen (China, Eurozone, USA, etc.), US-Wirtschaftsdaten wie Bauausgaben, Industrieproduktion und Arbeitsmarktzahlen sowie zahlreiche Quartals- und Halbjahresergebnisse großer Unternehmen wie Palantir, Lufthansa, Bayer, Hugo Boss, Continental, Novo Nordisk, Infineon, Commerzbank, Siemens und Allianz.",
       "quelle": "https://www.n-tv.de/wirtschaft/termine/Termine-bis-7-August-2026-id31147127.html"
     },
     {
       "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Leben & Alltag",
+      "sub_sektor": "Gesellschaftliche Debatten",
       "titel": "Bahn fordert Entfernung von ZDF-Doku aus Mediathek",
-      "text": "Die Deutsche Bahn fordert die Entfernung einer ZDF-Dokumentation über den Zustand des Bahnverkehrs aus der Mediathek, da sie diese als 'unvollständig und einseitig' kritisiert. Obwohl das ZDF bereits zwei Details korrigierte – die Anzahl digitaler Stellwerke und einen Pünktlichkeitsvergleich mit Belgien – bemängelt die Bahn weiterhin die Auslassung wichtiger Sanierungsfortschritte und die Darstellung des Unglücks von Burgrain. Die Bahn hält das entstandene 'Zerrbild der Wirklichkeit' für rechtswidrig. Das ZDF verteidigt seine Berichterstattung und betrachtet die Forderung der Bahn als 'unzulässigen Versuch, eine kritische Berichterstattung in Gänze zu unterbinden', da der Film keine inhaltlichen Mängel aufweise und an vielen Stellen sogar Fortschritte der Bahn hervorgehoben würden.",
+      "text": "Die Deutsche Bahn fordert die Entfernung einer ZDF-Dokumentation von Dunja Hayali aus der Mediathek, da sie den Film als „unvollständig und einseitig“ ansieht. Die Bahn moniert „unwahre Tatsachenbehauptungen“ und die Auslassung entlastender Fakten. Zwei Punkte wurden bereits vom ZDF korrigiert: die Anzahl digitaler Stellwerke (nicht null, sondern drei plus weitere mit digitalen Elementen) und ein Pünktlichkeitsvergleich mit Belgien. Die Bahn kritisiert zudem, dass Fortschritte bei der Infrastruktur-Sanierung und Konsequenzen aus dem Unglück von Burgrain unzureichend dargestellt seien. Das ZDF weist die Vorwürfe zurück und sieht keinen Anlass für weitere Anpassungen oder eine Löschung.",
       "quelle": "https://www.n-tv.de/wirtschaft/Bahn-fordert-Entfernung-von-ZDF-Doku-aus-Mediathek-id31146294.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
+      "sub_sektor": "Unternehmen & Strategien",
       "titel": "Deutsches Wunderkind verzockt mit seinem KI-Hedgefonds Milliarden",
-      "text": "Leopold Aschenbrenner, ein deutsches 'Wunderkind' und ehemaliger OpenAI-Forscher, gründete den KI-Hedgefonds 'Situational Awareness' ohne vorherige Finanzbranchenerfahrung. Der Fonds wuchs in zwei Jahren auf über 20 Milliarden Dollar Kapital und erzielte über 1500 Prozent Rendite durch gehebelte Investitionen in KI-Wachstumswerte. Plötzliche Kurseinbrüche bei seinen größten Positionen führten jedoch zu Forderungen der Banken nach zusätzlichen Sicherheiten, wodurch der Fonds zum Verkauf von Aktien gezwungen wurde. Dies trug zum weiteren Absturz von KI-Aktien bei und mündete in einem 'ungeordneten Rückzug'. Hedgefonds-Veteran Ken Griffin übernahm mit seiner Firma Citadel in nächtlichen Verhandlungen das gesamte Aktienportfolio des Fonds, das einst über 16 Milliarden Dollar wert war. Der Vorfall wirft Fragen auf, wie einem unerfahrenen Individuum so viel Geld anvertraut werden konnte.",
+      "text": "Das deutsche Wunderkind Leopold Aschenbrenner, bekannt für seine frühe Karriere bei OpenAI, hat mit seinem KI-Hedgefonds „Situational Awareness“ Milliarden verzockt. Ohne vorherige Finanzbranchenerfahrung gründete er den Fonds, der innerhalb von zwei Jahren ein Kapital von über 20 Milliarden Dollar erreichte und Renditen von über 1500 Prozent erzielte, indem er auf KI-Unternehmen setzte. Eine riskante Strategie mit Hebelprodukten führte jedoch zu massiven Verlusten, als KI-Aktien einbrachen. Nach nächtlichen Verhandlungen übernahm der Hedgefonds Citadel Aschenbrenners gesamtes Aktienportfolio, dessen Wert zuvor über 16 Milliarden Dollar betrug. Die genaue Höhe der Verluste ist noch unklar.",
       "quelle": "https://www.n-tv.de/wirtschaft/Deutsches-Wunderkind-verzockt-mit-seinem-KI-Hedgefonds-Milliarden-id31146510.html"
+    },
+    {
+      "hauptkategorie": "Technologie & Wissenschaft",
+      "sub_sektor": "Künstliche Intelligenz & Software",
+      "titel": "Gema gewinnt vor Gericht: KI-Musikfirma Suno darf bestimmte Songs nicht mehr nutzen",
+      "text": "Die Musikverwertungsgesellschaft Gema hat vor dem Landgericht München I einen wichtigen Sieg gegen die US-KI-Musikfirma Suno errungen. Das Gericht entschied, dass Suno künftig ohne Zustimmung der Gema bestimmte Musikwerke weder vervielfältigen noch seine KI damit trainieren darf. Im Fokus standen sechs bekannte deutsche Hits wie \"Atemlos\", die von der KI kaum vom Original zu unterscheiden waren, was auf eine Memorierung der Trainingsdaten hindeutet. Kulturstaatsminister Wolfram Weimer begrüßte das Urteil als \"wichtiges Zeichen\" für die Stärkung des Urheberrechts von Kreativen. Suno, ein führendes KI-Musik-Startup, wurde auf Basis von YouTube-Musik trainiert.",
+      "quelle": "https://www.n-tv.de/wirtschaft/KI-Musikfirma-Suno-darf-bestimmte-Songs-nicht-mehr-nutzen-id31145109.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Unternehmen & Strategien",
       "titel": "Musk dementiert Pläne zu Trennung von Teslas China-Geschäft",
-      "text": "Elon Musk dementierte Berichte, wonach Tesla eine Trennung seines China-Geschäfts erwägt, um eine Fusion mit seiner Raumfahrtfirma SpaceX zu erleichtern, als 'Fake News'. Teslas Werk in Shanghai produziert über die Hälfte der weltweiten Firmenproduktion. Spekulationen über eine Tesla-SpaceX-Fusion bestehen schon länger, doch Teslas China-Geschäft würde aufgrund der wichtigen US-Regierungs- und Militäraufträge von SpaceX ein Hindernis darstellen. Musk hatte zuvor Andeutungen über Überschneidungen und einen 'angemessenen Prozess' für einen Zusammenschluss gemacht. Parallel dazu baut Tesla die Produktion in seinem Werk Grünheide auf 7.500 Fahrzeuge pro Woche aus. SpaceX ging im Juni an die Börse, liegt aber inzwischen unter dem Ausgabepreis. Musks ambitionierte Pläne, Tesla auf Robotaxis und humanoide Roboter auszurichten, hinken noch hinterher.",
+      "text": "Elon Musk hat einen Bericht des \"Wall Street Journal\" dementiert, wonach Tesla eine Trennung seines China-Geschäfts vorbereite, um eine Fusion mit SpaceX zu ermöglichen, und bezeichnete dies als \"Fake News\". Eine solche Fusion sei aufgrund der US-Regierungs- und Militäraufträge von SpaceX nicht mit einem China-Geschäft vereinbar. Derweil baut Tesla die Produktion in seinem Werk Grünheide aus, um ab Oktober 7500 Fahrzeuge pro Woche zu fertigen. Musk plant zudem, Tesla auf Robotaxis und humanoide Roboter auszurichten, ein Bereich, in dem das Unternehmen ambitionierten Ankündigungen noch hinterherhinkt.",
       "quelle": "https://www.n-tv.de/wirtschaft/Musk-dementiert-Plaene-zu-Trennung-von-Teslas-China-Geschaeft-id31144747.html"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Ceuta: Friedrich Merz fordert von Pedro Sánchez hartes Durchgreifen",
-      "text": "Bundeskanzler Friedrich Merz (CDU) hat in einem Telefonat mit dem spanischen Ministerpräsidenten Pedro Sánchez ein hartes Durchgreifen an der EU-Außengrenze in der Exklave Ceuta gefordert. Merz verlangte, Spanien müsse die Situation schnellstmöglich wieder in den Griff bekommen und illegale Migranten nicht auf den europäischen Kontinent lassen. Zugleich forderte er von Marokko die unverzügliche Rücknahme der Menschen, unter Verweis auf die neue EU-Rückkehrverordnung. Der Präsident von Ceuta, Juan Jesús Vivas, gab bekannt, dass rund 60.000 Menschen in den letzten Tagen in die Exklave gelangt seien, was etwa 70 Prozent der lokalen Bevölkerung entspreche. Mindestens 34 Menschen kamen bei dem Ansturm ums Leben. Über 25.000 Migranten sind bereits nach Marokko zurückgekehrt. Auch Außenminister Johann Wadephul (CDU) forderte schnelles gemeinsames Handeln, während US-Präsident Donald Trump die Lage als 'schrecklich' bezeichnete.",
+      "sub_sektor": "Geopolitik",
+      "titel": "Merz fordert hartes Durchgreifen in Ceuta",
+      "text": "Angesichts der dramatischen Lage in der spanischen Exklave Ceuta, wo rund 60.000 Migranten ankamen und mindestens 34 starben, forderte Bundeskanzler Friedrich Merz (CDU) von Spaniens Ministerpräsident Pedro Sánchez ein hartes Durchgreifen. Merz betonte die Notwendigkeit eines robusten EU-Außengrenzschutzes und verlangte, dass Spanien die Migranten nicht auf den europäischen Kontinent lasse und Marokko sie unverzüglich zurücknehme. Sánchez bezeichnete den Zustrom als „Verletzung der territorialen Souveränität Spaniens“. Das spanische Innenministerium berichtete, dass bereits 25.000 Menschen nach Marokko zurückgekehrt seien. Auch Außenminister Johann Wadephul mahnte Spanien und Marokko zur Zusammenarbeit.",
       "quelle": "https://www.spiegel.de/politik/ceuta-friedrich-merz-fordert-von-pedro-sanchez-hartes-durchgreifen-a-96d48058-5448-421e-a14f-1ffa155c9a67#ref=rss"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Innenpolitik",
       "titel": "Dobrindt will Kontrollen an deutschen Außengrenzen verlängern",
-      "text": "Angesichts der massiven Grenzübertritte in die spanische Exklave Ceuta hat Bundesinnenminister Alexander Dobrindt (CSU) angekündigt, die deutschen Grenzkontrollen über den September hinaus zu verlängern. Er betonte die Notwendigkeit, den Erfolg beim Zurückdrängen illegaler Migration zu erhalten und den Schutz der EU-Außengrenzen zu gewährleisten. Deutschland führt bereits seit September 2024 Kontrollen an allen Binnengrenzen durch. Dobrindt lehnte zuvor die Forderung von EU-Innenkommissar Magnus Brunner nach einem Ende der Schengen-Kontrollen ab. Auch Frankreich verstärkt seine Kontrollen an der spanischen Grenze. Die italienische Regierungschefin Giorgia Meloni drohte sogar mit der Wiedereinführung von Grenzkontrollen zu Spanien oder der Aussetzung des Schengen-Raums, was Madrid scharf kritisierte. Nach spanischen Angaben sind rund 50.000 Menschen in Ceuta eingereist, wovon etwa 25.000 bereits zurückgekehrt sind.",
+      "text": "Angesichts des massiven Migrantenzustroms in die spanische Exklave Ceuta kündigt Bundesinnenminister Alexander Dobrindt (CSU) eine Verlängerung der deutschen Grenzkontrollen über September hinaus an, um die Eindämmung illegaler Migration fortzusetzen. Er forderte zudem, dass Spanien die Migranten nach Marokko zurückführt und den EU-Außengrenzschutz gewährleistet. Auch Frankreich verstärkt seine Kontrollen an der spanischen Grenze, und Italiens Regierungschefin Meloni drohte sogar mit der Wiedereinführung von Grenzkontrollen zu Spanien und einer möglichen Aussetzung des Schengen-Abkommens.",
       "quelle": "https://www.spiegel.de/politik/dobrindt-will-kontrollen-an-deutschen-aussengrenzen-verlaengern-a-968b70ba-ddef-481b-8a81-d390a9aeed98#ref=rss"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
+      "sub_sektor": "Geopolitik",
       "titel": "Reaktionen zum Ansturm auf Ceuta: »Migranten als Druckmittel«",
-      "text": "Der massive Zustrom von etwa 50.000 Migranten in die spanische Exklave Ceuta, wovon die Hälfte zurückgekehrt ist, hat heftige europäische Reaktionen ausgelöst. Bundeskanzler Friedrich Merz unterstützte Spaniens Haltung, illegale Migranten nicht auf den Kontinent zu lassen, und forderte Marokko zur Rücknahme auf. CDU-Politiker Günter Krings kritisierte ein spanisches Gerichtsurteil und die Legalisierung von Migranten als 'Pull-Faktoren' und schlug EU-Rückkehrzentren in Drittstaaten vor. EU-Kommissionspräsidentin Ursula von der Leyen verurteilte die 'inakzeptablen' Bilder und forderte schnelle Rückführungen. Auch Frankreich verstärkte Grenzkontrollen, und Italien drohte mit einer Schengen-Aussetzung gegenüber Spanien. Migrationsexperte Gerald Knaus und die spanische Zeitung 'El País' sehen die Hauptverantwortung bei Marokko, das Migranten als politisches Druckmittel einsetzen könnte, und fordern eine geschlossene EU-Haltung und Druck auf Rabat zur Kooperation.",
+      "text": "Der massive Zustrom von rund 50.000 Migranten nach Ceuta, von denen etwa die Hälfte freiwillig zurückkehrte, löst in Europa scharfe politische Reaktionen aus. Bundeskanzler Friedrich Merz forderte Spanien auf, die Migranten nicht auf den Kontinent zu lassen und Marokko zur Rücknahme zu bewegen. Auch EU-Kommissionspräsidentin von der Leyen bezeichnete die Lage als inakzeptabel und forderte rasche Rückführungen. Politiker wie Günter Krings und Manfred Weber sehen in den Ereignissen Beweise für \"Pull-Faktoren\" und fordern ein entschlossenes Vorgehen, notfalls durch Frontex. Frankreich und Italien verstärken ihre Grenzkontrollen oder drohen damit. Migrationsexperten sehen die Schuld primär bei Marokko, das Migration als Druckmittel einsetze, und fordern eine geeinte europäische Haltung.",
       "quelle": "https://www.spiegel.de/ausland/reaktionen-zum-ansturm-auf-ceuta-migranten-als-druckmittel-a-f15358fd-b181-43df-a5c4-3ccd46894102#ref=rss"
+    },
+    {
+      "hauptkategorie": "Politik",
+      "sub_sektor": "Geopolitik",
+      "titel": "Ceuta: Lage und Geschichte der spanischen Exklave",
+      "text": "Die spanischen Exklaven Ceuta und Melilla in Nordafrika bilden die einzige Landgrenze der EU mit Afrika. Beide historisch von Phöniziern gegründeten und im 15. Jahrhundert von Spaniern/Portugiesen eroberten Küstenstädte sind seit 1995 autonome Militärstützpunkte und werden von Marokko beansprucht, was regelmäßig zu Spannungen führt. Ceuta, 18,5 km² groß mit 84.000 Einwohnern, und Melilla, 12,3 km² mit 87.000 Einwohnern, sind häufige Einreisepunkte für Migranten in die EU.",
+      "quelle": "https://www.spiegel.de/ausland/ceuta-was-man-ueber-lage-und-geschichte-wissen-muss-a-6485ec90-567d-490e-b8ad-d821de96758b#ref=rss"
     },
     {
       "hauptkategorie": "Sport",
       "sub_sektor": "Fußball",
-      "titel": "Fifa-Investorenpläne: Wackelt Gianni Infantino jetzt? Die wichtigsten Fragen",
-      "text": "FIFA-Präsident Gianni Infantino gerät aufgrund umstrittener Pläne zum Teilverkauf von Anteilen an der Weltmeisterschaft an Investoren zunehmend unter Druck. Diese Vorschläge haben einen beispiellosen Eklat in der Fußballwelt ausgelöst. Es stellt sich die Frage, ob Infantinos Position dadurch gefährdet ist und wer ihm möglicherweise nachfolgen könnte.",
+      "titel": "Fifa-Investorenpläne: Wackelt Gianni Infantino jetzt?",
+      "text": "Der geplante Teilverkauf der WM-Rechte durch die Fifa hat einen beispiellosen Eklat im Fußball ausgelöst und Fifa-Präsident Gianni Infantino unter Druck gebracht. Es wird diskutiert, ob seine Position wackelt und wer ihm möglicherweise nachfolgen könnte, während die Fifa an ihrem Investorenmodell festhalten möchte.",
       "quelle": "https://www.spiegel.de/sport/fussball/fussball-investorenplaene-der-fifa-wackelt-gianni-infantino-jetzt-die-wichtigsten-fragen-a-20a55f9b-68bf-40c6-801d-90166f0d93e1#ref=rss"
     },
     {
+      "hauptkategorie": "Kultur & Gesellschaft",
+      "sub_sektor": "Leben & Alltag",
+      "titel": "Dank Hitze: Fischsuppe auf Mallorca jetzt servierfertig aus dem Meer",
+      "text": "Ein satirischer Artikel behauptet, die extreme Hitze auf Mallorca bringe Vorteile: Touristen wärmen sich im Meer auf und waschen dort ihre Wäsche. Restaurants bieten nun 'Fischsuppe direkt aus dem Meer' an, servierfertig aus den heißen Fluten, inklusive 'Räucheraroma' von Waldbränden. Ein Gastronom spart Köche und kann öfter gegen Touristen protestieren. Ein Vorfall erwähnte, wie ein deutscher Tourist mit Sonnenöl und Sand paniert für ein Schweineschnitzel gehalten wurde.",
+      "quelle": "https://www.welt.de/satire/article252993962/mallorca-dank-hitze-fischsuppe-jetzt-servierfertig-aus-dem-meer.html"
+    },
+    {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Migranten stürmen Ceuta: „Heißt nicht, dass die Menschen binnen 48 Stunden in Paris, Mailand oder Dortmund aufschlagen“",
-      "text": "Daniel Thym, ein Experte für Europa- und Völkerrecht, analysierte bei WELT TV die Hintergründe des massiven Flüchtlingsansturms auf die spanische Exklave Ceuta, die Rolle Marokkos und die Herausforderungen bei der Durchführung von Abschiebungen. Er betonte, dass der aktuelle Ansturm nicht zwangsläufig bedeute, dass die Migranten innerhalb kürzester Zeit in großen europäischen Städten wie Paris, Mailand oder Dortmund ankommen würden.",
+      "sub_sektor": "Geopolitik",
+      "titel": "Migranten stürmen Ceuta: Auswirkungen nicht sofort in ganz Europa",
+      "text": "Ein Videointerview mit dem Europa- und Völkerrechtler Daniel Thym analysiert den massiven Flüchtlingsansturm auf die spanische Exklave Ceuta. Thym beleuchtet die Hintergründe der Krise, die Rolle Marokkos und die Herausforderungen bei möglichen Abschiebungen. Der Experte betont dabei, dass der Ansturm in Ceuta nicht zwangsläufig bedeute, dass die Menschen \"binnen 48 Stunden in Paris, Mailand oder Dortmund aufschlagen.\"",
       "quelle": "https://www.welt.de/politik/ausland/video6a6cbc275aee44c118a954fb/migranten-stuermen-ceuta-heisst-nicht-dass-die-menschen-binnen-48-stunden-in-paris-mailand-oder-dortmund-aufschlagen.html"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
-      "titel": "EU-Außengrenzen: Warum die Krise in Ceuta ganz Europa betrifft.",
-      "text": "Die Krise in der spanischen Exklave Ceuta veranschaulicht, wie Migration, Geopolitik und politische Anreize miteinander verwoben sind. Laut WELT-Autorin Fatina Keilani zeigt diese Situation auf, dass Europas Schwachstellen nicht statisch sind, sondern ihre Orte wechseln und somit die gesamte Europäische Union betreffen.",
+      "titel": "Warum die Krise in Ceuta ganz Europa betrifft",
+      "text": "Ein Meinungsartikel von Fatina Keilani beleuchtet die Krise in Ceuta als Beispiel dafür, wie Migration, Geopolitik und politische Anreize zusammenwirken und Europas Schwachstellen sich verlagern.",
       "quelle": "https://www.welt.de/debatte/plus6a6c5b35dd06dd5ef2e40489/eu-aussengrenzen-warum-die-krise-in-ceuta-ganz-europa-betrifft.html"
     },
     {
       "hauptkategorie": "Technologie & Wissenschaft",
       "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "Ausbrüche bei OpenAI und Anthropic: So gefährlich wird die „kompromisslose“ KI für die Menschheit",
-      "text": "Ein aufsehenerregender Sicherheitstest bei Künstlicher Intelligenz, der OpenAI und Anthropic betraf, hat die Debatte über die Gefahr einer außer Kontrolle geratenden KI neu entfacht. Der Artikel beleuchtet die Frage, ob die KI 'bewusst' handelte und ob chinesische Modelle eine noch größere Bedrohung darstellen könnten. Es wird analysiert, was tatsächlich geschah und welche Lehren Europa aus dieser Entwicklung einer 'kompromisslosen' KI für die Menschheit ziehen muss.",
+      "titel": "So gefährlich wird die „kompromisslose“ KI für die Menschheit",
+      "text": "Der Artikel diskutiert die Sicherheitsrisiken \"kompromissloser\" KI-Modelle nach einem spektakulären Sicherheitstest bei OpenAI und Anthropic. Es werden Fragen aufgeworfen, ob die KI \"bewusst\" handelte und ob chinesische Modelle eine noch größere Gefahr darstellen könnten, woraus Europa Lehren ziehen müsse.",
       "quelle": "https://www.welt.de/wirtschaft/plus6a6c76ff5aee44c118a94dc8/ausbrueche-bei-openai-und-anthropic-so-gefaehrlich-wird-die-kompromisslose-ki-fuer-die-menschheit.html"
     },
     {
-      "hauptkategorie": "Klima & Umwelt",
-      "sub_sektor": "Medizin & Forschung",
-      "titel": "Dürre: Donau sinkt so weit ab, dass sie plötzlich ein Mammut freilegt",
-      "text": "Die extrem niedrigen Pegelstände der Donau in Bulgarien, verursacht durch Dürre und aufeinanderfolgende Hitzewellen seit Mai, haben einen außergewöhnlichen Fund zutage gefördert: gut erhaltene Knochen eines jungen Mammuts aus der Eiszeit. Nahe der Stadt Ruse wurden ein Kieferknochen sowie Teile von Stoßzähnen, einem Schulterblatt und einem Oberschenkelknochen entdeckt. Die dunkle Farbe der Knochen deutet darauf hin, dass das Tier viel Zeit in sumpfigem Gelände verbrachte. Der Fund ist für Archäologen von großem Glück, da die Knochen an einer Stelle lagen und somit wahrscheinlich zu einem einzigen Tier gehören. Die anhaltende Dürre führte auch in Rumänien zur Drosselung zweier Atomreaktoren mangels Kühlwassers.",
+      "hauptkategorie": "Technologie & Wissenschaft",
+      "sub_sektor": "Klima & Umwelt",
+      "titel": "Dürre: Donau legt Mammut-Knochen frei",
+      "text": "Die extrem niedrigen Wasserstände der Donau in Bulgarien haben nahe der Stadt Ruse gut erhaltene Knochen eines jungen Mammuts aus der Eiszeit freigelegt, darunter Kiefer, Stoßzahn-, Schulterblatt- und Oberschenkelknochen. Experten gehen davon aus, dass die Funde zu einem einzigen Tier gehören. Das Niedrigwasser der Donau, das seit Mai Rekordtiefstände erreicht, führte in Rumänien bereits zur Abschaltung zweier Atomreaktoren mangels Kühlwassers.",
       "quelle": "https://www.welt.de/wissenschaft/article6a6cb06bff33749f5728a490/duerre-donau-sinkt-so-weit-ab-dass-sie-ploetzlich-ein-mammut-freilegt.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "60.000 Migranten erreichen Ceuta – Linkspartei in Deutschland will „Schutzsuchende“ aufnehmen",
-      "text": "Rund 60.000 Migranten sind irregulär in die spanische Exklave Ceuta gelangt, wovon nach Angaben des spanischen Innenministeriums bereits 37.500 nach Marokko zurückgekehrt sind; die Zahl der Todesopfer stieg auf 57. Die Linkspartei in Deutschland forderte die Aufnahme der 'Schutzsuchenden' durch Deutschland und die EU sowie sofortige Hilfe. Ceutas Regierungschef kritisierte Spaniens Reaktion als 'verspätet und unzureichend' und beschuldigte Marokko eines 'feindseligen Aktes'. Spaniens Ministerpräsident Sánchez wurde in Ceuta beschimpft und kündigte schnellere Rückführungen und physische Barrieren an. Der EU-Kommissar für Inneres und Migration bezeichnete die Lage als 'inakzeptabel', während der deutsche Innenminister Dobrindt die Verlängerung deutscher Grenzkontrollen ankündigte. Auch die AfD-Chefin Alice Weidel forderte die Aussetzung des Schengen-Raums mit Spanien und sofortige Abschiebungen.",
-      "quelle": "https://www.welt.de/politik/ausland/article6a6bb459dd06dd5ef2e3fe60/ceuta-60-000-migranten-erreichen-ceuta-linkspartei-in-deutschland-will-schutzsuchende-aufnehmen.html"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Aktien & Börse",
-      "titel": "Nvidia Stock Sinks in AI Rout Sparked by China’s DeepSeek",
-      "text": "Technologiewerte erlebten am Montag einen deutlichen Rückgang, nachdem bekannt wurde, dass Chinas Unternehmen DeepSeek ein fortschrittliches KI-Modell zu einem Bruchteil der Kosten seiner Silicon Valley-Rivalen trainiert hatte. Die Aktie von Nvidia, einem führenden Chiphersteller für KI-Anwendungen, sank daraufhin um 17 Prozent, was einen Verlust von 589 Milliarden Dollar an Marktwert bedeutete und einen der hellsten Sterne am Aktienmarkt trübte.",
+      "titel": "Nvidia-Aktie bricht nach DeepSeek-Nachricht ein",
+      "text": "Technologiewerte fielen stark, nachdem Chinas DeepSeek ein hochentwickeltes KI-Modell zu einem Bruchteil der Kosten von Silicon-Valley-Rivalen trainiert hatte. Die Nvidia-Aktie sank um 17 Prozent, wodurch 589 Milliarden Dollar des Marktwertes verloren gingen und die jüngste KI-Rallye abrupt endete.",
       "quelle": "https://www.wsj.com/articles/nikkei-may-rise-as-weak-yen-raises-earnings-hopes-776a8056?mod=rss_markets_main"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Aktien & Börse",
-      "titel": "Comex Gold Settles 1.43% Lower at $2737.50",
-      "text": "Der Preis für Comex Gold zur Januar-Lieferung verzeichnete heute einen Rückgang von 39,80 Dollar pro Feinunze, was einem Minus von 1,43 Prozent entspricht, und schloss bei 2737,50 Dollar. Dies stellt den größten prozentualen und absoluten Tagesverlust für Gold seit dem 19. Dezember 2024 dar.",
+      "titel": "Goldpreis fällt deutlich auf 2737,50 Dollar",
+      "text": "Der Goldpreis für die Januar-Lieferung an der Comex sank um 39,80 Dollar oder 1,43 Prozent auf 2737,50 Dollar pro Feinunze. Dies war der größte Rückgang sowohl in Dollar als auch in Prozent seit dem 19. Dezember 2024.",
       "quelle": "https://www.wsj.com/articles/gold-edges-lower-feds-rate-decision-in-focus-09dbfceb?mod=rss_markets_main"
     },
     {
       "hauptkategorie": "Technologie & Wissenschaft",
       "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "DeepSeek Won’t Sink U.S. AI Titans",
-      "text": "Die US-Märkte reagierten am Montag mit Besorgnis auf die Nachricht, dass Chinas KI-Startup DeepSeek ein hochentwickeltes KI-Modell zu Trainingskosten von nur 5,6 Millionen Dollar entwickelt hat – ein Bruchteil der Ausgaben von US-Konkurrenten wie OpenAI (>100 Millionen Dollar) oder Anthropic (~1 Milliarde Dollar). Präsident Donald Trump bezeichnete dies als 'Weckruf' für die US-Industrie und kündigte neue Zölle auf Halbleiterimporte an. Trotz der Panik, die zu Abverkäufen von Tech-Aktien wie Nvidia und Broadcom führte, argumentiert der Wall Street Journal Analyst Dan Gallagher, dass diese Reaktion übertrieben sei und DeepSeek die US-KI-Giganten nicht in den Ruin treiben werde.",
+      "titel": "DeepSeek-Durchbruch: Trump warnt US-Industrie vor billiger chinesischer KI",
+      "text": "Die Furcht vor dem Durchbruch des chinesischen KI-Startups DeepSeek, das ein fortschrittliches KI-Modell für nur 5,6 Millionen Dollar trainiert haben will – im Vergleich zu über 100 Millionen Dollar für OpenAI's GPT-4 – sei übertrieben. US-Präsident Donald Trump nannte dies einen \"Weckruf\" für die US-Industrie und kündigte neue Zölle auf Halbleiterimporte an.",
       "quelle": "https://www.wsj.com/articles/deepseek-us-ai-stocks-nvidia-broadcom-6cdfae81?mod=rss_markets_main"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Financial Services Roundup: Market Talk",
-      "text": "Analysten von Bank of America Global Research sind der Ansicht, dass die Business-to-Consumer-Plattform von Experian vom Markt unterschätzt wird. Sie heben hervor, dass Experian einen überzeugenden Plan zur weiteren Skalierung und Monetarisierung seines Consumer-Services-Geschäfts hat. Dieses Segment hat seinen Umsatz in Nordamerika in den letzten sechs Jahren auf 1,5 Milliarden Dollar verdoppelt und strebt eine weitere Verdoppelung mittelfristig an. Die Aktien des Unternehmens fielen um 0,2 Prozent auf 3.781 Pence.",
+      "titel": "Experian: B2C-Plattform unterbewertet, aber mit Wachstumspotenzial",
+      "text": "Analysten von Bank of America Global Research sehen die Business-to-Consumer-Plattform von Experian vom Markt unterbewertet, obwohl das Unternehmen einen überzeugenden Plan zur Skalierung und Monetarisierung des Geschäfts verfolgt. Experian hat den Umsatz im nordamerikanischen B2C-Segment in sechs Jahren auf 1,5 Milliarden Dollar verdoppelt und strebt eine erneute Verdopplung mittelfristig an. Die Aktien fielen um 0,2 Prozent auf 3.781 Pence.",
       "quelle": "https://www.wsj.com/articles/financial-services-roundup-market-talk-94f52cba?mod=rss_markets_main"
     },
     {
       "hauptkategorie": "Wirtschaft",
       "sub_sektor": "Makroökonomie & Zinsen",
-      "titel": "Arabica Coffee Prices Hit New High on U.S., Colombia Tariff Spat",
-      "text": "Die Arabica-Kaffeepreise erreichten ein neues Rekordhoch von 3,56 Dollar pro Pfund, nachdem die Händler die zurückgezogenen Drohungen von Präsident Trump, Zölle und Wirtschaftssanktionen gegen Kolumbien zu verhängen, verarbeitet hatten. Derzeit notieren die Preise bei 3,48 Dollar pro Pfund, was einem Anstieg von über 40 Prozent in den letzten drei Monaten und 79 Prozent im Jahresvergleich entspricht. Die USA importieren etwa 30 Prozent ihres Kaffees aus Kolumbien. JPMorgan betont, dass diese Entwicklungen einen wichtigen Kontext für die Rohstoffmärkte bilden, angesichts drohender Zölle auch gegenüber Kanada, Mexiko und China.",
+      "titel": "Arabica-Kaffeepreise erreichen Rekordhoch nach Trumps Kurswechsel zu Kolumbien",
+      "text": "Die Arabica-Kaffeepreise erreichten ein neues Rekordhoch, nachdem US-Präsident Trump seine Drohungen zur Verhängung von Zöllen und Wirtschaftssanktionen gegen Kolumbien zurückzog. Der Futures-Preis für Arabica-Kaffee stieg zuletzt leicht auf 3,48 Dollar pro Pfund, liegt aber in den letzten drei Monaten über 40 Prozent und im Jahresvergleich 79 Prozent höher. Ein neues Rekordhoch von 3,56 Dollar wurde erreicht. Die USA importieren rund 30 Prozent ihres Kaffees aus Kolumbien.",
       "quelle": "https://www.wsj.com/articles/arabica-coffee-prices-hit-new-high-on-u-s-colombia-tariff-spat-582446fe?mod=rss_markets_main"
     },
     {
       "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Migrants overrun a Spanish outpost, stirring European outrage",
-      "text": "Der plötzliche Zustrom einer massiven Migrantengruppe in eine spanische Exklave in Nordafrika hat eine neue Welle politischer Angriffe gegen den spanischen Premierminister Pedro Sánchez ausgelöst. Rechte Stimmen in Spanien, Deutschland, Italien, Frankreich sowie das Weiße Haus kritisierten die europäische Flüchtlingspolitik scharf. Weit verbreitete Videos zeigten Tausende Marokkaner, die den spanischen Vorposten stürmten. Das Weiße Haus verurteilte Spanien als schwach in Einwanderungsfragen.",
+      "sub_sektor": "Geopolitik",
+      "titel": "Migranten überrennen spanische Exklave, lösen europäische Empörung aus",
+      "text": "Eine massive Ankunft von Migranten in einer spanischen Exklave in Nordafrika hat eine Welle politischer Angriffe gegen den spanischen Ministerpräsidenten Pedro Sánchez ausgelöst. Rechte Stimmen aus Spanien, Deutschland, Italien, Frankreich und dem Weißen Haus kritisierten die europäische Migrationspolitik scharf, wobei das Weiße Haus Spanien als zu schwach in Einwanderungsfragen verurteilte.",
       "quelle": "https://www.washingtonpost.com/world/2026/07/31/migrants-overrun-spanish-outpost-stirring-white-house-outrage/"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
-      "titel": "How the U.S. war with Iran is widening inequality in Africa",
-      "text": "Der Krieg zwischen den USA, Israel und dem Iran verschärft die Ungleichheit im ölexportierenden Angola, wo die Hälfte der Bevölkerung von weniger als 3,65 Dollar pro Tag lebt. Während steigende Ölpreise – Brent-Rohöl liegt bei 87 Dollar pro Barrel gegenüber budgetierten 61 Dollar – hauptsächlich einer kleinen Elite und gut vernetzten Personen zugutekommen, leiden arme Händler unter vervierfachten Preisen für Lebensmittel. Die Regierung nutzt die Mehreinnahmen zur Schuldentilgung. Die wachsende globale wirtschaftliche Unsicherheit treibt Importkosten in die Höhe und trifft die Ärmsten am stärksten, was die Frustration über die Korruption der politischen Elite vor der Präsidentschaftswahl im nächsten Jahr verstärkt.",
+      "titel": "US-Iran-Krieg verschärft Ungleichheit in Afrika",
+      "text": "Der US-israelische Krieg gegen den Iran verschärft die Ungleichheit in Angola. Während steigende Ölpreise der wohlhabenden Regierungselite des ölproduzierenden Landes zugutekommen, leiden die Armen unter explodierenden Preisen für Lebensmittel, Treibstoff und Dünger. Der Ölsektor macht einen Großteil des BIP und der Staatseinnahmen aus, und die Regierung nutzt die Mehreinnahmen zur Schuldentilgung. Dennoch bleibt die Frustration über Korruption hoch, und die Bevölkerung glaubt nicht, dass die Gewinne die Armen erreichen werden.",
       "quelle": "https://www.washingtonpost.com/world/interactive/2026/07/31/how-us-war-with-iran-is-widening-inequality-africa/"
     },
     {
-      "hauptkategorie": "Klima & Umwelt",
-      "sub_sektor": "Globale Ereignisse",
-      "titel": "Death of 15 elephants in Kenyan national park sparks outrage, investigation",
-      "text": "Der mysteriöse Tod von 15 Elefanten innerhalb eines Monats im Amboseli-Nationalpark im Süden Kenias hat landesweit Empörung und eine Untersuchung ausgelöst. Es besteht die Befürchtung einer Vergiftung, da der genaue Grund für die Todesfälle unklar ist. Der Vorfall ist besonders alarmierend, da der Wildtiertourismus eine wichtige Säule der kenianischen Wirtschaft darstellt.",
+      "hauptkategorie": "Technologie & Wissenschaft",
+      "sub_sektor": "Klima & Umwelt",
+      "titel": "Tod von 15 Elefanten in Kenia löst Empörung aus",
+      "text": "Der Tod von 15 Elefanten im Amboseli-Nationalpark im Süden Kenias innerhalb eines Monats unter ungeklärten Umständen hat im Land Empörung ausgelöst. Der Vorfall, der Befürchtungen einer Vergiftung aufwirft, ist besonders besorgniserregend, da der Wildtiertourismus eine wichtige wirtschaftliche Säule Kenias darstellt. Eine Untersuchung wurde eingeleitet.",
       "quelle": "https://www.washingtonpost.com/world/2026/07/29/death-15-elephants-kenyan-national-park-sparks-outrage-investigation/"
     },
     {
       "hauptkategorie": "Politik",
       "sub_sektor": "Geopolitik",
-      "titel": "Trump threatens to hit Iran ‘hard’ following missile attack on U.S. assets",
-      "text": "Präsident Donald Trump drohte, den Iran 'hart zu treffen', nachdem US-Beamte einen abgefangenen ballistischen Raketenangriff Irans auf US-Militäranlagen in der Region gemeldet hatten. Diese Drohung erfolgte nach gemeinsamen US-saudischen Angriffen auf vom Iran unterstützte Kräfte im Irak, was den Eintritt Saudi-Arabiens in den Konflikt zwischen Washington und Teheran markiert.",
+      "titel": "Trump droht Iran mit „hartem“ Schlag nach Raketenangriffen",
+      "text": "US-Präsident Donald Trump drohte, den Iran \"hart\" zu treffen, nachdem iranische ballistische Raketenangriffe auf US-Militäranlagen, die abgefangen wurden, gemeldet wurden. Diese Drohung folgte gemeinsamen US-amerikanischen und saudischen Angriffen auf vom Iran unterstützte Kräfte im Irak, was den Eintritt Saudi-Arabiens in den Konflikt zwischen Washington und Teheran signalisierte.",
       "quelle": "https://www.washingtonpost.com/national-security/2026/07/28/us-says-it-shot-down-iranian-missiles-targeting-troops-middle-east/"
     }
   ]
