@@ -46,7 +46,6 @@
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #00ffff; border-radius: 3px; }
         
-        /* Versteckt den Scrollbalken im Menü auf dem Handy */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -55,24 +54,20 @@
 
     <div class="scanlines"></div>
 
-    <!-- INTRO SCREEN -->
     <div id="intro-screen" class="fixed inset-0 bg-[#020202] z-[100] flex flex-col items-center justify-center">
         <h1 class="intro-text text-3xl md:text-5xl text-[#00ffff] font-black tracking-[0.2em] text-center px-4 text-glow">
             CARLOS<br>HQ
         </h1>
     </div>
 
-    <!-- MAIN DASHBOARD -->
     <div id="app-container" class="flex flex-col md:flex-row h-screen opacity-0 transition-opacity duration-1000">
         
-        <!-- SIDEBAR / NAVIGATION (Handy = Oben, Laptop = Links) -->
         <div class="w-full md:w-64 bg-[#050810] border-b md:border-b-0 md:border-r border-[#0f172a] border-neon flex flex-col z-40 relative flex-shrink-0 shadow-lg">
             <div class="p-4 md:p-6 flex justify-between md:block items-center border-b border-[#0f172a] border-neon">
                 <div>
                     <h1 class="text-lg md:text-xl font-bold tracking-widest text-[#00ffff] text-glow">NEWS//HQ</h1>
                     <p class="ui-font text-[10px] text-cyan-600 mt-1 uppercase tracking-widest hidden md:block">Global Data Feed</p>
                 </div>
-                <!-- Live Indikator fürs Handy (oben rechts) -->
                 <div class="md:hidden flex items-center gap-2 ui-font px-2 py-1 border border-[#00ffff]/30 rounded bg-[#00ffff]/5">
                     <div class="w-2 h-2 rounded-full bg-[#00ffff] animate-pulse-cyan"></div>
                     <span class="text-[10px] font-bold text-[#00ffff] tracking-widest">LIVE</span>
@@ -84,10 +79,8 @@
             </nav>
         </div>
 
-        <!-- HAUPTBEREICH -->
         <div class="flex-1 flex flex-col bg-[#030508] relative overflow-y-auto">
             
-            <!-- Laptop Header -->
             <header class="hidden md:flex bg-[#050810]/90 backdrop-blur-md border-b border-[#0f172a] border-neon px-8 py-5 justify-between items-center sticky top-0 z-30">
                 <h2 class="text-2xl font-bold tracking-wide text-white uppercase" id="current-category-title-desktop">Alle Sektoren</h2>
                 <div class="flex items-center gap-2 ui-font px-4 py-1.5 border border-[#00ffff]/30 rounded bg-[#00ffff]/5">
@@ -97,7 +90,6 @@
             </header>
 
             <main class="p-4 md:p-8">
-                <!-- Handy Titel -->
                 <div class="md:hidden mb-4 mt-2">
                     <h2 class="text-xl font-bold tracking-wide text-white uppercase text-center" id="current-category-title-mobile">Alle Sektoren</h2>
                 </div>
@@ -109,7 +101,6 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
         let allNews = [];
         let activeCategory = 'Alle';
@@ -128,6 +119,7 @@
 
         async function fetchNews() {
             try {
+                // Das ?t=... verhindert, dass der Browser alte Daten aus dem Cache lädt
                 const response = await fetch('nachrichten.json?t=' + new Date().getTime()); 
                 const data = await response.json();
                 
@@ -187,13 +179,17 @@
             }
 
             grid.innerHTML = filtered.map(item => {
-                // Automatisches Bild-Element erzeugen, falls eine Bild-URL vorhanden ist
-                const bildHtml = item.bild ? `<img src="${item.bild}" class="w-full h-40 object-cover rounded-sm mb-4 border border-[#00ffff]/20">` : '';
+                
+                // HIER WERDEN DIE BILDER EINGEFÜGT!
+                const bildHtml = item.bild && item.bild !== "" 
+                    ? `<img src="${item.bild}" class="w-full h-48 object-cover rounded-sm mb-4 border border-[#00ffff]/30" alt="Artikelbild">` 
+                    : '';
 
                 return `
                 <div class="bg-[#070b14] border border-neon rounded-sm p-5 md:p-6 flex flex-col justify-start transition-all duration-300 glow-hover relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#00ffff]/20 to-transparent"></div>
 
+                    <!-- Das Bild taucht jetzt ganz oben in der Box auf -->
                     ${bildHtml}
 
                     <div class="flex justify-between items-start gap-2 mb-3">
@@ -201,7 +197,9 @@
                             ${item.sub_sektor || 'Allgemein'}
                         </span>
                         <span class="ui-font text-[9px] md:text-[10px] text-gray-500 font-bold tracking-widest uppercase bg-[#000] px-2 py-1 border border-gray-800">
-                            ${item.quelle || 'System'}
+                            ${item.quelle && item.quelle.includes('heise') ? 'Heise' : 
+                              item.quelle && item.quelle.includes('golem') ? 'Golem' : 
+                              item.quelle && item.quelle.includes('manager-magazin') ? 'Manager Magazin' : 'System'}
                         </span>
                     </div>
 
@@ -209,15 +207,15 @@
                         ${item.titel || 'Kein Titel'}
                     </h3>
 
-                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-light mb-4">
+                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-light mb-4 flex-grow">
                         ${item.text || 'Kein Inhalt verfügbar.'}
                     </p>
 
-                    <div class="mt-auto pt-2">
-                        <a href="${item.quelle}" target="_blank" class="inline-block text-[10px] ui-font text-[#00ffff] hover:underline tracking-widest uppercase">Zum Original &rarr;</a>
+                    <div class="mt-auto pt-2 border-t border-[#00ffff]/10">
+                        <a href="${item.quelle}" target="_blank" class="inline-block mt-2 text-[10px] ui-font text-[#00ffff] hover:text-white transition-colors tracking-widest uppercase">
+                            Zum Original-Artikel &rarr;
+                        </a>
                     </div>
-                    
-                    <div class="w-12 h-0.5 bg-[#00ffff]/30 mt-4"></div>
                 </div>
             `;
             }).join('');
