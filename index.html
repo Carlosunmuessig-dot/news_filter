@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Carlos HQ - J.A.R.V.I.S. OS v8.0</title>
+    <title>Carlos HQ - T.R.A.V.I.S. Ultimate OS v10.0</title>
     
     <style>
         :root {
@@ -35,8 +35,7 @@
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-color: #000; color: #fff;
             display: flex; align-items: center; justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s;
+            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s;
         }
         .intro-title { font-size: 3rem; font-weight: 600; letter-spacing: -0.02em; }
 
@@ -66,20 +65,20 @@
         .apple-nav-item:hover { color: #fff; }
         .apple-nav-item.active { color: #fff; background: rgba(255, 255, 255, 0.16); font-weight: 600; }
 
-        /* JARVIS VOICE STATUS WIDGET */
-        .jarvis-widget {
+        /* TRAVIS VOICE STATUS WIDGET */
+        .travis-widget {
             display: flex; align-items: center; gap: 10px; background: rgba(0, 102, 204, 0.15);
             border: 1px solid rgba(0, 102, 204, 0.3); padding: 6px 16px; border-radius: 99px; cursor: pointer;
             transition: 0.3s;
         }
-        .jarvis-widget:hover { background: rgba(0, 102, 204, 0.25); }
-        .jarvis-pulse {
-            width: 8px; height: 8px; background-color: var(--apple-blue); border-radius: 50%;
-            box-shadow: 0 0 10px var(--apple-blue); animation: jarvisPulse 1.5s infinite;
+        .travis-widget:hover { background: rgba(0, 102, 204, 0.25); }
+        .travis-pulse {
+            width: 8px; height: 8px; background-color: var(--apple-green); border-radius: 50%;
+            box-shadow: 0 0 10px var(--apple-green); animation: travisPulse 1.5s infinite;
         }
-        @keyframes jarvisPulse {
+        @keyframes travisPulse {
             0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 15px var(--apple-blue); }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 15px var(--apple-green); }
             100% { transform: scale(0.95); opacity: 0.8; }
         }
 
@@ -103,7 +102,7 @@
         }
         .side-panel h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--apple-blue); margin-top: 0; letter-spacing: 0.08em; }
 
-        .jarvis-core-display {
+        .travis-core-display {
             position: relative; height: 520px; border-radius: 32px; 
             background: radial-gradient(circle at center, rgba(0, 102, 204, 0.15) 0%, rgba(8, 8, 12, 0.95) 75%);
             display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
@@ -128,18 +127,11 @@
         .cockpit-title { font-size: 34px; font-weight: 700; margin: 0 0 10px 0; z-index: 2; letter-spacing: -0.02em; }
         .cockpit-subtitle { font-size: 14px; color: var(--apple-text-muted); z-index: 2; max-width: 450px; line-height: 1.5; }
 
-        #jarvis-live-dialogue {
+        #travis-live-dialogue {
             margin-top: 15px; z-index: 2; max-width: 550px; font-size: 13px; color: #fff;
             background: rgba(0,0,0,0.75); padding: 12px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15);
             display: none; backdrop-filter: blur(10px); text-align: left;
         }
-
-        .mic-trigger-btn {
-            margin-top: 20px; z-index: 2; background: var(--apple-blue); color: #fff; border: none;
-            padding: 12px 28px; border-radius: 99px; font-size: 14px; font-weight: 600; cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0,102,204,0.4); transition: transform 0.2s, background 0.2s;
-        }
-        .mic-trigger-btn:hover { transform: scale(1.05); background: #0077ed; }
 
         /* APP CONTAINERS & CARDS */
         .app-container, .bento-card, .report-card, .control-box, .academy-module, .vocab-studio {
@@ -161,10 +153,12 @@
         .card-headline { font-size: 19px; font-weight: 600; line-height: 1.25; margin: 0 0 10px 0; }
         .bento-hero .card-headline { font-size: 30px; }
         .card-text { font-size: 14px; color: var(--apple-text-muted); line-height: 1.5; margin: 0; }
+        .bookmark-btn { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--apple-text-muted); }
+        .bookmark-btn.active { color: var(--apple-blue); }
 
         /* KATEGORIEN & CHIPS */
         .category-bar {
-            display: flex; gap: 12px; list-style: none; margin: 0 0 25px 0; padding: 0;
+            display: flex; gap: 12px; list-style: none; margin: 0 0 15px 0; padding: 0;
             overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;
         }
         .cat-item {
@@ -173,6 +167,8 @@
         }
         .cat-item:hover { color: var(--apple-text); background: rgba(255,255,255,0.08); }
         .cat-item.active { color: #fff; background: var(--apple-blue); font-weight: 600; }
+        
+        .sub-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
         .chip {
             background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--apple-text);
             padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; transition: 0.2s;
@@ -194,12 +190,26 @@
         /* ACADEMY & MARKET */
         .stock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px; }
         .stock-input { padding: 14px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); outline: none; font-size: 14px; background: var(--apple-card); color: var(--apple-text); width: 100%; }
+        .scratchpad { width: 100%; min-height: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 15px; font-family: inherit; font-size: 14px; color: var(--apple-text); resize: vertical; outline: none; margin-top: 15px; }
+        .dcf-slider-box { background: var(--apple-card); padding: 30px; border-radius: 24px; margin-top: 30px; border: 1px solid rgba(255,255,255,0.08); }
+        .slider-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; font-size: 14px; }
+        .slider-row input[type="range"] { flex: 1; margin: 0 25px; accent-color: var(--apple-blue); }
+
         .quiz-option {
             display: block; width: 100%; padding: 14px 20px; margin: 12px 0; background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; text-align: left; cursor: pointer;
             font-size: 14px; font-weight: 500; color: var(--apple-text); transition: 0.2s;
         }
         .quiz-option:hover { background: rgba(0,102,204,0.15); border-color: var(--apple-blue); }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 8px; color: transparent !important; user-select: none;
+        }
 
         .hidden-view { display: none; }
 
@@ -230,20 +240,21 @@
             <li class="apple-nav-item" onclick="switchView('market', event)">Börse & Analyzer</li>
             <li class="apple-nav-item" onclick="switchView('vocab', event)">Lingua Lab</li>
             <li class="apple-nav-item" onclick="switchView('academy', event)">Academy</li>
+            <li class="apple-nav-item" onclick="switchView('gespeichert', event)">Gespeichert</li>
             <li class="apple-nav-item" onclick="switchView('kontrolle', event)">Kontrolle</li>
         </ul>
 
         <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="jarvis-widget" onclick="toggleJarvisListening()">
-                <div class="jarvis-pulse" id="jarvis-mic-pulse"></div>
-                <span id="jarvis-status-label" style="font-size: 12px; font-weight: 600;">J.A.R.V.I.S. bereit</span>
+            <div class="travis-widget" onclick="toggleTravisListeningManually()">
+                <div class="travis-pulse" id="travis-mic-pulse"></div>
+                <span id="travis-status-label" style="font-size: 12px; font-weight: 600;">T.R.A.V.I.S. aktiv (Hey Travis)</span>
             </div>
         </div>
     </nav>
 
     <main class="main-container">
         
-        <!-- ================= MISSION CONTROL COCKPIT (CYBER LOOK + GLOBE + TICKERS) ================= -->
+        <!-- ================= MISSION CONTROL COCKPIT ================= -->
         <div id="view-hq">
             <div class="cockpit-grid">
                 
@@ -255,14 +266,13 @@
                     </div>
                 </div>
 
-                <!-- MITTE: HOLOGRAMM GLOBE & JARVIS -->
-                <div class="jarvis-core-display">
+                <!-- MITTE: HOLOGRAMM GLOBE & TRAVIS -->
+                <div class="travis-core-display">
                     <div class="hologram-globe"></div>
                     <div class="cockpit-clock" id="cockpit-clock">00:00:00 • ETTENHEIM SYSTEM ONLINE</div>
                     <h1 class="cockpit-title">Moin Master Carlos.</h1>
-                    <p class="cockpit-subtitle">Alle Sub-Systeme und KI-Module sind bereit. Sag mir, was wir starten sollen oder frag mich.</p>
-                    <div id="jarvis-live-dialogue"></div>
-                    <button class="mic-trigger-btn" onclick="toggleJarvisListening()">🎤 Sprich mit J.A.R.V.I.S.</button>
+                    <p class="cockpit-subtitle">Sag einfach laut <strong>„Hey Travis“</strong> gefolgt von deinem Befehl oder deiner Frage. Ich höre dauerhaft zu.</p>
+                    <div id="travis-live-dialogue"></div>
                 </div>
 
                 <!-- RECHTS: TOP SCHLAGZEILEN (WIRTSCHAFT, TECH, POLITIK) -->
@@ -281,45 +291,79 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
                 <div>
                     <h1 style="font-size: 32px; margin:0;" id="page-title">News Intelligence.</h1>
-                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Kuratierte Schlagzeilen</p>
+                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Kuratierte Schlagzeilen & Deep Dives</p>
                 </div>
-                <button onclick="switchView('hq')" class="chip">← Zurück</button>
+                <button onclick="switchView('hq')" class="chip">← Zurück zu Mission Control</button>
             </div>
             <ul class="category-bar" id="main-nav"></ul>
+            <div class="sub-nav" id="sub-sector-filters"></div>
             <div class="bento-grid" id="news-grid"></div>
         </div>
 
-        <!-- ================= 2. MARKET TERMINAL ================= -->
+        <!-- ================= 2. MARKET TERMINAL & EQUITY RESEARCH ================= -->
         <div id="view-market" class="hidden-view">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
                 <div>
                     <h1 style="font-size: 32px; margin:0;">Market Terminal & Analyzer.</h1>
-                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Live Kurse & Blackstone Research</p>
+                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Live Kurse, Watchlist & Blackstone Research Engine</p>
                 </div>
-                <button onclick="switchView('hq')" class="chip">← Zurück</button>
+                <button onclick="switchView('hq')" class="chip">← Zurück zu Mission Control</button>
             </div>
 
             <div class="app-container">
-                <input type="text" id="add-stock" class="stock-input" style="margin-bottom:20px;" placeholder="Aktie hinzufügen (z.B. AAPL) + Enter">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:15px;">
+                    <h3 style="margin:0; font-size:18px; color:var(--apple-blue);">Live Watchlist & Global Markets</h3>
+                    <input type="text" id="add-stock" class="stock-input" style="max-width:300px;" placeholder="Ticker hinzufügen (z.B. AAPL) + Enter">
+                </div>
+                <div class="sub-nav" id="sector-tabs">
+                    <button onclick="setMarketSector('semis')" class="chip active">Semis & AI</button>
+                    <button onclick="setMarketSector('bigtech')" class="chip">Big Tech</button>
+                    <button onclick="setMarketSector('health')" class="chip">Healthcare</button>
+                    <button onclick="setMarketSector('consumer')" class="chip">Consumer</button>
+                    <button onclick="setMarketSector('watchlist')" class="chip">Watchlist</button>
+                </div>
                 <div class="stock-grid" id="sector-stock-grid"></div>
-                <h3 style="margin: 30px 0 15px 0; font-size: 18px;">NASDAQ Composite</h3>
-                <div style="height: 350px; border-radius: 16px; overflow: hidden;" id="tv-advanced-container"></div>
+                <h3 style="margin: 30px 0 15px 0; font-size: 18px;">NASDAQ Composite Index (IXIC)</h3>
+                <div style="height: 380px; border-radius: 18px; overflow: hidden;" id="tv-advanced-container"></div>
             </div>
 
-            <div class="app-container" style="margin-top: 30px;">
-                <h3 style="margin-top:0;">Institutional Equity Analyzer</h3>
-                <div style="display: flex; gap: 12px; margin-top: 15px;">
-                    <input type="text" id="analyzer-ticker" class="stock-input" placeholder="Ticker (z.B. NVDA)">
-                    <button onclick="runInstitutionalAnalysis()" class="chip active" style="padding: 14px 24px;">Analyse starten</button>
+            <div class="app-container" style="margin-top: 40px;">
+                <h2 style="font-size: 24px; margin-bottom: 10px;">Institutional Equity Analyzer</h2>
+                <p style="color:var(--apple-text-muted); margin-bottom: 25px;">Blackstone-Standard: 5-Säulen-Modell, Live-Recherche & DCF-Modellierung</p>
+                
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <input type="text" id="analyzer-ticker" class="stock-input" style="flex: 1; min-width: 250px;" placeholder="Ticker eingeben (z.B. NVDA, AAPL, MSFT, ASML)">
+                    <button onclick="runInstitutionalAnalysis()" class="chip active" style="padding: 14px 28px; font-weight: 600;">Profi-Analyse starten</button>
                 </div>
-                <div id="analyzer-results" style="display: none; margin-top: 20px;">
-                    <h4 id="report-title" style="color:var(--apple-blue);">Report</h4>
-                    <div style="display: grid; grid-template-columns: repeat(2,1fr); gap:15px; margin-top:15px;">
-                        <div class="report-card"><h4 style="margin-top:0;">1. Bilanz</h4><p id="report-p1" class="card-text">Lade...</p></div>
-                        <div class="report-card"><h4 style="margin-top:0;">2. Treiber</h4><p id="report-p2" class="card-text">Lade...</p></div>
-                        <div class="report-card"><h4 style="margin-top:0;">3. Wettbewerb</h4><p id="report-p3" class="card-text">Lade...</p></div>
-                        <div class="report-card"><h4 style="margin-top:0;">4. Management</h4><p id="report-p4" class="card-text">Lade...</p></div>
-                        <div class="report-card" style="grid-column:1/-1;"><h4 style="margin-top:0;">5. Fazit</h4><p id="report-p5" class="card-text">Lade...</p></div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="font-size: 12px; font-weight: 600; color: var(--apple-text-muted);">Investment Thesis / Notizen zu <span id="scratchpad-ticker-label">Aktie</span>:</label>
+                    <textarea id="investment-scratchpad" class="scratchpad" placeholder="Schreibe hier deine Anlagethese, Katalysatoren und Notizen auf..." oninput="saveScratchpad()"></textarea>
+                </div>
+
+                <div id="analyzer-results" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 id="report-title" style="font-size: 20px; margin:0;">Research Report</h3>
+                        <span id="report-rating" class="chip active" style="font-size: 13px;">ANALYSIERE...</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                        <div class="report-card"><h3 style="margin-top:0; font-size:18px; color:var(--apple-blue);">1. Quantitative Finanz- & Bilanzdaten</h3><p id="report-p1" class="card-text">Lade...</p></div>
+                        <div class="report-card"><h3 style="margin-top:0; font-size:18px; color:var(--apple-blue);">2. Qualitative & Operative Treiber</h3><p id="report-p2" class="card-text">Lade...</p></div>
+                        <div class="report-card"><h3 style="margin-top:0; font-size:18px; color:var(--apple-blue);">3. Markt-, Branchen- & Wettbewerb</h3><p id="report-p3" class="card-text">Lade...</p></div>
+                        <div class="report-card"><h3 style="margin-top:0; font-size:18px; color:var(--apple-blue);">4. Management & Governance</h3><p id="report-p4" class="card-text">Lade...</p></div>
+                        <div class="report-card" style="grid-column: 1 / -1;"><h3 style="margin-top:0; font-size:18px; color:var(--apple-blue);">5. Makroökonomie, Stresstests & Fazit</h3><p id="report-p5" class="card-text">Lade...</p></div>
+                    </div>
+
+                    <div class="dcf-slider-box">
+                        <h3 style="margin-top:0; font-size:18px; color: var(--apple-blue);">DCF-Modell & Szenario-Rechner</h3>
+                        <div class="slider-row"><span>Umsatzwachstum (p.a.): <strong id="dcf-val-growth">12%</strong></span><input type="range" min="1" max="40" value="12" id="dcf-growth" oninput="updateDCF()"></div>
+                        <div class="slider-row"><span>EBIT-Marge: <strong id="dcf-val-margin">25%</strong></span><input type="range" min="5" max="60" value="25" id="dcf-margin" oninput="updateDCF()"></div>
+                        <div class="slider-row"><span>WACC (Diskontierungsfaktor): <strong id="dcf-val-wacc">8.5%</strong></span><input type="range" min="5" max="15" step="0.5" value="8.5" id="dcf-wacc" oninput="updateDCF()"></div>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(0,102,204,0.1); border-radius: 12px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">Impliziter fairer Wert:</span>
+                            <span id="dcf-result" style="font-size: 20px; font-weight: 700; color: var(--apple-blue);">€ 142.50</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -332,57 +376,100 @@
                     <h1 style="font-size: 32px; margin:0;">Lingua Lab Pro.</h1>
                     <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">C2 Level General & Business Fluency (500 Core Words)</p>
                 </div>
-                <button onclick="switchView('hq')" class="chip">← Zurück</button>
+                <button onclick="switchView('hq')" class="chip">← Zurück zu Mission Control</button>
+            </div>
+
+            <div class="sub-nav" id="vocab-category-bar">
+                <button onclick="setVocabCategory('CoreVerbs')" class="chip active">Core Verbs (Handeln & Struktur)</button>
+                <button onclick="setVocabCategory('AbstractConcepts')" class="chip">Abstract Concepts (Ideen & Denken)</button>
+                <button onclick="setVocabCategory('Connectors')" class="chip">Connectors & Logic (Argumentation)</button>
+                <button onclick="setVocabCategory('Precision')" class="chip">Precision & Detail (Ausdruck)</button>
             </div>
 
             <div class="vocab-studio">
-                <span id="vocab-progress" style="font-size: 13px; color: var(--apple-text-muted);">1 / 4</span>
+                <div style="display:flex; justify-content:space-between; align-items:center; color:var(--apple-text-muted); font-size:13px;">
+                    <span>Fortschritt: <strong id="vocab-progress">1 / 4</strong></span>
+                    <span>Klicke auf die Karte, um die Übersetzung und Beispielsätze anzuzeigen</span>
+                </div>
+
                 <div class="flashcard" onclick="flipVocabCard()">
                     <div class="vocab-word" id="vocab-en">Establish</div>
-                    <div class="vocab-translation" id="vocab-de" style="display:none;">etablieren / aufbauen</div>
-                    <div class="vocab-example" id="vocab-ex">Klicken zum Aufdecken</div>
+                    <div class="vocab-translation" id="vocab-de" style="display:none;">etablieren / aufbauen / feststellen</div>
+                    <div class="vocab-example" id="vocab-ex">"We need to establish clear goals for this project."</div>
                 </div>
-                <div style="display: flex; justify-content: center; gap: 15px;">
-                    <button onclick="prevVocab()" class="chip">← Vorherige</button>
-                    <button onclick="nextVocab()" class="chip active">Nächste →</button>
+
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+                    <button onclick="prevVocab()" class="chip" style="padding: 12px 24px;">← Vorherige</button>
+                    <button onclick="nextVocab()" class="chip active" style="padding: 12px 24px;">Nächste Vokabel →</button>
                 </div>
             </div>
         </div>
 
-        <!-- ================= 4. BUSINESS ACADEMY ================= -->
+        <!-- ================= 4. BUSINESS ACADEMY (MIT AUSFÜHRLICHEM INPUT VOR DEM TEST) ================= -->
         <div id="view-academy" class="hidden-view">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
                 <div>
                     <h1 style="font-size: 32px; margin:0;">Business Economy Academy.</h1>
                     <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Geführter Masterclass-Pfad: Von Grundlagen zu Private Equity & M&A</p>
                 </div>
-                <button onclick="switchView('hq')" class="chip">← Zurück</button>
+                <button onclick="switchView('hq')" class="chip">← Zurück zu Mission Control</button>
             </div>
 
-            <div class="academy-module">
-                <h3>Level 1: GuV, Bilanz & Free Cashflow (FCF)</h3>
-                <p style="color:var(--apple-text-muted); line-height:1.6;">Verstehe die Kernmetriken professioneller Finanzanalysen.</p>
-                <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
-                    <p style="font-weight: 600;">Welche Kennzahl misst das echte verfügbare Geld nach Investitionen?</p>
-                    <div class="quiz-option" onclick="checkQuiz(false)">A) Gross Profit</div>
-                    <div class="quiz-option" onclick="checkQuiz(true)">B) Free Cashflow (FCF)</div>
-                    <p id="quiz-feedback" style="margin-top:10px; font-weight:600;"></p>
+            <div class="academy-container" style="display: flex; flex-direction: column; gap: 24px;">
+                
+                <div class="academy-module">
+                    <span class="card-kicker">Level 1 von 3 • Masterclass Input</span>
+                    <h3 style="margin: 10px 0 15px 0; font-size: 22px;">GuV, Bilanz & Free Cashflow (FCF)</h3>
+                    
+                    <div style="font-size: 14px; line-height: 1.7; color: var(--apple-text-muted); display: flex; flex-direction: column; gap: 12px;">
+                        <p><strong>1. Die Gewinn- und Verlustrechnung (GuV):</strong> Die GuV zeigt die Ertragslage eines Unternehmens über einen bestimmten Zeitraum (z. B. ein Quartal oder Jahr). Sie listet Umsätze abzüglich aller operativen Kosten, Abschreibungen und Zinsen auf, bis am Ende der Netto-Gewinn (Net Income) übrig bleibt.</p>
+                        <p><strong>2. Die Bilanz (Balance Sheet):</strong> Die Bilanz ist ein Schnappschuss zu einem exakten Stichtag. Sie zeigt auf der linken Seite die Aktiva (Vermögen, Cash, Maschinen, Immobilien) und auf der rechten Seite die Passiva (Schulden und Eigenkapital). Es gilt immer: Aktiva = Passiva.</p>
+                        <p><strong>3. Der Free Cashflow (FCF):</strong> Gewinn ist eine Buchhaltungsgröße, Cash ist Realität. Der Free Cashflow misst das tatsächliche Bargeld, das nach Abzug aller notwendigen Investitionen (CapEx) in der Kasse verbleibt. Nur dieses Geld steht für Dividenden, Aktienrückkäufe oder Übernahmen zur Verfügung.</p>
+                    </div>
+
+                    <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+                        <h4 style="margin-top:0; font-size:16px;">Wissens-Check zu Level 1:</h4>
+                        <p style="font-weight: 600; font-size: 14px;">Welche Kennzahl misst am verlässlichsten das tatsächlich verfügbare operative Bargeld nach allen Investitionen?</p>
+                        <div class="quiz-option" onclick="checkQuiz(this, false)">A) Der Netto-Gewinn laut GuV (Net Income)</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, true)">B) Der Free Cashflow (FCF) nach CapEx</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, false)">C) Die Gesamtsumme der Aktiva in der Bilanz</div>
+                        <p id="quiz-feedback" style="margin-top:10px; font-weight:600; font-size:14px;"></p>
+                    </div>
+                </div>
+
+                <div class="academy-module" style="opacity: 0.7;">
+                    <span class="card-kicker">Level 2 von 3 (Gesperrt)</span>
+                    <h3 style="margin: 10px 0 15px 0; font-size: 22px;">Unternehmensbewertung & DCF-Modellierung</h3>
+                    <p style="color:var(--apple-text-muted); line-height:1.6;">Wird nach Abschluss von Level 1 freigeschaltet.</p>
                 </div>
             </div>
         </div>
 
-        <!-- ================= 5. KONTROLLE ================= -->
+        <!-- ================= 5. GESPEICHERT ================= -->
+        <div id="view-gespeichert" class="hidden-view">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div>
+                    <h1 style="font-size: 32px; margin:0;">Gespeicherte Artikel.</h1>
+                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Deine persönlichen Lesezeichen</p>
+                </div>
+                <button onclick="switchView('hq')" class="chip">← Zurück zu Mission Control</button>
+            </div>
+            <div class="bento-grid" id="bookmarks-grid"></div>
+        </div>
+
+        <!-- ================= 6. KONTROLLE ================= -->
         <div id="view-kontrolle" class="hidden-view">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
                 <div>
                     <h1 style="font-size: 32px; margin:0;">Kontrollzentrale.</h1>
-                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Systemkonfiguration</p>
+                    <p style="color:var(--apple-text-muted); margin:4px 0 0 0;">Systemkonfiguration & API-Keys</p>
                 </div>
-                <button onclick="switchView('hq')" class="chip">← Zurück</button>
+                <button onclick="switchView('hq')" class="chip">← Zurück zu Mission Control</button>
             </div>
             <div class="app-container">
-                <h3>Gemini API Schlüssel</h3>
-                <input type="password" id="gemini-key-input" class="stock-input" style="margin-top:15px;" placeholder="API-Key..." onchange="localStorage.setItem('carlos_gemini_key', this.value)">
+                <h3>Gemini API Schlüssel (Unlimitierter Pay-as-you-go Modus)</h3>
+                <p style="font-size:13px; color:var(--apple-text-muted);">Trage hier deinen Google AI Studio Key mit hinterlegtem Abrechnungskonto ein, um sämtliche Free-Tier Ratenbegrenzungen (Limits) komplett zu entfernen:</p>
+                <input type="password" id="gemini-key-input" class="stock-input" style="margin-top:15px;" placeholder="Dein API-Key..." onchange="localStorage.setItem('carlos_gemini_key', this.value)">
             </div>
         </div>
 
@@ -390,16 +477,48 @@
 
     <script>
         let allNews = [];
+        let bookmarks = JSON.parse(localStorage.getItem('carlos_bookmarks')) || [];
         let customWatchlist = JSON.parse(localStorage.getItem('carlos_portfolio')) || ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:MSFT', 'NASDAQ:TSLA'];
         let activeCategory = 'Alle';
+        let activeSubSector = 'Alle';
+        let currentMarketSector = 'semis';
 
-        const vocabData = [
-            {en: "Establish", de: "etablieren / aufbauen", ex: "\"We need to establish clear goals.\""},
-            {en: "Determine", de: "ermitteln / bestimmen", ex: "\"The audit will determine the status.\""},
-            {en: "Enhance", de: "verbessern / optimieren", ex: "\"This will enhance our efficiency.\""},
-            {en: "Framework", de: "Rahmenwerk / Struktur", ex: "\"We operate within a strict framework.\""}
-        ];
-        let vocabIndex = 0, vocabFlipped = false;
+        const sectorData = {
+            semis: ['NASDAQ:NVDA', 'NASDAQ:TSMC', 'NASDAQ:ASML', 'NASDAQ:AMD', 'NASDAQ:AVGO', 'NASDAQ:QCOM', 'NASDAQ:INTC', 'NASDAQ:MU'],
+            bigtech: ['NASDAQ:AAPL', 'NASDAQ:MSFT', 'NASDAQ:GOOGL', 'NASDAQ:AMZN', 'NASDAQ:META', 'NASDAQ:NFLX', 'NASDAQ:CRM', 'NASDAQ:ADBE'],
+            health: ['NYSE:LLY', 'NYSE:UNH', 'NYSE:JNJ', 'NYSE:PFE', 'NYSE:ABBV', 'NYSE:MRK', 'NYSE:TMO', 'NYSE:NVO'],
+            consumer: ['NYSE:KO', 'NYSE:PEP', 'NYSE:MCD', 'NYSE:WMT', 'NYSE:NKE', 'NYSE:COST', 'NYSE:PG', 'NYSE:DIS']
+        };
+
+        const vocabData = {
+            CoreVerbs: [
+                {en: "Establish", de: "etablieren / aufbauen / feststellen", ex: "\"We need to establish clear goals for this project.\""},
+                {en: "Determine", de: "ermitteln / bestimmen / herausfinden", ex: "\"The audit will determine the exact financial status.\""},
+                {en: "Enhance", de: "verbessern / optimieren / steigern", ex: "\"This new software will enhance our overall efficiency.\""},
+                {en: "Implement", de: "umsetzen / implementieren / einführen", ex: "\"Management decided to implement the new strategy immediately.\""}
+            ],
+            AbstractConcepts: [
+                {en: "Framework", de: "Rahmenwerk / Struktur", ex: "\"We operate within a strict regulatory framework.\""},
+                {en: "Perspective", de: "Perspektive / Sichtweise", ex: "\"Let us examine this problem from a different perspective.\""},
+                {en: "Significance", de: "Bedeutung / Tragweite", ex: "\"Few people realized the true significance of the event.\""},
+                {en: "Dynamic", de: "Dynamik / Wirkungskraft", ex: "\"Market dynamics change faster than anticipated.\""}
+            ],
+            Connectors: [
+                {en: "Consequently", de: "folglich / infolgedessen", ex: "\"Sales dropped; consequently, profits declined.\""},
+                {en: "Furthermore", de: "außerdem / darüber hinaus", ex: "\"Furthermore, the delivery time has been reduced.\""},
+                {en: "Nonetheless", de: "dennoch / gleichwohl", ex: "\"The task was difficult; nonetheless, we succeeded.\""},
+                {en: "Alternatively", de: "alternativ / stattdessen", ex: "\"We can postpone the meeting, or alternatively, hold it online.\""}
+            ],
+            Precision: [
+                {en: "Substantial", de: "erheblich / substanziell / beträchtlich", ex: "\"There was a substantial increase in quarterly revenue.\""},
+                {en: "Vulnerable", de: "angreifbar / anfällig / gefährdet", ex: "\"Supply chains remain vulnerable to geopolitical risks.\""},
+                {en: "Rigorous", de: "streng / akribisch / gründlich", ex: "\"The startup underwent rigorous financial scrutiny.\""},
+                {en: "Ambiguous", de: "mehrdeutig / unklar", ex: "\"The instructions were somewhat ambiguous.\""}
+            ]
+        };
+        let currentVocabCat = 'CoreVerbs';
+        let vocabIndex = 0;
+        let vocabFlipped = false;
 
         window.onload = () => {
             setTimeout(() => {
@@ -416,101 +535,137 @@
             fetchNewsAndInit();
             renderMarketSectors();
             updateVocabCard();
+            renderBookmarks();
             
             setInterval(() => {
                 const now = new Date();
                 document.getElementById('cockpit-clock').innerText = now.toLocaleTimeString('de-DE') + " • ETTENHEIM SYSTEM ONLINE";
             }, 1000);
 
-            initVoiceRecognition();
+            initWakeWordRecognition();
         };
 
-        // JARVIS AUDIO & VOICE RECOGNITION
-        let recognition;
-        function speakJarvis(text) {
+        // NATÜRLICHE SPRACHAUSGABE (HIGH-QUALITY VOICE)
+        function speakTravis(text) {
             if (!('speechSynthesis' in window)) return;
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'de-DE';
             utterance.rate = 1.05;
+
+            const voices = window.speechSynthesis.getVoices();
+            const naturalVoice = voices.find(v => v.lang.startsWith('de') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Katja') || v.name.includes('Stefan')));
+            if (naturalVoice) {
+                utterance.voice = naturalVoice;
+            } else {
+                const deVoice = voices.find(v => v.lang.startsWith('de'));
+                if (deVoice) utterance.voice = deVoice;
+            }
+
             window.speechSynthesis.speak(utterance);
         }
 
-        function initVoiceRecognition() {
+        // WAKE WORD WIEDERERKENNUNG ("HEY TRAVIS")
+        let recognition;
+        let isListening = true;
+
+        function initWakeWordRecognition() {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (!SpeechRecognition) return;
             recognition = new SpeechRecognition();
             recognition.lang = 'de-DE';
-            recognition.continuous = false;
+            recognition.continuous = true;
             recognition.interimResults = false;
 
             recognition.onresult = (event) => {
-                const command = event.results[0][0].transcript.trim();
-                handleJarvisCommand(command);
+                const speech = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                const respBox = document.getElementById('travis-live-dialogue');
+                respBox.style.display = 'block';
+                respBox.innerText = `Gehört: "${speech}"`;
+
+                if (speech.includes('hey travis') || speech.includes('travis')) {
+                    let query = speech.replace('hey travis', '').replace('travis', '').trim();
+                    if (query.length > 0) {
+                        handleTravisCommand(query);
+                    } else {
+                        speakTravis("Ja, Master Carlos? Ich höre zu.");
+                    }
+                }
             };
 
             recognition.onend = () => {
-                document.getElementById('jarvis-status-label').innerText = "J.A.R.V.I.S. bereit";
-                document.getElementById('jarvis-mic-pulse').style.background = "var(--apple-blue)";
+                if (isListening) {
+                    try { recognition.start(); } catch(e) {}
+                }
             };
-        }
 
-        function toggleJarvisListening() {
-            if (!recognition) {
-                alert("Dein Browser unterstützt keine Spracherkennung.");
-                return;
-            }
             try {
                 recognition.start();
-                document.getElementById('jarvis-status-label').innerText = "Höre zu...";
-                document.getElementById('jarvis-mic-pulse').style.background = "var(--apple-green)";
-                speakJarvis("Ja, Master Carlos?");
-            } catch(e) {
-                recognition.stop();
+            } catch(e) {}
+        }
+
+        function toggleTravisListeningManually() {
+            isListening = !isListening;
+            if (isListening) {
+                try { recognition.start(); } catch(e) {}
+                document.getElementById('travis-status-label').innerText = "T.R.A.V.I.S. aktiv (Hey Travis)";
+                document.getElementById('travis-mic-pulse').style.background = "var(--apple-green)";
+                speakTravis("Sprachsteuerung reaktiviert.");
+            } else {
+                try { recognition.stop(); } catch(e) {}
+                document.getElementById('travis-status-label').innerText = "T.R.A.V.I.S. stumm";
+                document.getElementById('travis-mic-pulse').style.background = "var(--apple-red)";
+                speakTravis("Sprachsteuerung pausiert.");
             }
         }
 
-        // JARVIS FULL BRAIN & COMMAND PARSER
-        async function handleJarvisCommand(cmd) {
-            const lower = cmd.toLowerCase();
-            const respBox = document.getElementById('jarvis-live-dialogue');
+        // TRAVIS COMMAND & FULL AI BRAIN
+        async function handleTravisCommand(cmd) {
+            const respBox = document.getElementById('travis-live-dialogue');
             respBox.style.display = 'block';
-            respBox.innerText = `Master Carlos: "${cmd}"\nJarvis analysiert...`;
+            respBox.innerText = `Master Carlos: "${cmd}"\nTravis analysiert...`;
 
-            // Navigation Commands
+            const lower = cmd.toLowerCase();
             if (lower.includes('news') || lower.includes('nachrichten') || lower.includes('newspaper')) {
                 switchView('news');
                 const reply = "Öffne dir sofort die News Intelligence, Master Carlos.";
                 respBox.innerText = reply;
-                speakJarvis(reply);
+                speakTravis(reply);
                 return;
             } 
             if (lower.includes('börse') || lower.includes('aktien') || lower.includes('market') || lower.includes('analyzer')) {
                 switchView('market');
                 const reply = "Marktterminal und Equity Research geladen.";
                 respBox.innerText = reply;
-                speakJarvis(reply);
+                speakTravis(reply);
                 return;
             } 
             if (lower.includes('vokabeln') || lower.includes('lingua') || lower.includes('sprache')) {
                 switchView('vocab');
                 const reply = "Lingua Lab Pro ist bereit für dich.";
                 respBox.innerText = reply;
-                speakJarvis(reply);
+                speakTravis(reply);
                 return;
             } 
             if (lower.includes('academy') || lower.includes('wirtschaft') || lower.includes('lernen')) {
                 switchView('academy');
                 const reply = "Business Academy aktiv. Wir machen da weiter.";
                 respBox.innerText = reply;
-                speakJarvis(reply);
+                speakTravis(reply);
                 return;
             } 
+            if (lower.includes('gespeichert') || lower.includes('bookmarks')) {
+                switchView('gespeichert');
+                const reply = "Öffne deine gespeicherten Artikel.";
+                respBox.innerText = reply;
+                speakTravis(reply);
+                return;
+            }
             if (lower.includes('start') || lower.includes('hauptmenü') || lower.includes('cockpit') || lower.includes('zurück')) {
                 switchView('hq');
                 const reply = "Zurück im Mission Control Cockpit, Master Carlos.";
                 respBox.innerText = reply;
-                speakJarvis(reply);
+                speakTravis(reply);
                 return;
             }
 
@@ -519,12 +674,12 @@
             if (!apiKey) {
                 const errText = "Master Carlos, bitte trage erst deinen Gemini API-Key in der Kontrollzentrale ein.";
                 respBox.innerText = errText;
-                speakJarvis(errText);
+                speakTravis(errText);
                 return;
             }
 
             try {
-                const systemPrompt = "Du bist J.A.R.V.I.S., der persönliche, hochintelligente KI-Kollege und Assistent von Master Carlos. Carlos ist 16 Jahre alt, Schüler am Gymnasium in Ettenheim, Investor, Software-Entwickler (Python, Flutter, Arduino) und Gründer (Lox AI). Sprich ihn immer mit 'Master Carlos' an. Dein Ton ist cool, direkt, kompetent und leicht frech wie ein loyaler Arbeitskollege. Antworte auf Deutsch, präzise, schnell, aber vollständig.";
+                const systemPrompt = "Du bist T.R.A.V.I.S., der persönliche, hochintelligente KI-Kollege und Assistent von Master Carlos. Carlos ist 16 Jahre alt, Schüler am Gymnasium in Ettenheim, Investor, Software-Entwickler (Python, Flutter, Arduino) und Gründer (Lox AI). Sprich ihn immer mit 'Master Carlos' an. Dein Ton ist cool, direkt, kompetent und leicht frech wie ein loyaler Arbeitskollege. Antworte auf Deutsch, präzise, schnell, aber vollständig.";
                 
                 const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
@@ -541,12 +696,12 @@
 
                 const aiReply = data.candidates[0].content.parts[0].text;
                 respBox.innerText = aiReply;
-                speakJarvis(aiReply);
+                speakTravis(aiReply);
 
             } catch (error) {
-                const errReply = "Da gab es ein Problem mit der API oder dem Limit, Master Carlos.";
+                const errReply = "Da gab es ein Problem mit der API, Master Carlos.";
                 respBox.innerText = errReply;
-                speakJarvis(errReply);
+                speakTravis(errReply);
             }
         }
 
@@ -558,22 +713,21 @@
                 allNews = Array.isArray(data) ? data : data.nachrichten || [];
                 
                 renderNavbar(); 
+                renderSubSektors();
                 renderNews();
                 renderCockpitTickers();
 
-                // Startup Audio Briefing (Wirtschaft, Tech, Politik)
                 let briefing = "Moin Master Carlos. Headquarter online. Hier sind deine wichtigsten News aus Wirtschaft, Tech und Politik. ";
                 const relevantNews = allNews.filter(n => ['Wirtschaft', 'Technologie & Wissenschaft', 'Politik'].includes(n.hauptkategorie));
                 for(let i = 0; i < Math.min(3, relevantNews.length); i++) {
                     briefing += `${relevantNews[i].hauptkategorie}: ${relevantNews[i].titel}. `;
                 }
-                speakJarvis(briefing);
+                speakTravis(briefing);
 
             } catch(e) {}
         }
 
         function renderCockpitTickers() {
-            // Rechts: News Ticker (Wirtschaft, Tech, Politik)
             const newsContainer = document.getElementById('cyber-news-ticker');
             const relevantNews = allNews.filter(n => ['Wirtschaft', 'Technologie & Wissenschaft', 'Politik'].includes(n.hauptkategorie));
             newsContainer.innerHTML = relevantNews.slice(0, 5).map(n => `
@@ -583,7 +737,6 @@
                 </div>
             `).join('');
 
-            // Links: Live Aktien Ticker (NASDAQ, Tech, Semis)
             const stockContainer = document.getElementById('cyber-stock-ticker');
             const topStocks = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:MSFT', 'NASDAQ:TSLA'];
             stockContainer.innerHTML = topStocks.map((t, idx) => `
@@ -605,52 +758,165 @@
             });
         }
 
-        // VIEW SWITCHING
-        function switchView(viewId) {
-            ['hq', 'news', 'market', 'vocab', 'academy', 'kontrolle'].forEach(id => {
-                document.getElementById(`view-${id}`).classList.add('hidden-view');
-            });
-            document.getElementById(`view-${viewId}`).classList.remove('hidden-view');
-            if (viewId === 'market') loadTradingViewAdvanced();
-        }
-
         function renderNavbar() {
             const nav = document.getElementById('main-nav');
             if(!nav) return;
-            const cats = ['Alle', 'Wirtschaft', 'Technologie & Wissenschaft', 'Politik'];
-            nav.innerHTML = cats.map(c => `<li class="cat-item ${activeCategory===c?'active':''}" onclick="activeCategory='${c}';renderNews();">${c}</li>`).join('');
+            const categories = ['Alle', 'Wirtschaft', 'Technologie & Wissenschaft', 'Politik', 'Weltweite Schlagzeilen', 'Lokales & Regionales', 'Kultur & Gesellschaft', 'Sport'];
+            nav.innerHTML = categories.map(cat => `<li class="cat-item ${activeCategory === cat ? 'active' : ''}" onclick="setCategory('${cat}')">${cat}</li>`).join('');
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            activeSubSector = 'Alle';
+            document.getElementById('page-title').innerText = cat === 'Alle' ? 'News Intelligence.' : cat + '.';
+            renderNavbar(); renderSubSektors(); renderNews();
+        }
+
+        function setSubSector(sub) {
+            activeSubSector = sub; renderSubSektors(); renderNews();
+        }
+
+        function renderSubSektors() {
+            const container = document.getElementById('sub-sector-filters');
+            if (!container) return;
+            if (activeCategory === 'Alle') { container.innerHTML = ''; return; }
+            const currentArticles = allNews.filter(item => item.hauptkategorie === activeCategory);
+            const subSektors = ['Alle', ...new Set(currentArticles.map(item => item.sub_sektor || 'Allgemein'))];
+            if (subSektors.length <= 1) { container.innerHTML = ''; return; }
+
+            container.innerHTML = subSektors.map(sub => {
+                const isActive = activeSubSector === sub;
+                return `<button onclick="setSubSector('${sub}')" class="chip ${isActive ? 'active' : ''}">${sub}</button>`;
+            }).join('');
         }
 
         function renderNews() {
             const grid = document.getElementById('news-grid');
             if(!grid) return;
-            let filtered = activeCategory === 'Alle' ? allNews : allNews.filter(i => i.hauptkategorie === activeCategory);
-            grid.innerHTML = filtered.map((item, idx) => `
-                <div class="bento-card ${idx===0 && activeCategory==='Alle'?'bento-hero':''}">
-                    ${item.bild?`<div class="card-img-wrapper"><img src="${item.bild}" class="card-img"></div>`:''}
+            let filtered = activeCategory === 'Alle' ? allNews : allNews.filter(item => item.hauptkategorie === activeCategory);
+            if (activeSubSector !== 'Alle') {
+                filtered = filtered.filter(item => (item.sub_sektor || 'Allgemein') === activeSubSector);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p style="color: var(--apple-text-muted); grid-column: 1/-1;">Keine Meldungen gefunden.</p>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map((item, index) => {
+                const isHero = index === 0 && activeSubSector === 'Alle' && activeCategory === 'Alle';
+                const isBookmarked = bookmarks.some(b => b.titel === item.titel);
+                const readTime = Math.ceil((item.text || '').length / 800) + " Min.";
+                const bildHtml = item.bild && item.bild !== "" ? `<div class="card-img-wrapper"><img src="${item.bild}" class="card-img"></div>` : '';
+                const safeItem = encodeURIComponent(JSON.stringify(item));
+
+                return `
+                <div class="bento-card ${isHero ? 'bento-hero' : ''}">
+                    ${bildHtml}
                     <div class="card-content">
-                        <span class="card-kicker">${item.sub_sektor||'News'}</span>
-                        <a href="${item.quelle}" target="_blank" style="text-decoration:none;color:inherit;"><h3 class="card-headline">${item.titel}</h3><p class="card-text">${item.text||''}</p></a>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <span class="card-kicker">${item.sub_sektor || 'News'}</span>
+                            <div style="display:flex; gap:10px; align-items:center;">
+                                <span style="font-size:11px; color:var(--apple-text-muted);">${readTime}</span>
+                                <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleBookmark('${safeItem}', this)">${isBookmarked ? '★' : '☆'}</button>
+                            </div>
+                        </div>
+                        <a href="${item.quelle}" target="_blank" style="text-decoration:none; color:inherit; display:block; flex:1;">
+                            <h3 class="card-headline">${item.titel || 'Kein Titel'}</h3>
+                            <p class="card-text">${item.text || ''}</p>
+                        </a>
                     </div>
-                </div>`).join('');
+                </div>`;
+            }).join('');
+        }
+
+        function toggleBookmark(encodedItem, btn) {
+            const item = JSON.parse(decodeURIComponent(encodedItem));
+            const index = bookmarks.findIndex(b => b.titel === item.titel);
+            if (index > -1) {
+                bookmarks.splice(index, 1);
+                btn.innerHTML = '☆'; btn.classList.remove('active');
+            } else {
+                bookmarks.push(item);
+                btn.innerHTML = '★'; btn.classList.add('active');
+            }
+            localStorage.setItem('carlos_bookmarks', JSON.stringify(bookmarks));
+            renderBookmarks();
+        }
+
+        function renderBookmarks() {
+            const grid = document.getElementById('bookmarks-grid');
+            if(!grid) return;
+            if (bookmarks.length === 0) {
+                grid.innerHTML = '<p style="color:var(--apple-text-muted); grid-column:1/-1;">Noch keine Artikel gespeichert.</p>';
+                return;
+            }
+            grid.innerHTML = bookmarks.map(item => {
+                const bildHtml = item.bild && item.bild !== "" ? `<div class="card-img-wrapper"><img src="${item.bild}" class="card-img"></div>` : '';
+                return `
+                <div class="bento-card">
+                    ${bildHtml}
+                    <div class="card-content">
+                        <span class="card-kicker">${item.sub_sektor || 'News'}</span>
+                        <a href="${item.quelle}" target="_blank" style="text-decoration:none; color:inherit; display:block; flex:1;">
+                            <h3 class="card-headline">${item.titel || 'Kein Titel'}</h3>
+                            <p class="card-text">${item.text || ''}</p>
+                        </a>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function setMarketSector(sector) {
+            currentMarketSector = sector;
+            document.querySelectorAll('#sector-tabs .chip').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+            renderMarketSectors();
         }
 
         function renderMarketSectors() {
             const grid = document.getElementById('sector-stock-grid');
             if(!grid) return;
-            let list = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:MSFT', 'NASDAQ:TSLA'];
-            grid.innerHTML = list.map((t, i) => `<div class="app-container" style="height:140px;margin:0;"><div id="tv-${i}" style="height:100%;width:100%;"></div></div>`).join('');
-            list.forEach((t, i) => {
-                const c = document.getElementById(`tv-${i}`);
-                if(c) {
-                    c.innerHTML = '';
-                    const s = document.createElement('script');
-                    s.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
-                    s.async = true;
-                    s.innerHTML = JSON.stringify({"symbol": t, "width": "100%", "height": "100%", "locale": "de_DE", "colorTheme": "dark"});
-                    c.appendChild(s);
+            let list = currentMarketSector === 'watchlist' ? customWatchlist : sectorData[currentMarketSector];
+            
+            grid.innerHTML = list.map((ticker, idx) => {
+                return `
+                <div class="app-container" style="position:relative; height:150px; padding:15px; margin:0;">
+                    ${currentMarketSector === 'watchlist' ? `<button onclick="removeStock('${ticker}')" style="position:absolute; top:8px; right:12px; color:red; background:none; border:none; cursor:pointer; font-size:14px; z-index:10;">✕</button>` : ''}
+                    <div id="tv-quote-${idx}" style="height:100%;width:100%;"></div>
+                </div>`;
+            }).join('');
+
+            list.forEach((ticker, idx) => {
+                const container = document.getElementById(`tv-quote-${idx}`);
+                if(container) {
+                    container.innerHTML = '';
+                    const script = document.createElement('script');
+                    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+                    script.async = true;
+                    script.innerHTML = JSON.stringify({"symbol": ticker, "width": "100%", "height": "100%", "locale": "de_DE", "colorTheme": "dark"});
+                    container.appendChild(script);
                 }
             });
+        }
+
+        document.getElementById('add-stock').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' && this.value.trim() !== '') {
+                let ticker = this.value.toUpperCase().trim();
+                if(!ticker.includes(':')) ticker = 'NASDAQ:' + ticker;
+                if (!customWatchlist.includes(ticker)) {
+                    customWatchlist.push(ticker);
+                    localStorage.setItem('carlos_portfolio', JSON.stringify(customWatchlist));
+                    if(currentMarketSector === 'watchlist') renderMarketSectors();
+                    this.value = '';
+                }
+            }
+        });
+
+        function removeStock(ticker) {
+            customWatchlist = customWatchlist.filter(t => t !== ticker);
+            localStorage.setItem('carlos_portfolio', JSON.stringify(customWatchlist));
+            renderMarketSectors();
         }
 
         function loadTradingViewAdvanced() {
@@ -664,37 +930,75 @@
             }
         }
 
-        // VOCAB & ACADEMY
+        // VOCABULARY & ACADEMY
+        function setVocabCategory(cat) {
+            currentVocabCat = cat;
+            vocabIndex = 0;
+            vocabFlipped = false;
+            document.querySelectorAll('#vocab-category-bar .chip').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+            updateVocabCard();
+        }
+
         function updateVocabCard() {
-            const item = vocabData[vocabIndex];
+            const list = vocabData[currentVocabCat];
+            const item = list[vocabIndex];
             document.getElementById('vocab-en').innerText = item.en;
             document.getElementById('vocab-de').innerText = item.de;
             document.getElementById('vocab-de').style.display = vocabFlipped ? 'block' : 'none';
             document.getElementById('vocab-ex').innerText = vocabFlipped ? item.ex : "Klicken zum Aufdecken";
-            document.getElementById('vocab-progress').innerText = `${vocabIndex + 1} / ${vocabData.length}`;
+            document.getElementById('vocab-progress').innerText = `${vocabIndex + 1} / ${list.length}`;
         }
+
         function flipVocabCard() { vocabFlipped = !vocabFlipped; updateVocabCard(); }
-        function nextVocab() { vocabFlipped = false; vocabIndex = (vocabIndex + 1) % vocabData.length; updateVocabCard(); }
-        function prevVocab() { vocabFlipped = false; vocabIndex = (vocabIndex - 1 + vocabData.length) % vocabData.length; updateVocabCard(); }
-        function checkQuiz(correct) {
-            document.getElementById('quiz-feedback').style.color = correct ? "var(--apple-green)" : "var(--apple-red)";
-            document.getElementById('quiz-feedback').innerText = correct ? "Richtig! Der Free Cashflow ist die Kennzahl." : "Falsch, versuch's nochmal.";
+        function nextVocab() { vocabFlipped = false; vocabIndex = (vocabIndex + 1) % vocabData[currentVocabCat].length; updateVocabCard(); }
+        function prevVocab() { vocabFlipped = false; vocabIndex = (vocabIndex - 1 + vocabData[currentVocabCat].length) % vocabData[currentVocabCat].length; updateVocabCard(); }
+
+        function checkQuiz(el, isCorrect) {
+            const fb = document.getElementById('quiz-feedback');
+            if(isCorrect) {
+                fb.style.color = "var(--apple-green)";
+                fb.innerText = "Richtig! Der Free Cashflow ist die wichtigste Kennzahl.";
+            } else {
+                fb.style.color = "var(--apple-red)";
+                fb.innerText = "Falsch, versuch's noch einmal.";
+            }
+        }
+
+        function saveScratchpad() {
+            const ticker = document.getElementById('analyzer-ticker').value.toUpperCase().trim();
+            if(ticker) localStorage.setItem('scratchpad_' + ticker, document.getElementById('investment-scratchpad').value);
+        }
+
+        function updateDCF() {
+            const g = parseFloat(document.getElementById('dcf-growth').value);
+            const m = parseFloat(document.getElementById('dcf-margin').value);
+            const w = parseFloat(document.getElementById('dcf-wacc').value);
+            document.getElementById('dcf-val-growth').innerText = g + '%';
+            document.getElementById('dcf-val-margin').innerText = m + '%';
+            document.getElementById('dcf-val-wacc').innerText = w + '%';
+            document.getElementById('dcf-result').innerText = `€ ${Math.round((g * 3.5 + m * 4.0) / w * 12.5)}.00`;
         }
 
         async function runInstitutionalAnalysis() {
             const key = localStorage.getItem('carlos_gemini_key');
-            if(!key) { alert("API-Key fehlt in Kontrolle!"); return; }
-            const ticker = document.getElementById('analyzer-ticker').value.toUpperCase();
+            if(!key) { alert("API-Key fehlt in Kontrolle!"); switchView('kontrolle'); return; }
+            const ticker = document.getElementById('analyzer-ticker').value.toUpperCase().trim();
             if(!ticker) return;
+
             document.getElementById('analyzer-results').style.display = 'block';
+            document.getElementById('report-title').innerText = `Equity Research: ${ticker}`;
+            document.getElementById('report-rating').innerText = "ANALYSIERE...";
             ['report-p1','report-p2','report-p3','report-p4','report-p5'].forEach(id => {
                 document.getElementById(id).className = "card-text skeleton";
                 document.getElementById(id).innerText = "Lade...";
             });
+
+            const prompt = `Analysiere "${ticker}" im Blackstone-Standard in 5 Abschnitten, getrennt durch '|||': [BILANZ]|||[TREIBER]|||[WETTBEWERB]|||[MANAGEMENT]|||[FAZIT]`;
             try {
                 const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
                     method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({contents: [{parts: [{text: `Analysiere ${ticker} nach Blackstone Standard in 5 Abschnitten, getrennt durch '|||': [BILANZ]|||[TREIBER]|||[WETTBEWERB]|||[MANAGEMENT]|||[FAZIT]`}]}]})
+                    body: JSON.stringify({contents: [{parts: [{text: prompt}]}]})
                 });
                 const d = await res.json();
                 const parts = d.candidates[0].content.parts[0].text.split('|||');
@@ -703,9 +1007,20 @@
                     el.className = "card-text";
                     el.innerHTML = parts[idx] ? parts[idx].replace(/\[.*?\]/g, '') : "Keine Daten";
                 });
+                document.getElementById('report-rating').innerText = "ABGESCHLOSSEN";
             } catch(e) {
                 document.getElementById('report-p1').innerText = "Limit erreicht oder API Fehler.";
+                document.getElementById('report-rating').innerText = "FEHLER";
             }
+        }
+
+        // VIEW SWITCHING
+        function switchView(viewId) {
+            ['hq', 'news', 'market', 'vocab', 'academy', 'gespeichert', 'kontrolle'].forEach(id => {
+                document.getElementById(`view-${id}`).classList.add('hidden-view');
+            });
+            document.getElementById(`view-${viewId}`).classList.remove('hidden-view');
+            if (viewId === 'market') loadTradingViewAdvanced();
         }
     </script>
 </body>
