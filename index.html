@@ -6,9 +6,6 @@
     <title>Carlos HQ - OS</title>
     
     <style>
-        /* =========================================
-           1. APPLE FARBPALETTE & VARIABLEN
-           ========================================= */
         :root {
             --apple-bg: #f5f5f7;          
             --apple-card: #ffffff;        
@@ -21,9 +18,6 @@
             --apple-red: #ff3b30;
         }
 
-        /* =========================================
-           2. GLOBALES SETUP 
-           ========================================= */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--apple-bg);
@@ -42,9 +36,17 @@
         ::-webkit-scrollbar { width: 0px; background: transparent; }
         * { box-sizing: border-box; }
 
-        /* =========================================
-           3. DYNAMIC ISLAND & NAVIGATION
-           ========================================= */
+        /* INTRO SCREEN */
+        #intro-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: #000; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .intro-title { font-size: 3rem; font-weight: 600; letter-spacing: -0.02em; }
+
+        /* NAVIGATION & DYNAMIC ISLAND */
         .apple-navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: 60px;
             background-color: var(--apple-nav-bg);
@@ -52,17 +54,16 @@
             z-index: 1000; display: flex; justify-content: center; align-items: center;
         }
         
-        /* Dynamic Island */
         .dynamic-island {
             background: #000; color: #fff;
-            border-radius: 30px; height: 35px; width: 150px;
+            border-radius: 30px; height: 32px; width: 140px;
             display: flex; justify-content: center; align-items: center;
-            font-size: 13px; font-weight: 600;
+            font-size: 12px; font-weight: 600;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer; overflow: hidden;
             box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
         }
-        .dynamic-island.expanded { width: 300px; height: 60px; }
+        .dynamic-island.expanded { width: 280px; height: 50px; }
 
         .apple-nav-list {
             position: absolute; left: 20px; display: flex; gap: 20px; list-style: none; margin: 0; padding: 0;
@@ -72,9 +73,19 @@
         }
         .apple-nav-item:hover, .apple-nav-item.active { opacity: 1; font-weight: 600; }
 
-        /* =========================================
-           4. SPOTLIGHT SUCHE (Cmd+K)
-           ========================================= */
+        /* CATEGORY SUB-NAV (Wie früher) */
+        .category-bar {
+            display: flex; gap: 16px; list-style: none; margin: 0 0 30px 0; padding: 0;
+            overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 12px;
+        }
+        body.dark-mode .category-bar { border-bottom-color: rgba(255,255,255,0.1); }
+        .cat-item {
+            font-size: 14px; font-weight: 500; color: var(--apple-text-muted); cursor: pointer; transition: 0.2s;
+        }
+        .cat-item:hover, .cat-item.active { color: var(--apple-text); font-weight: 600; }
+
+        /* SPOTLIGHT SUCHE (Cmd+K) */
         #spotlight-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: rgba(0,0,0,0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -90,14 +101,9 @@
             color: var(--apple-text); outline: none; font-weight: 500;
         }
 
-        /* =========================================
-           5. HUD (Head-Up Display)
-           ========================================= */
+        /* HUD */
         .main-container { max-width: 1200px; margin: 0 auto; padding: 100px 40px 80px 40px; }
-        
-        .hud-grid {
-            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; margin-bottom: 40px;
-        }
+        .hud-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; margin-bottom: 40px; }
         .hud-card {
             background-color: var(--apple-glass); backdrop-filter: blur(20px);
             border-radius: 22px; padding: 24px; display: flex; flex-direction: column;
@@ -106,19 +112,16 @@
         .hud-title { font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
         .hud-subtitle { font-size: 15px; color: var(--apple-text-muted); margin-top: 4px; }
         
-        /* Macro Rings Dummy CSS */
         .ring-container { display: flex; gap: 10px; align-items: center; justify-content: center; height: 100%; }
         .ring { width: 60px; height: 60px; border-radius: 50%; border: 6px solid var(--apple-red); }
         .ring-green { border-color: var(--apple-green); width: 45px; height: 45px; margin-left: -50px; }
 
-        /* =========================================
-           6. BENTO GRID & NEWS
-           ========================================= */
+        /* BENTO GRID & NEWS */
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .bento-card {
             background-color: var(--apple-card); border-radius: 22px; overflow: hidden;
             display: flex; flex-direction: column; box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease; position: relative;
+            transition: transform 0.3s ease; position: relative; text-decoration: none; color: inherit;
         }
         .bento-card:hover { transform: scale(1.02); }
         .bento-hero { grid-column: 1 / -1; flex-direction: row; min-height: 400px; background: #000; color: #fff; }
@@ -129,57 +132,60 @@
         
         .card-content { padding: 32px; display: flex; flex-direction: column; flex: 1; }
         .card-kicker { font-size: 11px; font-weight: 700; color: var(--apple-blue); text-transform: uppercase; margin-bottom: 8px; }
+        .bento-hero .card-kicker { color: #2997ff; }
         
-        /* LESEZEIT & BOOKMARK */
         .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .read-time { font-size: 11px; color: var(--apple-text-muted); font-weight: 500; }
-        .bookmark-btn { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--apple-text-muted); }
+        .bookmark-btn { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--apple-text-muted); z-index: 10; }
         .bookmark-btn.active { color: var(--apple-blue); }
 
         .card-headline { font-size: 20px; font-weight: 600; line-height: 1.25; margin: 0 0 12px 0; }
         .bento-hero .card-headline { font-size: 34px; }
         
-        /* 6 ZEILEN TEXT */
         .card-text { font-size: 15px; color: var(--apple-text-muted); line-height: 1.5; margin: 0; }
         .line-clamp-6 { display: -webkit-box; -webkit-line-clamp: 6; line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* =========================================
-           7. BÖRSE & LOX AI DEV HUB
-           ========================================= */
+        .sub-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .chip {
+            background-color: transparent; border: 1px solid #d2d2d7; color: var(--apple-text);
+            padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; transition: 0.2s;
+        }
+        .chip:hover { border-color: var(--apple-text); }
+        .chip.active { background-color: var(--apple-text); color: var(--apple-card); border-color: var(--apple-text); }
+
+        /* BÖRSE & DEV HUB */
         .hidden-view { display: none; }
-        
         .portfolio-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .stock-input { padding: 10px 16px; border-radius: 12px; border: 1px solid #d2d2d7; outline: none; font-size: 14px; }
         .stock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
         .stock-card {
             background: var(--apple-card); padding: 20px; border-radius: 18px; 
-            display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: relative;
         }
         .stock-price { font-size: 24px; font-weight: 600; margin-top: 10px; }
         .stock-green { color: var(--apple-green); }
         .stock-red { color: var(--apple-red); }
-
-        /* Lox AI Hub */
         .dev-textarea {
             width: 100%; height: 300px; background: transparent; border: none;
-            font-family: monospace; font-size: 15px; color: var(--apple-text);
-            outline: none; resize: none; margin-top: 20px;
+            font-family: monospace; font-size: 15px; color: var(--apple-text); outline: none; resize: none; margin-top: 20px;
         }
 
-        /* =========================================
-           8. STANDBY MODUS
-           ========================================= */
+        /* STANDBY SCREEN */
         #standby-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: #000; z-index: 3000; display: none;
-            justify-content: center; align-items: center; flex-direction: column;
-            color: #ff3b30; /* Apple Watch Standby Red */
+            justify-content: center; align-items: center; flex-direction: column; color: #ff3b30;
         }
         .standby-time { font-size: 12vw; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
         .standby-date { font-size: 2vw; font-weight: 500; color: #86868b; margin-top: 10px; }
     </style>
 </head>
 <body>
+
+    <!-- CARLOS HQ INTRO SCREEN -->
+    <div id="intro-screen">
+        <h1 class="intro-title">Carlos HQ</h1>
+    </div>
 
     <!-- STANDBY SCREEN -->
     <div id="standby-screen">
@@ -197,10 +203,10 @@
     <!-- NAVIGATION & DYNAMIC ISLAND -->
     <nav class="apple-navbar">
         <ul class="apple-nav-list">
-            <li class="apple-nav-item active" onclick="switchView('news')">Übersicht</li>
-            <li class="apple-nav-item" onclick="switchView('boerse')">Live Börse</li>
-            <li class="apple-nav-item" onclick="switchView('dev')">Lox AI Hub</li>
-            <li class="apple-nav-item" onclick="switchView('gespeichert')">Später lesen</li>
+            <li class="apple-nav-item active" onclick="switchView('news', event)">News HQ</li>
+            <li class="apple-nav-item" onclick="switchView('boerse', event)">Live Börse</li>
+            <li class="apple-nav-item" onclick="switchView('dev', event)">Lox AI Hub</li>
+            <li class="apple-nav-item" onclick="switchView('gespeichert', event)">Später lesen</li>
         </ul>
         <div class="dynamic-island" id="dynamic-island">
             System Online
@@ -209,7 +215,7 @@
 
     <main class="main-container">
         
-        <!-- HEAD-UP DISPLAY (Personalisiert) -->
+        <!-- HUD (Begrüßung & Wetter) -->
         <div class="hud-grid" id="hud-section">
             <div class="hud-card">
                 <h1 class="hud-title" id="greeting">Guten Tag, Carlos.</h1>
@@ -227,12 +233,20 @@
             </div>
         </div>
 
-        <!-- 1. NEWS ANSICHT -->
+        <!-- 1. NEWS ANSICHT MIT KATEGORIEN -->
         <div id="view-news">
-            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                <button onclick="setFocus('all')" class="stock-input" style="background:var(--apple-glass)">Normal Mode</button>
-                <button onclick="setFocus('trader')" class="stock-input" style="background:var(--apple-glass)">Trader Mode</button>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 class="hud-title" id="page-title" style="font-size: 38px;">Top Stories.</h1>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="setFocus('all')" class="chip" style="padding: 8px 14px;">Normal</button>
+                    <button onclick="setFocus('trader')" class="chip" style="padding: 8px 14px;">Trader Mode</button>
+                </div>
             </div>
+
+            <!-- Hauptkategorien Leiste (Wie früher) -->
+            <ul class="category-bar" id="main-nav"></ul>
+            <div class="sub-nav" id="sub-sector-filters"></div>
+
             <div class="bento-grid" id="news-grid"></div>
         </div>
 
@@ -242,14 +256,9 @@
                 <h1 class="hud-title">Dein Portfolio.</h1>
                 <input type="text" id="add-stock" class="stock-input" placeholder="Kürzel eingeben (z.B. AAPL) + Enter">
             </div>
-            <div class="stock-grid" id="portfolio-grid">
-                <!-- Aktien werden per JS geladen -->
-            </div>
+            <div class="stock-grid" id="portfolio-grid"></div>
             <h2 class="hud-title" style="margin-bottom: 20px; font-size: 24px;">Globale Märkte</h2>
-            <!-- TradingView Widget Dummy (Lädt in Echtzeit) -->
-            <div class="hud-card" style="height: 400px; padding: 0; overflow: hidden;" id="tv-container">
-                <!-- Script wird bei Klick geladen -->
-            </div>
+            <div class="hud-card" style="height: 400px; padding: 0; overflow: hidden;" id="tv-container"></div>
         </div>
 
         <!-- 3. LOX AI DEV HUB -->
@@ -259,11 +268,11 @@
                     <h1 class="hud-title" style="font-size: 24px; font-family: monospace;">Lox AI // Control Center</h1>
                     <span style="color: var(--apple-green); font-size: 12px; font-family: monospace;">● Scraper Active</span>
                 </div>
-                <textarea id="lox-notes" class="dev-textarea" placeholder="Schnellnotizen für Flutter-Code oder Start-up Ideen eintippen... (Wird automatisch gespeichert)"></textarea>
+                <textarea id="lox-notes" class="dev-textarea" placeholder="Schnellnotizen für Flutter-Code oder Start-up Ideen eintippen..."></textarea>
             </div>
         </div>
 
-        <!-- 4. GESPEICHERT (Lesezeichen) -->
+        <!-- 4. GESPEICHERT -->
         <div id="view-gespeichert" class="hidden-view">
             <h1 class="hud-title" style="margin-bottom: 30px;">Später lesen.</h1>
             <div class="bento-grid" id="bookmarks-grid"></div>
@@ -272,36 +281,35 @@
     </main>
 
     <script>
-        // ==========================================
-        // SYSTEM STATUS & VARIABLEN
-        // ==========================================
         let allNews = [];
         let bookmarks = JSON.parse(localStorage.getItem('carlos_bookmarks')) || [];
         let portfolio = JSON.parse(localStorage.getItem('carlos_portfolio')) || ['AAPL', 'MSFT', 'NVDA'];
         let lastNewsCount = 0;
+        let activeCategory = 'Alle';
+        let activeSubSector = 'Alle';
         let currentFocus = 'all';
 
-        // ==========================================
-        // INITIALISIERUNG
-        // ==========================================
         window.onload = () => {
+            // Intro Screen Animation
+            setTimeout(() => {
+                const intro = document.getElementById('intro-screen');
+                if(intro) {
+                    intro.style.opacity = '0';
+                    setTimeout(() => intro.style.visibility = 'hidden', 800);
+                }
+            }, 800);
+
             updateHUD();
             fetchWeather();
             fetchNews();
             initLoxNotes();
             renderPortfolio();
             
-            // Auto Refresh alle 5 Minuten
             setInterval(checkNewArticles, 300000);
-            // Uhrzeit jede Minute aktualisieren
             setInterval(updateHUD, 60000);
-            // Standby Timer
             setupStandby();
         };
 
-        // ==========================================
-        // HUD (Begrüßung & Wetter für Ettenheim)
-        // ==========================================
         function updateHUD() {
             const now = new Date();
             const hour = now.getHours();
@@ -310,18 +318,15 @@
             else if (hour > 18) greeting = "Guten Abend";
             
             document.getElementById('greeting').innerText = `${greeting}, Carlos.`;
-            
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('current-date').innerText = now.toLocaleDateString('de-DE', options);
             
-            // Standby Clock Update
             document.getElementById('standby-time').innerText = now.toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'});
             document.getElementById('standby-date').innerText = now.toLocaleDateString('de-DE', options);
         }
 
         async function fetchWeather() {
             try {
-                // Open-Meteo API für Ettenheim
                 const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=48.252&longitude=7.812&current_weather=true');
                 const data = await res.json();
                 document.getElementById('weather-temp').innerText = `${Math.round(data.current_weather.temperature)}°C`;
@@ -330,20 +335,17 @@
             }
         }
 
-        // ==========================================
-        // NEWS & SCRAPER DATEN
-        // ==========================================
         async function fetchNews() {
             try {
                 const response = await fetch('nachrichten.json?t=' + new Date().getTime()); 
                 const data = await response.json();
                 allNews = Array.isArray(data) ? data : data.nachrichten || [];
                 lastNewsCount = allNews.length;
+                renderNavbar();
+                renderSubSektors();
                 renderNews();
                 renderBookmarks();
-            } catch (error) {
-                console.log("Fehler beim Laden der News.");
-            }
+            } catch (error) {}
         }
 
         async function checkNewArticles() {
@@ -351,7 +353,6 @@
                 const response = await fetch('nachrichten.json?t=' + new Date().getTime()); 
                 const data = await response.json();
                 const currentNews = Array.isArray(data) ? data : data.nachrichten || [];
-                
                 if (currentNews.length > lastNewsCount) {
                     allNews = currentNews;
                     lastNewsCount = currentNews.length;
@@ -361,9 +362,6 @@
             } catch (error) {}
         }
 
-        // ==========================================
-        // FOCUS MODI
-        // ==========================================
         function setFocus(mode) {
             currentFocus = mode;
             if (mode === 'trader') {
@@ -376,68 +374,95 @@
             renderNews();
         }
 
-        // ==========================================
-        // RENDERING
-        // ==========================================
+        // KATEGORIEN & SORTIERUNG (Wie früher)
+        function renderNavbar() {
+            const nav = document.getElementById('main-nav');
+            const categories = ['Alle', 'Wirtschaft', 'Technologie & Wissenschaft', 'Politik', 'Weltweite Schlagzeilen', 'Lokales & Regionales', 'Kultur & Gesellschaft', 'Sport'];
+            
+            nav.innerHTML = categories.map(cat => {
+                const isActive = activeCategory === cat;
+                const displayName = cat === 'Alle' ? 'Übersicht' : cat;
+                return `<li class="cat-item ${isActive ? 'active' : ''}" onclick="setCategory('${cat}')">${displayName}</li>`;
+            }).join('');
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            activeSubSector = 'Alle';
+            document.getElementById('page-title').innerText = cat === 'Alle' ? 'Top Stories.' : cat + '.';
+            renderNavbar(); renderSubSektors(); renderNews();
+        }
+
+        function setSubSector(sub) {
+            activeSubSector = sub; renderSubSektors(); renderNews();
+        }
+
+        function renderSubSektors() {
+            const container = document.getElementById('sub-sector-filters');
+            if (activeCategory === 'Alle') { container.innerHTML = ''; return; }
+            const currentArticles = allNews.filter(item => item.hauptkategorie === activeCategory);
+            const subSektors = ['Alle', ...new Set(currentArticles.map(item => item.sub_sektor || 'Allgemein'))];
+            if (subSektors.length <= 2) { container.innerHTML = ''; return; }
+
+            container.innerHTML = subSektors.map(sub => {
+                const isActive = activeSubSector === sub;
+                return `<button onclick="setSubSector('${sub}')" class="chip ${isActive ? 'active' : ''}">${sub}</button>`;
+            }).join('');
+        }
+
         function renderNews() {
             const grid = document.getElementById('news-grid');
-            let filtered = allNews;
+            let filtered = activeCategory === 'Alle' ? allNews : allNews.filter(item => item.hauptkategorie === activeCategory);
             
-            // Filter für Trader Mode
+            if (activeSubSector !== 'Alle') {
+                filtered = filtered.filter(item => (item.sub_sektor || 'Allgemein') === activeSubSector);
+            }
             if (currentFocus === 'trader') {
-                filtered = allNews.filter(item => item.hauptkategorie === 'Wirtschaft' || item.hauptkategorie === 'Technologie & Wissenschaft');
+                filtered = filtered.filter(item => item.hauptkategorie === 'Wirtschaft' || item.hauptkategorie === 'Technologie & Wissenschaft');
             }
 
-            grid.innerHTML = filtered.map((item, index) => createNewsCard(item, index === 0)).join('');
-        }
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p style="color: var(--apple-text-muted); grid-column: 1/-1;">Keine Meldungen gefunden.</p>`;
+                return;
+            }
 
-        function createNewsCard(item, isHero) {
-            const isBookmarked = bookmarks.some(b => b.titel === item.titel);
-            const readTime = Math.ceil((item.text || '').length / 800) + " Min.";
-            
-            const bildHtml = item.bild && item.bild !== "" 
-                ? `<div class="card-img-wrapper"><img src="${item.bild}" class="card-img"></div>` : '';
+            grid.innerHTML = filtered.map((item, index) => {
+                const isHero = index === 0 && activeSubSector === 'Alle' && activeCategory === 'Alle';
+                const isBookmarked = bookmarks.some(b => b.titel === item.titel);
+                const readTime = Math.ceil((item.text || '').length / 800) + " Min.";
+                const bildHtml = item.bild && item.bild !== "" ? `<div class="card-img-wrapper"><img src="${item.bild}" class="card-img"></div>` : '';
+                const safeItem = encodeURIComponent(JSON.stringify(item));
 
-            // Um Anführungszeichen in JSON strings für den Button zu fixen:
-            const safeItem = encodeURIComponent(JSON.stringify(item));
-
-            return `
-            <div class="bento-card ${isHero ? 'bento-hero' : ''}">
-                ${bildHtml}
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="card-kicker">${item.sub_sektor || 'News'}</span>
-                        <div style="display:flex; gap:10px; align-items:center;">
-                            <span class="read-time">Lesedauer: ${readTime}</span>
-                            <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleBookmark('${safeItem}', this)">
-                                ${isBookmarked ? '★' : '☆'}
-                            </button>
+                return `
+                <div class="bento-card ${isHero ? 'bento-hero' : ''}">
+                    ${bildHtml}
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="card-kicker">${item.sub_sektor || 'News'}</span>
+                            <div style="display:flex; gap:10px; align-items:center;">
+                                <span class="read-time">Lesedauer: ${readTime}</span>
+                                <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleBookmark('${safeItem}', this)">${isBookmarked ? '★' : '☆'}</button>
+                            </div>
                         </div>
+                        <a href="${item.quelle}" target="_blank" style="text-decoration:none; color:inherit; display:block; flex:1;">
+                            <h3 class="card-headline">${item.titel || 'Kein Titel'}</h3>
+                            <p class="card-text line-clamp-6">${item.text || ''}</p>
+                        </a>
                     </div>
-                    <a href="${item.quelle}" target="_blank" style="text-decoration:none; color:inherit; display:block; flex:1;">
-                        <h3 class="card-headline">${item.titel || 'Kein Titel'}</h3>
-                        <p class="card-text line-clamp-6">${item.text || ''}</p>
-                    </a>
-                </div>
-            </div>`;
+                </div>`;
+            }).join('');
         }
 
-        // ==========================================
-        // LESEZEICHEN FUNKTION
-        // ==========================================
         function toggleBookmark(encodedItem, btn) {
             const item = JSON.parse(decodeURIComponent(encodedItem));
             const index = bookmarks.findIndex(b => b.titel === item.titel);
-            
             if (index > -1) {
                 bookmarks.splice(index, 1);
-                btn.innerHTML = '☆';
-                btn.classList.remove('active');
+                btn.innerHTML = '☆'; btn.classList.remove('active');
             } else {
                 bookmarks.push(item);
-                btn.innerHTML = '★';
-                btn.classList.add('active');
-                triggerDynamicIsland("In 'Später lesen' gespeichert");
+                btn.innerHTML = '★'; btn.classList.add('active');
+                triggerDynamicIsland("Gespeichert");
             }
             localStorage.setItem('carlos_bookmarks', JSON.stringify(bookmarks));
             renderBookmarks();
@@ -449,12 +474,25 @@
                 grid.innerHTML = '<p style="color:var(--apple-text-muted); grid-column:1/-1;">Noch keine Artikel gespeichert.</p>';
                 return;
             }
-            grid.innerHTML = bookmarks.map(item => createNewsCard(item, false)).join('');
+            grid.innerHTML = bookmarks.map(item => createBookmarkCard(item)).join('');
         }
 
-        // ==========================================
-        // LIVE BÖRSE & PORTFOLIO
-        // ==========================================
+        function createBookmarkCard(item) {
+            const bildHtml = item.bild && item.bild !== "" ? `<div class="card-img-wrapper"><img src="${item.bild}" class="card-img"></div>` : '';
+            return `
+            <div class="bento-card">
+                ${bildHtml}
+                <div class="card-content">
+                    <span class="card-kicker">${item.sub_sektor || 'News'}</span>
+                    <a href="${item.quelle}" target="_blank" style="text-decoration:none; color:inherit; display:block; flex:1;">
+                        <h3 class="card-headline">${item.titel || 'Kein Titel'}</h3>
+                        <p class="card-text line-clamp-6">${item.text || ''}</p>
+                    </a>
+                </div>
+            </div>`;
+        }
+
+        // BÖRSE & PORTFOLIO
         document.getElementById('add-stock').addEventListener('keypress', function (e) {
             if (e.key === 'Enter' && this.value.trim() !== '') {
                 const ticker = this.value.toUpperCase().trim();
@@ -470,20 +508,16 @@
 
         function renderPortfolio() {
             const grid = document.getElementById('portfolio-grid');
-            // Simuliert Live-Daten (Da echte APIs Keys brauchen, hier optisch simuliert)
             grid.innerHTML = portfolio.map(ticker => {
                 const dummyPrice = (Math.random() * 300 + 50).toFixed(2);
                 const isGreen = Math.random() > 0.5;
                 const change = (Math.random() * 5).toFixed(2);
-                
                 return `
-                <div class="stock-card relative group">
-                    <button onclick="removeStock('${ticker}')" class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100" style="color:red; background:none; border:none; cursor:pointer;">✕</button>
+                <div class="stock-card">
+                    <button onclick="removeStock('${ticker}')" style="position:absolute; top:10px; right:10px; color:red; background:none; border:none; cursor:pointer;">✕</button>
                     <span style="font-size:14px; font-weight:600;">${ticker}</span>
                     <div class="stock-price">$${dummyPrice}</div>
-                    <div style="font-size:12px; font-weight:600;" class="${isGreen ? 'stock-green' : 'stock-red'}">
-                        ${isGreen ? '▲ +' : '▼ -'}${change}%
-                    </div>
+                    <div style="font-size:12px; font-weight:600;" class="${isGreen ? 'stock-green' : 'stock-red'}">${isGreen ? '▲ +' : '▼ -'}${change}%</div>
                 </div>`;
             }).join('');
         }
@@ -501,30 +535,18 @@
                 <div class="tradingview-widget-container" style="height:100%;width:100%;">
                   <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%;"></div>
                   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                  {
-                  "autosize": true, "symbol": "NASDAQ:AAPL", "interval": "D", "timezone": "Europe/Berlin",
-                  "theme": "light", "style": "2", "locale": "de_DE", "enable_publishing": false,
-                  "backgroundColor": "rgba(255, 255, 255, 1)", "gridColor": "rgba(240, 243, 250, 0)", "hide_top_toolbar": true, "hide_legend": true, "save_image": false, "calendar": false, "hide_volume": true, "support_host": "https://www.tradingview.com"
-                }
+                  {"autosize": true, "symbol": "NASDAQ:AAPL", "interval": "D", "timezone": "Europe/Berlin", "theme": "light", "style": "2", "locale": "de_DE", "backgroundColor": "rgba(255, 255, 255, 1)", "gridColor": "rgba(240, 243, 250, 0)", "hide_top_toolbar": true, "hide_legend": true, "save_image": false, "calendar": false, "hide_volume": true, "support_host": "https://www.tradingview.com"}
                   <\/script>
                 </div>`;
             }
         }
 
-        // ==========================================
-        // LOX AI DEV HUB
-        // ==========================================
         function initLoxNotes() {
             const textarea = document.getElementById('lox-notes');
             textarea.value = localStorage.getItem('lox_notes') || '';
-            textarea.addEventListener('input', () => {
-                localStorage.setItem('lox_notes', textarea.value);
-            });
+            textarea.addEventListener('input', () => { localStorage.setItem('lox_notes', textarea.value); });
         }
 
-        // ==========================================
-        // DYNAMIC ISLAND & SPOTLIGHT
-        // ==========================================
         function triggerDynamicIsland(text) {
             const island = document.getElementById('dynamic-island');
             island.innerText = text;
@@ -557,33 +579,23 @@
             }
         });
 
-        // ==========================================
-        // STANDBY MODUS
-        // ==========================================
+        // Standby
         let idleTime = 0;
         function setupStandby() {
-            // Nach 3 Minuten (180 Sekunden) Inaktivität
             setInterval(() => {
                 idleTime++;
                 if (idleTime > 180) document.getElementById('standby-screen').style.display = 'flex';
             }, 1000);
-
-            // Reset bei Bewegung
             document.addEventListener('mousemove', resetIdle);
             document.addEventListener('keypress', resetIdle);
             document.addEventListener('scroll', resetIdle);
         }
-        function resetIdle() {
-            idleTime = 0;
-            document.getElementById('standby-screen').style.display = 'none';
-        }
+        function resetIdle() { idleTime = 0; document.getElementById('standby-screen').style.display = 'none'; }
 
-        // ==========================================
-        // NAVIGATION SWITCHER
-        // ==========================================
-        function switchView(viewId) {
+        // Navigation Switcher
+        function switchView(viewId, event) {
             document.querySelectorAll('.apple-nav-item').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
+            if(event && event.target) event.target.classList.add('active');
             
             document.getElementById('view-news').classList.add('hidden-view');
             document.getElementById('view-boerse').classList.add('hidden-view');
