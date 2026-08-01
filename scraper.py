@@ -13,13 +13,13 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 1. DEIN API KEY
 genai.configure(api_key="AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ")
 
-# 2. DER SYSTEM-PROMPT
+# 2. DER SYSTEM-PROMPT (Angepasst für prägnante, schnelle Zusammenfassungen)
 SYSTEM_PROMPT = """
 Du bist ein hochpräziser Nachrichten-Redakteur. Deine Aufgabe ist es, bereitgestellte Artikeltexte von Qualitätsmedien zu verarbeiten.
 DEINE ZIELE:
-1. Komprimierung: Fasse jeden übergebenen Artikel auf 20 bis 30 Prozent seiner Originallänge zusammen. Behalte alle wichtigen Fakten bei.
+1. Komprimierung: Fasse jeden Artikel gut und schnell verständlich in 3 bis 4 Sätzen zusammen. Die wichtigsten Punkte und Zusammenhänge müssen sofort klar werden, ohne viel Schnickschnack.
 2. Einzel-Artikel: Vermische die Artikel nicht. Jeder Artikel bleibt ein eigener, geschlossener Text.
-3. Sprache: Deutsch, sachlich.
+3. Sprache: Deutsch, sachlich und wahrheitsgetreu.
 
 KATEGORIEN & SUB-SEKTOREN (Ordne jeden Artikel exakt so ein):
 - Wirtschaft (Aktien & Börse, Makroökonomie & Zinsen, Unternehmen & Strategien)
@@ -28,13 +28,14 @@ KATEGORIEN & SUB-SEKTOREN (Ordne jeden Artikel exakt so ein):
 - Lokales & Regionales (Kommunalpolitik, Regionale Wirtschaft, Infrastruktur)
 - Kultur & Gesellschaft (Gesellschaftliche Debatten, Kunst & Unterhaltung, Leben & Alltag)
 - Sport (Fußball, US-Sport, Olympische Sportarten & Sonstiges)
-- Technologie & Wissenschaft (Künstliche Intelligenz & Software, Hardware & Gadgets, Medizin & Forschung, Klima & Umwelt)
+- Technologie & Wissenschaft (Künstliche Intelligenz & Software, Hardware & Robotik, Medizin & Forschung, Klima & Umwelt)
 
 AUSGABEFORMAT: Du antwortest AUSSCHLIESSLICH im JSON-Format.
 Struktur: {"nachrichten": [{"hauptkategorie": "...", "sub_sektor": "...", "titel": "...", "text": "...", "quelle": "...", "bild": "..."}]}
+WICHTIG: Setze bei "quelle" den originalen Link zum Artikel ein.
 """
 
-# 3. RSS-FEEDS
+# 3. RSS-FEEDS (Erweitert um KI, Robotik und mehr Börse)
 RSS_FEEDS = {
     "Handelsblatt": "https://www.handelsblatt.com/contentexport/feed/wirtschaft",
     "Zeit": "https://newsfeed.zeit.de/index",
@@ -44,7 +45,10 @@ RSS_FEEDS = {
     "Welt": "https://www.welt.de/feeds/latest.rss",
     "WSJ": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
     "Washington Post": "https://feeds.washingtonpost.com/rss/world",
-   "WiWo": "https://www.wiwo.de/contentexport/feed/rss/schlagzeilen"
+    "WiWo": "https://www.wiwo.de/contentexport/feed/rss/schlagzeilen",
+    "Heise": "https://www.heise.de/rss/heise-atom.xml",
+    "Golem": "https://rss.golem.de/rss.php?feed=RSS2.0",
+    "Manager Magazin": "https://www.manager-magazin.de/index.rss"
 }
 
 def clean_cookies(cookies):
@@ -74,8 +78,8 @@ async def scrape_and_summarize():
         )
         page = await context.new_page()
 
-        # SCHRITT 1: Links sammeln
-        print("Scanne RSS-Feeds nach den jeweils 5 neuesten Artikeln...")
+        # SCHRITT 1: Links sammeln (Jetzt 10 Artikel pro Zeitung für deutlich mehr Volumen)
+        print("Scanne RSS-Feeds nach den neuesten Artikeln...")
         for name, feed_url in RSS_FEEDS.items():
             try:
                 response = await context.request.get(feed_url, timeout=15000)
@@ -83,9 +87,9 @@ async def scrape_and_summarize():
                 feed = feedparser.parse(xml_data)
                 
                 if feed.entries:
-                    for entry in feed.entries[:5]:
+                    for entry in feed.entries[:10]:
                         urls_zum_lesen.append(entry.link)
-                    print(f"-> {min(5, len(feed.entries))} Links gefunden bei {name}")
+                    print(f"-> {min(10, len(feed.entries))} Links gefunden bei {name}")
                 else:
                     print(f"-> Keine Artikel im Feed gefunden ({name})")
             except Exception as e:
@@ -96,7 +100,7 @@ async def scrape_and_summarize():
             await browser.close()
             return
 
-        # SCHRITT 2: Artikelinhalte UND Bild-URLs (HTML) lesen
+        # SCHRITT 2: Artikelinhalte und Bild-URLs lesen
         print(f"\nLese jetzt {len(urls_zum_lesen)} Artikel aus...")
         alle_texte = ""
         for url in urls_zum_lesen:
@@ -109,17 +113,14 @@ async def scrape_and_summarize():
                 
                 await page.goto(url, wait_until="domcontentloaded", timeout=30000)
                 
-                # Vollständigen HTML-Code der Seite abgreifen, um das Bild zu finden
                 html_code = await page.content()
                 soup = BeautifulSoup(html_code, 'html.parser')
                 image_tag = soup.find("meta", property="og:image")
                 image_url = image_tag["content"] if image_tag and image_tag.get("content") else ""
 
-                # Text für Gemini auslesen
                 text = await page.evaluate("document.body.innerText")
                 
-                # Wir geben Gemini den Text und hängen die gefundene Bild-URL unsichtbar als Metadaten an
-                alle_texte += f"QUELLE: {url}\nBILD_URL: {image_url}\n\nTEXT:\n{text}\n\n---\n"
+                alle_texte += f"QUELLE: {url}\nBILD_URL: {image_url}\n\nTEXT:\n{text[:5000]}\n\n---\n"
             except Exception:
                 pass 
                 
@@ -139,9 +140,32 @@ async def scrape_and_summarize():
     try:
         response = await model.generate_content_async(alle_texte)
         neue_daten = json.loads(response.text)
+        neue_artikel = neue_daten.get("nachrichten", [])
+        
+        # HISTORIE LADEN: Alte Artikel behalten, damit das Volumen stetig wächst!
+        bestehende_nachrichten = []
+        if os.path.exists("nachrichten.json"):
+            with open("nachrichten.json", "r", encoding="utf-8") as f:
+                try:
+                    bestehende = json.load(f)
+                    if isinstance(bestehende, list):
+                        bestehende_nachrichten = bestehende
+                    elif isinstance(bestehende, dict) and "nachrichten" in bestehende:
+                        bestehende_nachrichten = bestehende["nachrichten"]
+                except:
+                    pass
+
+        # Neue Artikel vorne anfügen, wenn sie noch nicht existieren (Duplikate vermeiden)
+        bekannte_titel = {item.get("titel", "") for item in bestehende_nachrichten}
+        for artikel in neue_artikel:
+            if artikel.get("titel") and artikel.get("titel") not in bekannte_titel:
+                bestehende_nachrichten.insert(0, artikel)
+
+        # Gesamte Liste abspeichern
         with open("nachrichten.json", "w", encoding="utf-8") as f:
-            json.dump(neue_daten, f, ensure_ascii=False, indent=2)
-        print("Erfolg! Das Dashboard wurde mit den neuesten Nachrichten und Bildern aktualisiert!")
+            json.dump(bestehende_nachrichten, f, ensure_ascii=False, indent=2)
+            
+        print(f"Erfolg! Es sind jetzt insgesamt {len(bestehende_nachrichten)} Artikel im Archiv.")
     except Exception as e:
         print("Fehler beim Verarbeiten durch Gemini:", e)
 
@@ -149,7 +173,7 @@ async def scrape_and_summarize():
 async def main_loop():
     while True:
         await scrape_and_summarize()
-        print("\n[Timer] Warte exakt 17 Minuten (1020 Sekunden) bis zum naechsten Durchlauf...")
+        print("\n[Timer] Warte 17 Minuten bis zum naechsten Durchlauf...")
         await asyncio.sleep(1020)
 
 if __name__ == "__main__":
