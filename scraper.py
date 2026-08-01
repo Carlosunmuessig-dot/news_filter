@@ -7,13 +7,13 @@ from bs4 import BeautifulSoup
 import google.generativeai as genai
 from playwright.async_api import async_playwright
 
-# SSL-Zertifikatsprüfung für den Mac deaktivieren
+# SSL-Zertifikatsprüfung deaktivieren
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # 1. DEIN API KEY
 genai.configure(api_key="AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ")
 
-# 2. DER SYSTEM-PROMPT (Fokus auf maximale Tiefe bei KI, Robotik & Wirtschaft)
+# 2. DER SYSTEM-PROMPT
 SYSTEM_PROMPT = """
 Du bist ein hochpräziser Nachrichten-Redakteur. Deine Aufgabe ist es, bereitgestellte Artikeltexte von Qualitätsmedien zu verarbeiten.
 DEINE ZIELE:
@@ -36,7 +36,7 @@ Struktur: {"nachrichten": [{"hauptkategorie": "...", "sub_sektor": "...", "titel
 WICHTIG: Setze bei "quelle" den originalen Link zum Artikel ein.
 """
 
-# 3. RSS-FEEDS (Mit starkem Fokus auf Tech, KI, Robotik & Wirtschaft)
+# 3. RSS-FEEDS
 RSS_FEEDS = {
     "Handelsblatt": "https://www.handelsblatt.com/contentexport/feed/wirtschaft",
     "Zeit": "https://newsfeed.zeit.de/index",
@@ -61,7 +61,7 @@ def clean_cookies(cookies):
 
 async def scrape_and_summarize():
     urls_zum_lesen = []
-    bild_mapping = {}  # Speichert die Bild-URL direkt zum jeweiligen Link
+    bild_mapping = {} 
     
     cookies_handelsblatt = []
     cookies_zeit = []
@@ -81,7 +81,7 @@ async def scrape_and_summarize():
         )
         page = await context.new_page()
 
-        # SCHRITT 1: Links sammeln (10 Artikel pro Feed für maximales Volumen)
+        # SCHRITT 1: Links sammeln UND Bilder direkt aus dem Feed sichern (Anti-Blocker)
         print("Scanne RSS-Feeds nach den neuesten Artikeln...")
         for name, feed_url in RSS_FEEDS.items():
             try:
@@ -93,18 +93,32 @@ async def scrape_and_summarize():
                     for entry in feed.entries[:10]:
                         if entry.link not in urls_zum_lesen:
                             urls_zum_lesen.append(entry.link)
+                            
+                            # Bild-Link aus dem Feed extrahieren
+                            bild_url = ""
+                            if 'media_content' in entry and len(entry.media_content) > 0:
+                                bild_url = entry.media_content[0].get('url', '')
+                            elif 'links' in entry:
+                                for link in entry.links:
+                                    if 'image' in link.get('type', ''):
+                                        bild_url = link.get('href', '')
+                            elif 'enclosures' in entry and len(entry.enclosures) > 0:
+                                bild_url = entry.enclosures[0].get('href', '')
+                            
+                            bild_mapping[entry.link] = bild_url
+
                     print(f"-> Links gefunden bei {name}")
                 else:
                     print(f"-> Keine Artikel im Feed gefunden ({name})")
             except Exception as e:
-                print(f"Fehler beim Lesen des Feeds von {name} (wird übersprungen)")
+                print(f"Fehler beim Lesen des Feeds von {name}")
 
         if not urls_zum_lesen:
-            print("Keine Links in den Feeds gefunden. Abbruch für diesen Durchlauf.")
+            print("Keine Links in den Feeds gefunden. Abbruch.")
             await browser.close()
             return
 
-        # SCHRITT 2: Artikelinhalte und Bilder direkt in Python sichern
+        # SCHRITT 2: Artikelinhalte lesen (und falls Feed kein Bild hatte, Webseite als Backup scannen)
         print(f"\nLese jetzt {len(urls_zum_lesen)} Artikel aus...")
         alle_texte = ""
         for url in urls_zum_lesen:
@@ -117,12 +131,13 @@ async def scrape_and_summarize():
                 
                 await page.goto(url, wait_until="domcontentloaded", timeout=30000)
                 
-                # Bild-URL direkt über Python auslesen
-                html_code = await page.content()
-                soup = BeautifulSoup(html_code, 'html.parser')
-                image_tag = soup.find("meta", property="og:image")
-                image_url = image_tag["content"] if image_tag and image_tag.get("content") else ""
-                bild_mapping[url] = image_url
+                # Wenn im Feed kein Bild war, versuchen wir es als Backup über die Website
+                if not bild_mapping.get(url):
+                    html_code = await page.content()
+                    soup = BeautifulSoup(html_code, 'html.parser')
+                    image_tag = soup.find("meta", property="og:image")
+                    if image_tag and image_tag.get("content"):
+                        bild_mapping[url] = image_tag["content"]
 
                 text = await page.evaluate("document.body.innerText")
                 alle_texte += f"QUELLE: {url}\n\nTEXT:\n{text[:5000]}\n\n---\n"
@@ -147,7 +162,7 @@ async def scrape_and_summarize():
         neue_daten = json.loads(response.text)
         neue_artikel = neue_daten.get("nachrichten", [])
         
-        # BILDER DIREKT IN PYTHON ZUWEISEN (Garantiert, dass kein Bild verloren geht!)
+        # BILDER ZUWEISEN
         for artikel in neue_artikel:
             art_link = artikel.get("quelle", "")
             artikel["bild"] = bild_mapping.get(art_link, "")
@@ -177,7 +192,6 @@ async def scrape_and_summarize():
     except Exception as e:
         print("Fehler beim Verarbeiten durch Gemini:", e)
 
-# ENDLOSSCHLEIFE
 async def main_loop():
     while True:
         await scrape_and_summarize()

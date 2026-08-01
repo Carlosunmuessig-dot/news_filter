@@ -1,270 +1,826 @@
-{
-  "nachrichten": [
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Sechs Fehler, die Delivery Hero zum Übernahmekandidaten machten",
-      "text": "Delivery Hero wird voraussichtlich von Uber vollständig übernommen. Nachdem Gründer und CEO Niklas Östberg im Mai seinen Rücktritt für März 2027 ankündigte und der Aktienkurs um 80 Prozent unter dem Höchststand lag, erhöhte Uber seinen Anteil rasch auf über 25 Prozent. Mittlerweile hat Uber über 50 Prozent der Aktien gesichert und ein Übernahmeangebot von 41,50 Euro pro Aktie eingereicht. Delivery Hero, 2011 gegründet und 2020 als erstes gewinnloses Unternehmen in den Dax aufgestiegen, steht vor dem Ende seiner Eigenständigkeit.",
-      "quelle": "https://www.handelsblatt.com/unternehmen/handel-konsumgueter/lieferdienst-sechs-fehler-die-delivery-hero-zum-uebernahmekandidaten-machten/100241568.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "Erneut heftige russische Angriffe auf Kiew – neun Tote",
-      "text": "Russland hat Kiew erneut heftig mit ballistischen Raketen und Drohnen angegriffen, was zu mindestens neun Toten, über 30 Verletzten und erheblichen Schäden an Wohn- und Infrastrukturgebäuden führte. Präsident Selenskyj kritisierte den Mangel an Patriot-Raketen, die die Abwehr der meisten ballistischen Geschosse verhinderten. Gleichzeitig meldete die Ukraine Angriffe auf drei russische Ölraffinerien und ein Containerschiff, während Russland die Einnahme zweier ukrainischer Dörfer beanspruchte. Die russische Getreidelobby warnte vor einer Blockade der Getreideexporte im Schwarzen Meer durch ukrainische Angriffe, was globale Auswirkungen auf die Ernährungssicherheit hätte. International sorgten ein von Polen abgefangenes russisches Aufklärungsflugzeug und der Absturz eines russischen Marschflugkörpers in Polen für Besorgnis, während US-Präsident Trump sich bezüglich Patriot-Lizenzen für die Ukraine zurückhaltend zeigte. Die EU erschwerte zudem ukrainischen Männern die Flucht.",
-      "quelle": "https://www.handelsblatt.com/politik/international/ukraine-krieg-erneut-heftige-russische-angriffe-auf-kiew-neun-tote/27982126.html"
-    },
-    {
-      "hauptkategorie": "Weltweite Schlagzeilen",
-      "sub_sektor": "Globale Ereignisse",
-      "titel": "Neue Brände in Europa – Höchste Alarmstufe im Großraum Athen",
-      "text": "Neue und heftige Waldbrände haben in Europa zu Evakuierungen und erhöhter Alarmbereitschaft geführt. Im südfranzösischen Département Var, zwischen Marseille und Cannes, verwüstete ein schnell um sich greifendes Feuer 1000 Hektar und machte die Evakuierung von rund 2500 Menschen notwendig. Während ein großer Brand an der französischen Atlantikküste unter Kontrolle gebracht wurde und über 10.000 Menschen in ihre Häuser zurückkehren können, ist die Lage in Griechenland, insbesondere im Großraum Athen, weiterhin angespannt. Auch in Spanien entspannt sich die Situation, und Evakuierte dürfen nach Hause.",
-      "quelle": "https://www.handelsblatt.com/politik/international/waldbraende-neue-braende-in-europa-hoechste-alarmstufe-im-grossraum-athen/100244408.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Mindestens 50.000 Migranten gelangten in spanische Exklave Ceuta",
-      "text": "Innerhalb von 24 Stunden gelangten mindestens 50.000 bis 60.000 Migranten in die spanische Exklave Ceuta, was etwa 70 Prozent der regulären Einwohnerschaft ausmacht. Angesichts fehlender Perspektiven und Versorgung kehrten bis Freitagabend bereits 48.300 Menschen freiwillig nach Marokko zurück. Die spanische Regierung entsandte Militär und zusätzliche Polizeikräfte. Bei dem Ansturm kamen mindestens 67 Menschen ums Leben, hauptsächlich durch Ertrinken oder Gedränge. Spanien plant als Reaktion den Bau einer 500 Meter langen Absperrung am Wellenbrecher.",
-      "quelle": "https://www.handelsblatt.com/politik/international/ceuta-mindestens-50.000-migranten-gelangten-in-spanische-exklave/100244138.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Politik in Amerika",
-      "titel": "Kampf um Brasiliens Rechte – Bolsonaros Erbe wankt",
-      "text": "In Brasilien wurde Flávio Bolsonaro zum Präsidentschaftskandidaten des rechten Lagers für die Wahlen im Oktober ernannt. Sein Wahlkonvent zeigte jedoch mangelnden Rückhalt, da viele führende rechte Politiker und Evangelikale den konservativen Gouverneur Tarcisio de Freitas bevorzugt hätten. Diese Nominierung erfolgte auf Anweisung seines Vaters, des inhaftierten Ex-Präsidenten Jair Bolsonaro, ohne vorherige Abstimmung. Die interne Spaltung der Rechten könnte dem amtierenden linken Präsidenten Luiz Inácio Lula da Silva zugutekommen.",
-      "quelle": "https://www.handelsblatt.com/politik/international/brasilien-kampf-um-brasiliens-rechte-bolsonaros-erbe-wankt/100243539.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "22 EU-Mitgliedsstaaten fordern Sondersitzung der Innenminister",
-      "text": "Nach dem massiven Migrantenansturm auf die spanische Exklave Ceuta fordern 22 EU-Staaten, darunter Deutschland und Italien, eine Dringlichkeitssitzung der EU-Innenminister. Sie mahnen eine koordinierte Reaktion an, um unkontrollierte Migration und deren Instrumentalisierung zu verhindern. Spaniens Regierungschef Pedro Sánchez konterte die Kritik einiger EU-Partner als \"egoistisch\" und \"rechtswidrig\" und forderte ebenfalls eine Sondersitzung. Rund 60.000 Menschen erreichten Ceuta, wobei mindestens 67 starben; fast alle kehrten inzwischen nach Marokko zurück. Italien führte temporäre Grenzkontrollen zu Spanien ein, während Spanien Drohungen eines Schengen-Ausschlusses als demagogisch zurückwies. Sánchez sprach von einem \"Angriff\" auf Spaniens Integrität, verursacht durch Schleusergerüchte.",
-      "quelle": "https://www.zeit.de/politik/ausland/2026-08/migrationskrise-ceuta-spanien-eu-friedrich-merz-giorgia-meloni"
-    },
-    {
-      "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Gesellschaftliche Debatten",
-      "titel": "Zehntausende bei CSD-Demonstration - ausgelassene Stimmung",
-      "text": "Zehntausende Menschen demonstrierten in Hamburg friedlich und ausgelassen beim Christopher Street Day (CSD) unter dem Motto „Solidarisch queer. Haltung zeigen – für eine Zukunft ohne Angst!“. Die Demonstration fand nur eine Woche nach einem islamistischen Anschlag auf den Berliner CSD mit einer Toten und 31 Verletzten statt. Die Hamburger Polizei hatte ihre Sicherheitsmaßnahmen verdoppelt, und Innensenator Andy Grote betonte das klare Zeichen für Vielfalt und Zusammenhalt. Die Veranstalter, Hamburg Pride, erwarteten rund 250.000 Teilnehmer und erklärten, sich nicht einschüchtern zu lassen, sondern die Gemeinschaft zu stärken. Die CSD-Bewegung erinnert an den Stonewall Inn-Aufstand von 1969 in New York.",
-      "quelle": "https://www.zeit.de/news/2026-08/01/zehntausende-bei-csd-demonstration-ausgelassene-stimmung"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Innenpolitik",
-      "titel": "Verstärkte Verkehrskontrollen auf Brandenburgs Straßen",
-      "text": "In der kommenden Woche beteiligt sich die Brandenburger Polizei an der bundesweiten \"Speedweek\" mit verstärkten Verkehrskontrollen. Der Fokus liegt auf überhöhter Geschwindigkeit sowie aggressivem Fahrverhalten wie Drängeln, zu dichtem Auffahren und Rechtsüberholen. Die Kontrollen konzentrieren sich auf Bundesautobahnen und insbesondere ländliche Alleen, wo verstärkt Geschwindigkeiten jenseits von 220 km/h festgestellt werden. Die \"Speedweek\" ist eine europaweite Aktion des Polizeinetzwerks Roadpol.",
-      "quelle": "https://www.zeit.de/news/2026-08/01/verstaerkte-verkehrskontrollen-auf-brandenburgs-strassen"
-    },
-    {
-      "hauptkategorie": "Sport",
-      "sub_sektor": "Fußball",
-      "titel": "Stoffwechselstörung: Bayer-Juwel Eichhorn fällt vorerst aus",
-      "text": "Fußball-Bundesligist Bayer Leverkusen muss vorerst auf seinen 17-jährigen Neuzugang Kennet Eichhorn verzichten. Bei dem Mittelfeldspieler wurde eine behandlungsbedürftige Stoffwechselstörung diagnostiziert, die auf hohe Belastung und starken Gewichtsverlust nach einer Magen-Darm-Erkrankung zurückzuführen ist. Sportgeschäftsführer Simon Rolfes sicherte ihm volle Unterstützung und die notwendige Zeit für die Genesung in einer spezialisierten Einrichtung zu. Eichhorn, der im Sommer für neun Millionen Euro von Hertha BSC gewechselt war und bereits mit 16 Jahren für Herthas Profis spielte, fällt auf unbestimmte Zeit aus.",
-      "quelle": "https://www.zeit.de/news/2026-08/01/stoffwechselstoerung-bayer-juwel-eichhorn-faellt-vorerst-aus"
-    },
-    {
-      "hauptkategorie": "Sport",
-      "sub_sektor": "Fußball",
-      "titel": "Hertha mit zurückhaltendem Saisonziel: Einstelliger Platz",
-      "text": "Hertha BSC hat sein Saisonziel für die 2. Fußball-Bundesliga nach dem Abgang von Schlüsselspielern wie Fabian Reese und Kennet Eichhorn auf einen \"einstelligen Tabellenplatz mit maximaler Ambition nach vorne\" revidiert. Geschäftsführer Peter Görlich bestätigte, dass der finanziell angeschlagene Verein durch Spielertransfers, die über 20 Millionen Euro einbrachten, die Kaderkosten reduzieren konnte. Die Berliner, die in der Vorsaison als Aufstiegsfavorit enttäuschten und Siebter wurden, streben eine neue, aggressivere Spielweise mit höherem Pressing an. Bisher ist Oluwaseun Adewumi der einzige Neuzugang auf Leihbasis.",
-      "quelle": "https://www.zeit.de/news/2026-08/01/hertha-mit-zurueckhaltendem-saisonziel-einstelliger-platz"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "EU-Staaten wollen Ceuta-Treffen - und kritisieren Spanien",
-      "text": "Nach dem Migrantenansturm auf die spanische Exklave Ceuta fordern 22 EU-Mitgliedstaaten, darunter Deutschland und Italien, eine Dringlichkeitssitzung der EU-Innenminister. Sie kritisieren Spanien indirekt für politische Entscheidungen wie die Legalisierung von 500.000 irregulären Migranten und ein Gerichtsurteil, das als Anreiz gewertet wird. Spaniens Ministerpräsident Pedro Sánchez wies die Kritik als \"egoistisch\" und \"rechtswidrig\" zurück und betonte, das neue EU-Asylreform habe solche Situationen verhindern sollen. Zehntausende Migranten erreichten Ceuta, wobei mindestens 67 starben; fast alle sind inzwischen nach Marokko zurückgekehrt. Italien setzte als Reaktion das Schengen-Abkommen gegenüber Spanien aus, und Frankreich verstärkte seine Grenzkontrollen.",
-      "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-migration-spanien-104.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "Trump und Iran: Neue Angriffswelle - oder doch nur eine Drohung?",
-      "text": "US-Präsident Donald Trump hat dem Iran mit massiven Angriffen auf dessen Infrastruktur gedroht, wobei US-Medien von bevorstehenden, mehrtägigen Angriffswellen, möglicherweise unter israelischer Beteiligung, berichten. Der Iran konterte mit der Drohung umfassender Gegenschläge gegen kritische Infrastruktur in Israel und den Golfstaaten. Es besteht Besorgnis über schwindende Bestände an Patriot-Luftabwehrraketen in der Region und den USA. Erfolgreiche iranische Angriffe auf Energieinfrastruktur könnten die globalen Öl- und Gaspreise weiter in die Höhe treiben. Zuvor war ein Rahmenabkommen zwischen den USA und dem Iran im Juni gescheitert, und es kam zu erneuten Angriffen, einschließlich des Beschusses zweier Tanker vor der Küste Omans.",
-      "quelle": "https://www.tagesschau.de/ausland/asien/iran-krieg-usa-trump-102.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Innenpolitik",
-      "titel": "SPD und Union streiten über Rente nach 45 Beitragsjahren",
-      "text": "Innerhalb der deutschen Koalition (CDU, CSU, SPD) herrscht Streit über die geplante Rentenreform, insbesondere die Abschaffung der abschlagsfreien Rente nach 45 Beitragsjahren (\"Rente mit 63\"). SPD-Generalsekretär Tim Klüssendorf fordert deren Beibehaltung für langjährig Versicherte und stellt sich damit gegen Parteichefin Bärbel Bas und Kanzler Friedrich Merz (CDU), die die Abschaffung als Teil eines Reformpakets umsetzen wollten. Ost-Ministerpräsidenten lehnen die Abschaffung ab, da sie Ostdeutschland besonders treffen würde. Unionsfraktionschef Thorsten Frei und CDU-Generalsekretärin Franziska Hoppermann bestehen jedoch auf dem Aus, um die Tragfähigkeit des Reformkompromisses zu sichern. Auch die Rentenkommission zeigt sich irritiert, während der VdK Nachbesserungen fordert.",
-      "quelle": "https://www.tagesschau.de/inland/rentenreform-vorschlag-cdu-reaktionen-100.html"
-    },
-    {
-      "hauptkategorie": "Lokales & Regionales",
-      "sub_sektor": "Regionale Wirtschaft",
-      "titel": "Rekord-Niedrigwasser im Rhein belastet Binnenschifffahrt in NRW",
-      "text": "Der Rhein verzeichnet historisch niedrige Wasserstände, was die Binnenschifffahrt erheblich beeinträchtigt. Obwohl keine komplette Einstellung des Verkehrs erwartet wird, müssen Frachtschiffe mit stark reduzierter Ladung fahren, was zu erhöhten Transportkosten, längeren Lieferzeiten und Kleinwasserzuschlägen führt. Dies belastet insbesondere Industriekonzerne wie Thyssenkrupp Steel und birgt das Risiko von Produktionsverlusten und Lieferengpässen, die sich auch auf die Verbraucherpreise auswirken könnten. Spezialschiffe sind im Einsatz, doch eine Entspannung der Lage ist ohne großflächige, langanhaltende Niederschläge nicht in Sicht.",
-      "quelle": "https://www.tagesschau.de/inland/regional/nordrheinwestfalen/niedrigwasser-rhein-104.html"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Nach Ansturm auf Ceuta: Migranten kehren zurück, Europa diskutiert",
-      "text": "Nach dem Ansturm zehntausender Migranten auf die spanische Exklave Ceuta, von denen die meisten zurückkehrten und mindestens 67 starben, herrscht auf EU-Ebene Besorgnis und eine Debatte über Grenzschutz. Experten treffen sich zur Krisensitzung, während der spanische Regierungschef Pedro Sánchez eine EU-Sondersitzung auf Ministerebene fordert und die Kritik einiger EU-Staaten als \"egoistisch\" verurteilt. Prominente EU-Politiker wie Manfred Weber und Marie-Agnes Strack-Zimmermann mahnen einen besseren Außengrenzschutz an, während Katarina Barley Spanien Solidarität zusichert. Italien setzte das Schengen-Abkommen gegenüber Spanien aus, und andere Länder verstärkten ihre Grenzkontrollen.",
-      "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-migration-spanien-100.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Makroökonomie & Zinsen",
-      "titel": "Niedrigwasser von Rhein, Donau und Elbe ist Wirtschaftskiller",
-      "text": "Das extreme Niedrigwasser in Rhein, Elbe und Donau, verursacht durch Trockenheit und hohe Temperaturen, belastet die deutsche Wirtschaft massiv. Der Rheinpegel in Köln erreichte einen historischen Tiefststand. Güterschiffe müssen ihre Lademengen drastisch reduzieren, was zu deutlich höheren Frachtkosten und geringerer Wirtschaftlichkeit führt. Davon betroffen sind Schlüsselindustrien wie Chemie und Stahl, was Engpässe in Lieferketten und steigende Preise für Verbraucher nach sich ziehen kann. Der geschätzte gesamtwirtschaftliche Schaden im dritten Quartal liegt bei ein bis zwei Milliarden Euro. Eine Besserung der Lage ist ohne langanhaltende, großflächige Niederschläge nicht in Sicht, und es werden Investitionen in die Wasserstraßen gefordert.",
-      "quelle": "https://www.n-tv.de/wirtschaft/Niedrigwasser-von-Rhein-Donau-und-Elbe-ist-Wirtschaftskiller-id31148701.html"
-    },
-    {
-      "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Klima & Umwelt",
-      "titel": "\"Kommunen steuern Windkraftverhinderung mit ihren Pachtforderungen\"",
-      "text": "Baden-Württemberg, trotz Grüner Regierung, zeigt einen langsamen Windenergieausbau, was auf eine Kombination von Faktoren zurückzuführen ist. Dazu gehören die herausfordernde bergige Topografie, langsame und übervorsichtige Genehmigungsverfahren der Behörden sowie die mangelnde Wirtschaftlichkeitsprüfung von Windkraftstandorten. Alexander Sladek von den EWS Schönau kritisiert, dass Kommunen überhöhte Pachtforderungen stellen, um den Ausbau zu verhindern, und ForstBW (Staatswald) Flächen an den Höchstbietenden vergibt, ohne Projektqualität zu berücksichtigen. Auch die fehlende Transparenz der Bundeswehr bei Sperrzonen und unzureichende interkommunale Zusammenarbeit sind Hindernisse. Sladek fordert einen klaren Fahrplan für erneuerbare Energien und eine Debatte über regionale Strompreiszonen, um mehr Windkraft im Süden volkswirtschaftlich sinnvoll zu fördern und Netzausbau zu reduzieren.",
-      "quelle": "https://www.n-tv.de/wirtschaft/Kommunen-steuern-Windkraftverhinderung-mit-ihren-Pachtforderungen-id31131893.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Palla sieht \"organisierte Verantwortungslosigkeit\" im Bahn-Management",
-      "text": "Die Vorstandsvorsitzende der Deutschen Bahn, Evelyn Palla, hat das Management scharf kritisiert und von \"organisierter Verantwortungslosigkeit\" gesprochen. Seit ihrem Amtsantritt im Oktober letzten Jahres zielt Palla auf einen Konzernumbau ab, der die Zentrale verschlankt und Verantwortung in die Fläche verlagert, um die Pünktlichkeit zu verbessern. Im ersten Halbjahr wurde das Pünktlichkeitsziel von 60 Prozent knapp verfehlt (58,7 Prozent). Palla bezeichnete die Lage als \"schwerste Krise der Unternehmensgeschichte\" und betonte, dass bis zum 200-jährigen Jubiläum der Bahn im Jahr 2035 das Schienennetz saniert und der Konzern profitabler werden soll. Sie forderte messbare Ergebnisse anstelle von Erklärungen und lobte gleichzeitig das Personal an der Basis als die wahren \"Helden\".",
-      "quelle": "https://www.n-tv.de/wirtschaft/Palla-sieht-organisierte-Verantwortungslosigkeit-im-Bahn-Management-id31148144.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "Amazon-Zahlen beflügeln Wall Street",
-      "text": "Starke Quartalszahlen von Amazon, die das größte vierteljährliche Umsatzwachstum seit über vier Jahren zeigten, beflügelten die Wall Street und milderten Sorgen über hohe KI-Investitionen. Amazon-Aktien stiegen um über 15 Prozent, auch Microsoft legte zu. Im Gegensatz dazu fielen Apple-Aktien um 7,4 Prozent aufgrund von Warnungen vor Halbleiter-Lieferengpässen und potenziell nachlassender Verbrauchernachfrage. Makroökonomisch forderten drei US-Notenbanker sofortige Inflationsbekämpfung, was die Wahrscheinlichkeit einer Zinserhöhung im September auf 65 Prozent steigen ließ. Analysten erwarten im zweiten Quartal einen Gewinnanstieg der S&P-500-Konzerne um 48 Prozent, getragen von KI-Aktien.",
-      "quelle": "https://www.n-tv.de/wirtschaft/Amazon-Zahlen-befluegeln-Wall-Street-id31148102.html"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "Wochenvorschau: Termine bis 7. August 2026",
-      "text": "Die Wochenvorschau listet wichtige Wirtschafts-, Börsen- und Konjunkturtermine bis zum 7. August 2026 auf. Darunter fallen die Veröffentlichung von Einkaufsmanagerindizes (PMI) für verschiedene Regionen wie China, Eurozone und USA, Verbraucherpreise in der Schweiz sowie Industrieproduktion in Frankreich. Zahlreiche Unternehmen veröffentlichen ihre Quartals- oder Halbjahresergebnisse, darunter Stabilus, Nissan, Lufthansa, Evonik, Zalando, Bayer, Hugo Boss, Continental, Siemens Energy, DHL Group, Infineon, Commerzbank, Deutsche Telekom, Allianz und Munich Re. Des Weiteren stehen US-Bauausgaben, Handelsbilanzen, Arbeitsmarktdaten (ADP-Bericht, Erstanträge Arbeitslosenhilfe) und das BIP für das zweite Quartal in den USA an.",
-      "quelle": "https://www.n-tv.de/wirtschaft/termine/Termine-bis-7-August-2026-id31147127.html"
-    },
-    {
-      "hauptkategorie": "Sport",
-      "sub_sektor": "Fußball",
-      "titel": "Gianni Infantino stoppt Investorenpläne der Fifa: Der Fußball hat jetzt eine Chance – Kommentar",
-      "text": "Fifa-Präsident Gianni Infantino hat nach massivem Widerstand seine umstrittenen Investorenpläne zurückgezogen. Dies wird als Kapitulation Infantinos gewertet, dessen Verbleib im Amt als Skandal betrachtet wird. Der Kommentar sieht darin eine Chance für den Weltfußball, innezuhalten und eine neue Richtung einzuschlagen.",
-      "quelle": "https://www.spiegel.de/sport/fussball/gianni-infantino-stoppt-investorenplaene-der-fifa-der-fussball-hat-jetzt-eine-chance-kommentar-a-7bf829cb-f2ba-492b-94ef-13cdd2ebc5e0#ref=rss"
-    },
-    {
-      "hauptkategorie": "Sport",
-      "sub_sektor": "Fußball",
-      "titel": "Uefa begrüßt Rückzug von »schäbigem« Investorenplan und greift Gianni Infantino an",
-      "text": "Die Uefa hat den Rückzug der Fifa-Pläne, Anteile an ihren Wettbewerben an private Investoren zu verkaufen, begrüßt. Fifa-Präsident Gianni Infantino hatte mit dem Verkauf von 20 Prozent der Anteile 4,2 Milliarden Dollar für sein Projekt „Fifa Forward Enterprise“ einnehmen wollen. Nach massiver Kritik und Boykottdrohungen der Uefa, AFC und Concacaf bezeichnete die Uefa das Vorhaben als „schäbigen“ und „undurchsichtigen“ Deal. Die Uefa attackierte Infantino persönlich, warf ihm mangelnde Transparenz und Vertrauensverlust vor und forderte, die Verantwortlichen zur Rechenschaft zu ziehen. Sie bewertet den Rückzug als „Sieg für den gesamten Fußball“, betont aber, dass der Weg zur Wiederherstellung des Vertrauens in die Fifa erst begonnen habe.",
-      "quelle": "https://www.spiegel.de/sport/fussball/fifa-plan-gescheitert-uefa-begruesst-rueckzug-von-schaebigem-investorenplan-und-greift-gianni-infantino-an-a-f52d5cec-258b-4e8b-9717-a6cd96a51dba#ref=rss"
-    },
-    {
-      "hauptkategorie": "Sport",
-      "sub_sektor": "Fußball",
-      "titel": "»Der Fußball hat gesiegt, die Fifa hat verloren« - Pressestimmen",
-      "text": "Fifa-Präsident Gianni Infantino hat seine umstrittenen Pläne, Anteile an Fußball-Weltmeisterschaften an externe Investoren zu verkaufen, zurückgezogen. Die Fifa begründete dies mit der Spaltung, die das Projekt hervorgerufen hatte. Internationale Medien kommentieren dies als eine \"peinliche Kehrtwende\" und \"demütigende Niederlage\" Infantinos. Zeitungen wie der \"Guardian\" und die \"Marca\" sprechen von einem \"spektakulären Scheitern\" bzw. einer \"totalen Niederlage\", während \"El País\" titelt: \"Der Fußball hat gesiegt, die Fifa hat verloren\". Viele Pressestimmen äußern ernsthafte Zweifel an Infantinos Verbleib im Amt und sehen den Verband in einer Krise.",
-      "quelle": "https://www.spiegel.de/sport/fussball/fifa-pressestimmen-zum-aus-der-infantino-plaene-a-dc75142d-481a-4ad7-b529-900d6b076d47#ref=rss"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Ceuta: Diesen Mangel an Solidarität werden die Spanier nicht vergessen - Kommentar",
-      "text": "Ein Kommentar kritisiert scharf den mangelnden Solidarität der EU-Partner mit Spanien während des Flüchtlingsdramas in Ceuta. Anstatt Druck auf Marokko auszuüben, hätten viele EU-Staaten Madrid kritisiert, was die Migrationspanik in Europa verstärke und den Kontinent anfällig für Erpressung mache. Der Vorfall wird als gefährlicher Präzedenzfall gewertet.",
-      "quelle": "https://www.spiegel.de/ausland/ceuta-wie-das-grenzdrama-europa-fuer-erpressung-anfaellig-macht-a-83585983-c7f7-4cc6-bafa-5889565cad46#ref=rss"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Spaniens Regierungschef Pedro Sánchez fordert EU-Sondersitzung",
-      "text": "Beim Versuch, die spanische Exklave Ceuta zu erreichen, sind mindestens 67 Menschen ums Leben gekommen, viele davon ertrunken. Angesichts dieser dramatischen Lage und der Kritik von EU-Partnern forderte Spaniens Regierungschef Pedro Sánchez eine EU-Sondersitzung der Innenminister. Er verurteilte die \"egoistische, spaltende und rechtswidrige\" Haltung einiger Mitgliedstaaten, die Spanien nicht unterstützten, sondern kritisierten. Während Experten der EU bereits am Wochenende beraten, sind die meisten der ursprünglich zehntausenden Migranten, die irregulär nach Ceuta gelangt waren, inzwischen nach Marokko zurückgekehrt. EU-Migrationskommissar Magnus Brunner bestätigte, dass keine Person das EU-Festland erreicht hat.",
-      "quelle": "https://www.spiegel.de/ausland/ceuta-spaniens-regierungschef-pedro-sanchez-sanchez-fordert-eu-sondersitzung-a-f96618a6-b39d-49b1-a053-9ea019f51b97#ref=rss"
-    },
-    {
-      "hauptkategorie": "Lokales & Regionales",
-      "sub_sektor": "Kommunalpolitik",
-      "titel": "Schüsse auf E-Scooter-Fahrer – der flüchtet in Richtung Spielplatz",
-      "text": "Am Freitagabend wurden in Köln vor einem Kiosk mehrere Schüsse auf einen E-Scooter-Fahrer abgegeben. Der Fahrer blieb unverletzt und flüchtete, ebenso wie die mindestens zwei Täter, in Richtung eines Spielplatzes. Die Polizei hat eine Fahndung nach den Beteiligten eingeleitet und Patronenhülsen am Tatort sichergestellt. Ermittlungen wegen versuchten Tötungsdelikts laufen, die Hintergründe der Tat sind derzeit noch unklar.",
-      "quelle": "https://www.welt.de/vermischtes/article6a6dd882dd06dd5ef2e417b7/koeln-schuesse-auf-e-scooter-fahrer-der-fluechtet-in-richtung-spielplatz.html"
-    },
-    {
-      "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Gesellschaftliche Debatten",
-      "titel": "Tausende feiern CSD trotz erhöhter Sicherheitslage in Hamburg",
-      "text": "Tausende Menschen feierten in Hamburg den Christopher Street Day (CSD) unter dem Motto „Solidarisch queer. Haltung zeigen – für eine Zukunft ohne Angst!“, trotz erhöhter Sicherheitslage. Die Veranstaltung fand eine Woche nach einem islamistischen Anschlag auf den Berliner CSD mit einer Toten und 31 Verletzten statt. Die Hamburger Polizei hatte ihre Einsatzkräfte verdoppelt, und die Stimmung wurde als \"positiv angespannt, aber nicht ängstlich\" mit einem \"Jetzt-erst-Recht-Gefühl\" beschrieben. Die Teilnehmer fühlten sich durch die starke Polizeipräsenz geschützt, und die Veranstalter betonten, sich nicht einschüchtern zu lassen.",
-      "quelle": "https://www.welt.de/politik/deutschland/article6a6dda8b14a05012ea30254b/nach-anschlag-tausende-feiern-csd-trotz-erhoehter-sicherheitslage-in-hamburg.html"
-    },
-    {
-      "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "Die Zensur besorgt in Russland jetzt die Künstliche Intelligenz",
-      "text": "Russland automatisiert seine Buchzensur, indem Verlage wie Eksmo-AST (70% des Marktes) KI-Systeme einsetzen, um Manuskripte dreimal auf \"verbotene Inhalte\" wie \"nichttraditionelle sexuelle Beziehungen\", Drogen oder \"Childfree-Ideologie\" zu prüfen. Trotz Unzuverlässigkeit der chinesischen KI \"Qwen\" oder Telegram-Bots, die teils absurde Fehler produzieren (z.B. \"Drag\" als \"drug\" interpretieren oder Klassiker markieren), werden aus Angst vor Strafen vorsorglich Bücher zensiert oder aus dem Handel genommen. Die vagen Gesetze und persönliche Haftung der Verlagsdirektoren führen zu einer sich verselbstständigenden Zensur, die die kreative Arbeit massiv beeinträchtigt und bereits Hunderte von Titeln verschwinden ließ.",
-      "quelle": "https://www.welt.de/kultur/article6a5f5e4bfb6c4ab717fc948e/die-zensur-besorgt-in-russland-jetzt-die-kuenstliche-intelligenz.html"
-    },
-    {
-      "hauptkategorie": "Kultur & Gesellschaft",
-      "sub_sektor": "Gesellschaftliche Debatten",
-      "titel": "Islamismus, Israelhass und die „selbstmörderische Empathie“ der Linken",
-      "text": "Ein Kommentar kritisiert scharf die Behauptung mancher Linker, Islamisten – wie der CSD-Attentäter von Berlin – seien lediglich „konservativ“. Diese Darstellung wird als gefährlicher Unsinn bezeichnet, der einen spezifischen Zweck verfolgt. Der Autor deutet auf die tiefgreifenden historischen Wurzeln von Islamismus und Israelhass hin, die über eine rein konservative Einordnung hinausgehen.",
-      "quelle": "https://www.welt.de/debatte/plus6a6cf529dd06dd5ef2e417b7/historische-wurzeln-islamismus-israelhass-und-die-selbstmoerderische-empathie-der-linken.html"
-    },
-    {
-      "hauptkategorie": "Weltweite Schlagzeilen",
-      "sub_sektor": "Globale Ereignisse",
-      "titel": "Nach Erdbeben: Angst vor Nachbeben treibt Menschen in Japan aus ihren Häusern",
-      "text": "Nach einem schweren Erdbeben der Stärke 7,1 auf der japanischen Hauptinsel Kyushu verharren Tausende Menschen aus Angst vor Nachbeben in Notunterkünften oder ihren Autos. Die Situation ist kritisch: Die Zahl der Todesopfer stieg auf 34, und über 79.000 Haushalte sind ohne Wasser, 3500 ohne Strom. Hohe Temperaturen von über 30 Grad, für Sonntag bis zu 38 Grad prognostiziert, verschärfen die Gefahr hitzebedingter Erkrankungen. Rettungskräfte suchen weiter nach Vermissten in eingestürzten Gebäuden, unter anderem in einem Einkaufszentrum. In der Stadt Hikawa wurden über 800 Häuser zerstört oder beschädigt.",
-      "quelle": "https://www.welt.de/politik/ausland/article6a6dd326aa498e31a519a779/nach-erdbeben-angst-vor-nachbeben-treibt-menschen-in-japan-aus-ihren-haeusern.html"
-    },
-    {
-      "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "Nvidia Stock Sinks in AI Rout Sparked by China’s DeepSeek",
-      "text": "Technologieaktien erlitten einen starken Rückgang, nachdem Chinas DeepSeek bekannt gab, ein hochentwickeltes KI-Modell zu einem Bruchteil der Kosten von US-Konkurrenten trainiert zu haben. Nvidia-Aktien stürzten um 17 Prozent ab, wodurch der Marktwert des Unternehmens um 589 Milliarden Dollar sank. Dies führte zu einer abrupten Umkehr der jüngsten KI-Rally an der Wall Street.",
-      "quelle": "https://www.wsj.com/articles/nikkei-may-rise-as-weak-yen-raises-earnings-hopes-776a8056?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Aktien & Börse",
-      "titel": "Comex Gold Settles 1.43% Lower at $2737.50",
-      "text": "Der Comex Goldpreis für die Januar-Lieferung fiel um 39,80 Dollar pro Feinunze, ein Rückgang von 1,43 Prozent, und schloss bei 2737,50 Dollar. Dies stellt den größten täglichen Dollar- und prozentualen Rückgang seit dem 19. Dezember 2024 dar. Die Finanzmärkte konzentrieren sich weiterhin auf die bevorstehende Zinsentscheidung der Federal Reserve.",
-      "quelle": "https://www.wsj.com/articles/gold-edges-lower-feds-rate-decision-in-focus-09dbfceb?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Technologie & Wissenschaft",
-      "sub_sektor": "Künstliche Intelligenz & Software",
-      "titel": "DeepSeek Won’t Sink U.S. AI Titans",
-      "text": "Das chinesische KI-Startup DeepSeek hat ein leistungsstarkes KI-Modell entwickelt, dessen Trainingskosten von 5,6 Millionen Dollar einen Bruchteil der Ausgaben von US-Rivalen wie OpenAI (über 100 Mio. Dollar für GPT-4) oder Anthropic (nahe 1 Mrd. Dollar) ausmachen. US-Präsident Donald Trump bezeichnete dies als Weckruf für die US-Industrie und kündigte neue Zölle auf Halbleiterimporte an. Trotz der Panik und des Ausverkaufs von US-Tech-Aktien wie Nvidia und Broadcom wird die Sorge vor einem Einbruch der US-KI-Branche als übertrieben eingeschätzt.",
-      "quelle": "https://www.wsj.com/articles/deepseek-us-ai-stocks-nvidia-broadcom-6cdfae81?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Unternehmen & Strategien",
-      "titel": "Financial Services Roundup: Market Talk",
-      "text": "Laut Analysten von Bank of America Global Research wird die Business-to-Consumer-Plattform von Experian vom Markt unterschätzt, obwohl das Kreditbüro einen überzeugenden Plan zur Skalierung und Monetarisierung dieses Segments verfolgt. Experian erweitert seine Verbraucherdienstleistungen rasch, um ein diversifiziertes Geschäft mit mehreren Einnahmequellen aufzubauen. Das Unternehmen hat seinen Umsatz im Nordamerika-Geschäft in den letzten sechs Jahren auf 1,5 Milliarden Dollar verdoppelt und strebt mittelfristig eine erneute Verdoppelung an. Die Aktien fielen leicht um 0,2 Prozent.",
-      "quelle": "https://www.wsj.com/articles/financial-services-roundup-market-talk-94f52cba?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Wirtschaft",
-      "sub_sektor": "Makroökonomie & Zinsen",
-      "titel": "Arabica Coffee Prices Hit New High on U.S., Colombia Tariff Spat",
-      "text": "Die Preise für Arabica-Kaffee erreichten ein neues Rekordhoch, beeinflusst durch zurückgezogene Zoll- und Sanktionsdrohungen von US-Präsident Trump gegen Kolumbien, das rund 30 Prozent des US-Kaffees liefert. Obwohl die Futures an der ICE nur leicht auf 3,48 Dollar pro Pfund stiegen, verzeichneten sie in den letzten drei Monaten einen Anstieg von über 40 Prozent und im Jahresverlauf 79 Prozent, mit einem neuen Spitzenwert von 3,56 Dollar. JPMorgan bewertet diese Entwicklung als relevant für die Rohstoffmärkte im Kontext bevorstehender Zölle gegen Kanada, Mexiko und China.",
-      "quelle": "https://www.wsj.com/articles/arabica-coffee-prices-hit-new-high-on-u-s-colombia-tariff-spat-582446fe?mod=rss_markets_main"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Geopolitik",
-      "titel": "U.S. general warns Pentagon he lacks sufficient forces to protect Israel",
-      "text": "Der ranghöchste US-General in Europa, Alexus Grynkewich, hat das Pentagon intern gewarnt, dass ihm die notwendigen Marinekräfte fehlen, um Israel weiterhin effektiv vor iranischen ballistischen Raketenangriffen zu schützen. Der Mangel an Navy-Zerstörern zwingt ihn, die Verteidigung des US-Heimatlandes vorrangig zu behandeln. Dieser Umstand unterstreicht die erheblichen Belastungen und Einschränkungen, die der anhaltende Iran-Krieg für das US-Militär mit sich bringt.",
-      "quelle": "https://www.washingtonpost.com/national-security/2026/08/01/general-warns-pentagon-he-lacks-sufficient-forces-protect-israel/"
-    },
-    {
-      "hauptkategorie": "Politik",
-      "sub_sektor": "Außenpolitik",
-      "titel": "Migrants overrun a Spanish outpost, stirring European outrage",
-      "text": "Der massive und plötzliche Zustrom von Migranten in die spanische Exklave Ceuta hat eine Welle politischer Angriffe gegen den spanischen Premierminister Pedro Sánchez ausgelöst. Rechte Politiker aus Spanien, Deutschland, Italien und Frankreich, zusammen mit dem Weißen Haus, kritisierten Sánchez' liberale Migrationspolitik scharf. Tausende Marokkaner stürmten das nordafrikanische spanische Territorium, woraufhin das Weiße Haus Spanien wegen seiner \"schwachen Einwanderungspolitik\" verurteilte.",
-      "quelle": "https://www.washingtonpost.com/world/2026/07/31/migrants-overrun-spanish-outpost-stirring-white-house-outrage/"
-    },
-    {
-      "hauptkategorie": "Weltweite Schlagzeilen",
-      "sub_sektor": "Globale Ereignisse",
-      "titel": "How the U.S. war with Iran is widening inequality in Africa",
-      "text": "Der US-Krieg mit dem Iran verschärft die Ungleichheit in afrikanischen Ländern, wie am Beispiel Angolas deutlich wird. Als Ölproduzent außerhalb der Straße von Hormus profitiert Angola von steigenden Ölpreisen, die jedoch hauptsächlich eine kleine Elite bereichern. Während die Regierung ihre Öleinnahmen (30% des BIP) zur Schuldentilgung nutzt, leidet die Hälfte der Bevölkerung, die von weniger als 3,65 Dollar pro Tag lebt, unter stark gestiegenen Preisen für Lebensmittel, Kraftstoff und Dünger (z.B. Vervierfachung des Paprikapreises). Trotz angekündigter Inflationsbekämpfungsmaßnahmen sehen die ärmsten Schichten keine Vorteile, was die Frustration über Korruption und Ungleichheit vor den kommenden Präsidentschaftswahlen erhöht.",
-      "quelle": "https://www.washingtonpost.com/world/interactive/2026/07/31/how-us-war-with-iran-is-widening-inequality-africa/"
-    }
-  ]
-}
+[
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Kühne: Wie Klaus-Michael Kühne die deutsche Firmenwelt aufmischt",
+    "text": "Klaus-Michael Kühne mischt die deutsche Firmenwelt mit spektakulären Investments in Unternehmen wie Lufthansa, Flix und den Dax-Konzern Brenntag auf, was weit über reine Geldanlage hinausgeht. Der Logistikmilliardär, bekannt von Kühne + Nagel, baut zum Finale seiner Karriere eine Art eigene \"Deutschland-AG\" auf, was in der Wirtschaft für Rätselraten sorgt. Seine Beteiligungen zeigen einen strategischen Ansatz, Einfluss in verschiedenen Transport- und Logistikbereichen zu nehmen. Die Motivation hinter diesen umfassenden Investments wird als entscheidend für die zukünftige Entwicklung dieser Unternehmen angesehen.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/kuehne-wie-klaus-michael-kuehne-die-deutsche-firmenwelt-aufmischt-a-8f7fca07-184a-4f3b-95fc-8706f36362a1#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/a1dffe83-1b1b-4fac-be9d-1872424f0d66_w520_r2.08_fpx55_fpy35.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Klaus-Michael Kühne: Wie der Logistikmilliardär seine Deutschland-AG baut",
+    "text": "Logistikmilliardär Klaus-Michael Kühne investiert im Finale seiner Karriere massiv in prominente deutsche Unternehmen wie Lufthansa, Flix und den Chemielogistiker Brenntag, um eine eigene \"Deutschland-AG\" aufzubauen. Diese strategischen Milliarden-Investitionen, die über sein Kerngeschäft Kühne + Nagel hinausgehen, lassen die deutsche Wirtschaftsgemeinde über seine Motive rätseln. Der Podcast \"manager magazin INSIDE\" beleuchtet die Hintergründe dieser spektakulären Beteiligungen und was noch von Kühne zu erwarten ist. Kühne ist bestrebt, als Ankeraktionär Einfluss auf diese Unternehmen zu nehmen.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/klaus-michael-kuehne-wie-der-logistik-milliardaer-die-wirtschaft-aufmischt-a-050447a3-9be7-4f9f-8185-69e1cdea1d89#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/ed7aa080-3e06-44ff-9572-444a44cf3204_w520_r2.08_fpx47_fpy45.png"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "Schaeffler: E-Auto-Flaute in den USA lässt Aktie abstürzen",
+    "text": "Der Automobil- und Industriezulieferer Schaeffler musste seine mittelfristigen Geschäftsziele aufgrund einer schwächeren Auftragslage im E-Mobilitätsbereich, insbesondere aus den USA, zurückschrauben, was die Aktie um 16 Prozent abstürzen ließ. Die Reduzierung der E-Auto-Förderung durch die Trump-Regierung in den USA führte zu einem deutlichen Rückgang oder Wegfall großer Programme im Orderbuch. Vorstandschef Klaus Rosenfeld erwartet für 2028 nur noch einen Konzernumsatz von 24 bis 26 Milliarden Euro statt der ursprünglich geplanten 27 bis 29 Milliarden. Obwohl die E-Mobilität ein wichtiger Wachstumsbereich bleibt, wird die Gewinnschwelle in diesem Segment später erreicht als gedacht.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/schaeffler-e-auto-flaute-in-den-usa-laesst-aktie-abstuerzen-a-40bbf11c-852d-4aa0-90aa-4682ed13c5ae#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/73e74a6b-d9a4-4d9c-8d35-7d86b60360fe_w520_r2.08_fpx62.67_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "„Das war am Ende so etwas wie organisierte Verantwortungslosigkeit“",
+    "text": "Bahn-Chefin Evelyn Palla übt scharfe Kritik am Management der Deutschen Bahn, indem sie mangelnde Leistungsbereitschaft und \"organisierte Verantwortungslosigkeit\" als Ursache für die Konzernprobleme benennt. Sie fordert eine neue Leistungskultur und eine Verlagerung von Verantwortung in dezentrale Einheiten, da Pünktlichkeit nur mit klarer Verantwortungsallokation beginne. Palla gesteht ein, dass schnelle Pünktlichkeitsverbesserungen aufgrund des maroden Netzes und vieler Baustellen nicht möglich sind und die Sanierung bis zum 200. Jubiläum der Bahn 2035 andauern wird. Ihre Kritik gilt explizit nicht den Basis-Mitarbeitern, sondern dem Management, wo zu lange Erklärungen statt messbarer Ergebnisse zählten.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/das-war-am-ende-so-etwas-wie-organisierte-verantwortungslosigkeit-a-4bf81fa0-da12-4a5c-ba11-50ce428ae535#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/f2205f13-e6fb-4416-b312-9a541f5835bf_w520_r2.08_fpx48.66_fpy44.98.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "ZF Friedrichshafen: Autozulieferer baut den Vorstand schon wieder um",
+    "text": "Der kriselnde Autozulieferer ZF Friedrichshafen baut seinen Vorstand erneut um, kurz nachdem er nach der Trennung von CEO Holger Klein neu aufgestellt worden war. Die wiederholten Wechselspiele am Bodensee haben auch Folgen für den Vorstandschef Mathias Miedreich, der künftig auch die Chassis-Sparte leiten soll. Diese Umstrukturierungen sind ein Zeichen für die anhaltenden Herausforderungen und den Druck, dem der Autozulieferer ausgesetzt ist. Der Artikel beleuchtet die interne Dynamik und die Führungswechsel bei ZF Friedrichshafen.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/zf-friedrichshafen-autozulieferer-baut-den-vorstand-schon-wieder-um-a-aa79819d-1d6d-4f7a-989b-59e777fed386#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/e26f7a6a-da5f-4637-820d-54a2592219fe_w520_r2.08_fpx41.33_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Geely: Warum Volvo die Marke Polestar wieder in den Konzern integrieren könnte",
+    "text": "Es wird spekuliert, dass Volvo die einst ausgegliederte Elektromarke Polestar wieder in den Konzern integrieren könnte, als Teil einer Sanierungsaktion unter CEO Håkan Samuelsson und Großaktionär Li Shufu. Samuelsson setzt auf eine \"Retrowelle\" und Li Shufu hat viele alte Manager zurückgeholt, was auf eine Konsolidierungsstrategie hindeutet. Polestar wurde als eigenständige Marke für Elektroautos positioniert, doch die mögliche Reintegration deutet auf Herausforderungen oder strategische Neuausrichtungen hin. Der Schritt würde die Struktur des Geely-Konzerns, zu dem Volvo gehört, verändern und könnte auf eine Stärkung der Kernmarke abzielen.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/geely-warum-volvo-die-marke-polestar-wieder-in-den-konzern-integrieren-koennte-a-dc7f33a9-3731-4544-964e-a6213db7362f#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/584be972-3fdc-4485-a642-30dfc50a3958_w520_r2.08_fpx36.67_fpy45.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "BMW: Wie Milan Nedeljković mit politischer Offensive die USA sichern will",
+    "text": "Angesichts von Trumps Zolldrohungen und Abstürzen in China versucht der neue BMW-Chef Milan Nedeljković, das US-Geschäft des Autobauers mit einer politischen Offensive zu sichern und wieder profitabel zu machen. Diese Strategie beinhaltet einen \"Schmeichelbrief\" eines mächtigen Händlers an einen Trump-Minister, um die Auswirkungen potenzieller US-Zölle abzuwenden. BMW ist bestrebt, seine Position auf dem wichtigen amerikanischen Markt zu festigen, um zukünftige Gewinne zu gewährleisten. Der Artikel beleuchtet die komplexen Wechselwirkungen zwischen Unternehmensstrategie und geopolitischer Handelspolitik.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/bmw-wie-milan-nedeljkovic-mit-politischer-offensive-die-usa-sichern-will-a-4f43e8cf-3f60-4719-b7af-292091bc7533#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/9413a45c-7a13-408b-97f1-d8563c63850b_w520_r2.08_fpx44.02_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "BMW: Neuer Chef plant Abbau von 8000 Stellen bis 2027",
+    "text": "Der neue BMW-Chef Milan Nedeljković plant einen signifikanten Personalabbau von rund 8000 Stellen bis Ende 2027, vorrangig durch Abfindungen und Altersteilzeitprogramme, um den Konzern umzustrukturieren. Der Fokus des Stellenabbaus liegt auf dem Führungskreis, um den Kurs nach Volkswagen und Mercedes zu verschärfen. Diese Maßnahmen sollen BMW angesichts des Drucks in der Automobilindustrie und des Übergangs zur Elektromobilität fitter machen. Der Artikel beleuchtet die strategischen Entscheidungen des neuen CEOs zur Effizienzsteigerung und Anpassung an den Markt.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/mobilitaet/bmw-neuer-chef-plant-abbau-von-8000-stellen-bis-2027-a-a41cf83e-f648-4c13-8b6f-3f33e0da00b5#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/a9da6547-a54e-4321-8ea9-9253eb0ddffa_w520_r2.08_fpx45.16_fpy45.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "OpenAI vs Anthropic: KI-Rivalen starten Vertriebsoffensive in Deutschland",
+    "text": "Die führenden KI-Entwickler OpenAI und Anthropic starten eine aggressive Vertriebsoffensive in Deutschland, um vor ihren avisierten Börsengängen große Geschäftskunden aus der deutschen Industrie zu gewinnen. Mit eigenen Büros und dem Ziel, CEO Altman und Amodei die Fähigkeit zu beweisen, Großkunden zu akquirieren, versuchen sie, den deutschen Markt zu erschließen. Der Wettbewerb zwischen den KI-Rivalen um die Integration ihrer Sprachmodelle in Unternehmensprozesse ist intensiv. Die Erschließung des deutschen Marktes erweist sich jedoch als schwierig.",
+    "quelle": "https://www.manager-magazin.de/unternehmen/tech/vertrieb-von-ki-das-deutschland-duell-von-anthropic-und-openai-a-18484705-67a7-486e-9f7e-f307e367f6fb#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/9d1bfe6d-8b76-488a-882a-e104701c1913_w520_r2.08_fpx50_fpy39.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Karriere: Vier junge Führungskräfte über Motivation und Verantwortung",
+    "text": "Der Artikel beleuchtet die Motivation junger Führungskräfte, die trotz des Trends zu weniger Karriereambitionen frühzeitig Verantwortung übernehmen und in Führungspositionen aufsteigen. Vier Aufsteiger und Gründerinnen wurden dazu befragt, was sie antreibt. Die Beiträge vermitteln Einblicke in ihre Perspektiven auf Führung, Verantwortung und Leistung. Die Serie zielt darauf ab, die Dynamik junger Karrieren in Deutschland zu erkorschen.",
+    "quelle": "https://www.manager-magazin.de/karriere/karriere-vier-junge-fuehrungskraefte-ueber-motivation-und-verantwortung-a-dd58f8f2-a9a5-4c2a-9187-bda1ce3aa00c#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/a028419f-4f22-4054-891c-822c35c1da98_w520_r2.08_fpx51_fpy57.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Hardware & Robotik",
+    "titel": "Google Deepmind veröffentlicht neues KI-Modell für Roboter – das kann es",
+    "text": "Google Deepmind hat \"Gemini Robotics 2\" vorgestellt, eine neue Familie von KI-Modellen, die menschenähnlichen Robotern eine Ganzkörperkontrolle und verbesserte motorische Geschicklichkeit ermöglichen soll. Die zweite Generation konzentriert sich auf komplexe Bewegungsabläufe, die den gesamten Roboter betreffen, wie das Aufheben einer Gießkanne, und soll Roboter zu vielseitigen Generalisten machen. Die Modelle, darunter Gemini Robotics 2 (Vision-Language-Action), Gemini Robotics ER 2 (Embodied-Reasoning) und Gemini Robotics On-Device 2 (lokal lauffähig), sollen auch die Zusammenarbeit verschiedener Robotertypen ermöglichen. Mit diesen Innovationen kommt Google Deepmind dem Ziel näher, alltagstaugliche Roboter als Helfer zu entwickeln.",
+    "quelle": "https://t3n.de/news/google-deepmind-ki-modell-roboter-1755877/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/07/Google-Deepmind.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Katastrophal teuer: Amazon verbrennt 2,5 Millionen Dollar mit fehlerhaften KI-Projekten",
+    "text": "Amazon hat intern 2,5 Millionen Dollar durch fehlerhafte KI-Projekte verbrannt, wobei ein Projekt auf Basis von Anthropics Claude Sonnet zur Abgleichung von Autorendaten mit Online-Shop-Angeboten 1,8 Millionen Dollar kostete und fünf Monate unentdeckt blieb. Interne Quellen bezeichneten die Ausgaben als \"katastrophal teuer\" und wiesen darauf hin, dass Fehler in herkömmlichen Systemen kaum finanzielle Schäden anrichten würden, aber durch KI-Modelle massiv werden. Trotz der hohen Kosten, die bei einem Quartalsumsatz von 200 Milliarden Dollar gering erscheinen, hätten Amazons eigene AWS-Tools die Mehrausgaben begrenzen können. Token-basierte Abrechnung, teure KI-Modelle und der verstärkte Einsatz von KI-Agenten werden als problematische Faktoren für die Kostenexplosion genannt.",
+    "quelle": "https://t3n.de/news/amazon-fehlerhafte-ki-projekte-1755899/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2025/10/shutterstock_2563258495.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Jobinterview gegen Firmen-Tattoo: Das fragwürdige Recruiting eines KI-Startups",
+    "text": "Ein KI-Startup namens LemonLime bot auf einer Netzwerkparty des Y Combinator Bewerbern ein garantiertes Vorstellungsgespräch an, wenn sie sich vor Ort ein permanentes Tattoo stechen ließen, was sieben Personen annahmen. Die Aktion löste im Netz einen Sturm der Entrüstung aus, da sie als zynisch und ausnutzend der angespannten Lage auf dem Tech-Arbeitsmarkt empfunden wurde. Die Gründer, die ursprünglich \"außergewöhnliche Menschen\" finden wollten, ruderten nach massiver Kritik zurück und boten an, die Kosten für eine mögliche Laserentfernung der Tattoos zu übernehmen. Der Vorfall wirft ein Licht auf die fragwürdigen Recruiting-Methoden in einer Branche, die im Kampf um Sichtbarkeit zunehmend moralische Grenzen auslotet.",
+    "quelle": "https://t3n.de/news/ki-startup-tattoo-jobinterview-recruiting-1755904/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2025/07/startupdeutschland.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Web3 am Ende: Ubisoft zieht den Stecker beim NFT-Spiel Champions Tactics",
+    "text": "Ubisoft wird am 30. Oktober 2026 die Server für sein NFT-Spiel \"Champions Tactics: Grimoria Chronicles\" abschalten, nachdem alle In-App-Käufe deaktiviert wurden und das Projekt am Markt scheiterte. Das ursprünglich als Vorzeigetitel für Blockchain-Integration gestartete Spiel konnte trotz späterer Neupositionierung als Free-to-Play-Titel keine ausreichenden Spielerzahlen generieren und sah sich mit Kritik an Pay-to-Win-Mechaniken konfrontiert. Die Gaming-Community reagierte mit Schadenfreude auf das Ende des Projekts, das die absurde Idee digitaler Exklusivität und künstlicher Verknappung im Web3-Bereich symbolisiert. Ubisofts Entscheidung reiht sich in einen breiteren Sparkurs ein, der Studioschließungen und Personalentlassungen umfasst, um sich auf etablierte Marken zu konzentrieren.",
+    "quelle": "https://t3n.de/news/ubisoft-stellt-nft-spiel-champions-tactics-ein-1755906/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/07/4_ChampionsTactics_ConceptArt_Game.png?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Lokale KI statt ChatGPT: Diese 4 Tools laufen komplett ohne Cloud",
+    "text": "Viele aktuelle Macs und PCs können KI-Modelle lokal ausführen, wodurch Anwender kleine Aufgaben ohne Cloud-Dienste wie ChatGPT oder Claude erledigen und ihre Daten privat halten können. Der Artikel stellt vier Tools vor, mit denen Einsteiger, Fortgeschrittene und Profis eigene KI-Modelle betreiben können, ohne auf Cloud-Anbieter angewiesen zu sein. Diese lokale KI-Nutzung bietet den Vorteil, dass sensible Daten nicht an Dritte gesendet werden müssen und vollständig unter Kontrolle des Nutzers bleiben. Es wird betont, dass die Nutzung von Cloud-basierten KI-Diensten zwar verbreitet ist, aber leistungsfähige Alternativen für den lokalen Betrieb existieren.",
+    "quelle": "https://t3n.de/news/lokale-ki-statt-chatgpt-4-tools-1751464/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/07/lokale-ki.jpeg?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "KI-Müdigkeit: Fast drei Viertel der Wissensarbeiter wollen die Zeit vor ChatGPT zurück",
+    "text": "Eine Studie zeigt, dass fast drei Viertel der Wissensarbeiter in Deutschland die Zeit vor generativer KI wie ChatGPT zurückwünschen und 41 Prozent die Technologie sogar komplett abschaffen möchten. Als Hauptgründe werden die Auseinandersetzung mit minderwertigen KI-Ergebnissen genannt, die die Arbeit weniger sinnvoll und repetitiv erscheinen lässt, sowie eine Einschränkung der Kreativität und geringere Motivation. Obwohl KI-Tools ursprünglich zur Produktivitätssteigerung gedacht waren, investieren 39 Prozent der Wissensarbeiter mehr Zeit in die Überprüfung und Korrektur von KI-Ergebnissen, was Projekte verlangsamt und die Teameffizienz beeinträchtigt. Trotz der \"KI-Müdigkeit\" wünschen sich 67 Prozent der Befragten eine Ausweitung des KI-Einsatzes durch ihr Unternehmen, was eine Diskrepanz zwischen Wunsch und aktueller Implementierung aufzeigt.",
+    "quelle": "https://t3n.de/news/ki-muedigkeit-wissensarbeiter-studie-1755296/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/07/shutterstock_2585086317.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Hardware & Robotik",
+    "titel": "Tastaturen fürs Homeoffice: So findest du für dich das richtige Modell",
+    "text": "Eine passende externe Tastatur ist essenziell für Produktivität und Gesundheit im Homeoffice, da Studien belegen, dass mangelhafte Ausstattung zu Einschränkungen führen kann. Falsche Haltung und Anschlagsdruck bei Laptops können langfristig zu Beschwerden führen, weshalb eine ergonomische Tastatur, insbesondere bei vielen Arbeitsstunden, wichtig ist. Für Mac-Nutzer bieten Apple-Tastaturen nahtlose Integration und flache Tasten, während günstigere kabellose Modelle wie die von Arteck gute Optionen für Windows-Nutzer mit kleineren Budgets darstellen. Der Artikel gibt Empfehlungen für verschiedene Modelle, die sich an die Größe des Arbeitsplatzes und die Nutzungsgewohnheiten anpassen.",
+    "quelle": "https://t3n.de/news/tastaturen-fuers-homeoffice-so-findest-du-fuer-dich-das-richtige-modell-1755382/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/07/shutterstock_2657608359.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "US-Cloud-Act macht es möglich: Warum amerikanische Anbieter auf deine Daten zugreifen dürfen – auch in Europa",
+    "text": "Europäische Unternehmen hinterfragen zunehmend ihre Abhängigkeit von US-Cloud-Diensten, da der US CLOUD Act unter bestimmten Bedingungen Zugriff auf in Europa gespeicherte Unternehmensdaten erlaubt, was Datenschutzrisiken birgt. Europäische Lösungen wie Infomaniak bieten strenge Schweizer und EU-Datenschutzgesetze, digitale Souveränität und Transparenz beim CO₂-Fußabdruck durch erneuerbare Energien und Wärmerückgewinnung. Infomaniak hat seine Unabhängigkeit durch die Übertragung der Mehrheit der Stimmrechte an eine gemeinnützige Stiftung abgesichert, um langfristig Datenschutz und Umweltverantwortung zu gewährleisten. Das Unternehmen bietet eine komplette Suite digitaler Services, von Cloud-Speicher bis hin zu KI-Services, als europäische Alternative zu großen Webkonzernen.",
+    "quelle": "https://t3n.de/news/us-cloud-act-datenzugriff-europaeische-alternative-1727175/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/01/Shutterstock_2682443769.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Mehr Produktivität dank KI? Goblin.Tools und Motion ausprobiert",
+    "text": "Generative KI verspricht effizienteres Arbeiten, doch Tools wie Motion, die tief in Arbeitsbereiche integrieren, bergen Risiken wie Datenzugriff und kritische Fehler der Sprachmodelle. Goblin.tools, ein KI-gestützter Werkzeugkasten, bietet hingegen Starthilfe bei der Gliederung von Ideen, ursprünglich für neurodivergente Menschen entwickelt. Die Frage, ob mehr Produktivität immer positiv ist, bleibt offen, da Umfragen zeigen, dass der Druck, ständig Leistung zu erbringen, durch KI-Versprechen verstärkt werden kann. Der Artikel diskutiert die Chancen und Gefahren von KI-Produktivitätstools und untersucht deren Funktion im Alltag.",
+    "quelle": "https://t3n.de/news/mehr-produktivitaet-dank-ki-goblin-tools-und-motion-ausprobiert-1755852/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/07/produktivitaet-steigern-ki-sinnvoll.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Zu viel online: Studie zeigt Folgen problematischer Internetnutzung",
+    "text": "Eine Studie der Universität Duisburg-Essen belegt, dass übermäßige Internetnutzung, besonders bei Jüngeren, zu höherem Stress, schlechterer Stimmung und der Vernachlässigung anderer Aktivitäten führt. Problematisches Nutzungsverhalten, definiert als exzessiver Gebrauch mit psychischen Belastungen, nimmt laut einer DAK-Studie auch bei Minderjährigen stark zu, wobei Social Media als Hauptproblem mit suchtförderndem Design identifiziert wird. In den USA wurden Tech-Konzerne wie Instagram und YouTube bereits wegen fahrlässiger Plattformgestaltung verurteilt, nachdem eine junge Frau aufgrund exzessiven Scrollens Depressionen und Angstzustände entwickelte und Schmerzensgeld zugesprochen bekam. Viele junge Menschen erkennen ihr problematisches Online-Verhalten und wünschen sich eine Reduzierung der Bildschirmzeit, doch die ständige Verfügbarkeit des Internets erschwert dies.",
+    "quelle": "https://t3n.de/news/zu-viel-online-studie-zeigt-folgen-problematischer-internetnutzung-1755921/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
+    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/08/shutterstock_2604926793.jpg?class=hero"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Desinfec’t 2026: Das Virenscan-Live-Linux von c’t | c’t uplink",
+    "text": "Die 2026er-Ausgabe von c't-Desinfec't, einem Live-Linux auf Ubuntu-Basis mit Virenscannern und Analysetools, wurde veröffentlicht und bietet eine komplett neue Scan-Oberfläche. Das System ermöglicht eine Virenbefallprüfung von Windows-PCs \"von außen\", also ohne dass Windows selbst läuft, um aktive Schädlinge zu umgehen. Eine maßgeschneiderte Software zum Erstellen bootfähiger Desinfec't-Medien ist ebenfalls enthalten. Der c't uplink-Podcast diskutiert die Neuerungen und Verbesserungen dieser etablierten Sicherheitslösung.",
+    "quelle": "https://www.heise.de/news/Desinfec-t-2026-Das-Virenscan-Live-Linux-von-c-t-c-t-uplink-11387513.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/0/8/5/5/Uplink_Desinfect-313f7c547261b312.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Kunst & Unterhaltung",
+    "titel": "Grafik, Weite und Magie: Die Bilder der Woche 31",
+    "text": "Die c't-Foto-Galerie präsentiert eine vielfältige Bildauswahl der Woche, die von der Atlantikküste der Färöer-Inseln über Gletscherseen am Dachstein bis zu urbanen Räumen reicht. Die Aufnahmen zeichnen sich durch einen bewussten Umgang mit Licht und Komposition aus, wobei Lichtspiele, Drohnenblicke und stille Nahaufnahmen alltägliche Szenen in grafische Studien verwandeln. Jedes der sieben Bilder des Tages erzählt auf seine Weise davon, wie ein aufmerksamer Blick und ein gutes Gespür für den richtigen Moment starke Bilder entstehen lassen. Die Galerie beinhaltet Motive wie ein Raster aus Lichtpunkten, einen türkisfarbenen Gletschersee, eine Schwarz-Weiß-Aufnahme mit Figuren und Werbeplakaten sowie eine Luftaufnahme der Insel Tindhólmur.",
+    "quelle": "https://www.heise.de/news/Grafik-Weite-und-Magie-Die-Bilder-der-Woche-31-11387474.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/0/8/2/9/2907_altbekannte-Spielerei-b2dffb74bf73a633.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Zeiss verknüpft DORA-Metriken und FinOps über Backstage und Argo CD",
+    "text": "Zeiss nutzt durchgängige Metadaten über Backstage und Argo CD, um Deployment-Performance (DORA-Metriken) und Kostentransparenz (FinOps-Analysen) in Cloud-Plattformen zu verknüpfen. Cloud-Architekt Alexander Troppmann erklärte, dass eine saubere Zuweisung von Attributen wie Team, System, Umgebung und Kostenstelle entscheidend ist, um verlässliche Auswertungen zu erhalten und Drift zwischen Systemen zu vermeiden. Zeiss betrachtet Backstage als Single Source of Truth für Attribution und entwickelte ein individuelles Tooling, den Argo CD Annotator, um Metadaten zwischen Backstage, GitOps-Repositories und Kubernetes abzugleichen. Diese Integration ermöglicht eine transparente Zuordnung von Deployments, Services und Kosten zu Verantwortlichen und organisatorischen Einheiten, was für die interne Verrechnung und Budgetierung kritisch ist.",
+    "quelle": "https://www.heise.de/hintergrund/Zeiss-verknuepft-DORA-Metriken-und-FinOps-ueber-Backstage-und-Argo-CD-11367974.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/8/4/6/5/Metadaten-GitOps-DORA-FinOps-8a3102b6db16907b.png"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "iX-Workshop: Nach dem Einbruch – Digital Forensics & Incident Response (DFIR)",
+    "text": "Ein zweitägiger iX-Workshop zum Thema Digital Forensics & Incident Response (DFIR) vermittelt IT-Administratoren und Sicherheitsverantwortlichen professionelle Methoden zur Untersuchung und Bearbeitung von Cyberangriffen. Die Teilnehmer lernen, in einer virtuellen Windows-Umgebung Angriffsspuren zu sichern, betroffene Systeme zu identifizieren und Gegenmaßnahmen einzuleiten, um Schäden durch Phishing, Ransomware oder Malware zu begrenzen. Der Workshop unter der Leitung von Johann Rabbow, Head of Digital Forensics & Incident Response bei Oneconsult, bietet praxisnahe Übungen und direkten Austausch. Ziel ist es, Wissen und Sicherheit für den Ernstfall zu gewinnen, um schnell und effektiv auf Cyberangriffe reagieren zu können.",
+    "quelle": "https://www.heise.de/news/iX-Workshop-Nach-dem-Einbruch-Digital-Forensics-Incident-Response-DFIR-11367838.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/8/3/9/7/Einbruch-DigitalForensics-Ticker-Header-16-9-041ab1ab5edfcb63.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Schlüsselklau bei Ruby on Rails – Kritische Lücke mit präparierten Bildern",
+    "text": "Eine kritische Sicherheitslücke (CVE-2026-66066) in Ruby on Rails, insbesondere in der Active Storage Komponente, ermöglicht Angreifern, über manipulierte Bild-Uploads beliebige Serverdateien und somit auch Anwendungsschlüssel auszulesen. Die Schwachstelle resultiert aus der Nutzung \"untrusted\"er Operationen der Bildverarbeitungsbibliothek libvips, die es Angreifern erlaubt, präparierte Dateien hochzuladen und kritische Operationen auszulösen. Das Rails-Team warnt vor möglichen Folgeangriffen bis hin zur Ausführung von Schadcode und rät Betreibern dringend, abgesicherte Versionen einzuspielen und vorsorglich ihre Schlüssel zu tauschen. Die Lücke betrifft Anwendungen, die Active Storage mit libvips nutzen und nicht vertrauenswürdigen Benutzern Bild-Uploads ermöglichen, auch ohne öffentliche Zugänglichkeit.",
+    "quelle": "https://www.heise.de/news/Schluesselklau-bei-Ruby-on-Rails-Kritische-Luecke-mit-praeparierten-Bildern-11394386.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/3/8/2/7/AufmacherRails-fb2e212e87d6bb14.png"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Infrastruktur",
+    "titel": "Glasfaserausbau: Gericht verfügt Rückbau von Telekom-Anschluss",
+    "text": "Das Oberlandesgericht Karlsruhe hat die Telekom zum Rückbau von Glasfaserleitungen verpflichtet, die ohne Zustimmung des Gebäudeeigentümers in Heidelberg verlegt wurden, nachdem ein Mieter einen Vertrag abgeschlossen hatte. Die Wohnungsbaugesellschaft GGH kritisierte die Verlegetechnik der Telekom als \"laienhaft\" und sah in einem Mietervertrag keinen Freibrief für Baumaßnahmen im Gebäude. Das Urteil wird vom Bundesverband Glasfaseranschluss als Rückschritt und Hindernis für den schnellen Glasfaserausbau kritisiert, da es die Zustimmung des Vermieters zur Voraussetzung macht. Die Entscheidung hat weitreichende Folgen für die Debatte um die Reform des Telekommunikationsgesetzes und das \"Vollausbaurecht\", das den erstmaligen Ausbau im gesamten Haus regeln soll.",
+    "quelle": "https://www.heise.de/news/Glasfaserausbau-Gericht-verfuegt-Rueckbau-von-Telekom-Anschluss-11394316.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/3/7/9/2/shutterstock_2627950573-ceed9f36c29f8f63.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Developer Häppchen: Binutils, OpenJDK und kubara",
+    "text": "Die \"Developer Häppchen\" bieten Neuigkeiten aus der Softwareentwicklung, darunter die Veröffentlichung von GNU Binutils 2.47 mit Verbesserungen für diverse Architekturen und das Quartals-Sicherheitsupdate für Microsoft Build of OpenJDK, das mehrere CVEs schließt. JetBrains hat mit IntelliJ IDEA 2026.1 einen neuen IDE-Plugin-Generator eingeführt, und ESLint v10.8.0 bringt neue Features und Bugfixes. Apache SystemDS 3.4.0 bietet native Delta-Lake-I/O und eine verbesserte Python-API; die GNU C Library glibc 2.44 schließt drei Sicherheitslücken. Zu den Kuriositäten gehört PGSimCity, eine interaktive 3D-Visualisierung eines PostgreSQL-Clusters, während JetBrains Research KotlinLLM als Open-Source-Forschungsprototyp für Kotlin/JVM-Projekte veröffentlichte, der Smart Macros über LLMs generiert.",
+    "quelle": "https://www.heise.de/news/Developer-Haeppchen-Kotlin-LLM-SimCity-Vibes-und-gestopfte-Luecken-bei-glibc-11381748.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/2/6/2/1/3/shutterstock_1308890458-d53c08e1d0350b3f.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Bildgenerator mit KI in Google Earth erzeugte zu viele Fake News",
+    "text": "Google hat eine kurzfristig in Google Earth aktive KI-Funktion deaktiviert, die das Generieren beliebiger Bilder ermöglichte, da sie ein großes Potenzial für Fake News bot und Journalisten Warnhinweise umgehen konnten. Die Funktion, die antike Stätten dreidimensional wiederbeleben oder Bauprojekte visualisieren sollte, wurde nur zwei Tage nach dem Start zurückgezogen. Mit dem hauseigenen Modell Nano Banana konnten täuschend echte Screenshots wie ein umgekippter Eiffelturm erzeugt werden, die selbst KI-Erkennungstools in die Irre führten. Google plant eine Version mit \"strengeren Sicherungen\", um der Erzeugung von Fake News mit erheblicher politischer Sprengkraft entgegenzuwirken.",
+    "quelle": "https://www.heise.de/news/Zu-viele-Fake-News-Google-stoppt-KI-Bilder-Funktion-in-Google-Earth-11394448.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/3/8/5/8/shutterstock_2433986567-b30c088a1f1db2f0.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Raus aus dem Chat: So entwickeln Sie wiederverwendbare Prompts für KI-Workflows",
+    "text": "Das Webinar \"Raus aus dem Chat\" zeigt, wie erfolgreiche generative KI-Chats systematisch in wiederverwendbare Prompt-Vorlagen für KI-Workflows und eine persönliche Prompt-Bibliothek überführt werden können. Es wird betont, dass gute Prompts das Ergebnis eines Entwicklungsprozesses sind und Prompt-Frameworks Menschen dabei helfen, Aufgaben klarer zu formulieren. Die Veranstaltung richtet sich an Anwender, die ihre generative KI-Nutzung strukturierter gestalten und Zeit sparen möchten, indem sie effektive Prompt-Ketten und Workflows für wiederkehrende Aufgaben erstellen. Zusätzlich werden typische Stolperfallen des fortgeschrittenen Prompting sowie die Eignung verschiedener KI-Modelle für spezifische Aufgaben behandelt.",
+    "quelle": "https://www.heise.de/news/Raus-aus-dem-Chat-So-entwickeln-Sie-wiederverwendbare-Prompts-fuer-KI-Workflows-11377370.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/2/3/7/4/1/KI-Pro_Raus-aus-dem-Chat_M_Ticker_1920x1080px_1920x1080-7220f94a93f56bfd.png"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Auswärtiges Amt warnt vor IT-Fachkräften aus Nordkorea",
+    "text": "Das Auswärtige Amt warnt gemeinsam mit elf anderen Staaten vor nordkoreanischen IT-Fachkräften, die sich mit falschen Identitäten in westliche Unternehmen einschleusen, um Einnahmen für Nordkoreas Kernwaffenprogramme zu generieren. Diese Akteure nutzen zunehmend raffiniertere Methoden, inklusive Künstlicher Intelligenz, um ihre Identitäten zu verschleiern und sind an Datenabfluss sowie dem Diebstahl von Kryptowährungen beteiligt. Unternehmen, die Online-Plattformen nutzen, werden dringend aufgerufen, ihre Identitätsprüfung zu verstärken und Gegenmaßnahmen zu ergreifen, da sich diese Fake-Arbeiter auch auf dem europäischen Arbeitsmarkt bewerben. Das Problem ist international bekannt, und die USA verhängten bereits Sanktionen gegen Personen und Organisationen, die dieses globale Netzwerk unterstützen.",
+    "quelle": "https://www.heise.de/news/Auswaertiges-Amt-warnt-vor-IT-Fachkraeften-aus-Nordkorea-11394444.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/3/8/5/6/shutterstock_39552700-257518ad766e16b5.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Waldbrände: Wie Deutschlands Industrie die Südeuropa-Feuer unterschätzt",
+    "text": "Die deutsche Industrie unterschätzt die Gefahr von Megabränden, die in Südeuropa wüten, obwohl auch hierzulande Chemieparks, Raffinerien und Rüstungsschmieden an ausgetrocknete Wälder grenzen. Bei Bordeaux führte ein Brand zur Evakuierung und Produktionsstopp von Hochsicherheitsanlagen wie ArianeGroup und Roxel France, die hochentzündliche Treibstoffe herstellen. Experten wie Karl-Heinz Banse vom Deutschen Feuerwehrverband fordern dringend eine Überprüfung der Gefahrenpläne, da Feuer nicht mehr nur innerhalb von Betrieben, sondern auch von außen eine Bedrohung darstellen. Der Klimawandel lässt den Hitzetrend und extreme Wetterereignisse in Deutschland zum Normalfall werden, wodurch das Waldbrandrisiko steigt und die Zeit für Anpassungen knapp wird.",
+    "quelle": "https://www.wiwo.de/unternehmen/industrie/waldbraende-wie-deutschlands-industrie-die-suedeuropa-feuer-unterschaetzt/100243750.html",
+    "bild": "https://images.wiwo.de/r56rDrBpGG7l/cover/900/506/0/0/629/0/0.5/0.5/gironde-wildfire-near-saumos-firefighters-and-civilian-volunteers-refill-a-water-tanker-during-night.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Deutsche Bahn: Pünktlichkeit der Bahn im ersten Halbjahr bei 59 Prozent",
+    "text": "Die Deutsche Bahn erreichte im ersten Halbjahr eine Pünktlichkeit von nur 58,7 Prozent im Fernverkehr, was Bahnchefin Evelyn Palla als unzureichend bewertete, obwohl die Mehrheit der Verspätungen unter 15 Minuten lag. Palla, die dem Unternehmen insgesamt die Note 3, aber für Zuverlässigkeit eine 4 minus gab, machte eine mangelnde Leistungskultur und \"organisierte Verantwortungslosigkeit\" im Management der Vergangenheit für die Probleme verantwortlich. Sie leitet einen Konzernumbau ein, der die Zentrale verschlanken und Verantwortung in die Fläche verlagern soll, um die Bahn bis zum 200. Jubiläum 2035 grundlegend zu sanieren. Palla betonte, dass schnelle Verbesserungen bei der Pünktlichkeit aufgrund des maroden Netzes und vieler Baustellen nicht zu erwarten seien.",
+    "quelle": "https://www.wiwo.de/unternehmen/dienstleister/deutsche-bahn-bahnchefin-puenktlichkeit-im-ersten-halbjahr-bei-59-prozent/100244373.html",
+    "bild": "https://images.wiwo.de/UVmaxthvpUqx/cover/900/506/0/0/91/90/0.5/0.5/bahnchefin-evelyn-palla.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ukraine-Krieg: Trump verhalten zu Patriot-Lizenzen für Ukraine",
+    "text": "US-Präsident Donald Trump zeigte sich verhalten bezüglich der Vergabe von Lizenzen an die Ukraine zur Herstellung von Patriot-Abfangraketen, obwohl Präsident Selenskyj nach einem Treffen eine Zusage verkündet hatte. Trump betonte, es sei eine schwierige und vorsichtige Entscheidung, solch sensible Technologie aus der Hand zu geben. Die Ukraine beklagt den Mangel an Flugabwehrraketen, die zur Abwehr russischer ballistischen Raketen dringend benötigt werden. Die Diskrepanz zwischen Selenskyjs Aussagen und Trumps zurückhaltender Haltung verdeutlicht die anhaltenden Spannungen und Verhandlungen um militärische Unterstützung im Ukraine-Krieg.",
+    "quelle": "https://www.wiwo.de/politik/ausland/ukraine-krieg-trump-verhalten-zu-patriot-lizenzen-fuer-ukraine/100244402.html",
+    "bild": "https://images.wiwo.de/IIkmNTe9LSE3/cover/900/506/0/0/313/312/0.5/0.5/archiv-22.07.2026-usa-joint-base-andrews-us-praesident-donald-trump-spricht-auf-der-joint-base-a.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Schifffahrt in Krisenzeiten: Wie das Niedrigwasser der Wirtschaft zusetzt",
+    "text": "Deutschlands große Flüsse Rhein, Elbe und Donau leiden unter historisch niedrigen Wasserständen, wobei für das Wochenende neue Tiefststände erwartet werden und keine Besserung in Sicht ist. Das Niedrigwasser zwingt die Binnenschifffahrt, die Lademenge drastisch zu reduzieren, was zu höheren Transportkosten und drohenden Lieferengpässen für Industrien wie Chemie, Stahl und Mineralöl führt. Experten des IW und des BDB warnen vor erheblichen wirtschaftlichen Belastungen und steigenden Preisen für Verbraucher, insbesondere bei Baustoffen und Energieprodukten. Der Klimawandel wird voraussichtlich zu intensiveren Niedrigwasserereignissen führen, was die Notwendigkeit einer Anpassung der Wirtschaft an diese veränderten Bedingungen unterstreicht.",
+    "quelle": "https://www.wiwo.de/unternehmen/schifffahrt-in-krisenzeiten-wie-das-niedrigwasser-der-wirtschaft-zusetzt/100244395.html",
+    "bild": "https://images.wiwo.de/BVyTttSrP6q0/cover/900/506/0/0/559/558/0.5/0.5/dpatopbilder-30.07.2026-rheinland-pfalz-osterspai-sandbaenke-sind-zu-sehen-am-rhein-bei-osterspa.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Arbeitswelt: Wer im Urlaub arbeitet, denkt oft auch über Jobwechsel nach",
+    "text": "Eine Umfrage von Appinio/Indeed zeigt, dass über ein Drittel der Befragten im Urlaub über einen Jobwechsel nachdenkt, insbesondere diejenigen, die auch im Urlaub beruflich eingebunden sind (64,8 Prozent). Die berufliche Erreichbarkeit im Urlaub, oft aus Pflichtgefühl oder Angst vor Konsequenzen, führt zu einer kritischen Reflexion der eigenen beruflichen Situation. Expertin Stefanie Bickert betont die Notwendigkeit funktionierender Vertretungsregelungen und einer Unternehmenskultur, die Erreichbarkeit im Urlaub nicht voraussetzt, um Mitarbeiterbindung und langfristige Leistungsfähigkeit zu fördern. Fast zwei Drittel der Befragten arbeiten im Urlaub, jedoch nur ein kleiner Teil davon gerne, was auf einen Wunsch nach Distanz zum Alltag hindeutet.",
+    "quelle": "https://www.wiwo.de/erfolg/beruf/arbeitswelt-wer-im-urlaub-arbeitet-denkt-oft-auch-ueber-jobwechsel-nach/100244393.html",
+    "bild": "https://images.wiwo.de/IKEkGF3l8nAW/cover/900/506/0/0/107/106/0.5/0.5/homeoffice-im-ausland.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "Apple-Aktie: Diese Hoffnungsträger sollen der Aktie wieder Schwung verleihen",
+    "text": "Trotz des besten Juni-Quartals der Firmengeschichte brach die Apple-Aktie drastisch ein, was auf Bauteile-Engpässe und Sorgen um die Nachfrage nach iPhones zurückzuführen ist. Neue Hoffnungsträger für die Aktie sind unter anderem ein seit Jahren spekuliertes Smartphone sowie innovative Dienstleistungen und Hardware-Entwicklungen. Apple-Vorstandsvorsitzender Tim Cook und sein Team stehen vor der Aufgabe, neue Impulse zu setzen und das Unternehmen durch die aktuellen Herausforderungen zu navigieren. Der Text suggeriert, dass zukünftige Produktinnovationen und eine robuste Strategie entscheidend sein werden, um das Vertrauen der Anleger zurückzugewinnen.",
+    "quelle": "https://www.wiwo.de/unternehmen/it/apple-aktie-diese-hoffnungstraeger-sollen-der-aktie-wieder-schwung-verleihen/100244405.html",
+    "bild": "https://images.wiwo.de/wxVtKmghdaVx/cover/900/506/0/0/266/267/0.5/0.5/appleaposs-ceo-tim-cook-senior-vice-president-of-services-and-health-eddy-cue-and-senior-vice-pr.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Spanische Exklave: Fast alle Migranten verlassen Ceuta – EU verarbeitet Schock",
+    "text": "Nach dem Ansturm Zehntausender Migranten auf die spanische Exklave Ceuta sind die meisten Menschen freiwillig nach Marokko zurückgekehrt, da es an Perspektiven und Versorgung mangelte. EU-Kommissar Magnus Brunner versicherte, dass keiner der mindestens 50.000 irregulär Eingereisten das EU-Festland erreicht habe, während mindestens 57 Menschen bei der Überquerung der Grenze starben. Die EU verarbeitet den Schock in Krisensitzungen von Experten und Botschaftern, um die weitere Koordinierung und Unterstützung für Spanien zu besprechen, jedoch nicht öffentlich. Spaniens Ministerpräsident Pedro Sánchez kritisierte die \"egoistische\" Haltung einiger EU-Staaten wie Italien und Frankreich, die das Schengen-Abkommen aussetzten oder Grenzkontrollen verstärkten, und betonte die Einhaltung europäischer Verträge.",
+    "quelle": "https://www.wiwo.de/politik/europa/spanische-exklave-fast-alle-migranten-verlassen-ceuta-eu-verarbeitet-schock/100244299.html",
+    "bild": "https://images.wiwo.de/5yY80Nnp7xuV/cover/900/506/0/0/215/215/0.5/0.5/dpatopbilder-30.07.2026-spanien-ceuta-migranten-versuchen-von-marokko-aus-in-die-spanische-enkl.jpg"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "Fußball: Fifa gibt Investorenpläne nach massivem Widerstand auf",
+    "text": "Fifa-Präsident Gianni Infantino zog nach massivem internationalen Widerstand die umstrittenen Pläne zum Teilverkauf kommerzieller WM-Rechte an private Investoren zurück. Infantino begründete die Kehrtwende damit, dass das Projekt zu Spaltungen geführt habe und nicht mehr im Interesse des Sports liege, und beabsichtigt nun, alle Parteien im Geiste des gemeinsamen Interesses wieder zusammenzubringen. Die europäische UEFA hatte zuvor mit einem WM-Boykott gedroht, und auch die Verbände von Nord-/Mittelamerika sowie Asien gingen auf Distanz, während innerhalb der Fifa hohe Berater zurücktraten. Die internationale Presse wertete den Rückzug als \"demütigende Niederlage\" für Infantino und die Fifa, was die Frage nach seinem Verbleib an der Spitze des Weltverbandes aufwirft.",
+    "quelle": "https://www.wiwo.de/politik/europa/fussball-fifa-gibt-investorenplaene-nach-massivem-widerstand-auf/100244099.html",
+    "bild": "https://images.wiwo.de/nKrRq76GFISU/cover/900/506/0/0/313/312/0.5/0.5/imago-images-1080516580.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Rick Woldenberg verklagt Trump: Milliarden-Risiko für den Präsidenten",
+    "text": "Der Spielzeugunternehmer Rick Woldenberg verklagt US-Präsident Donald Trumps neues Zollregime, das Zölle gegen 60 Länder wegen angeblicher Zwangsarbeit verhängt, und stellt damit ein Milliardenrisiko für Trump dar. Woldenberg hatte bereits Trumps IEEPA-Zölle vor dem Supreme Court zu Fall gebracht und ist überzeugt, auch diese neuen Zölle als illegal zu erweisen, da er sie als Vorwand für die Ersetzung gekippter Zölle sieht. Sollte Woldenberg gewinnen, droht Trump ein Milliardenschaden, da die Zölle rund 97 Milliarden Dollar über die nächste Dekade einbringen sollten, die letztlich von den amerikanischen Verbrauchern getragen werden. Die Zölle belasten amerikanische Haushalte mit durchschnittlich 1100 Dollar zusätzlich, und die Willkür der Zollsätze, die Länder wie Angola und Norwegen gleichermaßen betreffen, wird kritisiert.",
+    "quelle": "https://www.wiwo.de/politik/ausland/rick-woldenberg-verklagt-trump-milliarden-risiko-fuer-den-praesidenten/100243885.html",
+    "bild": "https://images.wiwo.de/BWVS0pNCS8k0/cover/900/506/0/0/414/0/0.5/0.5/rick-woldenberg-chief-executive-officer-of-learning-resources-arrives-at-the-us-supreme-court-in-w.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Ferienhaus-Erbe: So vermeiden Sie steuerlichen und familiären Ärger",
+    "text": "Der Artikel beleuchtet die Herausforderungen, die ein Ferienhaus-Erbe mit sich bringen kann, darunter steuerlicher und familiärer Ärger, Sanierungskosten und Erbengemeinschaften. Es werden Wege aufgezeigt, wie solche Konflikte vermieden werden können. Die Vererbung von Immobilien, insbesondere in Spitzenlagen wie Sylt, wo das Angebot knapp ist und die Preise hoch sind, erfordert eine vorausschauende Planung. Der Text bietet Ratschläge, um sicherzustellen, dass das \"Sommerhaus\" nicht zum \"Sorgenhaus\" wird.",
+    "quelle": "https://www.wiwo.de/finanzen/immobilien/ferienhaus-erbe-so-vermeiden-sie-steuerlichen-und-familiaeren-aerger/100243124.html",
+    "bild": "https://images.wiwo.de/yxzxXQ-IY8e6/cover/900/506/0/0/1165/1460/0.5/0.5/imago.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "How the U.S. war with Iran is widening inequality in Africa",
+    "text": "Der US-Krieg mit dem Iran verschärft die Ungleichheit in afrikanischen Ländern wie Angola, da steigende Preise für Lebensmittel, Treibstoff und Düngemittel die ärmere Bevölkerung treffen, während die ölreiche Elite von höheren Ölpreisen profitiert. Angola, das nicht von der Straße von Hormuz abhängt, erlebt einen Zustrom von Bargeld durch seine Ölexporte, was der Regierung ermöglicht, Schulden zu tilgen und Maßnahmen zur Inflationsbekämpfung zu ergreifen. Trotzdem leidet die Mehrheit der Angolaner, von denen die Hälfte von weniger als 3,65 Dollar am Tag lebt, unter gestiegenen Lebenshaltungskosten und mangelnder Grundversorgung. Die Situation führt zu wachsendem Unmut gegen die politische Elite und birgt soziale Spannungen vor den bevorstehenden Präsidentschaftswahlen.",
+    "quelle": "https://www.washingtonpost.com/world/interactive/2026/07/31/how-us-war-with-iran-is-widening-inequality-africa/",
+    "bild": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/MA5GTKMAKPNHGBYXROZCH7WAWA.jpg&w=1200"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Migrants overrun a Spanish outpost, stirring European outrage",
+    "text": "Der massive Ansturm von Migranten auf die spanische Exklave Ceuta löste eine Welle politischer Angriffe gegen Spaniens Premierminister Pedro Sánchez aus, wobei Konservative in Spanien, Deutschland, Italien, Frankreich und das Weiße Haus ihn wegen seiner Migrationspolitik kritisierten. Weit verbreitete Videos zeigten Tausende von Marokkanern, die das spanische Gebiet in Nordafrika stürmten, was zu Empörung führte. Die Krise verdeutlicht die innen- und außenpolitischen Spannungen in Europa und den USA bezüglich des Umgangs mit Migration. Die Kritik richtete sich gegen Sánchez als führenden Liberalen in Europa, dessen Regierung als \"schwach in der Einwanderungspolitik\" bezeichnet wurde.",
+    "quelle": "https://www.washingtonpost.com/world/2026/07/31/migrants-overrun-spanish-outpost-stirring-white-house-outrage/",
+    "bild": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/ZDOLTS43DUOHIWW3UXQLKHDEJA.JPG&w=1440"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "U.S. general warns Pentagon he lacks sufficient forces to protect Israel",
+    "text": "Ein führender US-General in Europa warnte das Pentagon intern, dass ihm die notwendigen Marinekräfte, insbesondere Zerstörer zur Abwehr iranischer ballistischer Raketen, fehlen, um Israel weiterhin umfassend zu schützen. Diese Personal- und Materialknappheit zwingt den Kommandanten des US European Command dazu, die Verteidigung des US-Heimatlandes zu priorisieren. Der anhaltende Krieg mit dem Iran belastet die militärischen Kapazitäten der USA erheblich. Die Situation unterstreicht die Herausforderungen, mit denen die US-Militärführung bei der Aufrechterhaltung ihrer Sicherheitsverpflichtungen in der Region konfrontiert ist.",
+    "quelle": "https://www.washingtonpost.com/national-security/2026/08/01/general-warns-pentagon-he-lacks-sufficient-forces-protect-israel/",
+    "bild": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/2GOS7GRU2UUAZG63NCQ3O7F54U_size-normalized.jpg&w=1440"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Historische Wurzeln: Die historischen Wurzeln des heutigen Islamo-Faschismus",
+    "text": "Der Kommentar kritisiert die Behauptung mancher Linker, Islamisten wie der CSD-Attentäter von Berlin seien lediglich \"konservativ\", und bezeichnet dies als gefährlichen Unsinn. Der Autor argumentiert, dass diese Verharmlosung einem spezifischen Ziel diene, ohne es näher auszuführen. Der Text legt nahe, dass Islamismus tiefere, historische Wurzeln hat, die über bloßen Konservatismus hinausgehen. Es wird eine klare Distanzierung von der Verharmlosung islamistischer Ideologien gefordert.",
+    "quelle": "https://www.welt.de/debatte/plus6a6cf529dd06dd5ef2e4104c/historische-wurzeln-die-historischen-wurzeln-des-heutigen-islamo-faschismus.html",
+    "bild": "https://images.welt.de/6a6cf529dd06dd5ef2e4104c/10987fc7ec536be20f29a6309091ec32/ci23x11-w1200/gettyimages-1371380021-jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Die Zensur besorgt in Russland jetzt die Künstliche Intelligenz",
+    "text": "In Russland werden Manuskripte nun durch KI-Systeme nach verbotenen Inhalten wie \"nichttraditionellen sexuellen Beziehungen\" oder \"Childfree-Ideologie\" gescannt, was das Verlagswesen stark beeinträchtigt. Der Verlagsriese Eksmo-AST nutzt chinesische Sprachmodelle wie Qwen, die aufgrund ihrer extremen Empfindlichkeit selbst Klassiker wie Puschkin und Gogol fälschlicherweise markierten. Fehlerhafte Warnhinweise auf Werken, die gar nicht unter das Gesetz fallen, zeigen, dass aus Angst vor Strafen lieber zu viel als zu wenig zensiert wird, wodurch auch internationale Autoren betroffen sind. Die Automatisierung der Buchzensur führt dazu, dass Verlage die Überprüfung selbst übernehmen müssen, wobei jede Entscheidung elektronisch archiviert wird und \"Risikobücher\" vernichtet werden sollen.",
+    "quelle": "https://www.welt.de/kultur/article6a5f5e4bfb6c4ab717fc948e/die-zensur-besorgt-in-russland-jetzt-die-kuenstliche-intelligenz.html",
+    "bild": "https://images.welt.de/6a5f5e4bfb6c4ab717fc948e/5cb6e7d97d604da0c81f99e2b2f672fa-master/ci23x11-w1200/reuters-3-rc2ntkaae06q-jbh-jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Nach Anschlag: Tausende feiern CSD trotz erhöhter Sicherheitslage in Hamburg",
+    "text": "Tausende Menschen feierten in Hamburg den Christopher Street Day (CSD) unter erhöhter Sicherheitslage, nur eine Woche nach dem islamistischen Anschlag auf den Berliner CSD, bei dem eine Frau starb und 31 Menschen verletzt wurden. Die Hamburger Polizei verdoppelte die Zahl der Einsatzkräfte, um die friedliche und ausgelassene Stimmung zu gewährleisten, die ein starkes \"Jetzt-erst-Recht\"-Gefühl der Community zeigte. Das Motto \"Solidarisch queer. Haltung zeigen – für eine Zukunft ohne Angst!\" spiegelte den Widerstand gegen Einschüchterung wider. Politiker und Aktivisten betonten die Wichtigkeit, Vielfalt und Zusammenhalt zu demonstrieren.",
+    "quelle": "https://www.welt.de/politik/deutschland/article6a6dda8b14a05012ea30254b/nach-anschlag-tausende-feiern-csd-trotz-erhoehter-sicherheitslage-in-hamburg.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/eizng456gnk3/rendition/c1ca21f4-f9f4-4a2e-a838-2c517acf9a89/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Köln: Schüsse auf E-Scooter-Fahrer – der flüchtet in Richtung Spielplatz",
+    "text": "Am Freitagabend wurden in Köln mehrere Schüsse auf einen E-Scooter-Fahrer abgegeben, der unverletzt in Richtung eines Spielplatzes flüchtete. Die Polizei fahndet nach dem unbekannten Täter, der mit einem weiteren Mann in dieselbe Richtung lief, und hat am Tatort mehrere Patronenhülsen sichergestellt. Die Ermittlungen wegen des Verdachts eines versuchten Tötungsdelikts laufen, wobei die Hintergründe der Tat noch unklar sind. Der Bereich vor einem Kiosk wurde weiträumig abgesperrt.",
+    "quelle": "https://www.welt.de/vermischtes/article6a6dd882dd06dd5ef2e417b7/koeln-schuesse-auf-e-scooter-fahrer-der-fluechtet-in-richtung-spielplatz.html",
+    "bild": "https://images.welt.de/6a6dd882dd06dd5ef2e417b7/8dd76b7df89adf964034467d7efffe20-master/ci23x11-w1200/dpa-com-260801-935-1516853-jpg"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "Eklat um Fifa-Plan: Das sollte jetzt das Ende von Infantino sein",
+    "text": "Fifa-Präsident Gianni Infantino ist mit seinen Plänen zum Teilverkauf der Weltmeisterschaften gescheitert und steht massiv unter Druck, was als \"organisierte Verantwortungslosigkeit\" und \"Mini-Trump\"-Verhalten kritisiert wird. Der Autor fordert Infantinos Rücktritt, da das Vertrauen der 211 Mitgliedsverbände verspielt sei und er sich bei der Annahme, die Länder mit zusätzlichen 20 Millionen Euro kaufen zu können, völlig verschätzt habe. Die UEFA, Verbände aus Nord-/Mittelamerika und Asien haben sich abgewendet, und sogar eigene Mitarbeiter liefen Sturm gegen die Pläne. Trotz des finanziellen Erfolgs der WM 2026 scheint Infantinos Verbleib im Amt als Fifa-Präsident ausgeschlossen.",
+    "quelle": "https://www.welt.de/sport/fussball/article6a6dd6b7dd06dd5ef2e4179f/eklat-um-fifa-plan-das-muss-das-ende-von-gianni-infantino-sein.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/2dbzkvm07u9l/rendition/361be166-c156-465c-b8c8-9b0259068f98/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Kanzler unter Druck: Der bedenkliche Umgang der CDU mit den Merz’schen Fehlern",
+    "text": "Der Artikel thematisiert den bedenklichen Umgang der CDU und der Öffentlichkeit mit den Fehlern von Kanzler Friedrich Merz, was angesichts zunehmender Fliehkräfte gefährlich sei. Es wird betont, dass Fehler eines Kanzlers nicht neu sind, aber die spezifische Reaktion im Fall Merz auffällt. Der Umgang mit Merz' Fehlern birgt Gefahren für die Einheit und Stabilität der Partei. Die Dynamik innerhalb der CDU und die öffentliche Wahrnehmung stehen im Fokus der Analyse.",
+    "quelle": "https://www.welt.de/politik/deutschland/plus6a6c2defdd06dd5ef2e401a7/kanzler-unter-druck-der-bedenkliche-umgang-der-cdu-mit-den-merzschen-fehlern.html",
+    "bild": "https://images.welt.de/6a6c2defdd06dd5ef2e401a7/bf6a986864c4870ffab260c45245650f/ci23x11-w1200/dwosb-robin-alexander-ds-cw-violett-jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Stockholm: Schweden verdoppelt Haftstrafen für Gangmitglieder",
+    "text": "Schweden verschärft den Kampf gegen Gang-Gewalt durch die Verdoppelung der Haftstrafen für bewaffnete Bandenmitglieder auf bis zu acht Jahre, auch für Minderjährige, orientiert am dänischen Modell. Das neue Gesetz, das Teil eines umfassenden Strafrechtspakets mit rund 50 verschärften Strafrahmen ist, trat am 1. August in Kraft, obwohl es von einigen Experten als wirkungslos kritisiert wird. Schweden kämpft seit Jahren mit ausufernder Bandenkriminalität, bei der oft junge Männer mit Migrationshintergrund um die Kontrolle des Drogenmarktes kämpfen und Taten zunehmend aus dem Ausland geplant werden. Trotz der anhaltenden Herausforderungen liegt die Zahl der Schusswaffentaten und -toten in diesem Jahr auf einem vergleichsweise niedrigen Niveau.",
+    "quelle": "https://www.welt.de/politik/ausland/article6a6dd7b914a05012ea30250c/stockholm-schweden-verdoppelt-haftstrafen-fuer-gangmitglieder.html",
+    "bild": "https://images.welt.de/6a6dd7b914a05012ea30250c/a1dd6049381ba07a7a4a2c86573d6b06-master/ci23x11-w1200/dpa-com-260611-935-1401181-jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Bahn-Chefin Palla: „Die Leistungskultur der Vergangenheit war für die Performance der Bahn nicht ausreichend“",
+    "text": "Bahn-Chefin Evelyn Palla kritisiert die mangelnde Leistungskultur im Staatskonzern als Ursache für die Probleme der Deutschen Bahn, insbesondere im Managementbereich. Sie kündigt tiefgreifende Veränderungen an, um Verspätungen, Zugausfälle und Baustellen zu reduzieren. Palla sieht die Vergangenheit als unzureichend für die Performance der Bahn und betont die Notwendigkeit einer neuen Kultur. Der Artikel beleuchtet die Herausforderungen, mit denen die Bahn unter Pallas Führung konfrontiert ist.",
+    "quelle": "https://www.welt.de/wirtschaft/plus6a6dc552dd06dd5ef2e416a2/bahn-chefin-palla-die-leistungskultur-der-vergangenheit-war-fuer-die-performance-der-bahn-nicht-ausreichend.html",
+    "bild": "https://images.welt.de/6a6dc552dd06dd5ef2e416a2/ad5964cecd296a72c8b9c496f63ff40a/ci23x11-w1200/dpa-com-20090101-260104-935-1055744-jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ansturm auf Ceuta: Die Generation, die schwamm",
+    "text": "Zehntausende junge Marokkaner stürmten die spanische Exklave Ceuta, unaufgehalten von Marokko, um aus einem Land zu fliehen, das in Stadien investiert, aber Krankenhäuser vernachlässigt, und werden so zur Verhandlungsmasse im Machtpoker. Die Proteste der \"GenZ 212\" in Marokko, die \"Krankenhäuser, keine Stadien\" fordern, waren bereits im Spätsommer 2025 aufgrund des Todes von acht Frauen bei Kaiserschnitten entstanden und wurden durch die Weltmeisterschaft 2030-Investitionen befeuert. Viele Migranten, darunter Frauen und Kinder, kamen zu Fuß oder schwimmend und fanden überfüllte Aufnahmezentren vor. Mindestens zwei unbekannte Tote lagen bereits vor dem Ansturm auf dem Friedhof von Ceuta.",
+    "quelle": "https://www.welt.de/politik/ausland/article6a6ddefb14a05012ea30257c/ansturm-auf-ceuta-die-generation-die-schwamm.html",
+    "bild": "https://images.welt.de/6a6ddefb14a05012ea30257c/5eda1c378477a58f52aaa97b236f2185-master/ci23x11-w1200/apdpa-b339df960ce847569f5f0c3fa294abd5-jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ceuta: „Der Grenzschutz Europas ist nur so gut wie der an der schwächsten Stelle“",
+    "text": "CDU-Politiker Günter Krings fordert nach dem Massenansturm von Migranten auf Ceuta einen besseren Grenzschutz Europas und verstärkte Kooperation zwischen den EU-Mitgliedstaaten. Krings betont, dass der europäische Grenzschutz nur so stark sei wie sein schwächstes Glied. Er spricht sich zudem für die Durchführung von Asylverfahren außerhalb Europas aus. Das Video thematisiert die Notwendigkeit einer effektiveren europäischen Migrationspolitik angesichts solcher Krisen.",
+    "quelle": "https://www.welt.de/videos/video6a6de3e0ef632fe6ede67bea/ceuta-der-grenzschutz-europas-ist-nur-so-gut-wie-der-an-der-schwaechsten-stelle.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/q806tn75lyow/rendition/59685f55-f82c-42e0-afcc-eadd4c850d08/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Bafög: Wie sich Studierende gegen schleppende Ämter wehren können",
+    "text": "Anwalt Christian Solmecke beklagt die schleppende Bearbeitung von Bafög-Anträgen und vertritt Studierende, die auf ihre Zahlungen warten, teilweise durch Klagen und den Einsatz von Gerichtsvollziehern. Er kritisiert, dass Bafög-Ämter oft so unorganisiert seien, dass Unternehmen bei ähnlicher Effizienz insolvent wären, und betont, dass Studierende nicht die Leidtragenden dieses \"Wahnsinns\" sein dürften. Solmecke erklärt, wie Studierende ihr Geld erhalten können, wenn die Ämter ihre Pflichten nicht erfüllen. Die Situation unterstreicht die bürokratischen Hürden und finanziellen Nöte, mit denen Studierende bei der Studienfinanzierung konfrontiert sind.",
+    "quelle": "https://www.spiegel.de/start/bafoeg-wie-sich-studierende-gegen-schleppende-aemter-wehren-koennen-a-494add1e-21dc-4f1e-b046-55fa8d4cf879#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/3ec6db28-27fc-4e63-bec1-77416b712104_w520_r2.08_fpx44_fpy51.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "CSD-Anschlag: Unerträglich, wie die Linke Islamismus verharmlost - Meinung",
+    "text": "Der Kommentar kritisiert scharf, wie Teile der linken und queeren Community den Islamismus, insbesondere nach dem CSD-Anschlag, verharmlosen und als bloße Untergruppe des Konservatismus darstellen. Der Autor wirft ihnen vor, die von radikalen Muslimen ausgehende Gefahr nicht klar zu benennen. Diese Haltung wird als unerträglich und schädlich für die offene Gesellschaft bezeichnet. Der Anschlag auf den CSD wird als Angriff auf die offene Gesellschaft gewertet, dessen islamistischer Hintergrund nicht bagatellisiert werden sollte.",
+    "quelle": "https://www.spiegel.de/politik/deutschland/csd-anschlag-unertraeglich-wie-die-linke-islamismus-verharmlost-meinung-a-03a13e62-a77f-4efc-86eb-7244451a3efb#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/9daee96b-ae81-49a7-8521-faf1887a95b4_w520_r2.08_fpx33.76_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "»Rente mit 63«: Thorsten Frei widerspricht Ost-Ministerpräsidenten der CDU",
+    "text": "Unionsfraktionschef Thorsten Frei verteidigte die vorgeschlagene Abschaffung der abschlagsfreien \"Rente mit 63\" nach 45 Beitragsjahren als \"vollkommen richtig\" und gerecht im Sinne der Generationengerechtigkeit, trotz Kritik aus den eigenen Reihen. Er widerspricht damit den ostdeutschen CDU-Ministerpräsidenten Michael Kretschmer, Sven Schulze und Mario Voigt, die sich in einem Brief gegen die Abschaffung aussprachen. SPD-Generalsekretär Tim Klüssendorf forderte die CDU auf, ihre Position zu klären, da die Abschaffung der \"Rente mit 63\" eine zentrale Forderung der CDU war, die der SPD-Position widerspricht. Bundeskanzler Friedrich Merz und Arbeitsministerin Bärbel Bas hatten sich zuvor darauf verständigt, die Empfehlungen der Rentenkommission, einschließlich dieser Änderung, umzusetzen.",
+    "quelle": "https://www.spiegel.de/politik/rente-mit-63-thorsten-frei-widerspricht-ost-ministerpraesidenten-der-cdu-a-4229a64c-0e68-465f-a0d3-a1a9718dd861#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/3104dcae-7c9c-4048-9c70-c3fb58236c50_w520_r2.08_fpx47.21_fpy55.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Melilla: Polizei sichert Grenze zu Marokko nach Grenzübertrittsversuchen",
+    "text": "Nach mehreren Versuchen von Migranten, die Grenze zur spanischen Exklave Melilla zu überwinden, sicherte die Polizei die ganze Nacht die Grenze zu Marokko, wobei es zu Auseinandersetzungen mit Steinwürfen und Tränengaseinsatz kam. Die Lage in der zweiten spanischen Nordafrika-Exklave ist angespannt, und der Grenzübergang Beni Enzar ist geschlossen, während unklar bleibt, wie viele Menschen tatsächlich nach Melilla gelangten. In der Nachbarexklave Ceuta hatte sich die Situation entspannt, nachdem bis zu 60.000 Migranten irregulär eingetroffen waren, von denen die meisten inzwischen nach Marokko zurückgekehrt sind. Die Städte Ceuta und Melilla stehen seit Jahrhunderten unter spanischer Kontrolle und sind häufig Ziele von Migrationsversuchen aus Marokko.",
+    "quelle": "https://www.spiegel.de/ausland/melilla-polizei-sichert-grenze-zu-marokko-nach-grenzuebertrittsversuchen-a-08544553-dc82-4e59-b8f6-0d753635e528#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/2e6815ce-8503-4518-89c0-d3fe7a6889cf_w520_r2.08_fpx44_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ceuta: Spaniens Regierungschef Pedro Sánchez fordert EU-Sondersitzung",
+    "text": "Nach dem Tod von mindestens 67 Migranten auf dem Weg nach Ceuta und dem Massenansturm auf die spanische Exklave forderte Spaniens Regierungschef Pedro Sánchez eine EU-Sondersitzung der Innenminister. Sánchez verurteilte die \"egoistische, spaltende und rechtswidrige\" Haltung einiger EU-Partner, die keine Hilfe anboten, stattdessen Grenzkontrollen einführten und Druck auf Marokko unterließen. Experten der EU-Mitgliedstaaten und Botschafter sollen sich bereits am Wochenende zu Krisensitzungen treffen, um die Entwicklungen zu bewerten und weitere Koordinierung zu erleichtern. Obwohl die meisten der bis zu 60.000 irregulär Eingereisten nach Marokko zurückgekehrt sind, bleibt die Situation angespannt und die diplomatischen Spannungen innerhalb der EU bestehen.",
+    "quelle": "https://www.spiegel.de/ausland/ceuta-spaniens-regierungschef-pedro-sanchez-sanchez-fordert-eu-sondersitzung-a-f96618a6-b39d-49b1-a053-9ea019f51b97#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/70efe750-5daf-405c-8fd6-7f4877948dd7_w520_r2.08_fpx52.66_fpy44.99.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ceuta: Diesen Mangel an Solidarität werden die Spanier nicht vergessen - Kommentar",
+    "text": "Der Kommentar kritisiert den Mangel an Solidarität vieler EU-Partner gegenüber Spanien während des Migrationsdramas in Ceuta, bei dem statt Druck auf Marokko über Madrid hergefallen wurde. Die Reaktion der EU macht Europa anfällig für Erpressung durch Drittstaaten, die Migration als Druckmittel einsetzen könnten. Der Autor betont, dass die Spanier diesen Mangel an Unterstützung nicht vergessen werden. Die Situation in Ceuta wird als gefährlicher Präzedenzfall für die europäische Migrationspolitik bewertet.",
+    "quelle": "https://www.spiegel.de/ausland/ceuta-wie-das-grenzdrama-europa-fuer-erpressung-anfaellig-macht-a-83585983-c7f7-4cc6-bafa-5889565cad46#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/eaaf3886-28e3-4a9b-bd24-f6981f5db2ed_w520_r2.08_fpx64.9_fpy49.98.jpg"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "Gianni Infantino: »Der Fußball hat gesiegt, die Fifa hat verloren« - Pressestimmen",
+    "text": "Nach dem Rückzug von Fifa-Präsident Gianni Infantino aus den umstrittenen Plänen zum Verkauf von WM-Anteilen an externe Investoren, bewertet die internationale Presse dies als eine \"demütigende Niederlage\" und einen \"globalen Rückschlag\" für ihn und die Fifa. Medien wie die \"Daily Mail\" und der \"Guardian\" sprachen von einer \"peinlichen Kehrtwende\" und einem \"spektakulär gescheiterten\" Vorhaben, während \"El País\" titelte: \"Der Fußball hat gesiegt, die Fifa hat verloren.\" Die Kritik richtet sich auch gegen Infantinos Position als Fifa-Chef, wobei \"The Times\" ernsthafte Zweifel an seinem Verbleib im Amt äußert und \"L'Équipe\" von einer Krise des Weltverbandes spricht. Der Widerstand der UEFA und anderer Verbände sowie der Rücktritt eines hochrangigen Beraters trugen maßgeblich zu diesem Scheitern bei.",
+    "quelle": "https://www.spiegel.de/sport/fussball/fifa-pressestimmen-zum-aus-der-infantino-plaene-a-dc75142d-481a-4ad7-b529-900d6b076d47#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/e77761f2-6810-4e30-9d8b-6032df546093_w520_r2.08_fpx50_fpy53.jpg"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "Fifa-Plan gescheitert: Uefa begrüßt Rückzug von »schäbigem« Investorenplan und greift Gianni Infantino an",
+    "text": "Die UEFA begrüßte den Rückzug der Fifa von den Plänen, WM-Anteile an private Investoren zu verkaufen, und dankte allen Widerständlern, die sich gegen diesen \"schäbigen\" und \"undurchsichtigen\" Deal aussprachen. Die UEFA griff Fifa-Chef Gianni Infantino scharf an, warf ihm vor, das Vertrauen der \"Fußballfamilie\" verloren zu haben und sich nicht für Transparenz und das Wohl des Fußballs einzusetzen. Die Drohung der UEFA, mit ihren 55 Mitgliedsverbänden Fifa-Wettbewerbe zu boykottieren, sowie der Widerstand von Verbänden aus Asien und Nord-/Mittelamerika trugen maßgeblich zum Scheitern des Projekts bei. Der Rückzug wird als \"Sieg für den gesamten Fußball\" gewertet, doch die Aufgabe, das Vertrauen in die Fifa wiederherzustellen, habe erst begonnen.",
+    "quelle": "https://www.spiegel.de/sport/fussball/fifa-plan-gescheitert-uefa-begruesst-rueckzug-von-schaebigem-investorenplan-und-greift-gianni-infantino-an-a-f52d5cec-258b-4e8b-9717-a6cd96a51dba#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/f26f6c1a-2938-433e-80d8-0371aabeb7ea_w520_r2.08_fpx48.55_fpy49.97.jpg"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "Gianni Infantino stoppt Investorenpläne der Fifa: Der Fußball hat jetzt eine Chance – Kommentar",
+    "text": "Fifa-Präsident Gianni Infantino hat seine umstrittenen Pläne zum Verkauf von WM-Anteilen an Investoren nach massivem Widerstand zurückgezogen. Der Kommentar bewertet dies als eine Kapitulation Infantinos und sieht darin eine Chance für den Weltfußball, innezuhalten und sich neu zu orientieren. Ein Verbleib Infantinos im Amt nach diesem Vorstoß wird als Skandal betrachtet. Der Rückzug ist ein Ergebnis des vehementen Widerstands der UEFA und anderer Verbände.",
+    "quelle": "https://www.spiegel.de/sport/fussball/gianni-infantino-stoppt-investorenplaene-der-fifa-der-fussball-hat-jetzt-eine-chance-kommentar-a-7bf829cb-f2ba-492b-94ef-13cdd2ebc5e0#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/748a81d4-b19c-43cc-aebd-aa680bc8a5c3_w520_r2.08_fpx44.08_fpy45.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Recht auf Reparatur: Kann Deutschland zur Reparatur-Republik werden?",
+    "text": "Ein neues \"Recht auf Reparatur\", initiiert von der EU und Bundesregierung, soll die Flut an Elektroschrott eindämmen und die Lebensdauer von Geräten verlängern. Das Gesetz soll es Verbrauchern erleichtern, defekte Elektrogeräte reparieren zu lassen, um der Wegwerfgesellschaft entgegenzuwirken. In der Praxis weist das neue Recht jedoch noch \"gewaltige Mängel\" auf. Der Erfolg des \"Rechts auf Reparatur\" hängt von der Überwindung dieser praktischen Herausforderungen ab.",
+    "quelle": "https://www.spiegel.de/wirtschaft/recht-auf-reparatur-kann-deutschland-zur-reparatur-republik-werden-a-6dbaf58a-bb97-41cf-b145-d66820f1b47b#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/d3aabb6f-e775-4e9a-8152-facb8cd9192f_w520_r2.08_fpx40_fpy45.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Digitalminister fordert Grundsatzdebatte mit China über Daten und Handel",
+    "text": "Bundesdigitalminister Karsten Wildberger (CDU) fordert eine grundsätzliche Debatte mit China über Daten- und Wirtschaftsbeziehungen, insbesondere angesichts der Datensendung chinesischer E-Autos nach China ohne umgekehrte Beschränkungen für deutsche Firmen. Wildberger kritisiert das wachsende Handelsbilanzdefizit und Chinas Export von Produkten unter Selbstkostenpreis nach Europa, weil andere Märkte geschlossen seien. Er mahnt eine größere Reziprozität in den bilateralen Beziehungen an und stellt die Frage, warum deutsche Firmen Technologie nicht verstärkt hierzulande entwickeln können. Die EU diskutiert Handels-Abwehrinstrumente, und Kanzler Friedrich Merz kritisierte bereits Wettbewerbsverzerrungen durch einen unterbewerteten Yuan.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Digitalminister-fordert-Grundsatzdebatte-mit-China-ueber-Daten-und-Handel-id31144764.html",
+    "bild": "https://www.n-tv.de/img/31144790/1785487514/Img_4_3/250/Ein-BYD-Auto-wird-im-BYD-Store-in-der-Budapester-Strasse-geladen-Der-Name-BYD-ist-eine-Abkuerzung-des-latinisierten-chinesischen-Firmennamens-Biyadi-und-steht-mittlerweile-auch-fuer-den-Unternehmensslogan-Build-Your-Dreams-englisch-fuer-Bau-dir-deine-Traeume.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Musk dementiert Pläne zu Trennung von Teslas China-Geschäft",
+    "text": "Elon Musk dementierte einen Bericht des \"Wall Street Journal\" über Pläne zur Trennung von Teslas China-Geschäft, um eine Fusion mit SpaceX zu ermöglichen, und bezeichnete ihn als \"Fake News\". Eine solche Fusion wäre aufgrund von SpaceX's US-Regierungsaufträgen für Raketenstarts und die Rolle im Mondprojekt nicht möglich, solange Tesla ein China-Geschäft hat. Aus Teslas Werk in Shanghai stammt über die Hälfte der weltweiten Produktion, während in Grünheide eine Produktionsausweitung auf 7500 Fahrzeuge pro Woche geplant ist. Spekulationen um einen Zusammenschluss beider Firmen bestehen, aber Musk betonte, dies müsse mit \"angemessenem Verfahren\" geschehen.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Musk-dementiert-Plaene-zu-Trennung-von-Teslas-China-Geschaeft-id31144747.html",
+    "bild": "https://www.n-tv.de/img/31144955/1785489612/Img_4_3/250/Elon-Musk-arrives-at-the-U-S-District-Court-in-Oakland-Calif-Tuesday-April-28-2026-AP-Photo-Godofredo-A.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Gema gewinnt vor Gericht: KI-Musikfirma Suno darf bestimmte Songs nicht mehr nutzen",
+    "text": "Die Musikverwertungsgesellschaft Gema hat vor dem Landgericht München I eine Klage gegen das US-KI-Musikunternehmen Suno gewonnen, das nun bestimmte Musikwerke, darunter bekannte deutsche Hits, nicht mehr ohne Einwilligung vervielfältigen oder für das Training seiner KI nutzen darf. Die Gema argumentierte erfolgreich, dass Sunos KI Lieder generierte, die kaum von Originalen zu unterscheiden waren, was auf eine Memorisation der Trainingsdaten hindeutet und das Urheberrecht verletzt. Kulturstaatsminister Wolfram Weimer begrüßte das Urteil als wichtiges Zeichen zur Stärkung der Rechte von Kreativen und forderte einen Rechtsrahmen, der Innovation und faire Vergütung für Rechteinhaber bei KI-Wertschöpfung sicherstellt. Das Startup Suno, das trotz hoher Bewertung von Investoren mit kostenlosem Musikangebot auf YouTube trainierte, muss nun seine Praktiken anpassen, ähnlich wie OpenAI, das in einem ähnlichen Fall von der Gema verklagt wurde.",
+    "quelle": "https://www.n-tv.de/wirtschaft/KI-Musikfirma-Suno-darf-bestimmte-songs-nicht-mehr-nutzen-id31145109.html",
+    "bild": ""
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "Deutsches Wunderkind verzockt mit seinem KI-Hedgefonds Milliarden",
+    "text": "Leopold Aschenbrenner, ein deutsches \"Wunderkind\", gründete nach seiner Entlassung bei OpenAI einen KI-Hedgefonds namens \"Situational Awareness\", der innerhalb von zwei Jahren ein Kapital von über 20 Milliarden Dollar erreichte und Renditen von mehr als 1500 Prozent erzielte. Seine riskante Strategie, die auf gehebelten Investitionen in KI-Branchen basierte und auf Kursrückgänge bei überbewerteten KI-Unternehmen wettete, schlug jedoch fehl, als plötzliche Kursverluste eintraten und Banken zusätzliche Sicherheiten forderten. Der Verkauf großer Aktienpakete durch den Fonds heizte den Absturz der KI-Aktien weiter an, und Aschenbrenner konnte einen geordneten Rückzug nicht mehr stemmen, was zur Übernahme des Portfolios durch den Hedgefonds Citadel führte. Die Geschichte des \"Nostradamus der KI\" zeigt die Risiken extrem spekulativer KI-Investitionen ohne Finanzbranchenerfahrung.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Deutsches-Wunderkind-verzockt-mit-seinem-KI-Hedgefonds-Milliarden-id31146510.html",
+    "bild": "https://www.n-tv.de/img/31146592/1785506136/Img_4_3/250/New-York-Stock-Exchange-NYSE-Building-In-The-Night-Night-view-of-the-illuminated-exterior-of-New-York-Stock-Exchange-with-a-big-American-flag-from-the-front-facade-NYSE-building-has-the-style-of-classical-architecture-of-Greece-with-columns-the-inscription-New-York-Stock-Exchange-and-US-flags-hanging-The-financial-organization-at-Wall-Street-is-a-symbol-for-the-global-and-American-Economy-as-one-of-the-most-powerful-financial-institution-located-in-Wall-Street-at-lower-Manhattan-in-New-York-City-United-States-of-America-The-US-stock-market-is-reacting-with-heavy-losses-after-president-Trump-tariffs-announcement-on-April-2025-November-2024-in-NYC-USA-New-York-City-Netherlands-PUBLICATIONxNOTxINxFRA-Copyright-xNicolasxEconomoux-originalFilename-economou-notitle241110-npuxL.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Bahn fordert Entfernung von ZDF-Doku aus Mediathek",
+    "text": "Die Deutsche Bahn fordert die Entfernung einer ZDF-Dokumentation über den Zustand des Bahnverkehrs aus der Mediathek, da sie den Film als \"unvollständig und einseitig\" sowie mit \"unwahren Tatsachenbehauptungen\" kritisiert. Das ZDF nahm bereits zwei Berichtigungen vor, etwa zur Zahl digitaler Stellwerke und dem Pünktlichkeitsvergleich mit Belgien, aber die Bahn empfindet weiterhin ein verzerrtes Gesamtbild. Die Doku thematisiert Sicherheitsfragen und die schleppende Digitalisierung, und die Bahn wehrt sich gegen die Darstellung bezüglich der Sanierung von Infrastruktur und dem Unglück von Burgrain. Der Konflikt verdeutlicht die Spannungen zwischen der Deutschen Bahn und kritischer Berichterstattung über ihre Leistung und Fortschritte.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Bahn-fordert-Entfernung-von-ZDF-Doku-aus-Mediathek-id31146294.html",
+    "bild": "https://www.n-tv.de/img/31146333/1785503506/Img_4_3/250/Am-Puls-mit-Dunja-Hayali-Unsere-Bahn-geliebt-verflucht-gefaehrlich-ab-und-am-21-7-beim-im-ZDF-Dunja-Hayali-steht-in-einer-Bahnhofshalle-auf-einem-leeren-Gleis-vor-einem-ICE-und-schaut-in-die-Kamera.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "Wochenvorschau: Termine bis 7. August 2026",
+    "text": "Die Wochenvorschau präsentiert wichtige Wirtschafts-, Börsen- und Konjunkturtermine bis zum 7. August 2026. Am Montag werden unter anderem Einkaufsmanagerindizes aus China, Italien, Frankreich, Deutschland, der Eurozone, Großbritannien und den USA veröffentlicht, sowie das Ergebnis von Palantir Technologies. Dienstag stehen Ergebnisse von Großunternehmen wie Lufthansa, Evonik, Zalando, Bayer, Hugo Boss, Continental, BP, Merck & Co, Pfizer und Biontech an, zusammen mit dem US-Handelsbilanz und Auftragseingang Industrie. Mittwoch folgen weitere Unternehmensberichte von Fresenius, Siemens Energy, DHL Group, Infineon, Schaeffler und Walt Disney, sowie ADP-Arbeitsmarktbericht und ISM-Index Service aus den USA.",
+    "quelle": "https://www.n-tv.de/wirtschaft/termine/Termine-bis-7-August-2026-id31147127.html",
+    "bild": "https://www.n-tv.de/img/30776670/1777654133/Img_4_3/250/This-is-a-image-of-calendar-1459760.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "Amazon-Zahlen beflügeln Wall Street",
+    "text": "Starke Quartalszahlen von Amazon, mit dem höchsten Umsatzwachstum seit vier Jahren, beflügelten die Wall Street und zerstreuten Sorgen über hohe KI-Investitionen. Amazon-Aktien sprangen um über 15 Prozent nach oben, und Microsoft-Papiere legten ebenfalls zu, während Apple-Aktien um 7,4 Prozent fielen, da Lieferengpässe bei Halbleitern das Wachstum beeinträchtigen könnten. Der Dow Jones, S&P 500 und Nasdaq schlossen im Plus, während am makroökonomischen Ende US-Notenbanker sofortige Maßnahmen zur Senkung der Inflation forderten, was die Wahrscheinlichkeit einer Zinserhöhung im September auf 65 Prozent erhöhte. Analysten erwarten weiterhin positive Gewinnaussichten für S&P-500-Konzerne im zweiten Quartal, hauptsächlich getrieben durch KI-bezogene Aktien.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Amazon-Zahlen-befluegeln-Wall-Street-id31148102.html",
+    "bild": "https://www.n-tv.de/img/31148103/1785541428/Img_4_3/250/Traders-work-on-the-floor-of-the-New-York-Stock-Exchange-NYSE-in-New-York-City-U-S-July-31-2026.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Palla sieht \"organisierte Verantwortungslosigkeit\" im Bahn-Management",
+    "text": "Bahnchefin Evelyn Palla kritisiert die mangelnde Leistungsbereitschaft und \"organisierte Verantwortungslosigkeit\" im Management der Deutschen Bahn als eine Hauptursache für die Probleme des Konzerns. Die Pünktlichkeit im Fernverkehr lag im ersten Halbjahr bei nur 58,7 Prozent, was Palla als unzureichend bezeichnete, und sie kündigte einen Konzernumbau an, um Verantwortung in die Fläche zu verlagern. Palla betonte, dass Konsequenzen bei Zielverfehlungen im Management selten waren, und sie strebt eine neue Leistungskultur an, um die Bahn bis 2035 wieder fit zu machen. Die Kritik richtet sich nicht an die Basis-Mitarbeiter, die als \"Helden\" den Betrieb täglich am Laufen halten.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Palla-sieht-organisierte-Verantwortungslosigkeit-im-Bahn-Management-id31148144.html",
+    "bild": "https://www.n-tv.de/img/31148147/1785549237/Img_4_3/250/Deutsche-Bahn-CEO-Evelyn-Palla-speaks-during-a-press-statement-about-an-immediate-measure-plan-to-improve-customer-communication-in-Berlin-Germany-July-8-2026.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "\"Kommunen steuern Windkraftverhinderung mit ihren Pachtforderungen\"",
+    "text": "Der Windenergieausbau in Baden-Württemberg verläuft schleppend, trotz guter Windhöffigkeit, aufgrund anspruchsvoller Topografie, langsamer Genehmigungsverfahren und überzogener Pachtforderungen der Kommunen und des Staatswaldes. Alexander Sladek von den EWS Schönau kritisiert, dass Windkraftflächen ausgewiesen werden, ohne die Wirtschaftlichkeit zu prüfen, und ForstBW Pachten oft nur nach der Höhe vergibt, was Projekte scheitern lässt. Während die Optik von Windrädern noch Widerstände hervorruft, überwiegen für Sladek die Vorteile, und die EWS Schönau betreibt selbst den höchstgelegenen Windpark Deutschlands, der etwa gleich viel Strom wie ihre Solaranlagen erzeugt. Der Solarausbau ist im Südwesten einfacher umzusetzen, da er kürzere Planungs- und Errichtungszeiten hat.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Kommunen-steuern-Windkraftverhinderung-mit-ihren-Pachtforderungen-id31131893.html",
+    "bild": "https://www.n-tv.de/img/31131884/1785244953/Img_4_3/250/Aufbau-einer-Windenergieanlage-im-Suedschwarzwald-bei-Gersbach.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Niedrigwasser von Rhein, Donau und Elbe ist Wirtschaftskiller",
+    "text": "Deutschlands große Flüsse Rhein, Elbe und Donau verzeichnen historisch niedrige Wasserstände, wobei der Rheinpegel bei Köln mit 68 Zentimetern einen neuen Rekord-Tiefststand erreichte und die Besserung nicht in Sicht ist. Das Niedrigwasser zwingt die Binnenschifffahrt, mit stark reduzierter Ladung zu fahren, was zu erheblich höheren Transportkosten und der Notwendigkeit, mehr Schiffe einzusetzen, führt. Dies belastet besonders Branchen wie Chemie, Stahl und Mineralöl, die auf den Rheintransport angewiesen sind, und könnte durch Lieferengpässe und höhere Spritpreise auch die Verbraucher treffen. Experten warnen, dass der Klimawandel langfristig zu intensiveren Niedrigwasserereignissen führen wird, da mehr Wasser verdunstet.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Niedrigwasser-von-Rhein-Donau-und-Elbe-ist-Wirtschaftskiller-id31148701.html",
+    "bild": "https://www.n-tv.de/img/31148697/1785580256/Img_4_3/250/Rhein-bei-Emmerich-extremes-Niedrigwasser-Rheinpegel-bei-5-cm-Tendenz-fallend-Frachtschiffe-muessen-mit-z-T.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Politik in Amerika",
+    "titel": "Forderung nach Neuwahlen: Wie die USA die Demokratie in Venezuela bremsen",
+    "text": "Sechs Monate nach der umstrittenen Entmachtung von Venezuelas Staatschef Nicolás Maduro durch die USA stockt der demokratische Wandel, da Neuwahlen von den USA blockiert und wichtige Oppositionsführerin María Corina Machado ausgeschlossen wird. Trotz Protesten der Bevölkerung und Teilen der Opposition für Neuwahlen lobt US-Präsident Donald Trump die Übergangspräsidentin Delcy Rodríguez, da durch sie Rohöl und Geld in die USA fließen. Politologe Jesús Renzullo vermutet, dass Trump kein Interesse an einem echten demokratischen Prozess hat, sondern an der Sicherung des Zugangs zu venezolanischen Ressourcen. Die politische Öffnung Venezuelas unter US-Regie ist nur begrenzt, und die Übergangspräsidentin Rodríguez steht wegen ihres Krisenmanagements nach zwei Erdbeben in der Kritik.",
+    "quelle": "https://www.tagesschau.de/ausland/amerika/venezuela-1190.html",
+    "bild": "https://images.tagesschau.de/image/b32eb1d0-d198-444a-bbf1-25919830aae6/AAABn7x7CHo/AAABnSSvrFg/16x9-big/caracas-demonstration-100.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ansturm auf Exklave: Was Ceuta für die EU bedeutet",
+    "text": "Nach dem Ansturm Zehntausender Migranten auf die spanische Exklave Ceuta und Versuchen in Melilla wird in der EU erneut über Migrationsregelungen diskutiert, trotz der erst kürzlich in Kraft getretenen EU-Asylreform. Spanien steht in der Kritik einiger EU-Länder und Bundeskanzler Merz, die eine zu liberale Migrationspolitik und mangelnden Schutz der Außengrenzen bemängeln und auch die Legalisierung von 500.000 irregulären Migranten sowie ein Gerichtsurteil als Anreize sehen. Die meisten Migranten sind bereits nach Marokko zurückgekehrt, da die Exklaven nicht zum Schengen-Raum gehören und eine Weiterreise auf das europäische Festland schwierig ist, aber die Bilder haben eine neue Debatte über Grenzschutz und Solidarität ausgelöst. Italien setzte das Schengen-Abkommen gegenüber Spanien vorübergehend aus, und Deutschland sowie Frankreich verstärkten ihre Grenzkontrollen, was die nationalen Reaktionen auf die Krise verdeutlicht.",
+    "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-migration-spanien-eu-100.html",
+    "bild": "https://images.tagesschau.de/image/a7ba2953-354b-4f43-a0c5-0d5a45342138/AAABn7yMODg/AAABnSSvrFg/16x9-big/ceuta-208.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Nach Ansturm auf Ceuta: Migranten kehren zurück, Europa diskutiert",
+    "text": "Nach dem Massenansturm auf die spanische Exklave Ceuta, bei dem Zehntausende Migranten die Grenze überquerten und mindestens 67 starben, sind die meisten Menschen nach Marokko zurückgekehrt. Auf EU-Ebene lösten die Ereignisse große Sorgen aus und entfachten eine neue Debatte über Grenzschutz und die Wirksamkeit der erst kürzlich in Kraft getretenen EU-Asylreform. Spaniens Regierungschef Pedro Sánchez forderte eine EU-Sondersitzung und kritisierte die \"egoistische Haltung\" einiger Mitgliedstaaten, während er Solidarität und die Einhaltung europäischer Verträge betonte. Mehrere EU-Länder, darunter Italien und Frankreich, verstärkten ihre Grenzkontrollen oder setzten das Schengen-Abkommen aus, was die Spannungen innerhalb der Union verdeutlichte.",
+    "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-migration-spanien-100.html",
+    "bild": "https://images.tagesschau.de/image/30b21e5d-2bf0-427f-8e36-98b0ffd62cfc/AAABn7wEpXo/AAABnSSvrFg/16x9-big/ceuta-200.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Regionale Wirtschaft",
+    "titel": "Rekord-Niedrigwasser im Rhein belastet Binnenschifffahrt in NRW",
+    "text": "Der Rhein erreichte an mehreren Pegelpunkten, darunter Köln, Bonn, Düsseldorf und Rees, historische Niedrigststände, was die Binnenschifffahrt in Nordrhein-Westfalen stark beeinträchtigt. Trotz ausbleibender kompletter Einstellung der Schifffahrt müssen Frachtschiffe ihre Lademenge drastisch reduzieren, was zu höheren Transportkosten und längeren Lieferzeiten führt. Die Situation belastet Industrien wie Chemie und Stahl finanziell erheblich, da Ausweichrouten begrenzt sind und die Kosten für den Transport pro Tonne steigen, was letztlich auch die Verbraucher treffen könnte. Die Schifffahrtsämter sind auf die Lage vorbereitet und setzen auf mehr Schiffe mit weniger Ladung, doch eine nachhaltige Besserung ist angesichts des Klimawandels und verstärkter Verdunstung langfristig nicht in Sicht.",
+    "quelle": "https://www.tagesschau.de/inland/regional/nordrheinwestfalen/niedrigwasser-rhein-104.html",
+    "bild": "https://images.tagesschau.de/image/5727bd75-54a5-4944-9bc5-162ab91b7fbe/AAABn71As9A/AAABnSSvrFg/16x9-big/wdr-frachtschiff-im-rhein-auf-grund-gelaufen-100.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Streit um Rentenreform - Auch SPD beharrt auf \"Rente mit 63\"",
+    "text": "Innerhalb der Koalition von CDU, CSU und SPD gibt es Differenzen über die geplante Rentenreform, insbesondere bezüglich der Abschaffung der abschlagsfreien \"Rente mit 63\" nach 45 Beitragsjahren. SPD-Generalsekretär Tim Klüssendorf stellt sich gegen seine Parteichefin Bärbel Bas und Kanzler Friedrich Merz, indem er am Festhalten der \"Rente mit 63\" für langjährig Versicherte plädiert. Ostdeutsche Ministerpräsidenten der CDU und SPD kritisieren die Abschaffungspläne, da sie Ostdeutschland besonders hart treffen würden, während Unionsfraktionschef Thorsten Frei die Abschaffung aus Gründen der Generationengerechtigkeit befürwortet. Die Rentenkommission zeigt sich irritiert über die Debatte, da ein Herauslösen einzelner Punkte die Tragfähigkeit des Reformkompromisses gefährde, während der Sozialverband VdK Nachbesserungen fordert.",
+    "quelle": "https://www.tagesschau.de/inland/rentenreform-vorschlag-cdu-reaktionen-100.html",
+    "bild": "https://images.tagesschau.de/image/f789db2f-01a6-4f7e-a0f2-a2e3fec7350d/AAABn7yDOag/AAABnSSvrFg/16x9-big/kluessendorf-114.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Trump und Iran: Neue Angriffswelle - oder doch nur eine Drohung?",
+    "text": "US-Präsident Donald Trump droht Iran mit \"harten\" Angriffen auf die Infrastruktur, und US-Medien spekulieren über den Beginn einer der größten Angriffswellen, möglicherweise unter Beteiligung Israels. Iran reagierte mit der Drohung von Gegenschlägen auf kritische Infrastruktur in Israel und den Golfstaaten, was die Sorge um steigende Öl- und Gaspreise sowie schrumpfende Patriot-Raketenvorräte verstärkt. Trotz eines im Juni unterzeichneten Rahmenabkommens zur Friedensfindung nahmen die USA Mitte Juli die Angriffe wieder auf, was zu erneuten Attacken Irans in der Region führte. Zuletzt wurden zwei Tanker vor der Küste Omans beschossen, was die angespannte Lage in der wichtigen Schifffahrtsroute weiter verschärft.",
+    "quelle": "https://www.tagesschau.de/ausland/asien/iran-krieg-usa-trump-102.html",
+    "bild": "https://images.tagesschau.de/image/da0d692e-82ab-4654-8ddf-cfa30ee68fda/AAABn70c2zc/AAABnSSvrFg/16x9-big/trump-100.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Nach Ansturm auf Exklave: EU-Staaten wollen Ceuta-Treffen - und kritisieren Spanien",
+    "text": "Nach dem Ansturm Zehntausender Migranten auf die spanische Exklave Ceuta, bei dem mindestens 67 Menschen starben, fordern 22 EU-Mitgliedstaaten, darunter Bundeskanzler Merz, eine Dringlichkeitssitzung der Innenminister und kritisieren Spanien in einem offenen Brief. Der Brief wirft Madrid indirekt vor, durch die Legalisierung von 500.000 irregulären Migranten und ein Gerichtsurteil unerwünschte Anreize geschaffen zu haben, während Spanien die Kritik als \"egoistisch\" zurückweist. Italien setzte das Schengen-Abkommen gegenüber Spanien vorübergehend aus, und Frankreich verstärkte die Grenzkontrollen, obwohl die meisten der irregulär eingereisten Menschen nach Marokko zurückgekehrt sind. Die Debatte beleuchtet die Spannungen innerhalb der EU hinsichtlich Grenzschutz und Migrationspolitik, insbesondere nach Inkrafttreten der EU-Asylreform.",
+    "quelle": "https://www.tagesschau.de/ausland/europa/ceuta-migration-spanien-104.html",
+    "bild": "https://images.tagesschau.de/image/d804add6-96b0-4953-b906-12ac24a7bc10/AAABn701uOM/AAABnSSvrFg/16x9-big/ceuta-210.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Weltweite Schlagzeilen",
+    "sub_sektor": "Globale Ereignisse",
+    "titel": "Waldbrände in Europa: Feuer in Bordeaux unter Kontrolle - Lage bei Athen angespannt",
+    "text": "Der große Waldbrand an der französischen Atlantikküste bei Bordeaux ist unter Kontrolle, was die Rückkehr von über 10.000 Menschen ermöglicht, obwohl weiterhin Brandherde aktiv sind und seit Jahresbeginn 119.000 Hektar in Frankreich verbrannt sind. Im südfranzösischen Département Var breitet sich ein wieder aufgeflammtes Feuer auf über 1.000 Hektar aus und bleibt aufgrund starker Winde ein Hochrisikogebiet. In Griechenland ist die Lage dramatisch angespannt, besonders westlich von Athen, wo bei Porto Germeno bis zu 100 Häuser verbrannten und starke Winde Löschflugzeuge am Einsatz hindern. Für den Großraum Athen wurde die höchste Waldbrandgefahr ausgerufen, und die Behörden warnen die evakuierten Bewohner vor voreiliger Rückkehr.",
+    "quelle": "https://www.tagesschau.de/ausland/europa/bordeaux-athen-waldbrand-100.html",
+    "bild": "https://images.tagesschau.de/image/969eea7b-ccef-4434-a6b7-30d564908926/AAABn70PGIs/AAABnSSvrFg/16x9-big/waldbrand-geloescht-frankreich-gironde-100.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Wieder russischer Angriff auf Kiew - neun Tote",
+    "text": "Russland hat Kiew erneut in der Nacht mit ballistischen Raketen und Drohnen angegriffen, wobei nach Behördenangaben mindestens neun Menschen getötet und 28 verletzt wurden. Präsident Selenskyj beklagte den Mangel an Munition für die Patriot-Systeme, die am effektivsten gegen ballistische Raketen sind, und appellierte an die westlichen Partner. Während die Ukraine weiterhin Ziele in Russland angreift, lehnt US-Präsident Trump die Vergabe von Lizenzen für die Patriot-Raketenproduktion in der Ukraine ab, mit Verweis auf Vorsicht im Umgang mit solcher Technologie. Die anhaltenden russischen Luftangriffe zielen darauf ab, die ukrainische Luftabwehr zu überlasten.",
+    "quelle": "https://www.tagesschau.de/ausland/europa/ukraine-kiew-russische-angriffe-100.html",
+    "bild": "https://images.tagesschau.de/image/071c07fd-b4b0-4b7e-bb3a-efbe7567cf0e/AAABn7tV94E/AAABnSSvrFg/16x9-big/ukraine-kiew-180.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Klima & Umwelt",
+    "titel": "Tricks gegen Hitze in der Stadt: Von A nach B - möglichst im Schatten",
+    "text": "Angesichts zunehmender Hitzewellen in Städten entwickeln Initiativen wie \"München Aktiv für Gesundheit\" interaktive \"Hitzefrei\"-Karten, die schattige Wege, Kirchen als kühle Rückzugsorte und \"refill\"-Stationen für kostenloses Trinkwasser anzeigen. Umweltmediziner warnen, dass ab 30 Grad Celsius das Risiko für gesundheitliche Schäden exponentiell steigt und fehlende nächtliche Abkühlung in Städten, bedingt durch den Wärmeinseleffekt versiegelter Flächen, besonders für ältere Menschen gefährlich ist. Städte wie München investieren in Klimaanpassung und das Pflanzen neuer Bäume, doch es bedarf weiterer Maßnahmen wie der Entsiegelung von Flächen und der Schaffung frei zugänglicher kühler Orte. Die gezielte Nutzung von Schatten und die Planung von Pausen können helfen, den Arbeitsweg bei Hitze sicherer zu gestalten.",
+    "quelle": "https://www.tagesschau.de/wissen/klima/hitze-schatten-staedtebau-versiegelung-klimawandel-100.html",
+    "bild": "https://images.tagesschau.de/image/c27ad681-b74b-4737-b0b3-2a5c687b8234/AAABn7hbyiQ/AAABnSSvrFg/16x9-big/muenchen-innenstadt-100.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Liveblog: Spanien und Marokko: Pedro Sánchez kritisiert »egoistische Reaktion« einiger EU-Länder",
+    "text": "Nach dem Massenansturm von geschätzt 50.000 bis 60.000 Migranten auf die spanische Exklave Ceuta, bei dem 67 Menschen ums Leben kamen, hat Spaniens Ministerpräsident Pedro Sánchez die \"egoistische Reaktion\" einiger EU-Länder kritisiert. 22 EU-Staatschefs, darunter Bundeskanzler Merz und Giorgia Meloni, forderten eine Dringlichkeitssitzung der Innenminister, um eine koordinierte Antwort auf die Migrationskrise zu finden. Die meisten Migranten kehrten inzwischen nach Marokko zurück, während Spanien eine 500 Meter lange schwimmende Barriere vor Ceuta installiert. Die Grüne Sara Nanni warnte vor einem Zerwürfnis in der EU und forderte eine umfassende Aufklärung der Hintergründe, die an die Situation an der östlichen EU-Außengrenze 2021 erinnert.",
+    "quelle": "https://www.zeit.de/gesellschaft/zeitgeschehen/2026-07/migration-ceuta-melilla-spanien-marokko-grenze-liveblog",
+    "bild": "https://img.zeit.de/gesellschaft/zeitgeschehen/2026-08/pedro-sanchez-fordert-eu-sondersitzung-bild/original__640x360"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Zehntausende bei CSD-Demonstration - ausgelassene Stimmung",
+    "text": "Zehntausende Menschen versammelten sich in Hamburg zu einer Christopher Street Day (CSD)-Demonstration unter dem Motto \"Solidarisch queer. Haltung zeigen – für eine Zukunft ohne Angst!\", nur eine Woche nach einem tödlichen Anschlag auf den Berliner CSD. Die Hamburger Polizei hatte ihr Sicherheitskonzept überarbeitet und die Zahl der Beamten verdoppelt, um eine friedliche und ausgelassene Stimmung zu gewährleisten, die ohne Zwischenfälle verlief. Der Anschlag in Berlin, bei dem ein islamistischer Attentäter eine Frau tötete und viele verletzte, schüchterte die queere Community nicht ein, die stattdessen ein \"Jetzt-erst-Recht\"-Gefühl lebte. Der CSD erinnert an die Ereignisse von 1969 in New York und wird weltweit gefeiert, um für LGBTQ+-Rechte zu demonstrieren.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/zehntausende-bei-csd-demonstration-ausgelassene-stimmung",
+    "bild": "https://img.zeit.de/news/2026-08/01/zehntausende-bei-csd-demonstration-ausgelassene-stimmung-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Krise in Ceuta: 22 EU-Mitgliedsstaaten fordern Sondersitzung der Innenminister",
+    "text": "Als Reaktion auf den Massenansturm von bis zu 60.000 Migranten auf die spanische Exklave Ceuta forderten 22 EU-Staatschefs, darunter Bundeskanzler Friedrich Merz, eine Dringlichkeitssitzung der EU-Innenminister. In einem gemeinsamen Brief betonten sie die Notwendigkeit einer koordinierten europäischen Antwort, um unkontrollierte Migration und die Instrumentalisierung von Migranten zu verhindern. Spaniens Regierungschef Pedro Sánchez wies die europäische Kritik als \"egoistisch\" und \"rechtswidrig\" zurück und forderte ebenfalls eine Sondersitzung, nachdem Italien bereits vorübergehende Grenzkontrollen eingeführt hatte. Die Krise in Ceuta, bei der mindestens 67 Menschen starben und die meisten Migranten nach Marokko zurückkehrten, hat eine neue Debatte über den Schengen-Raum und die europäische Migrationspolitik ausgelöst.",
+    "quelle": "https://www.zeit.de/politik/ausland/2026-08/migrationskrise-ceuta-spanien-eu-friedrich-merz-giorgia-meloni",
+    "bild": "https://img.zeit.de/politik/ausland/2026-08/migrationskrise-ceuta-spanien-eu-friedrich-merz-giorgia-meloni-foto-1/original__640x360"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Auto überschlägt sich – 78-Jähriger schwer verletzt",
+    "text": "Ein 78-jähriger Mann hat sich bei Pfullingen (Kreis Reutlingen) mit seinem Auto überschlagen und dabei schwere Verletzungen erlitten. Vermutlich aufgrund überhöhter Geschwindigkeit kam er in einer engen Kurve von der Straße ab, fuhr einen ansteigenden Hang hinauf und überschlug sich, wobei das Fahrzeug auf dem Dach liegen blieb. Die Feuerwehr musste den Senior aus seinem Auto befreien, der anschließend per Rettungswagen in eine Klinik gebracht wurde. Neben dem Auto wurden auch die Gemarkung neben der Straße sowie Verkehrszeichen beschädigt.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/auto-ueberschlaegt-sich-78-jaehriger-schwer-verletzt",
+    "bild": "https://img.zeit.de/news/2026-08/01/auto-ueberschlaegt-sich-78-jaehriger-schwer-verletzt-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "Stoffwechselstörung: Ex-Hertha-Juwel Eichhorn pausiert",
+    "text": "Bayer Leverkusen muss vorerst auf seinen 17-jährigen Neuzugang Kennet Eichhorn verzichten, da bei ihm eine behandlungsbedürftige Stoffwechselstörung diagnostiziert wurde, die auf hohe Belastung und Gewichtsverlust nach einer Magen-Darm-Erkrankung folgte. Sportgeschäftsführer Simon Rolfes sicherte dem vom europäischen Spitzenfußball umworbenen Talent volle Unterstützung für seine Genesung zu. Eichhorn, der für kolportierte neun Millionen Euro von Hertha BSC nach Leverkusen wechselte und bereits 19 Profispiele absolvierte, wird die Behandlung in einer spezialisierten Einrichtung beginnen. Die Dauer des Ausfalls ist noch unklar, jedoch wird ihm die notwendige Zeit und Ruhe für die Behandlung gewährt.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/stoffwechselstoerung-ex-hertha-juwel-eichhorn-pausiert",
+    "bild": "https://img.zeit.de/news/2026-08/01/stoffwechselstoerung-ex-hertha-juwel-eichhorn-pausiert-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "«Das ist die Hölle» - Unwetter zerstört Imbiss von TV-Köchin",
+    "text": "Ein schweres Unwetter in der Sächsischen Schweiz hat den Imbiss und etwa 30 Ruderboote der TV-Köchin Verena Leister am Amselsee zerstört, wobei ein 28-jähriger Mann durch einen umstürzenden Baum ums Leben kam. Leister brach ihren Urlaub in Kroatien ab, um die Verwüstung zu begutachten, und berichtete von einem komplett mit Bäumen bedeckten Imbiss, eingestürztem Dach und verzogenen Wänden. Der Betrieb kann in dieser Saison nicht wieder aufgenommen werden, und das Ausmaß der Zerstörung der Natur am Amselsee hat die Köchin tief betroffen. Die genaue Höhe der Schäden ist noch unklar.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/das-ist-die-hoelle-unwetter-zerstoert-imbiss-von-tv-koechin",
+    "bild": "https://img.zeit.de/news/2026-08/01/das-ist-die-hoelle-unwetter-zerstoert-imbiss-von-tv-koechin-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Sport",
+    "sub_sektor": "Fußball",
+    "titel": "BVB gewinnt Testspiel in Tokio - Sorgen um Chukwuemeka",
+    "text": "Fußball-Bundesligist Borussia Dortmund gewann zum Abschluss seiner Japan-Reise ein Testspiel gegen den japanischen Erstligisten FC Tokyo mit 1:0, wobei Stürmer Fábio Silva das entscheidende Tor erzielte. Trotz des Sieges bereitet die Verletzung von Mittelfeldspieler Carney Chukwuemeka, der wegen Knieproblemen ausgewechselt werden musste, dem BVB Sorgen. Das Spiel musste aufgrund starken Regenfalls in der japanischen Hauptstadt für etwa 25 Minuten unterbrochen werden. Im ersten Spiel der Marketing-Reise hatte der BVB gegen Cerezo Osaka 0:1 verloren.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/bvb-gewinnt-testspiel-in-tokio-sorgen-um-chukwuemeka",
+    "bild": "https://img.zeit.de/news/2026-08/01/bvb-gewinnt-testspiel-in-tokio-sorgen-um-chukwuemeka-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Kundgebung am Brandenburger Tor - «Wir sind viele»",
+    "text": "Mehrere Hundert Menschen demonstrierten in Berlin unter dem Motto \"Frieden, Freiheit und Grundrechte\" am Brandenburger Tor und forderten einen Kurswechsel in der Außen- und Sicherheitspolitik. Das Bündnis \"Wir sind viele\" rief zu einem Stopp von Rüstungsexporten, insbesondere an die Ukraine, und zur Aufarbeitung der Corona-Pandemie-Maßnahmen auf. Transparente Plakate drückten Forderungen nach \"Weltfrieden statt 3. Weltkrieg\" und \"Russland + Deutschland = Freundschaft\" aus. Die Demonstration verlief laut Polizei friedlich und ohne besondere Vorkommnisse.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/kundgebung-am-brandenburger-tor-wir-sind-viele",
+    "bild": "https://img.zeit.de/news/2026-08/01/kundgebung-am-brandenburger-tor-wir-sind-viele-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Pferd im Donnersbergkreis ausgebüxt und in Bach gefallen",
+    "text": "Ein ausgebüxtes Pferd ist in Bischheim im Donnersbergkreis in einen Bach gefallen und hat sich dabei leicht verletzt. Die Feuerwehr konnte das Tier mithilfe eines Krans erfolgreich aus dem Bach bergen. Ein Tierarzt kümmert sich nun um das Pferd, während die Umstände des Ausbüxens nach Angaben der Polizei bislang unklar sind.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/pferd-im-donnersbergkreis-ausgebuext-und-in-bach-gefallen",
+    "bild": "https://img.zeit.de/news/2026-08/01/pferd-im-donnersbergkreis-ausgebuext-und-in-bach-gefallen-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Kunst & Unterhaltung",
+    "titel": "Heavysaurus rockt Wacken – Saurier sorgen für Party",
+    "text": "Die Kinderrockband Heavysaurus, deren Mitglieder in Dinosaurier-Kostümen auftreten, sorgte auf dem Wacken Open Air für ausgelassene Stimmung bei Kindern und Erwachsenen. Mit limitiertem Lautstärkepegel und einem abgesperrten Bereich für Kinder bot die Band eine kindgerechte Metalshow, inklusive neuer Songs vom kommenden Album \"Mission Dino Power\". Das ausverkaufte 35. Festival erwartet weitere Stars wie Sabaton, Arch Enemy und Powerwolf zum Abschluss in der Nacht zum Sonntag. Die Band zielt darauf ab, junge Fans für Metal zu begeistern und sie von Künstlern wie Helene Fischer fernzuhalten.",
+    "quelle": "https://www.zeit.de/news/2026-08/01/heavysaurus-rockt-wacken-saurier-sorgen-fuer-party",
+    "bild": "https://img.zeit.de/news/2026-08/01/heavysaurus-rockt-wacken-saurier-sorgen-fuer-party-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Marine: China hält Militärübung im Südchinesischen Meer ab",
+    "text": "China führte eine gemeinsame Militärübung von Luft- und Seestreitkräften um das umstrittene Scarborough-Riff im Südchinesischen Meer durch. Die Volksbefreiungsarmee bezeichnete das Manöver als Reaktion auf Aktionen \"bestimmter Länder\", die regionalen Frieden und Stabilität untergraben. Sowohl China als auch die Philippinen erheben Anspruch auf das Riff, das ein häufiger Konfliktherd um Fischereirechte ist. China lehnt ein Urteil des Ständigen Schiedshofs von Den Haag aus dem Jahr 2016 ab, das seine weitreichenden Ansprüche im Südchinesischen Meer nicht durch internationales Recht gedeckt sah.",
+    "quelle": "https://www.handelsblatt.com/politik/international/marine-china-haelt-militaeruebung-im-suedchinesischen-meer-ab/100244414.html",
+    "bild": "https://images.handelsblatt.com/TU5sgkQXMqSV/cover/900/506/0/0/550/0/0.5/0.5/ein-von-der-philippinischen-marine-als-chinesisches-marineboot-identifiziertes-schiff.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Deutsche Bahn: DB erreicht im ersten Halbjahr nur 59 Prozent Pünktlichkeit",
+    "text": "Die Deutsche Bahn verzeichnete im ersten Halbjahr eine Pünktlichkeit von lediglich 58,7 Prozent im Fernverkehr, was Bahnchefin Evelyn Palla als \"keinen guten Wert\" bezeichnete, obwohl die meisten Verspätungen unter 15 Minuten lagen. Palla, die für das Gesamtjahr 60 Prozent Pünktlichkeit angestrebt hatte, vergab dem Unternehmen die Schulnote 4 minus für Zuverlässigkeit, aber insgesamt eine 3. Sie kritisierte zudem eine mangelnde Leistungskultur und \"organisierte Verantwortungslosigkeit\" im Management der Vergangenheit, betonte jedoch, dass das Problem nicht bei den Basis-Mitarbeitern liege. Der Konzernumbau zielt auf eine Verschlankung der Zentrale und Verlagerung von Verantwortung ab, um bis 2035 die gravierendsten Probleme des Schienennetzes zu beheben.",
+    "quelle": "https://www.handelsblatt.com/unternehmen/dienstleister/deutsche-bahn-db-erreicht-im-ersten-halbjahr-nur-59-prozent-puenktlichkeit/100244416.html",
+    "bild": "https://images.handelsblatt.com/A3y3To25jZYM/cover/900/506/0/0/213/212/0.5/0.5/archiv-08.07.2026-berlin-evelyn-palla-vorstandsvorsitzende-der-deutschen-bahn-ag-stellt-bei-ei.jpg"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Regionale Wirtschaft",
+    "titel": "Hitze: Rheinpegel erreicht bei Köln historischen Tiefstand",
+    "text": "Der Rheinpegel bei Köln erreichte mit 68 Zentimetern einen historischen Tiefststand, einen Zentimeter unter dem Rekord von 2018, während auch andere deutsche Flüsse wie Elbe und Donau extreme Niedrigwasserstände aufweisen. Diese anhaltende Trockenheit und Hitze belasten die Wirtschaft erheblich, da die Binnenschifffahrt nur noch mit stark reduzierter Ladung fahren kann, was Transportkosten erhöht und Lieferengpässe drohen lässt. Branchen wie Chemie, Stahl und Mineralöl sind besonders betroffen, da der Ausfall des Rheintransports kaum kompensierbar ist, und Verbraucher müssen mit möglichen Preiserhöhungen rechnen. Eine Besserung der Lage ist kurzfristig nicht in Sicht, und der Klimawandel wird voraussichtlich zu intensiveren Niedrigwasserereignissen führen.",
+    "quelle": "https://www.handelsblatt.com/politik/deutschland/hitze-rheinpegel-erreicht-bei-koeln-historischen-tiefstand/100244417.html",
+    "bild": "https://images.handelsblatt.com/wKYYbDlhnDcj/cover/900/506/0/0/314/313/0.5/0.5/der-rhein-in-koeln.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Klima & Umwelt",
+    "titel": "ISA-Vollversammlung: Keine Einigung auf Regeln für umstrittenen Tiefseebergbau",
+    "text": "Die Internationale Meeresbodenbehörde (ISA) beendete ihre Jahrestagung ohne eine Einigung auf ein Regelwerk für den umstrittenen Tiefseebergbau, was von Umweltorganisationen kritisiert wird. WWF und Greenpeace bedauerten die Entscheidung, Tiefseebergbauunternehmen einen vorläufigen Beobachterstatus zu verleihen und die Überprüfung der ISA zu verschieben. Umweltverbände fordern ein Moratorium und ein entschlossenes Vorgehen gegen Länder wie die USA, die den Tiefseebergbau einseitig außerhalb internationaler Regelungen vorantreiben wollen. Die Nicht-Einigung verdeutlicht die anhaltenden Spannungen zwischen wirtschaftlichen Interessen am Rohstoffabbau in der Tiefsee und dem Schutz bislang unerforschter Ökosysteme.",
+    "quelle": "https://www.handelsblatt.com/politik/international/isa-vollversammlung-keine-einigung-auf-regeln-fuer-umstrittenen-tiefseebergbau/100244418.html",
+    "bild": "https://images.handelsblatt.com/UCaTyC4Zs0BB/cover/900/506/0/0/189/188/0.5/0.5/employees-of-soil-machine-dynamics-smd-work-on-a-subsea-mining-machine-being-built-for-nautilus-mi.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Politik in Amerika",
+    "titel": "USA: Trump macht US-Gouverneur für Cyberangriffe verantwortlich",
+    "text": "US-Präsident Donald Trump hat den demokratischen Gouverneur von Minnesota, Tim Walz, öffentlich für Cyberangriffe auf die Wasserversorgung des Bundesstaates verantwortlich gemacht, ohne dafür Beweise vorzulegen. Trump vermutete Inkompetenz des Gouverneurs anstelle eines zuvor von Sicherheitsbehörden befürchteten iranischen Hackerangriffs. Gouverneur Walz wies die Vorwürfe zurück, warf Trump vor, den wahren Verantwortlichen zu kennen, und kritisierte die US-Regierung sowie die Effizienzbehörde (Doge) für das Aushöhlen der Cybersicherheitsagentur. In weiteren Nachrichten wurden 250.000 zusätzliche Reisepässe mit Trumps Abbild gedruckt und ein Verfahren wegen Schäden am Washingtoner „Reflecting Pool“ eingestellt, da ein Bauunternehmen statt Vandalen verantwortlich war.",
+    "quelle": "https://www.handelsblatt.com/politik/international/usa-trump-macht-us-gouverneur-fuer-cyberangriffe-verantwortlich/29669594.html",
+    "bild": "https://images.handelsblatt.com/4YQnqwYSzPrN/cover/900/506/0/0/0/585/0.5/0.5/gouverneur-tim-walz.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Politik in Amerika",
+    "titel": "Brasilien: Kampf um Brasiliens Rechte – Bolsonaros Erbe wankt",
+    "text": "Flávio Bolsonaro wurde trotz schwindenden Rückhalts bei Parteien, Unternehmern und Evangelikalen zum Präsidentschaftskandidaten des vereinten rechten Lagers in Brasilien gekürt, um Amtsinhaber Lula da Silva abzulösen. Die Nominierung erfolgte auf Geheiß seines inhaftierten Vaters, Ex-Präsident Jair Bolsonaro, ohne Abstimmung mit anderen rechten Kräften, was zu einer halb leeren Wahlkonvent-Halle führte. Viele in Brasiliens rechter Szene hätten lieber Tarcisio de Freitas, den konservativen Gouverneur von São Paulo, als Kandidaten gesehen. Der mangelnde Rückhalt für Flávio Bolsonaro deutet auf ein Wanken von Bolsonaros politischem Erbe hin.",
+    "quelle": "https://www.handelsblatt.com/politik/international/brasilien-kampf-um-brasiliens-rechte-bolsonaros-erbe-wankt/100243539.html",
+    "bild": "https://images.handelsblatt.com/W-VywWU5wvNH/cover/900/506/0/0/0/209/0.5/0.5/flavio-bolsonaro-brazilian-presidential-candidate-speaks-during-a-campaign-launch-event-in-sao-pa.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Außenpolitik",
+    "titel": "Ceuta: Mindestens 50.000 Migranten gelangten in spanische Exklave",
+    "text": "Mindestens 50.000, eventuell bis zu 60.000, Migranten gelangten innerhalb kurzer Zeit in die spanische Exklave Ceuta, wobei mindestens 67 Menschen ums Leben kamen. Nach dem Massenansturm kehrten die meisten der Migranten freiwillig nach Marokko zurück, da es kaum Aussichten auf Weiterreise oder Versorgung gab. Spanien hat Militär und zusätzliche Polizeikräfte entsandt und plant eine 500 Meter lange Absperrung am Wellenbrecher zu errichten, um zukünftige Anstürme zu verhindern. Die EU-Kommission und mehrere Mitgliedstaaten, darunter Deutschland, sagten Spanien Unterstützung zu, während andere ein härteres Vorgehen und eine Sondersitzung der Innenminister forderten.",
+    "quelle": "https://www.handelsblatt.com/politik/international/ceuta-mindestens-50.000-migranten-gelangten-in-spanische-exklave/100244138.html",
+    "bild": "https://images.handelsblatt.com/u28ZTjbXjWDS/cover/900/506/0/0/229/229/0.5/0.5/01.08.2026-spanien-ceuta-soldaten-der-spanischen-armee-und-beamte-der-guardia-civil-stehen-wache.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Ukraine-Krieg: Erneut heftige russische Angriffe auf Kiew – neun Tote",
+    "text": "Russland hat Kiew erneut mit ballistischen Raketen und Drohnen angegriffen, wobei mindestens neun Menschen getötet und über 30 verletzt wurden sowie Schäden an Wohngebäuden und Infrastruktur entstanden. Präsident Selenskyj berichtete von 35 Raketen und 185 Drohnen, wobei nur eine ballistische Rakete abgefangen wurde, und appellierte an Partnerländer für dringend benötigte Flugabwehrsysteme. Die Ukraine reagiert weiterhin mit Gegenangriffen auf russische Ziele, darunter Ölraffinerien und ein Containerschiff im Schwarzen Meer, während Russland die Einnahme von zwei weiteren ukrainischen Dörfern meldet. Die russische Getreidelobby warnte vor einem Stopp der Schwarzmeerexporte aufgrund ukrainischer Angriffe, was globale Ernährungssicherheit gefährden könnte.",
+    "quelle": "https://www.handelsblatt.com/politik/international/ukraine-krieg-erneut-heftige-russische-angriffe-auf-kiew-neun-tote/27982126.html",
+    "bild": "https://images.handelsblatt.com/L5djMvzacRw9/cover/900/506/0/0/621/0/0.5/0.5/dpatopbilder-01.08.2026-ukraine-kiew-nach-einem-russischen-raketenangriff-ist-ein-ausgebranntes.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Lieferdienst: Sechs Fehler, die Delivery Hero zum Übernahmekandidaten machten",
+    "text": "Delivery Hero, einst ein DAX-Unternehmen, steht vor einer Komplettübernahme durch Uber, nachdem der Aktienkurs um 80 Prozent unter seinem Höchststand lag und CEO Niklas Östberg seinen Rücktritt ankündigte. Uber hat bereits über 50 Prozent der Anteile gesichert und ein Angebot von 41,50 Euro pro Aktie unterbreitet. Trotz einer beispiellosen Expansion in über 70 Länder seit der Gründung 2011 und dem DAX-Aufstieg 2020 war das Scheitern des profitlosen Unternehmens bereits im Aufbau angelegt. Die Übernahme markiert das absehbare Ende von Delivery Hero als eigenständigem Unternehmen.",
+    "quelle": "https://www.handelsblatt.com/unternehmen/handel-konsumgueter/lieferdienst-sechs-fehler-die-delivery-hero-zum-uebernahmekandidaten-machten/100241568.html",
+    "bild": "https://images.handelsblatt.com/EiH2fPvkghfc/cover/900/506/0/0/0/0/0.5/0.5/delivery-hero.jpg"
+  },
+  {
+    "hauptkategorie": "Weltweite Schlagzeilen",
+    "sub_sektor": "Globale Ereignisse",
+    "titel": "Waldbrände: Neue Brände in Europa – Höchste Alarmstufe im Großraum Athen",
+    "text": "Waldbrände wüten weiterhin in Südeuropa, wobei sich die Lage in Frankreich an der Atlantikküste entspannt, aber in Südfrankreich (Var) und besonders in Griechenland (Großraum Athen) angespannt bleibt. In Griechenland wurde die höchste Alarmstufe ausgerufen, und in Küstenorten wie Porto Germeno wurden bis zu 100 Häuser zerstört, was zu Evakuierungen führte. Spanien verzeichnete ebenfalls 46 aktive Brände, konnte aber die meisten in den Regionen Madrid, Ávila und Toledo eindämmen, während die Gefahr in Kastilien-León anhält. Insgesamt wurden in Frankreich seit Jahresbeginn 119.000 Hektar Waldfläche durch Brände erfasst.",
+    "quelle": "https://www.handelsblatt.com/politik/international/waldbraende-neue-braende-in-europa-hoechste-alarmstufe-im-grossraum-athen/100244408.html",
+    "bild": "https://images.handelsblatt.com/LiML9N-Q8Teh/cover/900/506/0/0/346/346/0.5/0.5/fire-in-the-var-region-in-montfort-photopqr-nice-matin-boutria-luc-07-31-2026-photo-by-boutria-luc.jpg"
+  }
+]
