@@ -11,7 +11,7 @@
             --apple-card: #ffffff;        
             --apple-text: #1d1d1f;        
             --apple-text-muted: #86868b;  
-            --apple-nav-bg: rgba(20, 20, 22, 0.85); 
+            --apple-nav-bg: rgba(18, 18, 20, 0.82); 
             --apple-glass: rgba(255, 255, 255, 0.75);
             --apple-blue: #0066cc;
             --apple-green: #34c759;
@@ -34,7 +34,7 @@
             --apple-text: #f5f5f7;
             --apple-text-muted: #98989d;
             --apple-glass: rgba(28, 28, 30, 0.75);
-            --apple-nav-bg: rgba(10, 10, 12, 0.9);
+            --apple-nav-bg: rgba(10, 10, 12, 0.88);
         }
         ::-webkit-scrollbar { width: 0px; background: transparent; }
         * { box-sizing: border-box; }
@@ -49,34 +49,54 @@
         }
         .intro-title { font-size: 3rem; font-weight: 600; letter-spacing: -0.02em; }
 
-        /* NAVBAR & DYNAMIC ISLAND */
+        /* HIGH-END APPLE NAVBAR & CAPSULE NAVIGATION */
         .apple-navbar {
-            position: fixed; top: 0; left: 0; width: 100%; height: 64px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 70px;
             background-color: var(--apple-nav-bg);
-            backdrop-filter: saturate(180%) blur(25px); -webkit-backdrop-filter: saturate(180%) blur(25px);
-            z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 30px;
+            backdrop-filter: saturate(200%) blur(30px); -webkit-backdrop-filter: saturate(200%) blur(30px);
+            z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 35px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
+
+        .nav-brand {
+            font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.01em;
+            display: flex; align-items: center; gap: 8px;
+        }
         
+        /* iOS Segmented Capsule Container */
         .apple-nav-list {
-            display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; align-items: center;
+            display: flex; gap: 4px; list-style: none; margin: 0; padding: 4px; align-items: center;
+            background: rgba(255, 255, 255, 0.06); border-radius: 99px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
         }
         .apple-nav-item {
-            color: #fff; font-size: 13px; font-weight: 500; opacity: 0.7; cursor: pointer; transition: 0.2s;
-            padding: 6px 14px; border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 7px 16px; border-radius: 99px; user-select: none;
         }
-        .apple-nav-item:hover, .apple-nav-item.active { opacity: 1; background: rgba(255, 255, 255, 0.12); font-weight: 600; }
+        .apple-nav-item:hover { color: #fff; }
+        .apple-nav-item.active { 
+            color: #fff; background: rgba(255, 255, 255, 0.16); 
+            font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
 
-        .dynamic-island {
-            background: #000; color: #fff;
-            border-radius: 20px; height: 32px; width: 130px;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 11px; font-weight: 600; letter-spacing: 0.03em;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer; overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.15);
+        /* Rechts: Live System Widget */
+        .nav-right-widget {
+            display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, 0.8);
+            font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums;
+            background: rgba(255, 255, 255, 0.06); padding: 6px 14px; border-radius: 99px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .dynamic-island.expanded { width: 260px; height: 46px; }
+        .status-pulse {
+            width: 7px; height: 7px; background-color: var(--apple-green); border-radius: 50%;
+            box-shadow: 0 0 8px var(--apple-green);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px var(--apple-green); }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
 
         /* KATEGORIEN */
         .category-bar {
@@ -171,6 +191,7 @@
         .analyzer-input-box { background: var(--apple-card); padding: 30px; border-radius: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
         .report-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
         .report-card { background: var(--apple-card); padding: 28px; border-radius: 22px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+        .report-card.full-width { grid-column: 1 / -1; }
         .report-card h3 { margin-top: 0; font-size: 18px; color: var(--apple-blue); }
 
         /* KONTROLLE */
@@ -186,7 +207,7 @@
         .standby-time { font-size: 12vw; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
         .standby-date { font-size: 2vw; font-weight: 500; color: #86868b; margin-top: 10px; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .bento-grid { grid-template-columns: 1fr; }
             .bento-hero { flex-direction: column; min-height: auto; }
             .bento-hero .card-img-wrapper { width: 100%; height: 220px; }
@@ -194,9 +215,9 @@
             .stock-grid { grid-template-columns: repeat(2, 1fr); }
             .report-grid { grid-template-columns: 1fr; }
             .control-panel-grid { grid-template-columns: 1fr; }
-            .apple-navbar { padding: 0 15px; height: 60px; }
-            .apple-nav-item { font-size: 11px; padding: 4px 8px; }
-            .dynamic-island { display: none; }
+            .apple-navbar { padding: 0 15px; height: 64px; }
+            .apple-nav-item { font-size: 11px; padding: 5px 10px; }
+            .nav-brand { display: none; } /* Platzsparend auf kleineren Screens */
         }
         @media (max-width: 600px) {
             .stock-grid { grid-template-columns: 1fr; }
@@ -221,7 +242,12 @@
         </div>
     </div>
 
+    <!-- HIGH-END APPLE NAVBAR -->
     <nav class="apple-navbar">
+        <div class="nav-brand">
+            <span style="font-size: 16px;">⚡</span> Carlos HQ
+        </div>
+        
         <ul class="apple-nav-list">
             <li class="apple-nav-item active" onclick="switchView('news', event)">News</li>
             <li class="apple-nav-item" onclick="switchView('boerse', event)">Live Börse</li>
@@ -229,8 +255,10 @@
             <li class="apple-nav-item" onclick="switchView('kontrolle', event)">Kontrolle</li>
             <li class="apple-nav-item" onclick="switchView('gespeichert', event)">Gespeichert</li>
         </ul>
-        <div class="dynamic-island" id="dynamic-island">
-            Carlos HQ v3.1
+
+        <div class="nav-right-widget">
+            <div class="status-pulse"></div>
+            <span id="nav-live-clock">00:00</span>
         </div>
     </nav>
 
@@ -285,48 +313,52 @@
             <div class="hud-card" style="height: 420px; padding: 0; overflow: hidden;" id="tv-container"></div>
         </div>
 
-        <!-- 3. ECHTER KI-AKTIENBEWERTER (GEMINI POWERED) -->
+        <!-- 3. INSTITUTIONELLER KI-AKTIENBEWERTER -->
         <div id="view-analyzer" class="hidden-view">
             <div class="analyzer-container">
                 <div class="analyzer-input-box">
-                    <h1 class="hud-title" style="margin-bottom: 10px;">Deep Stock Analyzer (Gemini AI).</h1>
-                    <p class="hud-subtitle" style="margin-bottom: 20px;">Echte institutionelle Aktienanalyse auf Knopfdruck (gestützt durch KI-Live-Recherche)</p>
+                    <h1 class="hud-title" style="margin-bottom: 10px;">Institutional Equity Analyzer.</h1>
+                    <p class="hud-subtitle" style="margin-bottom: 20px;">Blackstone-Standard: Bilanzanalyse, Operative Treiber, Marktökosystem, Management & Makro-Stresstests</p>
                     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <input type="text" id="analyzer-ticker" class="stock-input" style="flex: 1; min-width: 250px;" placeholder="Ticker eingeben (z.B. NVDA, AAPL, TSLA, NFLX)">
-                        <button onclick="runLiveGeminiAnalysis()" class="chip active" style="padding: 12px 24px; font-weight: 600;">Live-Analyse starten</button>
+                        <input type="text" id="analyzer-ticker" class="stock-input" style="flex: 1; min-width: 250px;" placeholder="Ticker eingeben (z.B. NVDA, AAPL, MSFT, ASML, NFLX)">
+                        <button onclick="runInstitutionalAnalysis()" class="chip active" style="padding: 12px 24px; font-weight: 600;">Profi-Analyse starten</button>
                     </div>
                     <div style="display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap;">
                         <span style="font-size: 12px; color: var(--apple-text-muted); align-self: center;">Schnellwahl:</span>
                         <button onclick="quickAnalyze('NVDA')" class="chip">NVDA</button>
                         <button onclick="quickAnalyze('AAPL')" class="chip">AAPL</button>
                         <button onclick="quickAnalyze('MSFT')" class="chip">MSFT</button>
-                        <button onclick="quickAnalyze('TSLA')" class="chip">TSLA</button>
+                        <button onclick="quickAnalyze('ASML')" class="chip">ASML</button>
                         <button onclick="quickAnalyze('NFLX')" class="chip">NFLX</button>
                     </div>
                 </div>
 
                 <div id="analyzer-results" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-                        <h2 id="report-title" class="hud-title" style="font-size: 24px;">Analyse-Bericht</h2>
-                        <span id="report-rating" class="chip active" style="font-size: 14px; padding: 8px 16px;">KI ANALYSIERT...</span>
+                        <h2 id="report-title" class="hud-title" style="font-size: 24px;">Research Report</h2>
+                        <span id="report-rating" class="chip active" style="font-size: 14px; padding: 8px 16px;">ANALYSIERE...</span>
                     </div>
 
                     <div class="report-grid">
                         <div class="report-card">
-                            <h3>1. Fundamentaldaten & Bewertung</h3>
-                            <div id="report-metrics" class="card-text" style="font-size: 15px;">Lade Daten...</div>
+                            <h3>1. Quantitative Finanz- & Bilanzdaten</h3>
+                            <p id="report-p1" class="card-text" style="font-size: 14px; line-height: 1.6;">Lade Daten...</p>
                         </div>
                         <div class="report-card">
-                            <h3>2. Supply Chain & Käufermacht</h3>
-                            <p id="report-supply" class="card-text" style="font-size: 15px;">Lade Daten...</p>
+                            <h3>2. Qualitative & Operative Treiber</h3>
+                            <p id="report-p2" class="card-text" style="font-size: 14px; line-height: 1.6;">Lade Daten...</p>
                         </div>
                         <div class="report-card">
-                            <h3>3. Wettbewerbsvorteil (Economic Moat)</h3>
-                            <p id="report-moat" class="card-text" style="font-size: 15px;">Lade Daten...</p>
+                            <h3>3. Markt-, Branchen- & Wettbewerbsökosystem</h3>
+                            <p id="report-p3" class="card-text" style="font-size: 14px; line-height: 1.6;">Lade Daten...</p>
                         </div>
                         <div class="report-card">
-                            <h3>4. Bull Case vs. Bear Case & Fazit</h3>
-                            <p id="report-cases" class="card-text" style="font-size: 15px;">Lade Daten...</p>
+                            <h3>4. Management- & Governance-Daten</h3>
+                            <p id="report-p4" class="card-text" style="font-size: 14px; line-height: 1.6;">Lade Daten...</p>
+                        </div>
+                        <div class="report-card full-width">
+                            <h3>5. Makroökonomie, Stresstests & Szenario-Fazit</h3>
+                            <p id="report-p5" class="card-text" style="font-size: 14px; line-height: 1.6;">Lade Daten...</p>
                         </div>
                     </div>
                 </div>
@@ -439,7 +471,10 @@
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('current-date').innerText = now.toLocaleDateString('de-DE', options);
             
-            document.getElementById('standby-time').innerText = now.toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'});
+            // Live Navbar Clock & Standby
+            const timeStr = now.toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'});
+            document.getElementById('nav-live-clock').innerText = timeStr;
+            document.getElementById('standby-time').innerText = timeStr;
             document.getElementById('standby-date').innerText = now.toLocaleDateString('de-DE', options);
         }
 
@@ -654,13 +689,13 @@
             renderMarketSectors();
         }
 
-        // ECHTER GEMINI API AKTIENBEWERTER
+        // INSTITUTIONELLER AKTIENBEWERTER
         function quickAnalyze(ticker) {
             document.getElementById('analyzer-ticker').value = ticker;
-            runLiveGeminiAnalysis();
+            runInstitutionalAnalysis();
         }
 
-        async function runLiveGeminiAnalysis() {
+        async function runInstitutionalAnalysis() {
             const apiKey = localStorage.getItem('carlos_gemini_key');
             if(!apiKey) {
                 alert("Bitte trage zuerst deinen Gemini API-Key in der Kontrollzentrale ein!");
@@ -672,21 +707,31 @@
             if(!ticker) return;
             
             document.getElementById('analyzer-results').style.display = 'block';
-            document.getElementById('report-title').innerText = `Deep Equity Research: ${ticker}`;
-            document.getElementById('report-rating').innerText = "KI recherchiert...";
-            document.getElementById('report-metrics').innerText = "Analysiere Fundamentaldaten & Marktposition...";
-            document.getElementById('report-supply').innerText = "Prüfe Lieferketten & Buyer Power...";
-            document.getElementById('report-moat').innerText = "Ermittle wirtschaftlichen Burggraben...";
-            document.getElementById('report-cases').innerText = "Berechne Bull- und Bear-Szenarien...";
+            document.getElementById('report-title').innerText = `Institutional Equity Research: ${ticker}`;
+            document.getElementById('report-rating').innerText = "BLACKSTONE ENGINE LÄUFT...";
+            document.getElementById('report-p1').innerText = "Analysiere historische GuV, Bilanz, Cashflow & ROIC...";
+            document.getElementById('report-p2').innerText = "Prüfe Kohorten, Unit Economics, Lieferkette & Pricing Power...";
+            document.getElementById('report-p3').innerText = "Werte TAM/SAM, Marktanteilsdynamik & Regulatorik aus...";
+            document.getElementById('report-p4').innerText = "Analysiere Insider-Transaktionen & Vergütungsstrukturen...";
+            document.getElementById('report-p5').innerText = "Führe Makro-Stresstests durch & berechne Szenarien (Base/Bull/Worst Case)...";
 
-            triggerDynamicIsland("Gemini analysiert Aktie...");
+            triggerDynamicIsland("Institutionelle Analyse gestartet...");
 
-            const prompt = `Du bist ein Top-Equity-Research-Analyst bei einer führenden Investmentbank (Blackstone-Standard). Erstelle eine hochprofessionelle, knallharte und tiefgehende Aktienanalyse für das Unternehmen "${ticker}".
-            Liefere die Antwort auf Deutsch in exakt 4 Teilen, getrennt durch das Sonderzeichen '|||':
-            [TEIL 1 - FUNDAMENTALDATEN]: Nenne geschätzte Kernkennzahlen (KGV, Bruttomarge, FCF-Yield, Verschuldung) und beurteile die finanzielle Solidität in 2-3 Sätzen.
-            [TEIL 2 - SUPPLY CHAIN]: Analysiere die Lieferketten, Abhängigkeiten und die Preissetzungsmacht gegenüber Kunden und Lieferanten.
-            [TEIL 3 - ECONOMIC MOAT]: Welchen unfairen Burggraben hat das Unternehmen? (Netzwerkeffekte, Patente, Wechselkosten).
-            [TEIL 4 - BULL VS BEAR & FAZIT]: Nenne den stärksten Kurstreiber (Bull), das größte Risiko (Bear) und gib ein klares Fazit ab (z.B. Strong Buy / Hold / Avoid) als Kaufentscheidung.`;
+            const prompt = `Du bist ein Elite-Senior-Equity-Research-Analyst und Private-Equity-Direktor bei Blackstone. Erstelle eine kompromisslose, hochgradig detaillierte und institutionelle Tiefenanalyse für das Unternehmen "${ticker}".
+            
+            STRIKTE REGEL: Falls du für bestimmte Kennzahlen, Insider-Transaktionen oder Details keine verlässlichen Echtzeitdaten hast, halluziniere niemals! Schreibe stattdessen beim jeweiligen Punkt exakt: "Keine Daten vorhanden".
+            
+            Liefere deine Antwort auf Deutsch in exakt 5 Abschnitten, getrennt durch das Sonderzeichen '|||':
+            
+            [TEIL 1 - QUANTITATIVE FINANZ- UND BILANZDATEN]: Analysiere die Dreifach-Bilanz-Verknüpfung (GuV, Bilanz, Cashflow) der letzten Jahre, den Unlevered Free Cashflow (FCF), historische Kapitalrenditen (ROIC, ROCE, ROE) sowie die Schuldenstruktur und Fälligkeitsprofile.
+            
+            [TEIL 2 - QUALITATIVE & OPERATIVE TREIBER]: Analysiere operative Kennzahlen wie Kohorten/Abwanderung (CAC, LTV, Churn, NRR falls zutreffend), Unit-Economics, Kapazitätsauslastung der Lieferkette und die historische Preismacht (Pricing Power & Preiselastizität).
+            
+            [TEIL 3 - MARKT-, BRANCHEN- UND WETTBEWERBSÖKOSYSTEM]: Bewerte den Total Addressable Market (TAM/SAM), Verschiebungen der Marktanteile unter den Top-5-Wettbewerbern, Lieferanten- und Kundenkonzentration (>10% Klumpenrisiko) sowie regulatorische Hürden und ESG-Auflagen.
+            
+            [TEIL 4 - MANAGEMENT- UND GOVERNANCE-DATEN]: Analysiere Insider-Transaktionen (Form 4), Incentive-Strukturen im Vergütungsbericht (Gekoppelt an ROIC/FCF oder reines Umsatzwachstum?) sowie den Track Record des CEOs.
+            
+            [TEIL 5 - MAKROÖKONOMISCHE DATEN, STRESSTESTS & FAZIT]: Simuliere Zinssensitivitäten (+/- 200 Basispunkte), alternative Daten (Web-Traffic/Sentiment), führe die Szenario-Modellierung (Base Case, Bull Case und extremen Downside/Worst Case) durch und gib ein klares, fundiertes Anlage-Fazit ab.`;
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
@@ -698,20 +743,30 @@
                 });
 
                 const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+
                 const text = data.candidates[0].content.parts[0].text;
                 const parts = text.split('|||');
 
-                document.getElementById('report-metrics').innerHTML = parts[0] ? parts[0].replace(/\[.*?\]/g, '') : "Keine Daten";
-                document.getElementById('report-supply').innerHTML = parts[1] ? parts[1].replace(/\[.*?\]/g, '') : "Keine Daten";
-                document.getElementById('report-moat').innerHTML = parts[2] ? parts[2].replace(/\[.*?\]/g, '') : "Keine Daten";
-                document.getElementById('report-cases').innerHTML = parts[3] ? parts[3].replace(/\[.*?\]/g, '') : "Keine Daten";
-                document.getElementById('report-rating').innerText = "ANALYSE ABGESCHLOSSEN";
-                triggerDynamicIsland("Analyse erfolgreich");
+                document.getElementById('report-p1').innerHTML = parts[0] ? parts[0].replace(/\[.*?\]/g, '') : "Keine Daten vorhanden";
+                document.getElementById('report-p2').innerHTML = parts[1] ? parts[1].replace(/\[.*?\]/g, '') : "Keine Daten vorhanden";
+                document.getElementById('report-p3').innerHTML = parts[2] ? parts[2].replace(/\[.*?\]/g, '') : "Keine Daten vorhanden";
+                document.getElementById('report-p4').innerHTML = parts[3] ? parts[3].replace(/\[.*?\]/g, '') : "Keine Daten vorhanden";
+                document.getElementById('report-p5').innerHTML = parts[4] ? parts[4].replace(/\[.*?\]/g, '') : "Keine Daten vorhanden";
+                document.getElementById('report-rating').innerText = "REPORT ABGESCHLOSSEN";
+                triggerDynamicIsland("Profi-Analyse erfolgreich");
 
             } catch (error) {
-                document.getElementById('report-metrics').innerText = "Fehler bei der API-Abfrage. Prüfe deinen API-Key.";
+                document.getElementById('report-p1').innerText = "Fehler bei der API-Abfrage: " + error.message + ". Bitte prüfe deinen API-Key in der Kontrollzentrale.";
+                document.getElementById('report-p2').innerText = "-";
+                document.getElementById('report-p3').innerText = "-";
+                document.getElementById('report-p4').innerText = "-";
+                document.getElementById('report-p5').innerText = "-";
                 document.getElementById('report-rating').innerText = "FEHLER";
-                triggerDynamicIsland("Fehler bei KI-Abfrage");
+                triggerDynamicIsland("Fehler bei Analyse");
             }
         }
 
@@ -729,13 +784,7 @@
         }
 
         function triggerDynamicIsland(text) {
-            const island = document.getElementById('dynamic-island');
-            island.innerText = text;
-            island.classList.add('expanded');
-            setTimeout(() => {
-                island.classList.remove('expanded');
-                setTimeout(() => island.innerText = "Carlos HQ v3.1", 400);
-            }, 3000);
+            // Optional fallback for dynamic alerts
         }
 
         document.addEventListener('keydown', (e) => {
