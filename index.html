@@ -1,853 +1,2331 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Carlos HQ - J.A.R.V.I.S. Ultimate OS v12.0</title>
-    
-    <style>
-        :root {
-            --bg-color: #030305;
-            --surface-glass: rgba(16, 16, 22, 0.75);
-            --surface-card: #0d0d12;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --text-main: #f5f5f7;
-            --text-muted: #8a8a93;
-            --accent-blue: #0A84FF;
-            --accent-green: #30D158;
-            --accent-red: #FF453A;
-            --blur: 25px;
-            --transition: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#030305">
+<title>CARLOS HQ — J.A.R.V.I.S. Ultimate OS</title>
+<style>
+/* ==========================================================================
+   CARLOS HQ — J.A.R.V.I.S. ULTIMATE OS
+   Design System: Deep Space Glassmorphism
+   ========================================================================== */
+:root {
+    --bg: #030305;
+    --bg-elevated: #08080c;
+    --glass: rgba(16, 16, 22, 0.75);
+    --glass-heavy: rgba(12, 12, 18, 0.88);
+    --glass-soft: rgba(255, 255, 255, 0.03);
+    --glass-hover: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --text: #f5f5f7;
+    --text-dim: #a8a8b3;
+    --text-muted: #71717c;
+    --blue: #0A84FF;
+    --blue-soft: rgba(10, 132, 255, 0.12);
+    --blue-border: rgba(10, 132, 255, 0.35);
+    --green: #30D158;
+    --green-soft: rgba(48, 209, 88, 0.10);
+    --green-border: rgba(48, 209, 88, 0.30);
+    --red: #FF453A;
+    --red-soft: rgba(255, 69, 58, 0.10);
+    --amber: #FFD60A;
+    --violet: #BF5AF2;
+    --blur: 24px;
+    --radius: 24px;
+    --radius-sm: 14px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-        button, input, textarea { font-family: inherit; }
-        ul { list-style: none; }
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+}
+button, input, textarea, select { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: none; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+::selection { background: rgba(10, 132, 255, 0.35); }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
 
-        /* INTRO SCREEN */
-        #intro-screen {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: #000; color: #fff; display: flex; align-items: center; justify-content: center;
-            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s;
-        }
-        .intro-title { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; background: linear-gradient(90deg, #fff, var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* ---- Ambient background ---- */
+.ambient {
+    position: fixed; inset: 0; z-index: -2; pointer-events: none;
+    background:
+        radial-gradient(ellipse 60% 45% at 18% -8%, rgba(10, 132, 255, 0.10), transparent 60%),
+        radial-gradient(ellipse 55% 40% at 85% 108%, rgba(191, 90, 242, 0.06), transparent 60%),
+        radial-gradient(ellipse 40% 35% at 92% -5%, rgba(48, 209, 88, 0.05), transparent 60%),
+        var(--bg);
+}
+.ambient::after {
+    content: ""; position: absolute; inset: 0; opacity: 0.35;
+    background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 0%, transparent 80%);
+}
 
-        /* NAVBAR */
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%; height: 70px;
-            background: rgba(3, 3, 5, 0.85); backdrop-filter: saturate(180%) blur(var(--blur));
-            -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
-            border-bottom: 1px solid var(--border-glass); z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center; padding: 0 35px;
-        }
-        .nav-brand { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; cursor: pointer; }
-        .nav-links {
-            display: flex; gap: 4px; background: rgba(255, 255, 255, 0.04);
-            border-radius: 100px; padding: 4px; border: 1px solid var(--border-glass);
-        }
-        .nav-item {
-            padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted);
-            border-radius: 100px; cursor: pointer; transition: var(--transition);
-        }
-        .nav-item:hover { color: var(--text-main); }
-        .nav-item.active { background: rgba(255, 255, 255, 0.12); color: var(--text-main); font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+/* ==========================================================================
+   BOOT SCREEN
+   ========================================================================== */
+#boot-screen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #000;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.7s var(--ease), visibility 0.7s;
+}
+#boot-screen.done { opacity: 0; visibility: hidden; }
+.boot-ring {
+    width: 88px; height: 88px; border-radius: 50%; position: relative; margin-bottom: 34px;
+    border: 1px solid rgba(10, 132, 255, 0.25);
+}
+.boot-ring::before, .boot-ring::after {
+    content: ""; position: absolute; inset: -1px; border-radius: 50%;
+    border: 2px solid transparent;
+}
+.boot-ring::before { border-top-color: var(--blue); animation: bootSpin 0.9s linear infinite; }
+.boot-ring::after { border-bottom-color: rgba(48, 209, 88, 0.8); animation: bootSpin 1.4s linear infinite reverse; inset: 8px; }
+@keyframes bootSpin { to { transform: rotate(360deg); } }
+.boot-brand { font-size: 26px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; }
+.boot-brand span { color: var(--blue); }
+#boot-log {
+    margin-top: 22px; font-family: var(--mono); font-size: 11px; color: var(--text-muted);
+    height: 74px; text-align: center; line-height: 1.9; letter-spacing: 0.04em;
+}
+#boot-log .ok { color: var(--green); }
 
-        /* JARVIS VOICE STATUS WIDGET */
-        .jarvis-widget {
-            display: flex; align-items: center; gap: 8px; padding: 6px 16px;
-            background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.3);
-            border-radius: 100px; cursor: pointer; transition: var(--transition);
-        }
-        .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); box-shadow: 0 0 12px var(--accent-green); animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(0.9); opacity: 0.7; } 50% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(0.9); opacity: 0.7; } }
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 66px; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(14px, 3vw, 32px);
+    background: rgba(3, 3, 5, 0.72);
+    backdrop-filter: saturate(180%) blur(var(--blur));
+    -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
+    border-bottom: 1px solid var(--border);
+}
+.nav-brand {
+    display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none;
+    font-size: 15px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap;
+}
+.nav-brand .logo-mark {
+    width: 30px; height: 30px; border-radius: 9px; flex: 0 0 auto;
+    background: linear-gradient(135deg, #0A84FF 0%, #30D158 130%);
+    display: grid; place-items: center; font-size: 15px;
+    box-shadow: 0 0 18px rgba(10, 132, 255, 0.45);
+}
+.nav-brand small { display: block; font-size: 9.5px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.16em; }
 
-        /* VIEWS */
-        .view-container { display: none; opacity: 0; transform: translateY(10px); animation: fadeViewIn var(--transition) forwards; }
-        .view-container.active { display: block; }
-        @keyframes fadeViewIn { to { opacity: 1; transform: translateY(0); } }
+.nav-links {
+    display: flex; gap: 2px; padding: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border); border-radius: 100px;
+    position: absolute; left: 50%; transform: translateX(-50%);
+}
+.nav-item {
+    padding: 8px 15px; font-size: 12.5px; font-weight: 600; color: var(--text-muted);
+    border-radius: 100px; cursor: pointer; white-space: nowrap;
+    transition: color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.nav-item:hover { color: var(--text); }
+.nav-item.active { background: rgba(255, 255, 255, 0.13); color: var(--text); }
 
-        main { max-width: 1450px; margin: 0 auto; padding: 110px 30px 80px; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-clock { font-family: var(--mono); font-size: 12px; color: var(--text-dim); letter-spacing: 0.06em; }
+.jarvis-widget {
+    display: flex; align-items: center; gap: 9px; padding: 7px 15px;
+    border-radius: 100px; cursor: pointer; user-select: none;
+    background: var(--green-soft); border: 1px solid var(--green-border);
+    transition: all 0.3s var(--ease);
+}
+.jarvis-widget.muted { background: var(--red-soft); border-color: rgba(255,69,58,0.3); }
+.pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); animation: pulse 2.2s var(--ease) infinite; }
+.jarvis-widget.muted .pulse-dot { background: var(--red); box-shadow: 0 0 12px var(--red); animation: none; }
+@keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.35); opacity: 0.65; } }
+#jarvis-status-label { font-size: 11.5px; font-weight: 700; color: var(--green); letter-spacing: 0.02em; }
+.jarvis-widget.muted #jarvis-status-label { color: var(--red); }
 
-        /* GLASS COMPONENTS */
-        .glass-card {
-            background: var(--surface-glass); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
-            border: 1px solid var(--border-glass); border-radius: 24px; padding: 28px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25); transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .header-title { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
-        .header-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; }
+/* ==========================================================================
+   LAYOUT / VIEWS
+   ========================================================================== */
+main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 120px; }
+.view-container { display: none; }
+.view-container.active { display: block; animation: viewIn 0.45s var(--ease) both; }
+@keyframes viewIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
-        .chip {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass);
-            padding: 8px 18px; border-radius: 100px; color: var(--text-main); font-size: 13px; font-weight: 500;
-            cursor: pointer; transition: var(--transition);
-        }
-        .chip:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255,255,255,0.2); }
-        .chip.active { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
+.view-head { margin-bottom: 26px; }
+.view-kicker {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 10px;
+}
+.view-kicker::before { content: ""; width: 22px; height: 1px; background: var(--blue); }
+.header-title { font-size: clamp(28px, 4vw, 38px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; }
+.header-sub { font-size: 14.5px; color: var(--text-muted); margin-top: 8px; max-width: 620px; line-height: 1.55; }
 
-        .input-field {
-            width: 100%; padding: 14px 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-glass);
-            border-radius: 14px; color: var(--text-main); font-size: 14px; outline: none; transition: 0.3s;
-        }
-        .input-field:focus { border-color: var(--accent-blue); background: rgba(10, 132, 255, 0.05); }
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: clamp(18px, 2.5vw, 26px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.section-label {
+    font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--blue); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.section-label .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 8px var(--blue); }
 
-        /* MISSION CONTROL COCKPIT */
-        .cockpit-grid { display: grid; grid-template-columns: 320px 1fr 320px; gap: 24px; align-items: stretch; }
-        .side-panel {
-            background: var(--surface-glass); backdrop-filter: blur(var(--blur)); border-radius: 24px;
-            padding: 22px; border: 1px solid var(--border-glass); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            max-height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
-        }
-        .side-panel h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-blue); letter-spacing: 0.1em; margin-bottom: 4px; }
-        .stream-item { background: rgba(255, 255, 255, 0.02); padding: 12px 14px; border-radius: 14px; border-left: 3px solid var(--accent-blue); transition: var(--transition); }
-        .stream-item:hover { background: rgba(255, 255, 255, 0.05); transform: translateX(2px); }
+/* ---- Chips ---- */
+.chip {
+    background: var(--glass-soft); border: 1px solid var(--border);
+    padding: 8px 16px; border-radius: 100px; color: var(--text-dim);
+    font-size: 12.5px; font-weight: 600; white-space: nowrap;
+    transition: all 0.25s var(--ease);
+}
+.chip:hover { background: var(--glass-hover); color: var(--text); transform: translateY(-1px); }
+.chip.active {
+    background: var(--blue); border-color: var(--blue); color: #fff;
+    box-shadow: 0 4px 18px rgba(10, 132, 255, 0.35);
+}
+.chip-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
+.chip-row::-webkit-scrollbar { display: none; }
 
-        .jarvis-core {
-            position: relative; height: 560px; border-radius: 32px;
-            background: radial-gradient(circle at 50% 45%, rgba(10, 132, 255, 0.15) 0%, rgba(3, 3, 5, 0.95) 75%);
-            border: 1px solid var(--border-glass); box-shadow: inset 0 0 100px rgba(0,0,0,0.8), 0 25px 50px rgba(0,0,0,0.6);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; overflow: hidden;
-        }
-        .cyber-globe {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 360px; height: 360px; border-radius: 50%; border: 1px solid rgba(10, 132, 255, 0.15);
-            background: repeating-conic-gradient(from 0deg, transparent 0deg 15deg, rgba(10, 132, 255, 0.04) 15deg 30deg);
-            animation: spinGlobe 50s linear infinite; pointer-events: none;
-        }
-        .cyber-globe::before {
-            content: ''; position: absolute; inset: 25px; border-radius: 50%;
-            border: 1px dashed rgba(48, 209, 88, 0.3); animation: spinGlobe 25s linear infinite reverse;
-        }
-        @keyframes spinGlobe { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+/* ---- Inputs ---- */
+.input-field {
+    width: 100%; padding: 13px 18px;
+    background: rgba(255, 255, 255, 0.035); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); color: var(--text); font-size: 14px; outline: none;
+    transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s;
+}
+.input-field::placeholder { color: var(--text-muted); }
+.input-field:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.14); background: rgba(255,255,255,0.05); }
+.btn-primary {
+    padding: 12px 22px; border-radius: var(--radius-sm);
+    background: var(--blue); color: #fff; font-size: 13.5px; font-weight: 700;
+    box-shadow: 0 6px 22px rgba(10, 132, 255, 0.35);
+    transition: all 0.25s var(--ease); white-space: nowrap;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(10, 132, 255, 0.45); }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+.btn-ghost {
+    padding: 12px 20px; border-radius: var(--radius-sm);
+    background: var(--glass-soft); border: 1px solid var(--border);
+    color: var(--text-dim); font-size: 13.5px; font-weight: 600;
+    transition: all 0.25s var(--ease);
+}
+.btn-ghost:hover { background: var(--glass-hover); color: var(--text); }
 
-        .core-text { z-index: 2; }
-        .jarvis-reply-box {
-            margin-top: 24px; padding: 18px 22px; background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(15px); border: 1px solid var(--border-glass); border-radius: 18px;
-            font-size: 14px; line-height: 1.6; color: #fff; max-width: 90%; display: none; text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+/* ---- Skeleton ---- */
+.skeleton {
+    color: transparent !important; border-radius: 8px; user-select: none;
+    background: linear-gradient(100deg, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.11) 50%, rgba(255,255,255,0.05) 60%);
+    background-size: 200% 100%; animation: shimmer 1.4s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
 
-        /* NEWS BENTO */
-        .bento-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-        .bento-card { background: var(--surface-glass); border: 1px solid var(--border-glass); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); }
-        .bento-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
-        .bento-img { width: 100%; height: 200px; object-fit: cover; }
-        .bento-content { padding: 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .bento-title { font-size: 18px; font-weight: 600; margin: 10px 0; line-height: 1.35; color: #fff; }
+/* ==========================================================================
+   MISSION CONTROL
+   ========================================================================== */
+.cockpit-grid { display: grid; grid-template-columns: 320px 1fr 320px; gap: 18px; align-items: stretch; }
+.side-panel {
+    background: var(--glass); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; display: flex; flex-direction: column; gap: 10px;
+    max-height: 600px; overflow-y: auto;
+}
+.hq-tv-slot {
+    height: 158px; border-radius: 14px; overflow: hidden; flex: 0 0 auto;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+}
+.stream-item {
+    background: var(--glass-soft); padding: 12px 14px; border-radius: 13px;
+    border: 1px solid transparent; border-left: 3px solid var(--blue);
+    cursor: pointer; transition: all 0.25s var(--ease); flex: 0 0 auto;
+}
+.stream-item:hover { background: var(--glass-hover); border-color: var(--border); border-left-color: var(--green); transform: translateX(3px); }
+.stream-cat { font-size: 9.5px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.stream-title { font-size: 12.5px; font-weight: 600; line-height: 1.4; }
+.stream-meta { font-size: 10.5px; color: var(--text-muted); margin-top: 5px; }
 
-        /* LINGUA LAB & MASTERY */
-        .lingua-grid { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
-        .sidebar-menu { display: flex; flex-direction: column; gap: 6px; }
-        .sidebar-item { padding: 12px 18px; border-radius: 14px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-muted); transition: var(--transition); }
-        .sidebar-item:hover { background: rgba(255,255,255,0.05); color: var(--text-main); }
-        .sidebar-item.active { background: rgba(10, 132, 255, 0.2); color: var(--accent-blue); font-weight: 600; }
-        
-        .flashcard-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 450px; }
-        .flashcard {
-            width: 100%; max-width: 600px; min-height: 320px; background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-glass); border-radius: 28px; padding: 40px; text-align: center;
-            cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; justify-content: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-        .flashcard:hover { transform: scale(1.01); background: rgba(255, 255, 255, 0.04); }
-        .word-en { font-size: 42px; font-weight: 700; color: var(--accent-blue); margin-bottom: 15px; }
-        .word-de { font-size: 22px; font-weight: 500; margin-bottom: 15px; display: none; }
-        .word-ex { font-size: 15px; color: var(--text-muted); font-style: italic; display: none; }
+/* ---- Jarvis Core ---- */
+.jarvis-core {
+    position: relative; min-height: 600px; border-radius: 30px; overflow: hidden;
+    background: radial-gradient(circle at 50% 42%, rgba(10, 132, 255, 0.13) 0%, rgba(3, 3, 5, 0.96) 72%);
+    border: 1px solid var(--border);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.75), 0 25px 60px rgba(0,0,0,0.5);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 34px 26px;
+}
+#globe-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.core-content { position: relative; z-index: 2; width: 100%; max-width: 560px; display: flex; flex-direction: column; align-items: center; }
 
-        /* Writing Mastery */
-        .mastery-article { font-size: 15px; line-height: 1.7; color: #d1d1d6; }
-        .mastery-article h4 { color: var(--text-main); font-size: 18px; margin: 24px 0 10px; display: flex; align-items: center; gap: 8px; }
-        .bad-example { color: var(--accent-red); margin-bottom: 4px; }
-        .good-example { color: var(--accent-green); font-weight: 500; }
+.core-status-line {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em;
+    color: var(--green); text-transform: uppercase; margin-bottom: 16px;
+    padding: 6px 14px; border-radius: 100px;
+    background: rgba(0,0,0,0.45); border: 1px solid var(--green-border);
+}
+.core-status-line .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
+.core-greeting { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+.core-hint { color: var(--text-dim); font-size: 13.5px; max-width: 420px; margin: 12px auto 0; line-height: 1.6; }
+.core-hint kbd {
+    font-family: var(--mono); font-size: 11px; padding: 2px 7px; border-radius: 6px;
+    background: rgba(255,255,255,0.08); border: 1px solid var(--border-strong); color: var(--text);
+}
 
-        /* MARKET & ACADEMY */
-        .chart-container { height: 420px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-glass); }
-        .stock-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 25px; }
-        .stock-pill { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 16px; padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+.jarvis-state-chip {
+    margin-top: 22px; display: none; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 100px;
+    background: rgba(0,0,0,0.55); border: 1px solid var(--blue-border);
+    font-size: 12px; font-weight: 700; color: var(--blue); letter-spacing: 0.05em;
+}
+.jarvis-state-chip.visible { display: inline-flex; animation: viewIn 0.3s var(--ease); }
+.eq { display: flex; align-items: flex-end; gap: 2.5px; height: 14px; }
+.eq span { width: 3px; border-radius: 2px; background: var(--blue); animation: eqBounce 0.9s var(--ease) infinite; }
+.eq span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.eq span:nth-child(2) { height: 90%; animation-delay: 0.15s; }
+.eq span:nth-child(3) { height: 60%; animation-delay: 0.3s; }
+.eq span:nth-child(4) { height: 100%; animation-delay: 0.45s; }
+.eq span:nth-child(5) { height: 50%; animation-delay: 0.6s; }
+@keyframes eqBounce { 0%,100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
 
-        /* RESPONSIVE */
-        @media (max-width: 1100px) {
-            .cockpit-grid { grid-template-columns: 1fr; }
-            .side-panel { display: none; }
-            .lingua-grid { grid-template-columns: 1fr; }
-            .navbar { padding: 0 20px; }
-            .nav-links { display: none; }
-        }
-    </style>
+.jarvis-reply-box {
+    margin-top: 20px; padding: 16px 20px; width: 100%;
+    background: rgba(4, 4, 8, 0.85); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--border-strong); border-radius: 16px;
+    font-size: 13.5px; line-height: 1.65; color: var(--text); text-align: left;
+    display: none; box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+    max-height: 220px; overflow-y: auto;
+}
+.jarvis-reply-box.visible { display: block; animation: viewIn 0.35s var(--ease); }
+.jarvis-reply-box .who { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px; color: var(--blue); }
+
+.command-bar {
+    margin-top: 22px; width: 100%; display: flex; gap: 8px; align-items: center;
+    background: rgba(0, 0, 0, 0.55); border: 1px solid var(--border-strong);
+    border-radius: 100px; padding: 6px 6px 6px 20px;
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.command-bar:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(10,132,255,0.15), 0 10px 40px rgba(10,132,255,0.15); }
+.command-bar input { flex: 1; background: none; border: none; outline: none; font-size: 14px; color: var(--text); min-width: 0; }
+.command-bar input::placeholder { color: var(--text-muted); }
+.mic-btn {
+    width: 40px; height: 40px; border-radius: 50%; flex: 0 0 auto;
+    display: grid; place-items: center;
+    background: var(--blue); color: #fff;
+    box-shadow: 0 4px 16px rgba(10, 132, 255, 0.4);
+    transition: all 0.25s var(--ease);
+}
+.mic-btn:hover { transform: scale(1.06); }
+.mic-btn.rec { background: var(--red); box-shadow: 0 0 0 0 rgba(255,69,58,0.5); animation: micPulse 1.6s infinite; }
+@keyframes micPulse { 0% { box-shadow: 0 0 0 0 rgba(255,69,58,0.45); } 70% { box-shadow: 0 0 0 14px rgba(255,69,58,0); } 100% { box-shadow: 0 0 0 0 rgba(255,69,58,0); } }
+
+.quick-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; justify-content: center; }
+.qa-chip {
+    font-size: 11.5px; font-weight: 600; color: var(--text-dim);
+    padding: 7px 14px; border-radius: 100px;
+    background: rgba(0,0,0,0.4); border: 1px solid var(--border);
+    transition: all 0.25s var(--ease);
+}
+.qa-chip:hover { color: var(--text); border-color: var(--blue-border); background: var(--blue-soft); transform: translateY(-1px); }
+
+.hq-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.metric-tile {
+    background: var(--glass); border: 1px solid var(--border); border-radius: 18px;
+    padding: 16px 18px; backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
+}
+.metric-tile .m-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
+.metric-tile .m-value { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.metric-tile .m-value.green { color: var(--green); }
+.metric-tile .m-value.blue { color: var(--blue); }
+
+/* ==========================================================================
+   NEWS INTELLIGENCE
+   ========================================================================== */
+.bento-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.bento-card {
+    background: var(--glass); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+    display: flex; flex-direction: column; position: relative;
+    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.bento-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: 0 24px 55px rgba(0,0,0,0.5); }
+.bento-card.featured { grid-column: span 2; }
+.bento-media { position: relative; overflow: hidden; height: 185px; background: linear-gradient(135deg, #101018, #0a0a12); }
+.bento-card.featured .bento-media { height: 250px; }
+.bento-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--ease); }
+.bento-card:hover .bento-img { transform: scale(1.05); }
+.bento-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,3,5,0.75), transparent 55%); }
+.bento-fallback { position: absolute; inset: 0; display: grid; place-items: center; font-size: 34px; opacity: 0.35; }
+.bookmark-btn {
+    position: absolute; top: 12px; right: 12px; z-index: 3;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(3,3,5,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-strong); color: var(--text-dim); font-size: 15px;
+    display: grid; place-items: center; transition: all 0.25s var(--ease);
+}
+.bookmark-btn:hover { transform: scale(1.12); color: var(--amber); border-color: var(--amber); }
+.bookmark-btn.on { color: var(--amber); border-color: rgba(255, 214, 10, 0.5); background: rgba(255, 214, 10, 0.12); }
+.bento-content { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.bento-kicker { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.15em; }
+.bento-title { font-size: 16.5px; font-weight: 700; line-height: 1.32; letter-spacing: -0.01em; }
+.bento-card.featured .bento-title { font-size: 21px; }
+.bento-summary { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.bento-meta { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text-muted); font-weight: 500; }
+.bento-meta .sep { width: 3px; height: 3px; border-radius: 50%; background: var(--text-muted); }
+.empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.empty-state .big { font-size: 40px; margin-bottom: 14px; opacity: 0.5; }
+
+/* ==========================================================================
+   MARKET TERMINAL
+   ========================================================================== */
+.market-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+.stock-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.stock-card-box {
+    height: 128px; position: relative;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; padding: 6px;
+    transition: border-color 0.3s var(--ease);
+}
+.stock-card-box:hover { border-color: var(--border-strong); }
+.wl-remove {
+    position: absolute; top: 7px; right: 7px; z-index: 10;
+    width: 24px; height: 24px; border-radius: 50%; font-size: 11px; line-height: 1;
+    background: rgba(3,3,5,0.7); border: 1px solid var(--border); color: var(--text-muted);
+    display: grid; place-items: center; transition: all 0.2s var(--ease);
+}
+.wl-remove:hover { color: var(--red); border-color: rgba(255,69,58,0.5); background: var(--red-soft); }
+.chart-container { height: 440px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); background: rgba(255,255,255,0.015); }
+
+.market-lower { display: grid; grid-template-columns: 1.25fr 1fr; gap: 18px; margin-top: 18px; align-items: start; }
+.pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.pillar {
+    background: var(--glass-soft); border: 1px solid var(--border); border-radius: 16px; padding: 18px;
+    transition: border-color 0.3s var(--ease);
+}
+.pillar:hover { border-color: var(--blue-border); }
+.pillar .p-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.pillar .p-num {
+    width: 26px; height: 26px; border-radius: 8px; flex: 0 0 auto;
+    background: var(--blue-soft); border: 1px solid var(--blue-border);
+    display: grid; place-items: center; font-size: 12px; font-weight: 800; color: var(--blue);
+}
+.pillar .p-title { font-size: 13px; font-weight: 800; letter-spacing: 0.02em; }
+.pillar p { font-size: 13px; line-height: 1.62; color: var(--text-dim); white-space: pre-line; }
+.pillar.full { grid-column: 1 / -1; border-color: rgba(48, 209, 88, 0.25); }
+
+/* ---- DCF ---- */
+.dcf-slider-row { margin-bottom: 18px; }
+.dcf-slider-row .sl-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.dcf-slider-row label { font-size: 12.5px; font-weight: 700; color: var(--text-dim); }
+.dcf-slider-row output { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+input[type="range"] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 4px;
+    background: linear-gradient(to right, var(--blue) var(--fill, 50%), rgba(255,255,255,0.1) var(--fill, 50%));
+    outline: none; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+    background: #fff; border: 4px solid var(--blue);
+    box-shadow: 0 2px 12px rgba(10,132,255,0.5); cursor: grab;
+    transition: transform 0.15s var(--ease);
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 4px solid var(--blue); cursor: grab; }
+.dcf-inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.dcf-inputs .mini-input label { display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+.dcf-inputs .mini-input input { width: 100%; padding: 10px 12px; font-size: 13.5px; background: rgba(255,255,255,0.035); border: 1px solid var(--border); border-radius: 10px; outline: none; color: var(--text); font-variant-numeric: tabular-nums; }
+.dcf-inputs .mini-input input:focus { border-color: var(--blue); }
+.dcf-result {
+    margin-top: 6px; padding: 20px; border-radius: 16px; text-align: center;
+    background: linear-gradient(135deg, rgba(10,132,255,0.12), rgba(48,209,88,0.08));
+    border: 1px solid var(--blue-border);
+}
+.dcf-result .r-label { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim); }
+.dcf-result .r-value { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums; color: #fff; }
+.dcf-result .r-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 4px; }
+
+#scratchpad {
+    width: 100%; min-height: 190px; resize: vertical;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 16px 18px; font-size: 13.5px; line-height: 1.7; color: var(--text); outline: none;
+    font-family: var(--font); transition: border-color 0.25s var(--ease);
+}
+#scratchpad:focus { border-color: var(--blue); }
+.save-indicator { font-size: 11px; color: var(--text-muted); font-weight: 600; transition: color 0.3s; }
+.save-indicator.saved { color: var(--green); }
+
+/* ==========================================================================
+   LINGUA LAB
+   ========================================================================== */
+.lingua-grid { display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: start; }
+.sidebar-menu { display: flex; flex-direction: column; gap: 4px; }
+.sidebar-group { font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin: 14px 0 6px 12px; font-weight: 800; letter-spacing: 0.16em; }
+.sidebar-group:first-child { margin-top: 4px; }
+.sidebar-item {
+    padding: 12px 16px; border-radius: 12px; cursor: pointer;
+    font-size: 13.5px; font-weight: 600; color: var(--text-muted);
+    display: flex; align-items: center; gap: 10px;
+    transition: all 0.22s var(--ease);
+}
+.sidebar-item:hover { background: var(--glass-hover); color: var(--text); }
+.sidebar-item.active { background: var(--blue-soft); color: var(--blue); border: 1px solid var(--blue-border); }
+
+.flashcard-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 460px; }
+.fc-progress { width: 100%; max-width: 560px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.07); margin-bottom: 22px; overflow: hidden; }
+.fc-progress .bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--green)); transition: width 0.4s var(--ease); }
+.flashcard-scene { width: 100%; max-width: 560px; perspective: 1400px; }
+.flashcard {
+    position: relative; width: 100%; min-height: 300px; cursor: pointer;
+    transform-style: preserve-3d; transition: transform 0.65s var(--ease-spring);
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.fc-face {
+    position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 24px; padding: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+}
+.fc-face.back { transform: rotateY(180deg); border-color: var(--blue-border); background: linear-gradient(160deg, rgba(10,132,255,0.10), rgba(255,255,255,0.02)); }
+.fc-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+.word-en { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+.fc-face.back .word-de { font-size: clamp(22px, 3vw, 30px); font-weight: 800; color: var(--blue); }
+.word-ex { font-size: 14px; color: var(--text-dim); font-style: italic; margin-top: 18px; line-height: 1.6; max-width: 420px; }
+.fc-controls { display: flex; gap: 12px; margin-top: 28px; align-items: center; }
+.fc-counter { font-family: var(--mono); font-size: 12px; color: var(--text-muted); letter-spacing: 0.08em; }
+
+.mastery-block { border-left: 3px solid var(--blue); padding: 4px 0 4px 18px; margin-bottom: 26px; }
+.mastery-block h4 { font-size: 15.5px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+.mastery-block .m-desc { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; margin-bottom: 12px; }
+.mastery-ex { border-radius: 12px; padding: 12px 16px; font-size: 13.5px; line-height: 1.55; margin-bottom: 8px; }
+.mastery-ex.bad { background: var(--red-soft); border: 1px solid rgba(255,69,58,0.2); color: #ffb4ae; }
+.mastery-ex.good { background: var(--green-soft); border: 1px solid rgba(48,209,88,0.2); color: #a9e8bb; }
+.mastery-ex b { font-weight: 800; }
+
+/* ==========================================================================
+   ACADEMY
+   ========================================================================== */
+.academy-path { display: flex; gap: 12px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+.academy-path::-webkit-scrollbar { display: none; }
+.level-node {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    padding: 13px 20px 13px 14px; border-radius: 16px; cursor: pointer;
+    background: var(--glass-soft); border: 1px solid var(--border);
+    transition: all 0.28s var(--ease); min-width: 220px;
+}
+.level-node:hover:not(.locked) { border-color: var(--border-strong); transform: translateY(-2px); }
+.level-node.active { border-color: var(--blue); background: var(--blue-soft); box-shadow: 0 8px 30px rgba(10,132,255,0.2); }
+.level-node.locked { opacity: 0.45; cursor: not-allowed; }
+.level-node .ln-badge {
+    width: 38px; height: 38px; border-radius: 12px; flex: 0 0 auto;
+    display: grid; place-items: center; font-size: 15px; font-weight: 800;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border-strong);
+}
+.level-node.done .ln-badge { background: var(--green-soft); border-color: var(--green-border); color: var(--green); }
+.level-node .ln-title { font-size: 13px; font-weight: 700; line-height: 1.25; }
+.level-node .ln-sub { font-size: 10.5px; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
+
+.academy-content h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 18px; }
+.academy-prose { font-size: 14.5px; line-height: 1.75; color: #d6d6dc; }
+.academy-prose p { margin-bottom: 14px; }
+.academy-prose h3 { font-size: 16px; font-weight: 800; margin: 24px 0 10px; color: var(--text); letter-spacing: -0.01em; }
+.academy-prose ul { margin: 0 0 14px 4px; }
+.academy-prose li { margin-bottom: 8px; padding-left: 22px; position: relative; }
+.academy-prose li::before { content: "▸"; position: absolute; left: 2px; color: var(--blue); font-size: 12px; top: 2px; }
+.academy-prose strong { color: var(--text); }
+.callout {
+    padding: 15px 18px; border-radius: 14px; margin: 18px 0;
+    background: var(--blue-soft); border: 1px solid var(--blue-border);
+    font-size: 13.5px; line-height: 1.65;
+}
+.callout.green { background: var(--green-soft); border-color: var(--green-border); }
+.formula {
+    font-family: var(--mono); font-size: 13px; text-align: center;
+    background: rgba(0,0,0,0.45); border: 1px solid var(--border-strong);
+    border-radius: 12px; padding: 14px; margin: 16px 0; color: var(--green); letter-spacing: 0.03em;
+    overflow-x: auto;
+}
+.checkpoint {
+    margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--border);
+}
+.checkpoint-badge {
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
+    font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--amber);
+}
+.quiz-q { font-size: 16.5px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+.quiz-option {
+    display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+    padding: 15px 18px; border-radius: 14px; margin-bottom: 10px;
+    background: var(--glass-soft); border: 1px solid var(--border);
+    font-size: 14px; font-weight: 600; color: var(--text-dim);
+    transition: all 0.22s var(--ease);
+}
+.quiz-option:hover:not(:disabled) { background: var(--glass-hover); color: var(--text); border-color: var(--border-strong); transform: translateX(3px); }
+.quiz-option .opt-key {
+    width: 26px; height: 26px; border-radius: 8px; flex: 0 0 auto;
+    display: grid; place-items: center; font-size: 12px; font-weight: 800;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border-strong);
+}
+.quiz-option.correct { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+.quiz-option.wrong { background: var(--red-soft); border-color: var(--red); color: #ff8a82; }
+.quiz-option:disabled { cursor: default; }
+.quiz-feedback { margin-top: 6px; font-size: 13px; line-height: 1.6; padding: 13px 16px; border-radius: 12px; display: none; }
+.quiz-feedback.visible { display: block; animation: viewIn 0.3s var(--ease); }
+.quiz-feedback.ok { background: var(--green-soft); border: 1px solid var(--green-border); color: #a9e8bb; }
+.quiz-feedback.nope { background: var(--red-soft); border: 1px solid rgba(255,69,58,0.3); color: #ffb4ae; }
+.quiz-progress-dots { display: flex; gap: 7px; margin-bottom: 20px; }
+.quiz-progress-dots .qd { width: 26px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.1); transition: background 0.3s; }
+.quiz-progress-dots .qd.hit { background: var(--green); }
+.quiz-progress-dots .qd.miss { background: var(--red); }
+.quiz-progress-dots .qd.now { background: var(--blue); }
+
+/* ==========================================================================
+   SETTINGS
+   ========================================================================== */
+.settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
+.setting-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.setting-row:last-child { border-bottom: none; }
+.setting-row .s-name { font-size: 13.5px; font-weight: 700; }
+.setting-row .s-desc { font-size: 11.5px; color: var(--text-muted); margin-top: 3px; }
+.status-pill { font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 100px; letter-spacing: 0.04em; }
+.status-pill.ok { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-border); }
+.status-pill.warn { background: var(--red-soft); color: var(--red); border: 1px solid rgba(255,69,58,0.3); }
+
+/* ==========================================================================
+   TOASTS + MOBILE TABBAR
+   ========================================================================== */
+#toast-stack { position: fixed; bottom: 92px; left: 50%; transform: translateX(-50%); z-index: 5000; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: min(92vw, 420px); }
+.toast {
+    padding: 12px 20px; border-radius: 100px; font-size: 13px; font-weight: 600;
+    background: rgba(10, 10, 16, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-strong); color: var(--text);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.55);
+    animation: toastIn 0.4s var(--ease-spring) both; text-align: center;
+}
+.toast.out { animation: toastOut 0.35s var(--ease) both; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(18px) scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes toastOut { to { opacity: 0; transform: translateY(10px) scale(0.94); } }
+
+.tabbar {
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(3, 3, 5, 0.85); backdrop-filter: saturate(180%) blur(var(--blur)); -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
+    border-top: 1px solid var(--border);
+    padding: 8px max(10px, env(safe-area-inset-left)) max(10px, env(safe-area-inset-bottom));
+    grid-template-columns: repeat(6, 1fr);
+}
+.tab-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 2px; color: var(--text-muted); font-size: 9.5px; font-weight: 700; border-radius: 12px; transition: color 0.25s var(--ease); }
+.tab-item svg { width: 21px; height: 21px; }
+.tab-item.active { color: var(--blue); }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1180px) {
+    .cockpit-grid { grid-template-columns: 1fr; }
+    .side-panel { max-height: none; }
+    .side-panel.left { order: 2; }
+    .side-panel.right { order: 3; }
+    .jarvis-core { order: 1; min-height: 520px; }
+    .market-lower { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+}
+@media (max-width: 860px) {
+    .lingua-grid { grid-template-columns: 1fr; }
+    .bento-card.featured { grid-column: span 1; }
+    .bento-card.featured .bento-media { height: 185px; }
+    .bento-card.featured .bento-title { font-size: 16.5px; }
+    .hq-metrics { grid-template-columns: 1fr; }
+    .dcf-inputs { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+    .tabbar { display: grid; }
+    main { padding-bottom: 130px; }
+    .nav-clock { display: none; }
+    .navbar { height: 60px; }
+    main { padding-top: 84px; }
+    .jarvis-core { min-height: 480px; padding: 26px 18px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .stock-grid { grid-template-columns: 1fr 1fr; }
+    .market-toolbar { flex-direction: column; align-items: stretch; }
+    #toast-stack { bottom: 110px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
 </head>
 <body>
 
-    <div id="intro-screen">
-        <h1 class="intro-title">Carlos HQ • J.A.R.V.I.S. OS</h1>
+<div class="ambient"></div>
+
+<!-- ======================= BOOT ======================= -->
+<div id="boot-screen">
+    <div class="boot-ring"></div>
+    <div class="boot-brand">CARLOS <span>HQ</span></div>
+    <div id="boot-log"></div>
+</div>
+
+<!-- ======================= NAVBAR ======================= -->
+<nav class="navbar">
+    <div class="nav-brand" onclick="switchView('hq')">
+        <div class="logo-mark">⚡</div>
+        <div>CARLOS HQ<small>J.A.R.V.I.S. OS</small></div>
+    </div>
+    <ul class="nav-links">
+        <li class="nav-item active" data-target="hq" onclick="switchView('hq')">Mission Control</li>
+        <li class="nav-item" data-target="news" onclick="switchView('news')">News</li>
+        <li class="nav-item" data-target="market" onclick="switchView('market')">Market</li>
+        <li class="nav-item" data-target="lingua" onclick="switchView('lingua')">Lingua Lab</li>
+        <li class="nav-item" data-target="academy" onclick="switchView('academy')">Academy</li>
+        <li class="nav-item" data-target="settings" onclick="switchView('settings')">Settings</li>
+    </ul>
+    <div class="nav-right">
+        <div class="nav-clock" id="nav-clock">--:--:--</div>
+        <div class="jarvis-widget" id="jarvis-widget" onclick="toggleJarvisVoice()" title="Jarvis Sprachsteuerung an/aus">
+            <div class="pulse-dot"></div>
+            <span id="jarvis-status-label">JARVIS AKTIV</span>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ======================= VIEW: MISSION CONTROL ======================= -->
+    <div id="view-hq" class="view-container active">
+        <div class="cockpit-grid">
+
+            <aside class="side-panel left">
+                <div class="section-label"><span class="dot"></span>Live Market Feed</div>
+                <div id="hq-market-widgets" style="display:flex; flex-direction:column; gap:12px;"></div>
+            </aside>
+
+            <section class="jarvis-core">
+                <canvas id="globe-canvas"></canvas>
+                <div class="core-content">
+                    <div class="core-status-line"><span class="dot"></span><span id="cockpit-clock">SYSTEM ONLINE</span></div>
+                    <h1 class="core-greeting" id="core-greeting">Moin, Master Carlos.</h1>
+                    <p class="core-hint">Sag <kbd>Hey Jarvis</kbd> gefolgt von deinem Befehl — oder tippe unten. Ich navigiere, analysiere Aktien, fasse News zusammen und beantworte alles andere.</p>
+
+                    <div class="jarvis-state-chip" id="jarvis-state-chip">
+                        <div class="eq"><span></span><span></span><span></span><span></span><span></span></div>
+                        <span id="jarvis-state-text">Höre zu…</span>
+                    </div>
+
+                    <div class="jarvis-reply-box" id="jarvis-reply-box">
+                        <div class="who" id="jarvis-reply-who">J.A.R.V.I.S.</div>
+                        <div id="jarvis-reply-text"></div>
+                    </div>
+
+                    <div class="command-bar">
+                        <input type="text" id="command-input" placeholder="Befehl oder Frage an Jarvis…" autocomplete="off">
+                        <button class="mic-btn" id="mic-btn" onclick="toggleJarvisVoice()" title="Mikrofon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="qa-chip" onclick="runQuickCommand('Öffne die News')">📰 News</button>
+                        <button class="qa-chip" onclick="runQuickCommand('Öffne das Market Terminal')">📈 Börse</button>
+                        <button class="qa-chip" onclick="runQuickCommand('Fasse die aktuelle Nachrichtenlage kurz zusammen')">🧠 Briefing</button>
+                        <button class="qa-chip" onclick="runQuickCommand('Öffne die Vokabeln')">🇬🇧 Vokabeln</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="side-panel right">
+                <div class="section-label"><span class="dot"></span>Top News Feed</div>
+                <div id="hq-news-stream" style="display:flex; flex-direction:column; gap:10px;">
+                    <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
+                </div>
+            </aside>
+        </div>
+
+        <div class="hq-metrics">
+            <div class="metric-tile"><div class="m-label">Gespeicherte Artikel</div><div class="m-value blue" id="metric-bookmarks">0</div></div>
+            <div class="metric-tile"><div class="m-label">Watchlist Positionen</div><div class="m-value green" id="metric-watchlist">0</div></div>
+            <div class="metric-tile"><div class="m-label">Academy Fortschritt</div><div class="m-value" id="metric-academy">0%</div></div>
+        </div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-brand" onclick="switchView('hq')">⚡ CARLOS HQ</div>
-        <ul class="nav-links">
-            <li class="nav-item active" data-target="hq" onclick="switchView('hq')">Mission Control</li>
-            <li class="nav-item" data-target="news" onclick="switchView('news')">News & Bookmarks</li>
-            <li class="nav-item" data-target="market" onclick="switchView('market')">Market & Analyzer</li>
-            <li class="nav-item" data-target="lingua" onclick="switchView('lingua')">Lingua Lab Pro</li>
-            <li class="nav-item" data-target="academy" onclick="switchView('academy')">Business Academy</li>
-            <li class="nav-item" data-target="settings" onclick="switchView('settings')">Settings</li>
-        </ul>
-        <div class="jarvis-widget" onclick="toggleJarvisVoice()">
-            <div class="pulse-dot"></div>
-            <span id="jarvis-status-label" style="font-size: 12px; font-weight: 600; color: var(--accent-green);">Jarvis (Aktiv)</span>
-        </div>
-    </nav>
-
-    <main>
-        <!-- === VIEW 1: MISSION CONTROL (HQ) === -->
-        <div id="view-hq" class="view-container active">
-            <div class="cockpit-grid">
-                
-                <!-- LINKS: LIVE AKTIENSTAND & WATCHLIST -->
-                <div class="side-panel">
-                    <h3>Live Markets</h3>
-                    <div id="hq-market-stream">
-                        <div class="stream-item">Lade Marktdaten...</div>
-                    </div>
-                </div>
-
-                <!-- MITTE: GLOBE & JARVIS -->
-                <div class="jarvis-core">
-                    <div class="cyber-globe"></div>
-                    <div class="core-text">
-                        <div style="color: var(--accent-green); font-size: 11px; letter-spacing: 2px; margin-bottom: 12px; font-weight: 700;" id="cockpit-clock">SYSTEM ONLINE</div>
-                        <h1 style="font-size: 40px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px;">Moin, Master Carlos.</h1>
-                        <p style="color: var(--text-muted); font-size: 14px; max-width: 400px; margin: 0 auto;">Sag <strong>„Jarvis“</strong> gefolgt von deinem Befehl (z. B. „Öffne News“, „Börse“, „Vokabeln“) oder stell mir eine Frage.</p>
-                        
-                        <div id="jarvis-reply-box" class="jarvis-reply-box"></div>
-                    </div>
-                </div>
-
-                <!-- RECHTS: NEWS ZUSAMMENFASSUNG -->
-                <div class="side-panel">
-                    <h3>Top News Summary</h3>
-                    <div id="hq-news-stream">
-                        <div class="stream-item">Lade Nachrichten...</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- === VIEW 2: NEWS & BOOKMARKS === -->
-        <div id="view-news" class="view-container">
+    <!-- ======================= VIEW: NEWS ======================= -->
+    <div id="view-news" class="view-container">
+        <div class="view-head">
+            <div class="view-kicker">Modul 01 — Intelligence</div>
             <h1 class="header-title">News Intelligence.</h1>
-            <p class="header-sub">Kuratierte Weltgeschehnisse, Cloud-aktualisiert & Lesezeichen.</p>
-            
-            <div style="display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px;" id="news-categories">
-                <!-- Kategorien-Chips per JS -->
-            </div>
-            <div style="display: flex; gap: 8px; margin-bottom: 30px; flex-wrap: wrap;" id="news-subsectors">
-                <!-- Unterkategorien per JS -->
-            </div>
-
-            <div class="bento-grid" id="news-grid-container">
-                <p style="color: var(--text-muted);">Lade News-Stream...</p>
-            </div>
+            <p class="header-sub">Kuratierte Weltgeschehnisse aus deinem Cloud-Feed. Kategorien, Sub-Sektoren und dein persönliches Lesezeichen-Archiv.</p>
         </div>
+        <div class="chip-row" id="news-categories" style="margin-bottom:12px;"></div>
+        <div class="chip-row" id="news-subsectors" style="margin-bottom:22px;"></div>
+        <div class="bento-grid" id="news-grid-container">
+            <div class="empty-state"><div class="big">⏳</div>Lade News-Stream…</div>
+        </div>
+    </div>
 
-        <!-- === VIEW 3: MARKET & EQUITY RESEARCH === -->
-        <div id="view-market" class="view-container">
+    <!-- ======================= VIEW: MARKET ======================= -->
+    <div id="view-market" class="view-container">
+        <div class="view-head">
+            <div class="view-kicker">Modul 02 — Capital</div>
             <h1 class="header-title">Market Terminal.</h1>
-            <p class="header-sub">Globale Sektoren, Watchlist & Blackstone Equity Research</p>
-            
-            <!-- Global Sectors & Watchlist -->
-            <div class="glass-card" style="margin-bottom: 30px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="market-sector-tabs">
-                        <button class="chip active" onclick="setMarketSector('semis')">Semis & AI</button>
-                        <button class="chip" onclick="setMarketSector('bigtech')">Big Tech</button>
-                        <button class="chip" onclick="setMarketSector('health')">Healthcare</button>
-                        <button class="chip" onclick="setMarketSector('consumer')">Consumer</button>
-                        <button class="chip" onclick="setMarketSector('watchlist')">Watchlist</button>
-                    </div>
-                    <input type="text" id="add-stock-input" class="input-field" style="max-width: 250px;" placeholder="Ticker (z.B. AAPL) + Enter" onkeypress="addWatchlistStock(event)">
+            <p class="header-sub">Realtime-Kurse, Sektor-Screens, deine Watchlist, institutionelles Equity Research und ein interaktives DCF-Modell.</p>
+        </div>
+
+        <div class="glass-card" style="margin-bottom: 18px;">
+            <div class="market-toolbar">
+                <div class="chip-row" id="market-sector-tabs" style="padding-bottom:0;">
+                    <button class="chip active" data-sector="semis" onclick="setMarketSector('semis', this)">Semis &amp; AI</button>
+                    <button class="chip" data-sector="bigtech" onclick="setMarketSector('bigtech', this)">Big Tech</button>
+                    <button class="chip" data-sector="health" onclick="setMarketSector('health', this)">Healthcare</button>
+                    <button class="chip" data-sector="consumer" onclick="setMarketSector('consumer', this)">Consumer</button>
+                    <button class="chip" data-sector="watchlist" onclick="setMarketSector('watchlist', this)">★ Watchlist</button>
                 </div>
-                <div class="stock-grid" id="market-stock-grid"></div>
-                <h3 style="margin: 30px 0 15px 0; font-size: 16px;">NASDAQ Composite Index</h3>
-                <div class="chart-container" id="tv-chart"></div>
+                <input type="text" id="add-stock-input" class="input-field" style="max-width: 250px;" placeholder="Ticker (z.B. MSFT) + Enter" autocomplete="off">
             </div>
+            <div class="stock-grid" id="market-stock-grid"></div>
+            <div class="section-label" style="margin: 26px 0 14px;"><span class="dot"></span>NASDAQ Composite — Advanced Chart</div>
+            <div class="chart-container" id="tv-chart"></div>
+        </div>
 
-            <!-- Equity Analyzer -->
-            <div class="glass-card">
-                <h2 style="margin-bottom: 8px;">Institutional Equity Analyzer</h2>
-                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Blackstone-Standard: 5-Säulen-Modell via Gemini API.</p>
-                
-                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                    <input type="text" id="analyzer-ticker" class="input-field" placeholder="Ticker (z.B. NVDA, TSLA)">
-                    <button class="chip active" onclick="runBlackstoneAnalyzer()" style="border-radius: 14px;">Analyse starten</button>
+        <div class="glass-card" style="margin-bottom: 18px;">
+            <div class="section-label"><span class="dot"></span>Blackstone Equity Analyzer</div>
+            <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 18px; line-height:1.6;">Institutionelles 5-Säulen-Research via Gemini: Bilanzqualität, Wachstumstreiber, Wettbewerbsposition, Management &amp; Kapitalallokation, Makro-Fazit.</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="analyzer-ticker" class="input-field" style="flex:1; min-width: 200px;" placeholder="Ticker oder Firma (z.B. NVDA, ASML, Palantir)" autocomplete="off">
+                <button class="btn-primary" id="analyzer-btn" onclick="runBlackstoneAnalyzer()">Analyse starten</button>
+            </div>
+            <div id="analyzer-results" style="display: none; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:8px;">
+                    <div style="font-weight: 800; font-size:15px;" id="analyzer-headline">Analyse</div>
+                    <div style="font-size:12px; font-weight:700; color:var(--blue);" id="analyzer-status">Analysiere…</div>
                 </div>
-
-                <div id="analyzer-results" style="display: none; padding-top: 20px; border-top: 1px solid var(--border-glass);">
-                    <div style="color: var(--accent-blue); font-weight: 600; margin-bottom: 15px;" id="analyzer-status">Analysiere...</div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">1. Bilanz</strong><p id="a-p1" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">2. Treiber</strong><p id="a-p2" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">3. Wettbewerb</strong><p id="a-p3" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">4. Management</strong><p id="a-p4" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px; grid-column: 1/-1;"><strong style="color:var(--accent-blue);">5. Fazit & Makro</strong><p id="a-p5" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                    </div>
+                <div class="pillar-grid">
+                    <div class="pillar"><div class="p-head"><div class="p-num">1</div><div class="p-title">Bilanz &amp; Financials</div></div><p id="a-p1">—</p></div>
+                    <div class="pillar"><div class="p-head"><div class="p-num">2</div><div class="p-title">Wachstumstreiber</div></div><p id="a-p2">—</p></div>
+                    <div class="pillar"><div class="p-head"><div class="p-num">3</div><div class="p-title">Wettbewerb &amp; Moat</div></div><p id="a-p3">—</p></div>
+                    <div class="pillar"><div class="p-head"><div class="p-num">4</div><div class="p-title">Management &amp; Kapitalallokation</div></div><p id="a-p4">—</p></div>
+                    <div class="pillar full"><div class="p-head"><div class="p-num" style="background:var(--green-soft); border-color:var(--green-border); color:var(--green);">5</div><div class="p-title">Makro &amp; Fazit</div></div><p id="a-p5">—</p></div>
                 </div>
             </div>
         </div>
 
-        <!-- === VIEW 4: LINGUA LAB PRO === -->
-        <div id="view-lingua" class="view-container">
+        <div class="market-lower">
+            <div class="glass-card">
+                <div class="section-label"><span class="dot"></span>DCF Fair-Value Engine</div>
+                <div class="dcf-inputs">
+                    <div class="mini-input"><label>Umsatz (Mrd. $)</label><input type="number" id="dcf-revenue" value="100" min="0" step="1"></div>
+                    <div class="mini-input"><label>Aktien (Mrd. Stk.)</label><input type="number" id="dcf-shares" value="2.5" min="0.01" step="0.1"></div>
+                    <div class="mini-input"><label>Nettoschulden (Mrd. $)</label><input type="number" id="dcf-netdebt" value="0" step="1"></div>
+                </div>
+                <div class="dcf-slider-row">
+                    <div class="sl-head"><label>Umsatzwachstum p.a. (5J)</label><output id="dcf-growth-out">12%</output></div>
+                    <input type="range" id="dcf-growth" min="-5" max="40" value="12" step="0.5">
+                </div>
+                <div class="dcf-slider-row">
+                    <div class="sl-head"><label>FCF-Marge (Endstufe)</label><output id="dcf-margin-out">25%</output></div>
+                    <input type="range" id="dcf-margin" min="1" max="60" value="25" step="0.5">
+                </div>
+                <div class="dcf-slider-row">
+                    <div class="sl-head"><label>WACC (Diskontsatz)</label><output id="dcf-wacc-out">9%</output></div>
+                    <input type="range" id="dcf-wacc" min="5" max="16" value="9" step="0.25">
+                </div>
+                <div class="dcf-slider-row">
+                    <div class="sl-head"><label>Terminal Growth</label><output id="dcf-tg-out">2.5%</output></div>
+                    <input type="range" id="dcf-tg" min="0" max="4" value="2.5" step="0.25">
+                </div>
+                <div class="dcf-result">
+                    <div class="r-label">Implied Fair Value / Aktie</div>
+                    <div class="r-value" id="dcf-result-value">$0.00</div>
+                    <div class="r-sub" id="dcf-result-sub">Enterprise Value: — · Equity Value: —</div>
+                </div>
+            </div>
+            <div class="glass-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                    <div class="section-label" style="margin-bottom:0;"><span class="dot"></span>Investment Scratchpad</div>
+                    <span class="save-indicator" id="scratchpad-status">Auto-Save</span>
+                </div>
+                <textarea id="scratchpad" placeholder="Investmentthesen, Kursziele, Earnings-Notizen… Alles wird lokal gespeichert."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================= VIEW: LINGUA LAB ======================= -->
+    <div id="view-lingua" class="view-container">
+        <div class="view-head">
+            <div class="view-kicker">Modul 03 — Language</div>
             <h1 class="header-title">Lingua Lab Pro.</h1>
-            <p class="header-sub">Die 500 wichtigsten C2-Vokabeln & Writing Mastery (Anti-Germanismen).</p>
-
-            <div class="lingua-grid">
-                <div class="glass-card" style="padding: 15px;">
-                    <div class="sidebar-menu">
-                        <div style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); margin: 10px 0 5px 10px; font-weight: 700;">Vokabel-Training</div>
-                        <div class="sidebar-item active" onclick="setLinguaMode('flashcards', this)">Flashcards (Input)</div>
-                        
-                        <div style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); margin: 20px 0 5px 10px; font-weight: 700;">Writing Mastery</div>
-                        <div class="sidebar-item" onclick="setLinguaMode('mastery', this)">Anti-Germanismen & Tipps</div>
-                    </div>
-                </div>
-
-                <div class="glass-card flashcard-stage" id="lingua-content-area">
-                    <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="flashcard-counter">Lade Vokabeln...</div>
-                    <div class="flashcard" onclick="flipCard()">
-                        <div class="word-en" id="fc-en">Laden...</div>
-                        <div class="word-de" id="fc-de"></div>
-                        <div class="word-ex" id="fc-ex"></div>
-                    </div>
-                    <div style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button class="chip" onclick="prevCard()">← Vorherige</button>
-                        <button class="chip active" onclick="nextCard()">Nächste →</button>
-                    </div>
+            <p class="header-sub">C2-Vokabeltraining mit Flashcards und Writing Mastery gegen Germanismen — für Englisch auf Muttersprachler-Niveau.</p>
+        </div>
+        <div class="lingua-grid">
+            <div class="glass-card" style="padding: 14px;">
+                <div class="sidebar-menu">
+                    <div class="sidebar-group">Training</div>
+                    <div class="sidebar-item active" id="lingua-tab-flashcards" onclick="setLinguaMode('flashcards', this)">🃏 Flashcards</div>
+                    <div class="sidebar-group">Writing Mastery</div>
+                    <div class="sidebar-item" id="lingua-tab-mastery" onclick="setLinguaMode('mastery', this)">✍️ Anti-Germanismen &amp; Stil</div>
                 </div>
             </div>
+            <div class="glass-card" id="lingua-content-area" style="min-height: 480px;"></div>
         </div>
+    </div>
 
-        <!-- === VIEW 5: BUSINESS ACADEMY === -->
-        <div id="view-academy" class="view-container">
-            <h1 class="header-title">Business Academy.</h1>
-            <p class="header-sub">Geführter Masterclass-Pfad mit tiefem Input und Zwischen-Tests.</p>
-
-            <div class="glass-card" style="margin-bottom: 25px;">
-                <span style="font-size: 11px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Level 1 • Masterclass Input</span>
-                <h2 style="margin: 10px 0 20px;">Die Bilanz-Dreifaltigkeit & Free Cashflow (FCF)</h2>
-                <div style="font-size: 15px; line-height: 1.7; color: #d1d1d6;">
-                    <p style="margin-bottom: 15px;">Um Unternehmen wie ein Blackstone-Analyst zu bewerten, verknüpfst du drei Berichte:</p>
-                    <ul style="margin-left: 20px; list-style: disc; margin-bottom: 20px;">
-                        <li style="margin-bottom: 8px;"><strong>Income Statement (GuV):</strong> Operativer Papier-Gewinn (Umsatz minus operative Kosten und Zinsen).</li>
-                        <li style="margin-bottom: 8px;"><strong>Balance Sheet (Bilanz):</strong> Momentaufnahme von Vermögen (Assets) und Schulden (Liabilities).</li>
-                        <li style="margin-bottom: 8px;"><strong>Cashflow Statement:</strong> Reales Geld, das tatsächlich im Unternehmen ankommt.</li>
-                    </ul>
-                    <p style="padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 3px solid var(--accent-blue);">
-                        <strong>Der Free Cashflow (FCF)</strong> misst das reale Bargeld nach Abzug aller notwendigen Investitionen (CapEx). Nur dieses Geld generiert echten Shareholder Value.
-                    </p>
-                </div>
-
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-glass);">
-                    <h3 style="font-size: 16px; margin-bottom: 15px;">Wissens-Check</h3>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <button class="input-field" style="text-align: left; cursor: pointer;" onclick="checkAcademy(false)">A) Der Gewinn laut GuV ist wichtiger als der Cashflow.</button>
-                        <button class="input-field" style="text-align: left; cursor: pointer;" onclick="checkAcademy(true)">B) Der Free Cashflow misst das reale Bargeld nach CapEx.</button>
-                    </div>
-                    <div id="academy-feedback" style="margin-top: 15px; font-weight: 600; font-size: 14px;"></div>
-                </div>
-            </div>
+    <!-- ======================= VIEW: ACADEMY ======================= -->
+    <div id="view-academy" class="view-container">
+        <div class="view-head">
+            <div class="view-kicker">Modul 04 — Knowledge</div>
+            <h1 class="header-title">Business Economy Academy.</h1>
+            <p class="header-sub">Geführter Lernpfad: Erst Masterclass-Input auf Investmentbanking-Niveau, dann der Checkpoint-Test. Bestehen schaltet das nächste Level frei.</p>
         </div>
+        <div class="academy-path" id="academy-path"></div>
+        <div class="glass-card academy-content" id="academy-content"></div>
+    </div>
 
-        <!-- === VIEW 6: SETTINGS === -->
-        <div id="view-settings" class="view-container">
+    <!-- ======================= VIEW: SETTINGS ======================= -->
+    <div id="view-settings" class="view-container">
+        <div class="view-head">
+            <div class="view-kicker">Modul 05 — System</div>
             <h1 class="header-title">System Settings.</h1>
-            <p class="header-sub">API Konfiguration & System-Status</p>
-            
+            <p class="header-sub">API-Konfiguration und Systemstatus deines privaten Operating Systems.</p>
+        </div>
+        <div class="settings-grid">
             <div class="glass-card">
-                <h3>Gemini API Schlüssel (Pay-as-you-go / Unlimitierter Modus)</h3>
-                <p style="font-size: 14px; color: var(--text-muted); margin: 10px 0 20px;">Trage deinen AI Studio Key ein. Bei hinterlegtem Billing-Konto sind alle Ratenlimits aufgehoben.</p>
-                <input type="password" id="api-key-input" class="input-field" placeholder="AIzaSy..." onchange="localStorage.setItem('carlos_api_key', this.value)">
+                <div class="section-label"><span class="dot"></span>Gemini API Schlüssel</div>
+                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.65;">
+                    Trage deinen Google AI Studio Key ein — er wird ausschließlich lokal in deinem Browser gespeichert.
+                    <strong style="color: var(--text-dim);">Im Pay-as-you-go Modus sind API-Limits aufgehoben.</strong>
+                </p>
+                <div style="display:flex; gap:10px;">
+                    <input type="password" id="api-key-input" class="input-field" placeholder="AIzaSy…" autocomplete="off">
+                    <button class="btn-primary" onclick="saveApiKey()">Speichern</button>
+                </div>
+                <div style="margin-top: 14px;"><span class="status-pill warn" id="api-key-status">Kein Key hinterlegt</span></div>
+            </div>
+            <div class="glass-card">
+                <div class="section-label"><span class="dot"></span>System Diagnostics</div>
+                <div class="setting-row">
+                    <div><div class="s-name">Spracherkennung</div><div class="s-desc">webkitSpeechRecognition (Wake-Word "Hey Jarvis")</div></div>
+                    <span class="status-pill" id="diag-stt">—</span>
+                </div>
+                <div class="setting-row">
+                    <div><div class="s-name">Sprachausgabe</div><div class="s-desc" id="diag-voice-name">speechSynthesis</div></div>
+                    <span class="status-pill" id="diag-tts">—</span>
+                </div>
+                <div class="setting-row">
+                    <div><div class="s-name">News-Datenbank</div><div class="s-desc">nachrichten.json</div></div>
+                    <span class="status-pill" id="diag-news">—</span>
+                </div>
+                <div class="setting-row">
+                    <div><div class="s-name">Vokabel-Datenbank</div><div class="s-desc">vokabeln.json</div></div>
+                    <span class="status-pill" id="diag-vocab">—</span>
+                </div>
+                <div class="setting-row">
+                    <div><div class="s-name">Lokaler Speicher</div><div class="s-desc">Bookmarks, Watchlist, Fortschritt, Notizen</div></div>
+                    <button class="btn-ghost" style="padding: 8px 16px; font-size: 12px;" onclick="resetLocalData()">Zurücksetzen</button>
+                </div>
             </div>
         </div>
+    </div>
+</main>
 
-    </main>
+<!-- ======================= MOBILE TABBAR ======================= -->
+<nav class="tabbar">
+    <button class="tab-item active" data-target="hq" onclick="switchView('hq')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><line x1="12" y1="3" x2="12" y2="6.5"/><line x1="12" y1="17.5" x2="12" y2="21"/></svg>HQ
+    </button>
+    <button class="tab-item" data-target="news" onclick="switchView('news')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13a2 2 0 0 1 2 2v11a2 2 0 0 0 2-2V8"/><rect x="2" y="5" width="15" height="15" rx="2"/><line x1="6" y1="10" x2="13" y2="10"/><line x1="6" y1="14" x2="13" y2="14"/></svg>News
+    </button>
+    <button class="tab-item" data-target="market" onclick="switchView('market')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>Market
+    </button>
+    <button class="tab-item" data-target="lingua" onclick="switchView('lingua')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>Lingua
+    </button>
+    <button class="tab-item" data-target="academy" onclick="switchView('academy')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>Academy
+    </button>
+    <button class="tab-item" data-target="settings" onclick="switchView('settings')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>System
+    </button>
+</nav>
 
-    <script>
-        // STATE
-        const state = {
-            newsData: [],
-            bookmarks: JSON.parse(localStorage.getItem('carlos_bookmarks')) || [],
-            watchlist: JSON.parse(localStorage.getItem('carlos_portfolio')) || ['NASDAQ:AAPL', 'NASDAQ:TSLA', 'NASDAQ:NVDA'],
-            vocabData: null,
-            vocabIndex: 0,
-            vocabFlipped: false,
-            linguaMode: 'flashcards',
-            activeCategory: 'Alle',
-            activeSubSector: 'Alle',
-            marketSector: 'semis',
-            isListening: true
-        };
+<div id="toast-stack"></div>
 
-        const sectors = {
-            semis: ['NASDAQ:NVDA', 'NASDAQ:TSMC', 'NASDAQ:ASML', 'NASDAQ:AMD', 'NASDAQ:AVGO'],
-            bigtech: ['NASDAQ:AAPL', 'NASDAQ:MSFT', 'NASDAQ:GOOGL', 'NASDAQ:AMZN', 'NASDAQ:META'],
-            health: ['NYSE:LLY', 'NYSE:UNH', 'NYSE:JNJ', 'NYSE:PFE', 'NYSE:ABBV'],
-            consumer: ['NYSE:KO', 'NYSE:PEP', 'NYSE:MCD', 'NYSE:WMT', 'NYSE:NKE']
-        };
+<script>
+"use strict";
+/* ==========================================================================
+   CARLOS HQ — J.A.R.V.I.S. ULTIMATE OS — ENGINE
+   ========================================================================== */
 
-        window.onload = async () => {
-            document.getElementById('intro-screen').style.opacity = '0';
-            setTimeout(() => document.getElementById('intro-screen').style.display = 'none', 800);
+/* ---------------------------- Global State ---------------------------- */
+const state = {
+    newsData: [],
+    bookmarks: loadLS('carlos_bookmarks', []),
+    watchlist: loadLS('carlos_portfolio', ['NASDAQ:AAPL', 'NASDAQ:TSLA', 'NASDAQ:MSFT']),
+    vocabData: null,
+    vocabIndex: 0,
+    vocabFlipped: false,
+    linguaMode: 'flashcards',
+    activeCategory: 'Alle',
+    activeSubSector: 'Alle',
+    marketSector: 'semis',
+    academyLevel: 0,
+    academyProgress: loadLS('carlos_academy', { completed: [] }),
+    quiz: { index: 0, results: [] },
+    isListening: false,
+    jarvisState: 'idle',            // idle | listening | thinking | speaking
+    activeView: 'hq',
+    tvChartLoaded: false,
+    renderedNewsList: [],
+    preferredVoice: null,
+    recognitionSupported: false
+};
 
-            const savedKey = localStorage.getItem('carlos_api_key');
-            if(savedKey) document.getElementById('api-key-input').value = savedKey;
+const SECTORS = {
+    semis:    ['NASDAQ:NVDA', 'NYSE:TSM', 'NASDAQ:ASML', 'NASDAQ:AMD'],
+    bigtech:  ['NASDAQ:AAPL', 'NASDAQ:MSFT', 'NASDAQ:GOOGL', 'NASDAQ:AMZN'],
+    health:   ['NYSE:LLY', 'NYSE:UNH', 'NYSE:JNJ', 'NASDAQ:VRTX'],
+    consumer: ['NYSE:KO', 'NYSE:MCD', 'NYSE:WMT', 'NYSE:NKE']
+};
+const HQ_TICKERS = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:TSLA'];
 
-            await loadData();
-            initJarvisVoice();
-            setupTradingView();
+const JARVIS_PERSONA =
+    "Du bist J.A.R.V.I.S., das private KI-Betriebssystem von Master Carlos. " +
+    "Fakten über deinen Schöpfer: Carlos ist 16, geht aufs Gymnasium Ettenheim, codet in Python und Flutter, " +
+    "investiert seit seinem 10. Lebensjahr an der Börse und hat das Start-up Lox AI gegründet. " +
+    "Sprich ihn immer mit 'Master Carlos' an. Antworte auf Deutsch: blitzschnell, extrem kompetent, direkt, " +
+    "mit dem leicht frechen, loyalen Ton eines brillanten Kollegen. Keine Floskeln, keine Einleitungen, kein Markdown. " +
+    "Maximal 4 Sätze, außer Master Carlos verlangt explizit mehr Tiefe.";
 
-            setInterval(() => {
-                const now = new Date();
-                document.getElementById('cockpit-clock').innerText = now.toLocaleTimeString('de-DE') + " • ETTENHEIM SYSTEM ONLINE";
-            }, 1000);
+/* ---------------------------- Utilities ---------------------------- */
+function loadLS(key, fallback) {
+    try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+    } catch (e) { return fallback; }
+}
+function saveLS(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+}
+function $(id) { return document.getElementById(id); }
+function escapeHTML(str) {
+    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function showToast(msg, ms = 2600) {
+    const stack = $('toast-stack');
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    stack.appendChild(t);
+    setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 400); }, ms);
+}
+function estimateReadTime(item) {
+    if (item.lesezeit) return String(item.lesezeit).replace(/min.*/i, '').trim() + ' Min.';
+    const words = ((item.titel || '') + ' ' + (item.zusammenfassung || item.text || '')).split(/\s+/).length;
+    return Math.max(1, Math.round(words / 40) + 2) + ' Min.';
+}
+function articleKey(item) { return item.id || item.titel || item.title || ''; }
 
-            speakJarvis("Moin Master Carlos. Headquarter online. Ich höre zu.");
-        };
+/* ==========================================================================
+   BOOT SEQUENCE
+   ========================================================================== */
+const BOOT_LINES = [
+    'KERNEL v14.2 … <span class="ok">OK</span>',
+    'NEURAL VOICE ENGINE … <span class="ok">OK</span>',
+    'MARKET DATALINK … <span class="ok">OK</span>',
+    'WILLKOMMEN, MASTER CARLOS.'
+];
+function runBootSequence() {
+    const log = $('boot-log');
+    BOOT_LINES.forEach((line, i) => {
+        setTimeout(() => { log.innerHTML += line + '<br>'; }, 240 * i);
+    });
+    setTimeout(() => {
+        $('boot-screen').classList.add('done');
+        setTimeout(() => $('boot-screen').remove(), 800);
+    }, 240 * BOOT_LINES.length + 500);
+}
 
-        // NAVIGATION
-        function switchView(viewId) {
-            document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
-            document.getElementById(`view-${viewId}`).classList.add('active');
-            
-            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            const navEl = document.querySelector(`.nav-item[data-target="${viewId}"]`);
-            if(navEl) navEl.classList.add('active');
+/* ==========================================================================
+   VIEW ROUTER
+   ========================================================================== */
+function switchView(viewId) {
+    if (!$(`view-${viewId}`)) return;
+    state.activeView = viewId;
+    document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
+    $(`view-${viewId}`).classList.add('active');
+    document.querySelectorAll('.nav-item, .tab-item').forEach(el =>
+        el.classList.toggle('active', el.dataset.target === viewId));
+    window.scrollTo({ top: 0 });
 
-            if(viewId === 'market') renderMarketSectorGrid();
+    if (viewId === 'market') {
+        renderMarketSectorGrid();
+        setupTradingViewChart();
+    }
+    if (viewId === 'hq') updateHQMetrics();
+}
+
+/* ==========================================================================
+   DATA LOADING
+   ========================================================================== */
+async function loadData() {
+    // News
+    try {
+        const res = await fetch('nachrichten.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        state.newsData = Array.isArray(data) ? data
+            : (data.nachrichten || data.news || data.artikel || data.items || []);
+        setDiag('diag-news', state.newsData.length > 0, `${state.newsData.length} Artikel`);
+    } catch (e) {
+        state.newsData = [];
+        setDiag('diag-news', false, 'nicht gefunden');
+    }
+    renderHQNewsStream();
+    renderNewsCategories();
+    renderNewsGrid();
+
+    // Vokabeln
+    try {
+        const res = await fetch('vokabeln.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        state.vocabData = normalizeVocabData(data);
+        setDiag('diag-vocab', true, `${state.vocabData.words.length} Vokabeln`);
+    } catch (e) {
+        state.vocabData = normalizeVocabData(null);
+        setDiag('diag-vocab', false, 'Fallback-Daten aktiv');
+    }
+    renderLinguaContent();
+}
+
+function normalizeVocabData(raw) {
+    const fallbackWords = [
+        { en: 'to corroborate', de: 'bestätigen / untermauern', ex: 'The new earnings data corroborates our bullish thesis on the semiconductor sector.' },
+        { en: 'ubiquitous', de: 'allgegenwärtig', ex: 'Smartphones have become so ubiquitous that we barely notice them anymore.' },
+        { en: 'to underpin', de: 'untermauern / stützen', ex: 'Strong free cash flow underpins the company’s generous buyback program.' },
+        { en: 'tenacious', de: 'hartnäckig / zäh', ex: 'Her tenacious pursuit of the deal impressed even the senior partners.' },
+        { en: 'to exacerbate', de: 'verschärfen / verschlimmern', ex: 'Rising rates exacerbated the pressure on highly leveraged companies.' }
+    ];
+    const fallbackTips = [
+        { titel: 'Vermeide wörtliche Übersetzungen', erklaerung: 'Deutsche Satzstrukturen 1:1 zu übertragen ist der häufigste Verräter. Denke in englischen Mustern, nicht in übersetzten deutschen.', falsch: 'We have to become better in the future.', richtig: 'We need to improve going forward.' },
+        { titel: 'Starke Verben statt Füllkonstruktionen', erklaerung: 'Muttersprachler packen die Bedeutung ins Verb — nicht in "make/do/have" plus Substantiv.', falsch: 'The report was a big help to make a decision.', richtig: 'The report facilitated the decision-making process.' },
+        { titel: '"Since" vs. "For" bei Zeiträumen', erklaerung: 'Der Klassiker unter den Germanismen: "seit" heißt nicht automatisch "since". Zeitspannen brauchen "for".', falsch: 'I am learning English since five years.', richtig: 'I have been learning English for five years.' },
+        { titel: 'Hedge wie ein Profi', erklaerung: 'Akademisches C2-Englisch behauptet selten absolut. "Arguably", "tends to", "suggests" wirken souveräner als harte Aussagen.', falsch: 'This proves that the strategy is the best.', richtig: 'This strongly suggests the strategy is superior.' }
+    ];
+    if (!raw) return { words: fallbackWords, tips: fallbackTips };
+    const words = (raw.core_words || raw.vokabeln || raw.words || (Array.isArray(raw) ? raw : []))
+        .map(w => ({
+            en: w.en || w.englisch || w.word || '',
+            de: w.de || w.deutsch || w.translation || '',
+            ex: w.ex || w.beispiel || w.example || ''
+        })).filter(w => w.en);
+    const tipsRaw = raw.writing_tips || raw.mastery || raw.tips || raw.anti_germanismen || [];
+    const tips = tipsRaw.map(t => ({
+        titel: t.titel || t.title || 'Schreibtipp',
+        erklaerung: t.erklaerung || t.tipp || t.desc || '',
+        falsch: t.falsch || t.wrong || '',
+        richtig: t.richtig || t.correct || ''
+    }));
+    return {
+        words: words.length ? words : fallbackWords,
+        tips: tips.length ? tips : fallbackTips
+    };
+}
+
+function setDiag(id, ok, detail) {
+    const el = $(id);
+    if (!el) return;
+    el.className = 'status-pill ' + (ok ? 'ok' : 'warn');
+    el.textContent = ok ? ('Online · ' + detail) : ('Offline · ' + detail);
+}
+
+/* ==========================================================================
+   J.A.R.V.I.S. — CYBER GLOBE (Canvas)
+   ========================================================================== */
+const globe = {
+    canvas: null, ctx: null, points: [], rot: 0, amp: 0, targetAmp: 0, raf: null, t: 0
+};
+function initGlobe() {
+    globe.canvas = $('globe-canvas');
+    if (!globe.canvas) return;
+    globe.ctx = globe.canvas.getContext('2d');
+    const N = 320;
+    for (let i = 0; i < N; i++) {
+        const phi = Math.acos(1 - 2 * (i + 0.5) / N);
+        const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+        globe.points.push({
+            x: Math.sin(phi) * Math.cos(theta),
+            y: Math.cos(phi),
+            z: Math.sin(phi) * Math.sin(theta)
+        });
+    }
+    resizeGlobe();
+    window.addEventListener('resize', resizeGlobe);
+    drawGlobe();
+}
+function resizeGlobe() {
+    const c = globe.canvas;
+    if (!c) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = c.parentElement.getBoundingClientRect();
+    c.width = rect.width * dpr;
+    c.height = rect.height * dpr;
+    globe.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+function drawGlobe() {
+    const ctx = globe.ctx, c = globe.canvas;
+    const W = c.width / (Math.min(window.devicePixelRatio || 1, 2));
+    const H = c.height / (Math.min(window.devicePixelRatio || 1, 2));
+    ctx.clearRect(0, 0, W, H);
+
+    globe.t += 0.016;
+    globe.rot += 0.0035 + globe.amp * 0.012;
+    globe.amp += (globe.targetAmp - globe.amp) * 0.06;
+
+    const cx = W / 2, cy = H * 0.44;
+    const R = Math.min(W, H) * 0.30 * (1 + globe.amp * 0.06);
+
+    // Orbit rings
+    for (let r = 0; r < 3; r++) {
+        ctx.beginPath();
+        const rr = R * (1.28 + r * 0.19);
+        const squash = 0.32 + r * 0.06;
+        for (let a = 0; a <= Math.PI * 2 + 0.01; a += 0.05) {
+            const wave = Math.sin(a * 7 + globe.t * (2.2 + r)) * globe.amp * 9;
+            const x = cx + Math.cos(a + globe.rot * (r % 2 ? -0.6 : 0.8)) * (rr + wave);
+            const y = cy + Math.sin(a + globe.rot * (r % 2 ? -0.6 : 0.8)) * (rr + wave) * squash;
+            a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
+        ctx.strokeStyle = `rgba(10, 132, 255, ${0.10 - r * 0.025 + globe.amp * 0.12})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
 
-        // DATA LOADING
-        async function loadData() {
-            try {
-                const res = await fetch('nachrichten.json?t=' + Date.now());
-                if(res.ok) {
-                    const data = await res.json();
-                    state.newsData = Array.isArray(data) ? data : data.nachrichten || [];
-                    renderHQStreams();
-                    renderNewsCategories();
-                    renderNewsGrid();
-                }
-                
-                const vocabRes = await fetch('vokabeln.json?t=' + Date.now());
-                if(vocabRes.ok) {
-                    state.vocabData = await vocabRes.json();
-                    updateFlashcard();
-                }
-            } catch(e) {
-                console.warn("Lokale JSON-Dateien konnten nicht geladen werden.");
-            }
+    // Core glow
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.5);
+    glow.addColorStop(0, `rgba(10, 132, 255, ${0.14 + globe.amp * 0.22})`);
+    glow.addColorStop(1, 'rgba(10, 132, 255, 0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(cx - R * 2, cy - R * 2, R * 4, R * 4);
+
+    // Sphere points
+    const sinR = Math.sin(globe.rot), cosR = Math.cos(globe.rot);
+    const tilt = 0.35, sinT = Math.sin(tilt), cosT = Math.cos(tilt);
+    for (const p of globe.points) {
+        let x = p.x * cosR + p.z * sinR;
+        let z = -p.x * sinR + p.z * cosR;
+        let y = p.y * cosT - z * sinT;
+        z = p.y * sinT + z * cosT;
+        const scale = 1 / (1.6 - z * 0.5);
+        const px = cx + x * R * scale;
+        const py = cy + y * R * scale;
+        const depth = (z + 1) / 2;
+        const size = 0.7 + depth * 1.5 + globe.amp * depth * 1.2;
+        const isGreen = ((p.x * 13.7 + p.y * 7.3) % 1 + 1) % 1 > 0.86;
+        const alpha = 0.12 + depth * 0.65;
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fillStyle = isGreen
+            ? `rgba(48, 209, 88, ${alpha})`
+            : `rgba(10, 132, 255, ${alpha})`;
+        ctx.fill();
+    }
+
+    // Equator scan-line
+    ctx.beginPath();
+    for (let a = 0; a <= Math.PI * 2 + 0.01; a += 0.04) {
+        const wave = Math.sin(a * 9 - globe.t * 4) * globe.amp * 7;
+        const x = cx + Math.cos(a) * (R * 1.02 + wave);
+        const y = cy + Math.sin(a) * (R * 1.02 + wave) * 0.28;
+        a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = `rgba(48, 209, 88, ${0.16 + globe.amp * 0.35})`;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    globe.raf = requestAnimationFrame(drawGlobe);
+}
+
+/* ==========================================================================
+   J.A.R.V.I.S. — STATE MACHINE + UI
+   ========================================================================== */
+function setJarvisState(newState, label) {
+    state.jarvisState = newState;
+    const chip = $('jarvis-state-chip');
+    const text = $('jarvis-state-text');
+    const map = {
+        idle:      { amp: 0.0,  show: false, label: '' },
+        listening: { amp: 0.45, show: true,  label: label || 'Höre zu, Master Carlos…' },
+        thinking:  { amp: 0.75, show: true,  label: label || 'Verarbeite…' },
+        speaking:  { amp: 1.0,  show: true,  label: label || 'Spreche…' }
+    };
+    const cfg = map[newState] || map.idle;
+    globe.targetAmp = cfg.amp;
+    chip.classList.toggle('visible', cfg.show);
+    if (cfg.show) text.textContent = cfg.label;
+}
+
+function showJarvisReply(html, who = 'J.A.R.V.I.S.') {
+    const box = $('jarvis-reply-box');
+    $('jarvis-reply-who').textContent = who;
+    $('jarvis-reply-text').innerHTML = html;
+    box.classList.add('visible');
+    box.scrollTop = 0;
+}
+function hideJarvisReply() { $('jarvis-reply-box').classList.remove('visible'); }
+
+function typewriterReply(text) {
+    const target = $('jarvis-reply-text');
+    $('jarvis-reply-who').textContent = 'J.A.R.V.I.S.';
+    $('jarvis-reply-box').classList.add('visible');
+    target.textContent = '';
+    let i = 0;
+    const step = Math.max(1, Math.round(text.length / 90));
+    const timer = setInterval(() => {
+        i += step;
+        target.textContent = text.slice(0, i);
+        if (i >= text.length) clearInterval(timer);
+    }, 16);
+}
+
+/* ==========================================================================
+   VOICE OUTPUT — Premium Voice Hunting
+   ========================================================================== */
+function huntPremiumVoice() {
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices();
+    if (!voices.length) return null;
+    const german = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('de'));
+    const pool = german.length ? german : voices;
+    const scoreVoice = (v) => {
+        const n = v.name.toLowerCase();
+        let s = 0;
+        if (n.includes('premium')) s += 100;
+        if (n.includes('enhanced') || n.includes('erweitert')) s += 90;
+        if (n.includes('siri')) s += 85;
+        if (n.includes('natural')) s += 80;
+        if (n.includes('neural')) s += 78;
+        if (n.includes('anna')) s += 60;
+        if (n.includes('petra')) s += 55;
+        if (n.includes('markus') || n.includes('viktor') || n.includes('helena')) s += 50;
+        if (n.includes('google')) s += 45;
+        if (n.includes('microsoft')) s += 30;
+        if (v.localService) s += 8;
+        if (n.includes('compact') || n.includes('espeak')) s -= 60;
+        return s;
+    };
+    pool.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+    return pool[0] || null;
+}
+function refreshVoice() {
+    state.preferredVoice = huntPremiumVoice();
+    const ok = 'speechSynthesis' in window;
+    setDiag('diag-tts', ok, ok ? 'bereit' : 'nicht verfügbar');
+    if (state.preferredVoice) {
+        const el = $('diag-voice-name');
+        if (el) el.textContent = 'Stimme: ' + state.preferredVoice.name;
+    }
+}
+
+function speakJarvis(text, onDone) {
+    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
+    window.speechSynthesis.cancel();
+    const clean = String(text)
+        .replace(/[*_#`>]/g, '')
+        .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+        .replace(/https?:\/\/\S+/g, '')
+        .trim();
+    if (!clean) { if (onDone) onDone(); return; }
+    const u = new SpeechSynthesisUtterance(clean);
+    u.lang = 'de-DE';
+    u.rate = 1.07;
+    u.pitch = 0.98;
+    if (!state.preferredVoice) refreshVoice();
+    if (state.preferredVoice) u.voice = state.preferredVoice;
+    u.onstart = () => setJarvisState('speaking');
+    u.onend = () => {
+        setJarvisState(state.isListening ? 'listening' : 'idle',
+            state.isListening ? 'Warte auf "Hey Jarvis"…' : '');
+        if (onDone) onDone();
+    };
+    u.onerror = () => { setJarvisState('idle'); if (onDone) onDone(); };
+    window.speechSynthesis.speak(u);
+}
+
+/* ==========================================================================
+   VOICE INPUT — Wake-Word Loop mit aggressivem Auto-Restart
+   ========================================================================== */
+let recognition = null;
+let restartTimer = null;
+
+function initJarvisVoice() {
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    state.recognitionSupported = !!SpeechRec;
+    setDiag('diag-stt', state.recognitionSupported, state.recognitionSupported ? 'bereit' : 'Browser nicht unterstützt');
+    if (!SpeechRec) {
+        updateVoiceUI();
+        return;
+    }
+
+    recognition = new SpeechRec();
+    recognition.lang = 'de-DE';
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onresult = (e) => {
+        const transcript = e.results[e.results.length - 1][0].transcript.trim();
+        if (!transcript) return;
+        const lower = transcript.toLowerCase();
+        const wakeMatch = lower.match(/\b(?:hey\s+)?(jarvis|jarvies|järvis|charvis|travis)\b/);
+        if (!wakeMatch) return;
+
+        const cmd = lower.slice(lower.indexOf(wakeMatch[0]) + wakeMatch[0].length)
+            .replace(/^[,.!?\s]+/, '').trim();
+
+        if (cmd.length > 0) {
+            processJarvisCommand(cmd);
+        } else {
+            setJarvisState('listening', 'Ja, Master Carlos?');
+            speakJarvis('Ja, Master Carlos?');
         }
+    };
 
-        // JARVIS VOICE OUTPUT (HIGH-QUALITY SYSTEM VOICE)
-        function speakJarvis(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'de-DE';
-            utterance.rate = 1.05;
-
-            let voices = window.speechSynthesis.getVoices();
-            let bestVoice = voices.find(v => v.lang.startsWith('de') && (v.name.includes('Google') || v.name.includes('Siri') || v.name.includes('Anna') || v.name.includes('Katja')));
-            if(!bestVoice) bestVoice = voices.find(v => v.lang.startsWith('de'));
-            if(bestVoice) utterance.voice = bestVoice;
-
-            window.speechSynthesis.speak(utterance);
+    recognition.onstart = () => {
+        if (state.isListening) setJarvisState('listening', 'Warte auf "Hey Jarvis"…');
+    };
+    // Aggressiver Restart-Loop: Browser killen das Mikro gern nach Stille
+    recognition.onend = () => scheduleRestart(150);
+    recognition.onerror = (e) => {
+        if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+            state.isListening = false;
+            updateVoiceUI();
+            showToast('🎙️ Mikrofonzugriff verweigert — Jarvis hört per Text weiter zu.');
+            return;
         }
+        scheduleRestart(e.error === 'network' ? 1500 : 300);
+    };
 
-        // WAKE WORD ("JARVIS")
-        let recognition;
-        function initJarvisVoice() {
-            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if(!SpeechRec) return;
+    startListening();
+}
 
-            recognition = new SpeechRec();
-            recognition.lang = 'de-DE';
-            recognition.continuous = true;
-            recognition.interimResults = false;
+function scheduleRestart(delay) {
+    if (!state.isListening || !recognition) return;
+    clearTimeout(restartTimer);
+    restartTimer = setTimeout(() => {
+        if (!state.isListening) return;
+        try { recognition.start(); } catch (err) { scheduleRestart(700); }
+    }, delay);
+}
 
-            recognition.onresult = (e) => {
-                const speech = e.results[e.results.length - 1][0].transcript.trim().toLowerCase();
-                const box = document.getElementById('jarvis-reply-box');
-                box.style.display = 'block';
-                box.innerHTML = `<strong>Erkannt:</strong> "${speech}"`;
+function startListening() {
+    if (!recognition) return;
+    state.isListening = true;
+    try { recognition.start(); } catch (e) {}
+    updateVoiceUI();
+    setJarvisState('listening', 'Warte auf "Hey Jarvis"…');
+}
+function stopListening() {
+    state.isListening = false;
+    clearTimeout(restartTimer);
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    updateVoiceUI();
+    setJarvisState('idle');
+}
+function toggleJarvisVoice() {
+    if (!state.recognitionSupported) {
+        showToast('Dein Browser unterstützt keine Spracherkennung — nutze die Befehlszeile.');
+        return;
+    }
+    state.isListening ? stopListening() : startListening();
+}
+function updateVoiceUI() {
+    const widget = $('jarvis-widget');
+    const label = $('jarvis-status-label');
+    const mic = $('mic-btn');
+    const active = state.isListening && state.recognitionSupported;
+    widget.classList.toggle('muted', !active);
+    label.textContent = active ? 'JARVIS AKTIV' : 'JARVIS STUMM';
+    mic.classList.toggle('rec', active);
+}
 
-                if(speech.includes('jarvis')) {
-                    let cmd = speech.replace('jarvis', '').trim();
-                    if(cmd.length > 0) processJarvisCommand(cmd);
-                    else speakJarvis("Ja, Master Carlos?");
-                }
-            };
+/* ==========================================================================
+   J.A.R.V.I.S. — COMMAND BRAIN
+   ========================================================================== */
+const NAV_INTENTS = [
+    { keys: ['news', 'nachrichten', 'artikel'], view: 'news', say: 'News Intelligence ist offen, Master Carlos.' },
+    { keys: ['börse', 'boerse', 'markt', 'market', 'aktien', 'terminal', 'chart'], view: 'market', say: 'Market Terminal läuft. Die Kurse warten.' },
+    { keys: ['vokabel', 'englisch', 'lingua', 'flashcard'], view: 'lingua', say: 'Lingua Lab geöffnet. Zeit für C2-Niveau.' },
+    { keys: ['academy', 'akademie', 'lernen', 'business', 'finanzen lernen'], view: 'academy', say: 'Business Academy geladen. Masterclass wartet.' },
+    { keys: ['einstellung', 'settings', 'api'], view: 'settings', say: 'System Settings, Master Carlos.' },
+    { keys: ['cockpit', 'home', 'mission control', 'start', 'übersicht', 'hauptmenü'], view: 'hq', say: 'Zurück in Mission Control.' }
+];
 
-            recognition.onend = () => {
-                if(state.isListening) {
-                    setTimeout(() => { try { recognition.start(); } catch(e){} }, 250);
-                }
-            };
+function runQuickCommand(cmd) { processJarvisCommand(cmd); }
 
-            try { recognition.start(); } catch(e) {}
+async function processJarvisCommand(rawCmd) {
+    const cmd = String(rawCmd || '').trim();
+    if (!cmd) return;
+    const lower = cmd.toLowerCase();
+    showJarvisReply(escapeHTML(cmd), 'Master Carlos');
+
+    // 1) Lokale Navigation — null Latenz
+    for (const intent of NAV_INTENTS) {
+        if (intent.keys.some(k => lower.includes(k)) && /öffne|zeig|geh|wechsel|gehe|mach.*auf|starte|open|^([\wäöü\s]{0,24})$/.test(lower)) {
+            switchView(intent.view);
+            typewriterReply(intent.say);
+            speakJarvis(intent.say);
+            return;
         }
+    }
 
-        function toggleJarvisVoice() {
-            state.isListening = !state.isListening;
-            const label = document.getElementById('jarvis-status-label');
-            if(state.isListening) {
-                try { recognition.start(); } catch(e){}
-                label.innerText = "Jarvis (Aktiv)";
-                label.style.color = "var(--accent-green)";
-                speakJarvis("Sprachüberwachung reaktiviert.");
-            } else {
-                try { recognition.stop(); } catch(e){}
-                label.innerText = "Jarvis (Stumm)";
-                label.style.color = "var(--accent-red)";
-                speakJarvis("Sprachüberwachung pausiert.");
-            }
+    // 2) Lokale System-Intents
+    if (/wie spät|uhrzeit|wieviel uhr|wie viel uhr/.test(lower)) {
+        const now = new Date();
+        const reply = `Es ist ${now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })} Uhr, Master Carlos.`;
+        typewriterReply(reply); speakJarvis(reply); return;
+    }
+    if (/welcher tag|datum|welches datum/.test(lower)) {
+        const reply = `Heute ist ${new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}.`;
+        typewriterReply(reply); speakJarvis(reply); return;
+    }
+    if (/sei still|stumm|mute|hör auf zu hören|mikrofon aus/.test(lower)) {
+        stopListening();
+        typewriterReply('Verstanden. Ich bin stumm — bis du mich wieder aktivierst.');
+        return;
+    }
+    if (/(analysiere|analyse)\s+([a-zäöüß0-9\s\.]{1,30})/.test(lower)) {
+        const m = lower.match(/(?:analysiere|analyse)\s+(?:die\s+aktie\s+|aktie\s+)?([a-zäöüß0-9\s\.]{1,30})/);
+        if (m && m[1]) {
+            const ticker = m[1].trim().toUpperCase();
+            switchView('market');
+            $('analyzer-ticker').value = ticker;
+            const reply = `Verstanden — ich jage ${ticker} durch den Blackstone-Analyzer.`;
+            typewriterReply(reply);
+            speakJarvis(reply, () => runBlackstoneAnalyzer());
+            return;
         }
-
-        async function processJarvisCommand(cmd) {
-            const box = document.getElementById('jarvis-reply-box');
-            const lower = cmd.toLowerCase();
-
-            if(lower.includes('news') || lower.includes('nachrichten')) {
-                switchView('news'); speakJarvis("Öffne News Intelligence."); box.style.display = 'none'; return;
-            }
-            if(lower.includes('börse') || lower.includes('aktien') || lower.includes('markt')) {
-                switchView('market'); speakJarvis("Lade Market Terminal."); box.style.display = 'none'; return;
-            }
-            if(lower.includes('vokabeln')) {
-                switchView('lingua'); speakJarvis("Lingua Lab geöffnet."); box.style.display = 'none'; return;
-            }
-            if(lower.includes('academy') || lower.includes('wirtschaft')) {
-                switchView('academy'); speakJarvis("Business Academy aktiv."); box.style.display = 'none'; return;
-            }
-
-            // Gemini API AI Brain
-            const key = localStorage.getItem('carlos_api_key');
-            if(!key) { speakJarvis("API Key fehlt in den Settings."); box.innerHTML = "API Key fehlt."; return; }
-
-            try {
-                box.innerHTML = `<strong>Frage:</strong> ${cmd}<br><span style="color:var(--accent-blue);">Jarvis denkt nach...</span>`;
-                const prompt = "Du bist J.A.R.V.I.S., der persönliche KI-Assistent von Master Carlos (16, Entwickler, Investor). Antworte auf Deutsch, präzise, locker und kompetent.";
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
-                    method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({contents: [{role: "user", parts: [{text: prompt + "\nFrage: " + cmd}]}]})
-                });
-                const d = await res.json();
-                const reply = d.candidates[0].content.parts[0].text;
-                box.innerHTML = `<strong>Jarvis:</strong> ${reply}`;
-                speakJarvis(reply);
-            } catch(e) {
-                speakJarvis("Verbindungsfehler zur API.");
-                box.innerHTML = "API Fehler.";
-            }
+    }
+    if (/briefing|zusammenfassung|nachrichtenlage|fasse.*news|fasse.*nachrichten/.test(lower)) {
+        const headlines = state.newsData.slice(0, 6).map(n => '- ' + (n.titel || n.title)).join('\n');
+        if (headlines) {
+            askGemini(`Hier sind die aktuellen Schlagzeilen aus meinem News-Feed:\n${headlines}\n\nGib mir ein prägnantes Lage-Briefing in 3 Sätzen: das Wichtigste zuerst, dann was es für Märkte und Tech bedeutet.`);
+            return;
         }
+    }
 
-// HQ STREAMS (MISSION CONTROL)
-        function renderHQStreams() {
-            if(!state.newsData.length) return;
-            
-            // Market Feed (Left)
-            const marketStream = document.getElementById('hq-market-stream');
-            marketStream.innerHTML = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:TSLA', 'NASDAQ:MSFT'].map(t => 
-                `<div class="stream-item" style="border-left-color:var(--accent-green);"><strong>${t}</strong> <span style="float:right; color:var(--accent-green);">Live Feed</span></div>`
-            ).join('');
+    // 3) Alles andere → Gemini Brain
+    askGemini(cmd);
+}
 
-            // News Summary (Right) - Focus on Wirtschaft, Tech, Politik
-            const newsStream = document.getElementById('hq-news-stream');
-            const topNews = state.newsData.filter(n => ['Wirtschaft', 'Technologie & Wissenschaft', 'Politik'].includes(n.hauptkategorie));
-            newsStream.innerHTML = topNews.slice(0, 5).map(n => 
-                `<div class="stream-item">
-                    <div style="font-size:10px; font-weight:700; color:var(--accent-blue); text-transform:uppercase; margin-bottom:2px;">${n.hauptkategorie}</div>
-                    <div style="font-size:12px; font-weight:600;">${n.titel}</div>
-                </div>`
-            ).join('');
+async function askGemini(prompt) {
+    const key = localStorage.getItem('carlos_api_key');
+    if (!key) {
+        const msg = 'Master Carlos, mir fehlt der Gemini API-Key. Hinterlege ihn in den Settings, dann bin ich voll einsatzfähig.';
+        typewriterReply(msg);
+        speakJarvis(msg);
+        switchView('settings');
+        return;
+    }
+    setJarvisState('thinking', 'Jarvis denkt nach…');
+    showJarvisReply('<span style="color:var(--blue); font-weight:700;">Denke nach…</span>');
+    try {
+        const reply = await callGemini(JARVIS_PERSONA + '\n\nMaster Carlos sagt: ' + prompt);
+        typewriterReply(reply);
+        speakJarvis(reply);
+    } catch (e) {
+        const msg = 'Die Gemini-Verbindung streikt gerade: ' + (e.message || 'Unbekannter Fehler') + '. Prüfe den API-Key in den Settings.';
+        typewriterReply(msg);
+        speakJarvis('Die API-Verbindung streikt gerade, Master Carlos.');
+        setJarvisState(state.isListening ? 'listening' : 'idle');
+    }
+}
+
+/* ---------------------------- Gemini Core ---------------------------- */
+async function callGemini(prompt, options = {}) {
+    const key = localStorage.getItem('carlos_api_key');
+    if (!key) throw new Error('Kein API-Key hinterlegt');
+    const body = {
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: {
+            temperature: options.temperature ?? 0.7,
+            maxOutputTokens: options.maxTokens ?? 2048
         }
+    };
+    if (options.json) body.generationConfig.responseMimeType = 'application/json';
 
-        // NEWS INTELLIGENCE & BOOKMARKS
-        function renderNewsCategories() {
-            const bar = document.getElementById('news-categories');
-            const cats = ['Alle', 'Wirtschaft', 'Technologie & Wissenschaft', 'Politik', 'Gespeichert'];
-            bar.innerHTML = cats.map(c => `<button class="chip ${state.activeCategory === c ? 'active' : ''}" onclick="setNewsCategory('${c}')">${c === 'Gespeichert' ? '★ Gespeichert (' + state.bookmarks.length + ')' : c}</button>`).join('');
-            renderSubSectors();
-        }
+    const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(key)}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
+    );
+    if (!res.ok) {
+        let detail = 'HTTP ' + res.status;
+        try { detail = (await res.json()).error?.message || detail; } catch (e) {}
+        throw new Error(detail);
+    }
+    const data = await res.json();
+    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join('') || '';
+    if (!text) throw new Error('Leere Antwort der API');
+    return text.trim();
+}
+function parseGeminiJSON(text) {
+    let cleaned = text.replace(/```json|```/g, '').trim();
+    const start = cleaned.indexOf('{');
+    const end = cleaned.lastIndexOf('}');
+    if (start !== -1 && end !== -1) cleaned = cleaned.slice(start, end + 1);
+    return JSON.parse(cleaned);
+}
 
-        function setNewsCategory(cat) {
-            state.activeCategory = cat;
-            state.activeSubSector = 'Alle';
-            renderNewsCategories();
-            renderNewsGrid();
-        }
+/* ==========================================================================
+   MISSION CONTROL — Panels
+   ========================================================================== */
+function renderHQMarketWidgets() {
+    const wrap = $('hq-market-widgets');
+    wrap.innerHTML = HQ_TICKERS.map((t, i) =>
+        `<div class="hq-tv-slot" id="hq-tv-${i}"></div>`).join('');
+    HQ_TICKERS.forEach((t, i) => {
+        mountTradingViewWidget($(`hq-tv-${i}`),
+            'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js',
+            { symbol: t, width: '100%', height: '100%', locale: 'de_DE', dateRange: '3M',
+              colorTheme: 'dark', isTransparent: true, autosize: true, chartOnly: false });
+    });
+}
 
-        function renderSubSektors() {
-            const subBar = document.getElementById('news-subsectors');
-            if(state.activeCategory === 'Alle' || state.activeCategory === 'Gespeichert') { subBar.innerHTML = ''; return; }
-            
-            const articles = state.newsData.filter(n => n.hauptkategorie === state.activeCategory);
-            const subs = ['Alle', ...new Set(articles.map(n => n.sub_sektor || 'Allgemein'))];
-            if(subs.length <= 1) { subBar.innerHTML = ''; return; }
+function renderHQNewsStream() {
+    const wrap = $('hq-news-stream');
+    if (!state.newsData.length) {
+        wrap.innerHTML = `<div class="stream-item" style="border-left-color: var(--text-muted); cursor:default;">
+            <div class="stream-title" style="color:var(--text-muted);">Kein News-Feed gefunden. Lege <b>nachrichten.json</b> ins Verzeichnis.</div></div>`;
+        return;
+    }
+    wrap.innerHTML = state.newsData.slice(0, 5).map((n, i) => `
+        <div class="stream-item" onclick="openArticleFromHQ(${i})">
+            <div class="stream-cat">${escapeHTML(n.hauptkategorie || n.kategorie || 'News')}</div>
+            <div class="stream-title">${escapeHTML(n.titel || n.title || '')}</div>
+            <div class="stream-meta">${escapeHTML(n.sub_sektor || '')} · ${estimateReadTime(n)}</div>
+        </div>`).join('');
+}
+function openArticleFromHQ(idx) {
+    const item = state.newsData[idx];
+    switchView('news');
+    if (item && (item.quelle || item.url || item.link)) window.open(item.quelle || item.url || item.link, '_blank');
+}
 
-            subBar.innerHTML = subs.map(s => `<button class="chip ${state.activeSubSector === s ? 'active' : ''}" onclick="setSubSector('${s}')">${s}</button>`).join('');
-        }
+function updateHQMetrics() {
+    $('metric-bookmarks').textContent = state.bookmarks.length;
+    $('metric-watchlist').textContent = state.watchlist.length;
+    const total = ACADEMY_LEVELS.length;
+    const done = state.academyProgress.completed.length;
+    $('metric-academy').textContent = Math.round((done / total) * 100) + '%';
+}
 
-        function setSubSector(sub) {
-            state.activeSubSector = sub;
-            renderSubSektors();
-            renderNewsGrid();
-        }
+function tickClocks() {
+    const now = new Date();
+    const time = now.toLocaleTimeString('de-DE');
+    $('nav-clock').textContent = time;
+    $('cockpit-clock').textContent = time + ' · ETTENHEIM · ONLINE';
+    const h = now.getHours();
+    const greeting = h < 5 ? 'Nachtschicht, Master Carlos?' :
+                     h < 11 ? 'Moin, Master Carlos.' :
+                     h < 18 ? 'Willkommen zurück, Master Carlos.' :
+                     'Guten Abend, Master Carlos.';
+    $('core-greeting').textContent = greeting;
+}
 
-        function renderNewsGrid() {
-            const grid = document.getElementById('news-grid-container');
-            let list = [];
+/* ==========================================================================
+   NEWS INTELLIGENCE
+   ========================================================================== */
+function getNewsCategories() {
+    const found = [...new Set(state.newsData.map(n => n.hauptkategorie || n.kategorie).filter(Boolean))];
+    return ['Alle', ...found, 'Gespeichert'];
+}
 
-            if(state.activeCategory === 'Gespeichert') {
-                list = state.bookmarks;
-            } else if(state.activeCategory === 'Alle') {
-                list = state.newsData;
-            } else {
-                list = state.newsData.filter(n => n.hauptkategorie === state.activeCategory);
-                if(state.activeSubSector !== 'Alle') {
-                    list = list.filter(n => (n.sub_sektor || 'Allgemein') === state.activeSubSector);
-                }
-            }
+function renderNewsCategories() {
+    const bar = $('news-categories');
+    bar.innerHTML = getNewsCategories().map(c => {
+        const label = c === 'Gespeichert' ? `★ Gespeichert (${state.bookmarks.length})` : c;
+        return `<button class="chip ${state.activeCategory === c ? 'active' : ''}"
+            onclick="setNewsCategory(${JSON.stringify(c).replace(/"/g, '&quot;')})">${escapeHTML(label)}</button>`;
+    }).join('');
+    renderSubSectors();
+}
+function setNewsCategory(cat) {
+    state.activeCategory = cat;
+    state.activeSubSector = 'Alle';
+    renderNewsCategories();
+    renderNewsGrid();
+}
+function renderSubSectors() {
+    const bar = $('news-subsectors');
+    if (state.activeCategory === 'Alle' || state.activeCategory === 'Gespeichert') { bar.innerHTML = ''; return; }
+    const articles = state.newsData.filter(n => (n.hauptkategorie || n.kategorie) === state.activeCategory);
+    const subs = [...new Set(articles.map(n => n.sub_sektor || 'Allgemein'))];
+    if (subs.length <= 1) { bar.innerHTML = ''; return; }
+    bar.innerHTML = ['Alle', ...subs].map(s =>
+        `<button class="chip ${state.activeSubSector === s ? 'active' : ''}" style="font-size:11.5px; padding:6px 13px;"
+            onclick="setSubSector(${JSON.stringify(s).replace(/"/g, '&quot;')})">${escapeHTML(s)}</button>`).join('');
+}
+function setSubSector(sub) {
+    state.activeSubSector = sub;
+    renderSubSectors();
+    renderNewsGrid();
+}
 
-            if(!list.length) {
-                grid.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1;">Keine Artikel gefunden.</p>`;
-                return;
-            }
+function renderNewsGrid() {
+    const grid = $('news-grid-container');
+    let list;
+    if (state.activeCategory === 'Gespeichert') list = state.bookmarks;
+    else if (state.activeCategory === 'Alle') list = state.newsData;
+    else list = state.newsData.filter(n => (n.hauptkategorie || n.kategorie) === state.activeCategory);
+    if (state.activeSubSector !== 'Alle' && state.activeCategory !== 'Gespeichert' && state.activeCategory !== 'Alle') {
+        list = list.filter(n => (n.sub_sektor || 'Allgemein') === state.activeSubSector);
+    }
+    state.renderedNewsList = list;
 
-            grid.innerHTML = list.map(item => {
-                const isBookmarked = state.bookmarks.some(b => b.titel === item.titel);
-                const safeItem = encodeURIComponent(JSON.stringify(item));
-                return `
-                <div class="bento-card">
-                    ${item.bild ? `<img src="${item.bild}" class="bento-img">` : ''}
-                    <div class="bento-content">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:11px; color:var(--accent-blue); font-weight:700; text-transform:uppercase;">${item.sub_sektor || 'News'}</span>
-                                <button class="chip" style="padding:4px 10px; font-size:14px;" onclick="toggleBookmark('${safeItem}', this)">${isBookmarked ? '★' : '☆'}</button>
-                            </div>
-                            <a href="${item.quelle}" target="_blank" style="color:inherit; text-decoration:none;"><h3 class="bento-title">${item.titel}</h3></a>
-                            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">${item.text || ''}</p>
-                        </div>
-                    </div>
-                </div>`;
-            }).join('');
-        }
+    if (!list.length) {
+        grid.innerHTML = `<div class="empty-state"><div class="big">${state.activeCategory === 'Gespeichert' ? '☆' : '📭'}</div>
+            ${state.activeCategory === 'Gespeichert'
+                ? 'Noch keine Lesezeichen. Markiere Artikel mit dem Stern.'
+                : 'Keine Artikel in dieser Auswahl gefunden.'}</div>`;
+        return;
+    }
 
-        function toggleBookmark(encoded, btn) {
-            const item = JSON.parse(decodeURIComponent(encoded));
-            const idx = state.bookmarks.findIndex(b => b.titel === item.titel);
-            if(idx > -1) {
-                state.bookmarks.splice(idx, 1);
-            } else {
-                state.bookmarks.push(item);
-            }
-            localStorage.setItem('carlos_bookmarks', JSON.stringify(state.bookmarks));
-            renderNewsCategories();
-            if(state.activeCategory === 'Gespeichert') renderNewsGrid();
-            else renderNewsGrid();
-        }
-
-        // MARKET & WATCHLIST
-        function setMarketSector(sec) {
-            state.marketSector = sec;
-            document.querySelectorAll('#market-sector-tabs .chip').forEach(c => c.classList.remove('active'));
-            event.target.classList.add('active');
-            renderMarketSectorGrid();
-        }
-
-        function renderMarketSectorGrid() {
-            const grid = document.getElementById('market-stock-grid');
-            let list = state.marketSector === 'watchlist' ? state.watchlist : sectors[state.marketSector];
-
-            grid.innerHTML = list.map(t => `
-                <div class="stock-pill">
-                    <div>
-                        <div style="font-weight:700; font-size:14px;">${t}</div>
-                        <div style="font-size:11px; color:var(--accent-green);">Live Feed</div>
-                    </div>
-                    ${state.marketSector === 'watchlist' ? `<button class="chip" style="padding:2px 8px; color:var(--accent-red);" onclick="removeWatchlist('${t}')">✕</button>` : ''}
+    grid.innerHTML = list.map((item, idx) => {
+        const bookmarked = state.bookmarks.some(b => articleKey(b) === articleKey(item));
+        const img = item.bild || item.image || item.img || '';
+        const url = item.quelle || item.url || item.link || '#';
+        const kicker = item.kicker || item.sub_sektor || item.hauptkategorie || 'News';
+        const summary = item.zusammenfassung || item.summary || item.beschreibung || '';
+        const featured = idx === 0 && state.activeCategory === 'Alle' && list.length > 2;
+        return `
+        <article class="bento-card ${featured ? 'featured' : ''}">
+            <div class="bento-media">
+                ${img
+                    ? `<img src="${escapeHTML(img)}" class="bento-img" loading="lazy" alt="" onerror="this.remove()">`
+                    : `<div class="bento-fallback">📰</div>`}
+                <button class="bookmark-btn ${bookmarked ? 'on' : ''}" onclick="toggleBookmark(${idx}, this)" title="Lesezeichen">
+                    ${bookmarked ? '★' : '☆'}
+                </button>
+            </div>
+            <div class="bento-content">
+                <div class="bento-kicker">${escapeHTML(kicker)}</div>
+                <a href="${escapeHTML(url)}" target="_blank" rel="noopener"><h3 class="bento-title">${escapeHTML(item.titel || item.title || 'Ohne Titel')}</h3></a>
+                ${summary ? `<p class="bento-summary">${escapeHTML(summary)}</p>` : ''}
+                <div class="bento-meta">
+                    <span>⏱ ${estimateReadTime(item)}</span>
+                    ${item.datum || item.date ? `<span class="sep"></span><span>${escapeHTML(item.datum || item.date)}</span>` : ''}
                 </div>
-            `).join('');
+            </div>
+        </article>`;
+    }).join('');
+}
+
+function toggleBookmark(renderIdx, btn) {
+    const item = state.renderedNewsList[renderIdx];
+    if (!item) return;
+    const key = articleKey(item);
+    const existing = state.bookmarks.findIndex(b => articleKey(b) === key);
+    if (existing > -1) {
+        state.bookmarks.splice(existing, 1);
+        showToast('☆ Lesezeichen entfernt');
+    } else {
+        state.bookmarks.push(item);
+        showToast('★ Artikel gespeichert');
+    }
+    saveLS('carlos_bookmarks', state.bookmarks);
+    renderNewsCategories();
+    renderNewsGrid();
+    updateHQMetrics();
+}
+
+/* ==========================================================================
+   MARKET TERMINAL
+   ========================================================================== */
+function mountTradingViewWidget(container, src, config) {
+    if (!container) return;
+    container.innerHTML = '';
+    const inner = document.createElement('div');
+    inner.className = 'tradingview-widget-container';
+    inner.style.cssText = 'width:100%;height:100%;';
+    const s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    s.innerHTML = JSON.stringify(config);
+    inner.appendChild(s);
+    container.appendChild(inner);
+}
+
+function setMarketSector(sector, el) {
+    state.marketSector = sector;
+    document.querySelectorAll('#market-sector-tabs .chip').forEach(c => c.classList.remove('active'));
+    if (el) el.classList.add('active');
+    renderMarketSectorGrid();
+}
+
+function renderMarketSectorGrid() {
+    const grid = $('market-stock-grid');
+    const isWL = state.marketSector === 'watchlist';
+    const list = isWL ? state.watchlist : SECTORS[state.marketSector] || [];
+
+    if (isWL && !list.length) {
+        grid.innerHTML = `<div class="empty-state" style="padding:34px;"><div class="big">📈</div>
+            Watchlist leer. Ticker oben eintippen und Enter drücken.</div>`;
+        return;
+    }
+    grid.innerHTML = list.map((t, i) => `
+        <div class="stock-card-box">
+            ${isWL ? `<button class="wl-remove" onclick="removeWatchlist('${escapeHTML(t)}')" title="Entfernen">✕</button>` : ''}
+            <div id="mkt-tv-${i}" style="width:100%;height:100%;"></div>
+        </div>`).join('');
+    list.forEach((t, i) => {
+        mountTradingViewWidget($(`mkt-tv-${i}`),
+            'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js',
+            { symbol: t, width: '100%', height: '100%', locale: 'de_DE', colorTheme: 'dark', isTransparent: true });
+    });
+}
+
+function addWatchlistStock(rawValue) {
+    let val = String(rawValue || '').toUpperCase().trim().replace(/[^A-Z0-9:.\-]/g, '');
+    if (!val) return;
+    if (!val.includes(':')) val = 'NASDAQ:' + val;
+    if (state.watchlist.includes(val)) { showToast(val + ' ist bereits in der Watchlist'); return; }
+    state.watchlist.push(val);
+    saveLS('carlos_portfolio', state.watchlist);
+    showToast('📈 ' + val + ' zur Watchlist hinzugefügt');
+    updateHQMetrics();
+    if (state.marketSector === 'watchlist') renderMarketSectorGrid();
+    else setMarketSector('watchlist', document.querySelector('#market-sector-tabs .chip[data-sector="watchlist"]'));
+}
+function removeWatchlist(ticker) {
+    state.watchlist = state.watchlist.filter(t => t !== ticker);
+    saveLS('carlos_portfolio', state.watchlist);
+    updateHQMetrics();
+    renderMarketSectorGrid();
+}
+
+function setupTradingViewChart() {
+    if (state.tvChartLoaded) return;
+    state.tvChartLoaded = true;
+    mountTradingViewWidget($('tv-chart'),
+        'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js',
+        { autosize: true, symbol: 'NASDAQ:IXIC', interval: 'D', theme: 'dark', style: '2',
+          hide_top_toolbar: false, hide_legend: false, allow_symbol_change: true, locale: 'de_DE' });
+}
+
+/* ---------------------------- Blackstone Analyzer ---------------------------- */
+async function runBlackstoneAnalyzer() {
+    const key = localStorage.getItem('carlos_api_key');
+    if (!key) {
+        showToast('⚠️ Erst den Gemini API-Key in den Settings hinterlegen.');
+        switchView('settings');
+        return;
+    }
+    const ticker = $('analyzer-ticker').value.trim();
+    if (!ticker) { showToast('Ticker eingeben, Master Carlos.'); return; }
+
+    const btn = $('analyzer-btn');
+    btn.disabled = true;
+    $('analyzer-results').style.display = 'block';
+    $('analyzer-headline').textContent = ticker.toUpperCase() + ' — Institutional Research';
+    const status = $('analyzer-status');
+    status.textContent = 'Blackstone AI Engine analysiert…';
+    status.style.color = 'var(--blue)';
+    const ids = ['a-p1', 'a-p2', 'a-p3', 'a-p4', 'a-p5'];
+    ids.forEach(id => { const el = $(id); el.classList.add('skeleton'); el.textContent = 'Analysiere Fundamentaldaten…'; });
+
+    const prompt =
+        `Du bist ein Senior Equity Research Analyst bei Blackstone. Analysiere das Unternehmen "${ticker}" ` +
+        `nach institutionellem Standard. Antworte AUSSCHLIESSLICH als valides JSON-Objekt mit exakt diesen Keys:\n` +
+        `{"bilanz": "...", "treiber": "...", "wettbewerb": "...", "management": "...", "fazit": "..."}\n` +
+        `Inhalte (jeweils 3-5 präzise Sätze, Deutsch, konkret und mit Zahlenlogik statt Allgemeinplätzen):\n` +
+        `- bilanz: Bilanzqualität, Verschuldung, Margen, Free-Cashflow-Profil\n` +
+        `- treiber: Die 2-3 wichtigsten strukturellen Wachstumstreiber\n` +
+        `- wettbewerb: Wettbewerbsposition, Moat, größte Bedrohung\n` +
+        `- management: Track Record des Managements und Kapitalallokation (Buybacks, M&A, R&D)\n` +
+        `- fazit: Makro-Einordnung, Bewertungseinschätzung und klares Fazit (Bull/Base/Bear in einem Satz)`;
+
+    try {
+        const raw = await callGemini(prompt, { json: true, temperature: 0.4, maxTokens: 2048 });
+        let parts;
+        try {
+            const obj = parseGeminiJSON(raw);
+            parts = [obj.bilanz, obj.treiber, obj.wettbewerb, obj.management, obj.fazit];
+        } catch (e) {
+            parts = raw.split('|||');
         }
+        ids.forEach((id, i) => {
+            const el = $(id);
+            el.classList.remove('skeleton');
+            el.textContent = (parts[i] || 'Keine Daten geliefert.').toString().replace(/\[.*?\]/g, '').trim();
+        });
+        status.textContent = '✓ Analyse abgeschlossen';
+        status.style.color = 'var(--green)';
+        speakJarvis(`Research zu ${ticker} steht, Master Carlos. Das Fazit findest du in Säule fünf.`);
+    } catch (e) {
+        ids.forEach(id => { const el = $(id); el.classList.remove('skeleton'); el.textContent = '—'; });
+        status.textContent = '✗ Fehler: ' + (e.message || 'API nicht erreichbar');
+        status.style.color = 'var(--red)';
+    } finally {
+        btn.disabled = false;
+    }
+}
 
-        function addWatchlistStock(e) {
-            if(e.key === 'Enter') {
-                const input = document.getElementById('add-stock-input');
-                let val = input.value.toUpperCase().trim();
-                if(val && !val.includes(':')) val = 'NASDAQ:' + val;
-                if(val && !state.watchlist.includes(val)) {
-                    state.watchlist.push(val);
-                    localStorage.setItem('carlos_portfolio', JSON.stringify(state.watchlist));
-                    if(state.marketSector === 'watchlist') renderMarketSectorGrid();
-                    input.value = '';
-                }
-            }
-        }
+/* ---------------------------- DCF Engine ---------------------------- */
+function initDCF() {
+    const sliders = ['dcf-growth', 'dcf-margin', 'dcf-wacc', 'dcf-tg'];
+    const inputs = ['dcf-revenue', 'dcf-shares', 'dcf-netdebt'];
+    sliders.forEach(id => $(id).addEventListener('input', computeDCF));
+    inputs.forEach(id => $(id).addEventListener('input', computeDCF));
+    computeDCF();
+}
+function computeDCF() {
+    const growth = parseFloat($('dcf-growth').value) / 100;
+    const margin = parseFloat($('dcf-margin').value) / 100;
+    const wacc = parseFloat($('dcf-wacc').value) / 100;
+    const tg = parseFloat($('dcf-tg').value) / 100;
+    const revenue = parseFloat($('dcf-revenue').value) || 0;
+    const shares = parseFloat($('dcf-shares').value) || 0;
+    const netDebt = parseFloat($('dcf-netdebt').value) || 0;
 
-        function removeWatchlist(t) {
-            state.watchlist = state.watchlist.filter(item => item !== t);
-            localStorage.setItem('carlos_portfolio', JSON.stringify(state.watchlist));
-            renderMarketSectorGrid();
-        }
+    $('dcf-growth-out').textContent = (growth * 100).toFixed(1).replace('.0', '') + '%';
+    $('dcf-margin-out').textContent = (margin * 100).toFixed(1).replace('.0', '') + '%';
+    $('dcf-wacc-out').textContent = (wacc * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
+    $('dcf-tg-out').textContent = (tg * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
+    // Slider-Füllstand für den Gradient
+    ['dcf-growth', 'dcf-margin', 'dcf-wacc', 'dcf-tg'].forEach(id => {
+        const s = $(id);
+        const pct = ((s.value - s.min) / (s.max - s.min)) * 100;
+        s.style.setProperty('--fill', pct + '%');
+    });
 
-        // BLACKSTONE EQUITY ANALYZER (ROBUST PARSING)
-        async function runBlackstoneAnalyzer() {
-            const key = localStorage.getItem('carlos_api_key');
-            if(!key) { alert("API Key in Settings fehlt!"); switchView('settings'); return; }
-            const ticker = document.getElementById('analyzer-ticker').value.toUpperCase().trim();
-            if(!ticker) return;
+    let ev = 0;
+    let rev = revenue;
+    // 5 Jahre explizite FCF-Prognose (Marge linear auf Zielmarge hochgefahren)
+    for (let y = 1; y <= 5; y++) {
+        rev *= (1 + growth);
+        const yearMargin = margin * (0.6 + 0.4 * (y / 5));
+        const fcf = rev * yearMargin;
+        ev += fcf / Math.pow(1 + wacc, y);
+    }
+    // Terminal Value (Gordon Growth)
+    if (wacc > tg) {
+        const terminalFCF = rev * margin * (1 + tg);
+        const tv = terminalFCF / (wacc - tg);
+        ev += tv / Math.pow(1 + wacc, 5);
+    }
+    const equity = ev - netDebt;
+    const perShare = shares > 0 ? equity / shares : 0;
 
-            document.getElementById('analyzer-results').style.display = 'block';
-            const status = document.getElementById('analyzer-status');
-            status.innerText = "Blackstone AI Engine analysiert...";
+    $('dcf-result-value').textContent = perShare > 0
+        ? '$' + perShare.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+        : '—';
+    $('dcf-result-sub').textContent =
+        `Enterprise Value: $${ev.toFixed(0)} Mrd. · Equity Value: $${equity.toFixed(0)} Mrd.`;
+}
 
-            ['a-p1','a-p2','a-p3','a-p4','a-p5'].forEach(id => {
-                document.getElementById(id).className = "skeleton";
-                document.getElementById(id).innerText = "Lade...";
-            });
+/* ---------------------------- Scratchpad ---------------------------- */
+function initScratchpad() {
+    const pad = $('scratchpad');
+    pad.value = localStorage.getItem('carlos_scratchpad') || '';
+    let timer = null;
+    pad.addEventListener('input', () => {
+        const st = $('scratchpad-status');
+        st.textContent = 'Speichere…';
+        st.classList.remove('saved');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            localStorage.setItem('carlos_scratchpad', pad.value);
+            st.textContent = '✓ Gespeichert';
+            st.classList.add('saved');
+        }, 500);
+    });
+}
 
-            const prompt = `Analysiere "${ticker}" im institutionellen Blackstone-Standard in exakt 5 Abschnitten, getrennt durch das Trennzeichen '|||':
-            [1. BILANZ & FINANZEN]
-            |||
-            [2. OPERATIVE TREIBER]
-            |||
-            [3. WETTBEWERBSVORTEIL]
-            |||
-            [4. MANAGEMENT & GOVERNANCE]
-            |||
-            [5. MAKRO & FAZIT]`;
+/* ==========================================================================
+   LINGUA LAB PRO
+   ========================================================================== */
+function setLinguaMode(mode, el) {
+    state.linguaMode = mode;
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    if (el) el.classList.add('active');
+    renderLinguaContent();
+}
 
-            try {
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
-                    method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({contents: [{role: "user", parts: [{text: prompt}]}]})
-                });
-                const d = await res.json();
-                const text = d.candidates[0].content.parts[0].text;
-                const parts = text.split('|||');
-
-                ['a-p1','a-p2','a-p3','a-p4','a-p5'].forEach((id, idx) => {
-                    const el = document.getElementById(id);
-                    el.className = "";
-                    el.style.color = "var(--text-muted)";
-                    el.innerText = parts[idx] ? parts[idx].replace(/\[.*?\]/g, '').trim() : "Keine Daten verfügbar.";
-                });
-                status.innerText = "Analyse erfolgreich abgeschlossen.";
-                status.style.color = "var(--accent-green)";
-            } catch(e) {
-                status.innerText = "Fehler bei der API-Abfrage.";
-                status.style.color = "var(--accent-red)";
-            }
-        }
-
-        // LINGUA LAB PRO & WRITING MASTERY
-        function setLinguaMode(mode, el) {
-            document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-            el.classList.add('active');
-            state.linguaMode = mode;
-            const area = document.getElementById('lingua-content-area');
-
-            if(mode === 'flashcards') {
-                area.innerHTML = `
-                    <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="flashcard-counter"></div>
-                    <div class="flashcard" onclick="flipCard()">
-                        <div class="word-en" id="fc-en"></div>
-                        <div class="word-de" id="fc-de"></div>
-                        <div class="word-ex" id="fc-ex"></div>
+function renderLinguaContent() {
+    const area = $('lingua-content-area');
+    if (!state.vocabData) {
+        area.innerHTML = `<div class="empty-state"><div class="big">⏳</div>Lade Vokabeldaten…</div>`;
+        return;
+    }
+    if (state.linguaMode === 'flashcards') {
+        area.classList.add('flashcard-stage');
+        const words = state.vocabData.words;
+        const item = words[state.vocabIndex] || words[0];
+        const progress = ((state.vocabIndex + 1) / words.length) * 100;
+        area.innerHTML = `
+            <div class="fc-progress"><div class="bar" style="width:${progress}%;"></div></div>
+            <div class="flashcard-scene">
+                <div class="flashcard ${state.vocabFlipped ? 'flipped' : ''}" id="flashcard" onclick="flipCard()">
+                    <div class="fc-face front">
+                        <div class="fc-tag">C2 Vocabulary</div>
+                        <div class="word-en">${escapeHTML(item.en)}</div>
+                        <div class="word-ex" style="opacity:0.55;">Klicken zum Aufdecken</div>
                     </div>
-                    <div style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button class="chip" onclick="prevCard()">← Zurück</button>
-                        <button class="chip active" onclick="nextCard()">Nächste →</button>
-                    </div>`;
-                updateFlashcard();
-            } else if(mode === 'mastery') {
-                area.innerHTML = `
-                    <div style="text-align: left; width: 100%; max-width: 800px; padding: 20px;">
-                        <h2 style="margin-bottom: 20px; color: var(--accent-blue);">Writing Mastery: Anti-Germanismen</h2>
-                        <div class="mastery-article">
-                            <h4>1. Vermeide wörtliche Übersetzungen (Falsche Freunde)</h4>
-                            <p>Deutsche Sätze oft 1:1 ins Englische zu übertragen wirkt unnatürlich.</p>
-                            <ul style="margin: 10px 0 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; list-style:none;">
-                                <li class="bad-example">❌ <em>We have to become better in the future.</em></li>
-                                <li class="good-example">✅ <em>We need to improve going forward.</em></li>
-                            </ul>
+                    <div class="fc-face back">
+                        <div class="fc-tag" style="color:var(--blue);">Deutsch</div>
+                        <div class="word-de">${escapeHTML(item.de)}</div>
+                        ${item.ex ? `<div class="word-ex">“${escapeHTML(item.ex)}”</div>` : ''}
+                    </div>
+                </div>
+            </div>
+            <div class="fc-controls">
+                <button class="chip" onclick="prevCard()">← Zurück</button>
+                <span class="fc-counter">${state.vocabIndex + 1} / ${words.length}</span>
+                <button class="chip active" onclick="nextCard()">Nächste →</button>
+            </div>`;
+    } else {
+        area.classList.remove('flashcard-stage');
+        const tips = state.vocabData.tips;
+        area.innerHTML = `
+            <div class="section-label"><span class="dot"></span>Writing Mastery — Wie klinge ich wie ein Muttersprachler?</div>
+            ${tips.map(t => `
+                <div class="mastery-block">
+                    <h4>${escapeHTML(t.titel)}</h4>
+                    ${t.erklaerung ? `<div class="m-desc">${escapeHTML(t.erklaerung)}</div>` : ''}
+                    ${t.falsch ? `<div class="mastery-ex bad">✗ <b>Germanismus:</b> ${escapeHTML(t.falsch)}</div>` : ''}
+                    ${t.richtig ? `<div class="mastery-ex good">✓ <b>Native:</b> ${escapeHTML(t.richtig)}</div>` : ''}
+                </div>`).join('')}`;
+    }
+}
+function flipCard() {
+    state.vocabFlipped = !state.vocabFlipped;
+    const card = $('flashcard');
+    if (card) card.classList.toggle('flipped', state.vocabFlipped);
+}
+function nextCard() {
+    if (!state.vocabData) return;
+    state.vocabFlipped = false;
+    state.vocabIndex = (state.vocabIndex + 1) % state.vocabData.words.length;
+    renderLinguaContent();
+}
+function prevCard() {
+    if (!state.vocabData) return;
+    state.vocabFlipped = false;
+    state.vocabIndex = (state.vocabIndex - 1 + state.vocabData.words.length) % state.vocabData.words.length;
+    renderLinguaContent();
+}
 
-                            <h4>2. Starke Verben statt Füllwörter</h4>
-                            <p>Verwende präzise Verben, um Sätze im Englischen kraftvoller zu machen.</p>
-                            <ul style="margin: 10px 0 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; list-style:none;">
-                                <li class="bad-example">❌ <em>The report was a big help to make a decision.</em></li>
-                                <li class="good-example">✅ <em>The report facilitated the decision-making process.</em></li>
-                            </ul>
+/* ==========================================================================
+   BUSINESS ECONOMY ACADEMY
+   ========================================================================== */
+const ACADEMY_LEVELS = [
+    {
+        id: 'L1',
+        title: 'Die Bilanz-Dreifaltigkeit & Free Cashflow',
+        sub: 'Fundament der Analyse',
+        content: `
+            <h3>Warum drei Berichte?</h3>
+            <p>Jedes börsennotierte Unternehmen erzählt seine Geschichte in drei Dokumenten — und nur wer alle drei <strong>gleichzeitig</strong> liest, sieht die Wahrheit. Einzeln betrachtet lügt jeder Bericht auf seine eigene Art.</p>
+            <ul>
+                <li><strong>Income Statement (GuV):</strong> Zeigt Umsatz, Kosten und Gewinn über einen Zeitraum. Achtung: Der "Gewinn" ist eine buchhalterische Meinung — beeinflussbar durch Abschreibungsmethoden, Rückstellungen und Einmaleffekte.</li>
+                <li><strong>Balance Sheet (Bilanz):</strong> Eine Momentaufnahme. Links das Vermögen (Assets), rechts die Finanzierung (Liabilities + Equity). Beide Seiten sind <strong>immer</strong> identisch — daher "Bilanz". Hier siehst du Verschuldung, Goodwill-Risiken und Liquidität.</li>
+                <li><strong>Cashflow Statement:</strong> Der Lügendetektor. Es zeigt, wie viel echtes Geld in der Periode wirklich geflossen ist — aufgeteilt in Operating, Investing und Financing.</li>
+            </ul>
+            <h3>Der König: Free Cashflow</h3>
+            <p>Profis bewerten Unternehmen fast nie über den Buchgewinn, sondern über den <strong>Free Cashflow (FCF)</strong> — das Bargeld, das nach allen operativen Kosten und Investitionen (CapEx) übrig bleibt und an Aktionäre fließen kann.</p>
+            <div class="formula">FCF = Operativer Cashflow − Capital Expenditures (CapEx)</div>
+            <p>Warum ist das entscheidend? Ein Unternehmen kann jahrelang Buchgewinne ausweisen und trotzdem pleitegehen, wenn kein Cash fließt (Stichwort: Wirecard). Umgekehrt können Firmen wie Amazon jahrelang minimale Gewinne zeigen, während der operative Cashflow explodiert — weil sie aggressiv reinvestieren.</p>
+            <div class="callout"><strong>Merksatz der Wall Street:</strong> "Revenue is vanity, profit is sanity, but cash is king." Der Aktienwert ist mathematisch nichts anderes als die Summe aller zukünftigen Free Cashflows, abgezinst auf heute.</div>`,
+        quiz: [
+            { q: 'Warum gilt das Cashflow Statement als "Lügendetektor" der Bilanzanalyse?', options: ['Weil es von Wirtschaftsprüfern doppelt geprüft wird', 'Weil es reale Geldflüsse zeigt, die kaum durch Buchhaltungsentscheidungen verzerrbar sind', 'Weil es den Aktienkurs direkt vorhersagt', 'Weil es die Schulden des Unternehmens auflistet'], correct: 1, why: 'Buchgewinne sind durch Abschreibungen, Rückstellungen etc. gestaltbar — echte Zahlungsströme dagegen kaum.' },
+            { q: 'Wie berechnet sich der Free Cashflow?', options: ['Umsatz minus alle Kosten', 'Nettogewinn plus Dividenden', 'Operativer Cashflow minus CapEx', 'EBITDA minus Steuern'], correct: 2, why: 'FCF = operativer Cashflow abzüglich der Investitionen (CapEx). Das ist das frei verfügbare Bargeld.' },
+            { q: 'Ein Unternehmen zeigt hohe Buchgewinne, aber der operative Cashflow ist seit Jahren negativ. Was ist die professionelle Schlussfolgerung?', options: ['Kaufen — der Gewinn zählt', 'Rotes Warnsignal: Die Gewinnqualität ist fragwürdig, tiefer graben', 'Egal, solange die Dividende stimmt', 'Das ist bei allen Wachstumsfirmen normal und harmlos'], correct: 1, why: 'Dauerhaft auseinanderlaufende Gewinne und Cashflows sind ein klassisches Warnsignal für aggressive Bilanzierung — siehe Wirecard.' }
+        ]
+    },
+    {
+        id: 'L2',
+        title: 'Bewertung: Multiples & DCF',
+        sub: 'Was ist eine Aktie wert?',
+        content: `
+            <h3>Zwei Denkschulen der Bewertung</h3>
+            <p>Institutionelle Investoren bewerten auf zwei Wegen: <strong>relativ</strong> (Multiples — was zahlt der Markt für vergleichbare Firmen?) und <strong>absolut</strong> (DCF — was sind die zukünftigen Cashflows heute wert?).</p>
+            <h3>Multiples richtig lesen</h3>
+            <ul>
+                <li><strong>KGV (P/E):</strong> Preis pro Aktie ÷ Gewinn pro Aktie. Schnell, aber gefährlich: Es ignoriert Verschuldung und Cash-Qualität.</li>
+                <li><strong>EV/EBITDA:</strong> Der Profi-Standard. Enterprise Value (Marktkapitalisierung + Nettoschulden) ÷ operatives Ergebnis. Macht Firmen mit unterschiedlicher Verschuldung vergleichbar.</li>
+                <li><strong>P/FCF:</strong> Marktkapitalisierung ÷ Free Cashflow. Die ehrlichste Kennzahl, weil sie direkt am Cash hängt.</li>
+            </ul>
+            <div class="callout">Ein "niedriges" Multiple ist nicht automatisch billig: Ein KGV von 8 bei einem sterbenden Geschäftsmodell ist teurer als ein KGV von 30 bei 25% Wachstum p.a. — Kontext schlägt Kennzahl.</div>
+            <h3>Das DCF-Modell</h3>
+            <p>Das Discounted-Cashflow-Modell ist der theoretische Goldstandard: Du prognostizierst die Free Cashflows der nächsten ~5 Jahre, addierst einen <strong>Terminal Value</strong> für alles danach und zinst alles mit dem <strong>WACC</strong> (gewichtete Kapitalkosten) auf heute ab.</p>
+            <div class="formula">Fair Value = Σ FCFₜ / (1+WACC)ᵗ + TV / (1+WACC)⁵</div>
+            <p>Der WACC ist deine geforderte Rendite: Je riskanter das Unternehmen, desto höher der Diskontsatz — und desto weniger sind zukünftige Cashflows heute wert. Deshalb crashen Wachstumsaktien, wenn die Zinsen steigen: Der Diskontsatz frisst den Barwert ihrer fernen Gewinne.</p>
+            <div class="callout green"><strong>Praxis-Hack:</strong> Spiel im Market Terminal mit dem DCF-Rechner. Du wirst sehen: Kleine Änderungen bei WACC und Terminal Growth bewegen den fairen Wert massiv — deshalb sind DCF-Modelle Szenario-Werkzeuge, keine Präzisionsinstrumente.</div>`,
+        quiz: [
+            { q: 'Warum bevorzugen Profis EV/EBITDA gegenüber dem KGV?', options: ['Es ist einfacher zu berechnen', 'Es berücksichtigt die Verschuldung und macht Firmen kapitalstrukturneutral vergleichbar', 'Es ist immer niedriger als das KGV', 'Banken schreiben es vor'], correct: 1, why: 'Der Enterprise Value enthält die Nettoschulden — so werden hoch und niedrig verschuldete Firmen fair vergleichbar.' },
+            { q: 'Die Zinsen steigen stark. Was passiert im DCF-Modell mit dem fairen Wert von Wachstumsaktien?', options: ['Er steigt, weil Wachstum wertvoller wird', 'Er bleibt gleich — Zinsen sind irrelevant', 'Er fällt, weil der höhere Diskontsatz ferne Cashflows stärker entwertet', 'Er verdoppelt sich'], correct: 2, why: 'Wachstumsaktien beziehen ihren Wert aus fernen Cashflows — genau die werden durch einen höheren WACC am stärksten abgezinst.' },
+            { q: 'Ein Unternehmen hat ein KGV von 8. Welche Aussage ist professionell korrekt?', options: ['Sofort kaufen — objektiv billig', 'Ohne Kontext (Wachstum, Cash-Qualität, Risiken) ist das Multiple allein bedeutungslos', 'KGV 8 bedeutet 8% Rendite pro Jahr garantiert', 'Das Unternehmen ist überbewertet'], correct: 1, why: 'Multiples sind nur im Kontext von Wachstum, Qualität und Risiko interpretierbar — ein niedriges Multiple kann eine Value Trap sein.' }
+        ]
+    },
+    {
+        id: 'L3',
+        title: 'Moats & Kapitalallokation',
+        sub: 'Was Compounder ausmacht',
+        content: `
+            <h3>Der Economic Moat</h3>
+            <p>Warren Buffetts wichtigstes Konzept: Ein <strong>Moat</strong> (Burggraben) ist ein struktureller Wettbewerbsvorteil, der hohe Kapitalrenditen über Jahrzehnte verteidigt. Ohne Moat werden Übergewinne von der Konkurrenz wegkonkurriert — mit Moat compoundet das Kapital.</p>
+            <ul>
+                <li><strong>Netzwerkeffekte:</strong> Jeder neue Nutzer macht das Produkt wertvoller (Visa, Meta, Airbnb).</li>
+                <li><strong>Switching Costs:</strong> Wechsel ist teuer oder riskant (SAP, Microsoft 365, Bloomberg-Terminals).</li>
+                <li><strong>Skalenvorteile:</strong> Der Größte produziert am billigsten (TSMC, Amazon Logistik, Costco).</li>
+                <li><strong>Immaterielle Assets:</strong> Marken, Patente, Lizenzen (LVMH, Novo Nordisk, Coca-Cola).</li>
+            </ul>
+            <p>Messbar wird der Moat am <strong>ROIC</strong> (Return on Invested Capital): Liegt er dauerhaft deutlich über den Kapitalkosten (WACC), existiert ein echter Burggraben.</p>
+            <div class="formula">Wertschöpfung ⟺ ROIC &gt; WACC (dauerhaft)</div>
+            <h3>Kapitalallokation — der unterschätzte Hebel</h3>
+            <p>Das Management entscheidet jedes Jahr, wohin der Free Cashflow fließt. Diese Entscheidung trennt Compounder von Kapitalvernichtern:</p>
+            <ul>
+                <li><strong>Reinvestition ins Kerngeschäft:</strong> Genial bei hohem ROIC, Verschwendung bei niedrigem.</li>
+                <li><strong>Aktienrückkäufe:</strong> Wertschaffend nur unterhalb des inneren Werts — sonst Kapitalvernichtung auf Autopilot.</li>
+                <li><strong>M&A:</strong> Statistisch zerstören die meisten Übernahmen Wert ("Winner's Curse"). Skepsis ist Pflicht.</li>
+                <li><strong>Dividenden:</strong> Ehrlich, aber steuerlich ineffizient — sinnvoll, wenn dem Management die besseren Ideen ausgehen.</li>
+            </ul>
+            <div class="callout"><strong>Die Königsfrage an jedes Investment:</strong> Kann dieses Unternehmen große Mengen Kapital über lange Zeit zu hohen Renditen reinvestieren? Wenn ja, hast du einen Compounder — und Zeit wird dein bester Freund.</div>`,
+        quiz: [
+            { q: 'Woran erkennt man quantitativ einen echten Economic Moat?', options: ['Am bekannten Markennamen', 'ROIC liegt dauerhaft deutlich über dem WACC', 'Am hohen Umsatzwachstum im letzten Quartal', 'An einer hohen Dividendenrendite'], correct: 1, why: 'Nur wer dauerhaft mehr auf sein Kapital verdient als es kostet, verteidigt Übergewinne — das ist die messbare Definition eines Moats.' },
+            { q: 'Wann schaffen Aktienrückkäufe Wert für die verbleibenden Aktionäre?', options: ['Immer — weniger Aktien heißt automatisch mehr Wert', 'Nur wenn die Aktie unter ihrem inneren Wert gekauft wird', 'Nur in Bullenmärkten', 'Wenn der Vorstand Boni erhält'], correct: 1, why: 'Rückkäufe über dem inneren Wert transferieren Vermögen von bleibenden zu verkaufenden Aktionären — Kapitalvernichtung.' },
+            { q: 'Welcher Moat schützt Microsoft 365 und SAP am stärksten?', options: ['Netzwerkeffekte', 'Markenimage', 'Hohe Switching Costs — Wechsel ist teuer, riskant und aufwendig', 'Patente'], correct: 2, why: 'Unternehmenssoftware ist tief in Prozesse integriert — Migration kostet Geld, Zeit und Nerven. Das bindet Kunden über Jahrzehnte.' }
+        ]
+    }
+];
 
-                            <h4>3. Das 'So What?'-Prinzip für Einleitungen</h4>
-                            <p>Setze die Kernaussage im geschäftlichen oder akademischen Englisch immer an den Anfang.</p>
-                        </div>
-                    </div>`;
-            }
+function isLevelUnlocked(idx) {
+    if (idx === 0) return true;
+    return state.academyProgress.completed.includes(ACADEMY_LEVELS[idx - 1].id);
+}
+function isLevelDone(idx) {
+    return state.academyProgress.completed.includes(ACADEMY_LEVELS[idx].id);
+}
+
+function renderAcademyPath() {
+    $('academy-path').innerHTML = ACADEMY_LEVELS.map((lvl, i) => {
+        const unlocked = isLevelUnlocked(i);
+        const done = isLevelDone(i);
+        return `
+        <div class="level-node ${i === state.academyLevel ? 'active' : ''} ${!unlocked ? 'locked' : ''} ${done ? 'done' : ''}"
+             onclick="${unlocked ? `openAcademyLevel(${i})` : `showToast('🔒 Erst Level ${i} abschließen, Master Carlos.')`}">
+            <div class="ln-badge">${done ? '✓' : (unlocked ? i + 1 : '🔒')}</div>
+            <div>
+                <div class="ln-title">${escapeHTML(lvl.title)}</div>
+                <div class="ln-sub">Level ${i + 1} · ${escapeHTML(lvl.sub)}${done ? ' · Abgeschlossen' : ''}</div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function openAcademyLevel(idx) {
+    state.academyLevel = idx;
+    state.quiz = { index: 0, results: [] };
+    renderAcademyPath();
+    renderAcademyContent();
+}
+
+function renderAcademyContent() {
+    const lvl = ACADEMY_LEVELS[state.academyLevel];
+    $('academy-content').innerHTML = `
+        <span class="view-kicker" style="margin-bottom:0;">Level ${state.academyLevel + 1} · Masterclass Input</span>
+        <h2>${escapeHTML(lvl.title)}</h2>
+        <div class="academy-prose">${lvl.content}</div>
+        <div class="checkpoint" id="academy-checkpoint">
+            <div class="checkpoint-badge">⚡ Checkpoint · Wissens-Check</div>
+            <div id="quiz-area"></div>
+        </div>`;
+    renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+    const lvl = ACADEMY_LEVELS[state.academyLevel];
+    const quiz = state.quiz;
+    const area = $('quiz-area');
+
+    if (quiz.index >= lvl.quiz.length) {
+        const score = quiz.results.filter(Boolean).length;
+        const passed = score === lvl.quiz.length;
+        if (passed && !isLevelDone(state.academyLevel)) {
+            state.academyProgress.completed.push(lvl.id);
+            saveLS('carlos_academy', state.academyProgress);
+            updateHQMetrics();
+            speakJarvis(`Level ${state.academyLevel + 1} gemeistert, Master Carlos. Sauber.`);
         }
+        renderAcademyPath();
+        const hasNext = state.academyLevel < ACADEMY_LEVELS.length - 1;
+        area.innerHTML = `
+            <div style="text-align:center; padding: 24px 10px;">
+                <div style="font-size: 44px; margin-bottom: 14px;">${passed ? '🏆' : '📉'}</div>
+                <div style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">
+                    ${passed ? 'Checkpoint bestanden!' : 'Noch nicht ganz.'}
+                </div>
+                <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 22px;">
+                    ${score} von ${lvl.quiz.length} korrekt. ${passed
+                        ? (hasNext ? 'Das nächste Level ist freigeschaltet.' : 'Du hast die komplette Academy gemeistert, Master Carlos.')
+                        : 'Für die Freischaltung brauchst du alle Fragen korrekt — der Stoff steht oben.'}
+                </div>
+                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                    ${!passed ? `<button class="btn-primary" onclick="retryQuiz()">Nochmal versuchen</button>` : ''}
+                    ${passed && hasNext ? `<button class="btn-primary" onclick="openAcademyLevel(${state.academyLevel + 1})">Weiter zu Level ${state.academyLevel + 2} →</button>` : ''}
+                    <button class="btn-ghost" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Stoff nochmal lesen</button>
+                </div>
+            </div>`;
+        return;
+    }
 
-        function updateFlashcard() {
-            if(!state.vocabData || state.linguaMode !== 'flashcards') return;
-            const words = state.vocabData.core_words;
-            const item = words[state.vocabIndex];
-            document.getElementById('flashcard-counter').innerText = `Vokabel ${state.vocabIndex + 1} von ${words.length}`;
-            document.getElementById('fc-en').innerText = item.en;
-            
-            const de = document.getElementById('fc-de');
-            const ex = document.getElementById('fc-ex');
-            if(state.vocabFlipped) {
-                de.style.display = 'block'; de.innerText = item.de;
-                ex.style.display = 'block'; ex.innerText = `"${item.ex}"`;
-            } else {
-                de.style.display = 'none';
-                ex.style.display = 'block'; ex.innerText = "Klicken zum Aufdecken";
-            }
-        }
-        function flipCard() { state.vocabFlipped = !state.vocabFlipped; updateFlashcard(); }
-        function nextCard() { if(!state.vocabData) return; state.vocabFlipped = false; state.vocabIndex = (state.vocabIndex + 1) % state.vocabData.core_words.length; updateFlashcard(); }
-        function prevCard() { if(!state.vocabData) return; state.vocabFlipped = false; state.vocabIndex = (state.vocabIndex - 1 + state.vocabData.core_words.length) % state.vocabData.core_words.length; updateFlashcard(); }
+    const q = lvl.quiz[quiz.index];
+    const keys = ['A', 'B', 'C', 'D'];
+    area.innerHTML = `
+        <div class="quiz-progress-dots">
+            ${lvl.quiz.map((_, i) => `<div class="qd ${i < quiz.index ? (quiz.results[i] ? 'hit' : 'miss') : (i === quiz.index ? 'now' : '')}"></div>`).join('')}
+        </div>
+        <div class="quiz-q">Frage ${quiz.index + 1}/${lvl.quiz.length}: ${escapeHTML(q.q)}</div>
+        <div id="quiz-options">
+            ${q.options.map((opt, i) => `
+                <button class="quiz-option" data-idx="${i}" onclick="answerQuiz(${i})">
+                    <span class="opt-key">${keys[i]}</span><span>${escapeHTML(opt)}</span>
+                </button>`).join('')}
+        </div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>`;
+}
 
-        // ACADEMY QUIZ
-        function checkAcademy(correct) {
-            const fb = document.getElementById('academy-feedback');
-            if(correct) {
-                fb.style.color = "var(--accent-green)";
-                fb.innerText = "Korrekt! Der Free Cashflow ist die entscheidende Kennzahl.";
-            } else {
-                fb.style.color = "var(--accent-red)";
-                fb.innerText = "Falsch. Der Buchgewinn unterscheidet sich vom realen Cashflow.";
-            }
-        }
+function answerQuiz(chosen) {
+    const lvl = ACADEMY_LEVELS[state.academyLevel];
+    const q = lvl.quiz[state.quiz.index];
+    const correct = chosen === q.correct;
+    state.quiz.results.push(correct);
 
-        // TRADING VIEW EMBED
-        function setupTradingView() {
-            const c = document.getElementById('tv-chart');
-            const s = document.createElement('script');
-            s.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-            s.async = true;
-            s.innerHTML = JSON.stringify({"autosize": true, "symbol": "NASDAQ:IXIC", "interval": "D", "theme": "dark", "style": "2", "hide_top_toolbar": true, "locale": "de_DE"});
-            c.appendChild(s);
+    document.querySelectorAll('#quiz-options .quiz-option').forEach(btn => {
+        btn.disabled = true;
+        const i = parseInt(btn.dataset.idx, 10);
+        if (i === q.correct) btn.classList.add('correct');
+        else if (i === chosen) btn.classList.add('wrong');
+    });
+    const fb = $('quiz-feedback');
+    fb.className = 'quiz-feedback visible ' + (correct ? 'ok' : 'nope');
+    fb.innerHTML = `<strong>${correct ? '✓ Korrekt.' : '✗ Daneben.'}</strong> ${escapeHTML(q.why)}`;
+
+    setTimeout(() => {
+        state.quiz.index++;
+        renderQuizQuestion();
+    }, correct ? 1400 : 2600);
+}
+function retryQuiz() {
+    state.quiz = { index: 0, results: [] };
+    renderQuizQuestion();
+    $('academy-checkpoint').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ==========================================================================
+   SETTINGS
+   ========================================================================== */
+function saveApiKey() {
+    const val = $('api-key-input').value.trim();
+    if (val) {
+        localStorage.setItem('carlos_api_key', val);
+        showToast('🔐 API-Key gespeichert — Jarvis ist voll einsatzfähig.');
+        speakJarvis('API-Schlüssel gespeichert, Master Carlos. Volle Rechenleistung verfügbar.');
+    } else {
+        localStorage.removeItem('carlos_api_key');
+        showToast('API-Key entfernt.');
+    }
+    updateApiKeyStatus();
+}
+function updateApiKeyStatus() {
+    const has = !!localStorage.getItem('carlos_api_key');
+    const el = $('api-key-status');
+    el.className = 'status-pill ' + (has ? 'ok' : 'warn');
+    el.textContent = has ? 'Key hinterlegt · Unlimitierter Modus' : 'Kein Key hinterlegt';
+}
+function resetLocalData() {
+    if (!confirm('Wirklich alle lokalen Daten (Bookmarks, Watchlist, Fortschritt, Notizen) löschen? Der API-Key bleibt erhalten.')) return;
+    ['carlos_bookmarks', 'carlos_portfolio', 'carlos_academy', 'carlos_scratchpad'].forEach(k => localStorage.removeItem(k));
+    location.reload();
+}
+
+/* ==========================================================================
+   INIT
+   ========================================================================== */
+window.addEventListener('load', async () => {
+    runBootSequence();
+    initGlobe();
+    tickClocks();
+    setInterval(tickClocks, 1000);
+
+    // Settings
+    const savedKey = localStorage.getItem('carlos_api_key');
+    if (savedKey) $('api-key-input').value = savedKey;
+    updateApiKeyStatus();
+
+    // Voices (async in den meisten Browsern)
+    refreshVoice();
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = refreshVoice;
+    }
+
+    // Module
+    renderHQMarketWidgets();
+    renderAcademyPath();
+    openAcademyLevel(state.academyLevel);
+    initDCF();
+    initScratchpad();
+    updateHQMetrics();
+
+    // Command Bar
+    $('command-input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const val = e.target.value.trim();
+            if (val) { processJarvisCommand(val); e.target.value = ''; }
         }
-    </script>
+    });
+    $('add-stock-input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { addWatchlistStock(e.target.value); e.target.value = ''; }
+    });
+    $('analyzer-ticker').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') runBlackstoneAnalyzer();
+    });
+    // Global: "/" fokussiert die Befehlszeile
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+            e.preventDefault();
+            switchView('hq');
+            $('command-input').focus();
+        }
+    });
+
+    // Daten + Stimme
+    await loadData();
+    initJarvisVoice();
+
+    setTimeout(() => {
+        speakJarvis('Moin, Master Carlos. Alle Systeme online — Headquarter steht bereit.');
+    }, 1400);
+});
+</script>
 </body>
 </html>
