@@ -1480,19 +1480,41 @@ async function loadData() {
             fetch('nachrichten.json').then(r => r.ok ? r.json() : []),
             fetch('vokabeln.json').then(r => r.ok ? r.json() : [])
         ]);
-        STATE.news = newsRes.status === 'fulfilled' ? (Array.isArray(newsRes.value) ? newsRes.value : []) : [];
+        let rawNews = newsRes.status === 'fulfilled' ? newsRes.value : [];
+        // Support both [{...}] and {articles:[{...}]} formats
+        if (rawNews && !Array.isArray(rawNews)) {
+            rawNews = rawNews.articles || rawNews.data || rawNews.items || rawNews.nachrichten || [];
+        }
+        // Normalize every article to consistent field names
+        STATE.news = (Array.isArray(rawNews) ? rawNews : []).map(normalizeArticle);
         STATE.vocabs = vocabRes.status === 'fulfilled' ? (Array.isArray(vocabRes.value) ? vocabRes.value : []) : [];
     } catch (e) {
         console.warn('Daten-Laden fehlgeschlagen:', e);
         STATE.news = [];
         STATE.vocabs = [];
     }
+    console.log(`[HQ] ${STATE.news.length} Nachrichten geladen, ${STATE.vocabs.length} Vokabeln geladen`);
     renderNewsCategories();
     renderNews();
     renderHqSidePanels();
     renderFlashcard();
     renderAcademyPath();
     updateMetrics();
+}
+
+// Normalize article keys — supports German scrapers, RSS feeds, NewsAPI, etc.
+function normalizeArticle(a) {
+    return {
+        title:    a.title || a.titel || a.headline || a.überschrift || a.name || '',
+        url:      a.url || a.link || a.href || a.article_url || a.artikel_url || '',
+        image:    a.image || a.image_url || a.bild || a.bild_url || a.urlToImage || a.img || a.thumbnail || a.media || a.foto || '',
+        source:   a.source || a.quelle || a.publisher || a.verlag || a.medium || a.autor || a.author || '',
+        category: a.category || a.kategorie || a.ressort || a.rubrik || a.section || a.thema || a.topic || '',
+        subsector:a.subsector || a.unterkategorie || a.sub_category || a.sub_kategorie || a.tag || '',
+        summary:  a.summary || a.zusammenfassung || a.description || a.beschreibung || a.teaser || a.abstract || a.snippet || a.content || a.inhalt || a.text || '',
+        date:     a.date || a.datum || a.published || a.published_at || a.publishedAt || a.zeit || a.timestamp || a.time || a.created_at || '',
+        _raw: a  // keep original for debugging
+    };
 }
 
 // ==================== NEWS RENDERING ====================
@@ -1511,7 +1533,10 @@ function truncateSummary(text, level) {
 
 function renderNewsCategories() {
     const cats = new Set(['alle']);
-    STATE.news.forEach(a => { if (a.category) cats.add(a.category); });
+    STATE.news.forEach(a => {
+        const cat = a.category;
+        if (cat && cat.trim()) cats.add(cat.trim());
+    });
     const container = document.getElementById('news-categories');
     if (!container) return;
     container.innerHTML = '';
@@ -1538,7 +1563,7 @@ function renderNewsSubsectors() {
     if (STATE.newsCategory === 'alle') return;
     const subs = new Set();
     STATE.news.forEach(a => {
-        if (a.category === STATE.newsCategory && a.subsector) subs.add(a.subsector);
+        if (a.category === STATE.newsCategory && a.subsector && a.subsector.trim()) subs.add(a.subsector.trim());
     });
     if (subs.size === 0) return;
     subs.forEach(s => {
@@ -1570,7 +1595,8 @@ function getFilteredNews() {
         articles = articles.filter(a =>
             (a.title || '').toLowerCase().includes(q) ||
             (a.summary || '').toLowerCase().includes(q) ||
-            (a.source || '').toLowerCase().includes(q)
+            (a.source || '').toLowerCase().includes(q) ||
+            (a.category || '').toLowerCase().includes(q)
         );
     }
     if (STATE.newsSort === 'oldest') articles.reverse();
@@ -1591,18 +1617,22 @@ function renderNews() {
 
     const clamp = getSummaryClamp();
     grid.innerHTML = articles.map((a, i) => {
-        const id = a.url || a.title || i;
+        const id = a.url || a.title || String(i);
         const isBookmarked = STATE.bookmarks.has(id);
         const featured = i === 0 && STATE.newsCategory === 'alle' && !STATE.newsSearch ? ' featured' : '';
-        const summary = truncateSummary(a.summary || a.description || '', STATE.settings.summaryLength);
+        const summary = truncateSummary(a.summary, STATE.settings.summaryLength);
         const readingTime = a.summary ? Math.max(1, Math.ceil((a.summary.split(/\s+/).length) / 200)) : 1;
-        const source = a.source || 'Unbekannt';
+        const source = a.source || '';
         const date = a.date ? formatDate(a.date) : '';
-        const img = a.image_url || a.image || a.urlToImage || '';
+        const img = a.image;
         const category = a.category || 'News';
+        const articleUrl = a.url;
+        // Entire card links to original article
+        const cardClick = articleUrl ? `onclick="window.open('${articleUrl.replace(/'/g, "\\'") }', '_blank')"` : '';
+        const cardCursor = articleUrl ? 'cursor:pointer;' : '';
 
         return `
-        <article class="bento-card${featured}" data-id="${i}">
+        <article class="bento-card${featured}" data-id="${i}" ${cardClick} style="${cardCursor}">
             <div class="bento-media">
                 ${img
                     ? `<img class="bento-img" src="${img}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">`
@@ -1612,17 +1642,18 @@ function renderNews() {
                     ${isBookmarked ? '★' : '☆'}
                 </button>
             </div>
-            <div class="bento-content" onclick="openArticleModal(${i})">
+            <div class="bento-content">
                 <div class="bento-kicker">${escHtml(category)}</div>
                 <h3 class="bento-title">${escHtml(a.title || 'Ohne Titel')}</h3>
                 ${summary ? `<p class="bento-summary ${clamp}">${escHtml(summary)}</p>` : ''}
                 <div class="bento-meta">
-                    <span>${escHtml(source)}</span>
-                    ${date ? `<span class="sep"></span><span>${date}</span>` : ''}
-                    <span class="sep"></span>
-                    <span>~${readingTime} Min. Lesezeit</span>
+                    ${source ? `<span>${escHtml(source)}</span>` : ''}
+                    ${source && date ? '<span class="sep"></span>' : ''}
+                    ${date ? `<span>${date}</span>` : ''}
+                    ${(source || date) ? '<span class="sep"></span>' : ''}
+                    <span>~${readingTime} Min.</span>
                 </div>
-                ${a.url ? `<a class="bento-link" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Artikel lesen <span>→</span></a>` : ''}
+                ${articleUrl ? `<a class="bento-link" href="${articleUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Vollständigen Artikel lesen <span>→</span></a>` : ''}
             </div>
         </article>`;
     }).join('');
@@ -1669,19 +1700,13 @@ function toggleNewsSort() {
     renderNews();
 }
 
+// openArticleModal now just opens the original article URL directly
 function openArticleModal(index) {
     const a = getFilteredNews()[index];
     if (!a) return;
-    document.getElementById('modal-kicker').textContent = a.category || 'News';
-    document.getElementById('modal-title').textContent = a.title || '';
-    document.getElementById('modal-summary').textContent = a.summary || a.description || 'Keine Zusammenfassung verfügbar.';
-    const meta = document.getElementById('modal-meta');
-    meta.innerHTML = `<span>${escHtml(a.source || '')}</span>${a.date ? `<span class="sep" style="width:3px;height:3px;border-radius:50%;background:var(--text-muted)"></span><span>${formatDate(a.date)}</span>` : ''}`;
-    const link = document.getElementById('modal-link');
-    if (a.url) { link.href = a.url; link.style.display = ''; }
-    else link.style.display = 'none';
-    document.getElementById('article-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    if (a.url) {
+        window.open(a.url, '_blank');
+    }
 }
 function closeArticleModal() {
     document.getElementById('article-modal')?.classList.remove('open');
@@ -1690,17 +1715,20 @@ function closeArticleModal() {
 
 // ==================== HQ SIDE PANELS ====================
 function renderHqSidePanels() {
-    // News stream
+    // News stream (uses normalized articles)
     const stream = document.getElementById('hq-news-stream');
     if (stream) {
-        const top = STATE.news.slice(0, 6);
-        stream.innerHTML = top.length ? top.map((a, i) => `
-            <div class="stream-item" onclick="switchView('news')">
+        const top = STATE.news.slice(0, 8);
+        stream.innerHTML = top.length ? top.map(a => {
+            const url = a.url;
+            const clickAttr = url ? `onclick="window.open('${url.replace(/'/g, "\\'") }', '_blank')"` : `onclick="switchView('news')"`;
+            return `
+            <div class="stream-item" ${clickAttr} style="cursor:pointer;">
                 <div class="stream-cat">${escHtml(a.category || 'News')}</div>
-                <div class="stream-title">${escHtml(a.title || '')}</div>
+                <div class="stream-title">${escHtml(a.title || 'Ohne Titel')}</div>
                 <div class="stream-meta">${escHtml(a.source || '')} ${a.date ? '· ' + formatDate(a.date) : ''}</div>
-            </div>
-        `).join('') : '<div style="color:var(--text-muted);font-size:12px;padding:8px;">Keine Nachrichten geladen.</div>';
+            </div>`;
+        }).join('') : '<div style="color:var(--text-muted);font-size:12px;padding:8px;">Keine Nachrichten geladen. Prüfe nachrichten.json.</div>';
     }
 
     // Market widgets
@@ -2605,14 +2633,20 @@ function startAutoRefresh() {
         try {
             const r = await fetch('nachrichten.json');
             if (r.ok) {
-                const data = await r.json();
-                if (Array.isArray(data) && data.length > STATE.news.length) {
-                    STATE.news = data;
+                let rawData = await r.json();
+                if (rawData && !Array.isArray(rawData)) {
+                    rawData = rawData.articles || rawData.data || rawData.items || rawData.nachrichten || [];
+                }
+                const normalized = (Array.isArray(rawData) ? rawData : []).map(normalizeArticle);
+                if (normalized.length > 0 && normalized.length !== STATE.news.length) {
+                    STATE.news = normalized;
+                    renderNewsCategories();
                     renderNews();
                     renderHqSidePanels();
                     updateMetrics();
                     const badge = document.getElementById('news-badge');
                     if (badge) badge.classList.add('show');
+                    console.log(`[HQ] Auto-Refresh: ${normalized.length} Artikel geladen`);
                 }
             }
         } catch {}
