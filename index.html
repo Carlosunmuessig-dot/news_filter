@@ -4,11 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#030305">
+<meta name="description" content="CARLOS HQ — J.A.R.V.I.S. Ultimate Personal Command Center">
 <title>CARLOS HQ — J.A.R.V.I.S. Ultimate OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================================
-   CARLOS HQ — J.A.R.V.I.S. ULTIMATE OS
-   Design System: Deep Space Glassmorphism
+   CARLOS HQ — J.A.R.V.I.S. ULTIMATE OS v2
+   Design System: Deep Space Glassmorphism — Enhanced
    ========================================================================== */
 :root {
     --bg: #030305;
@@ -30,15 +34,19 @@
     --green-border: rgba(48, 209, 88, 0.30);
     --red: #FF453A;
     --red-soft: rgba(255, 69, 58, 0.10);
+    --red-border: rgba(255, 69, 58, 0.30);
     --amber: #FFD60A;
+    --amber-soft: rgba(255, 214, 10, 0.10);
     --violet: #BF5AF2;
+    --violet-soft: rgba(191, 90, 242, 0.10);
     --blur: 24px;
     --radius: 24px;
     --radius-sm: 14px;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
-    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, sans-serif;
-    --mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    --mono: 'JetBrains Mono', "SF Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,15 +88,15 @@ ul { list-style: none; }
 }
 
 /* ==========================================================================
-   BOOT SCREEN
+   BOOT SCREEN — Enhanced
    ========================================================================== */
 #boot-screen {
     position: fixed; inset: 0; z-index: 9999;
     background: #000;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: opacity 0.7s var(--ease), visibility 0.7s;
+    transition: opacity 0.8s var(--ease), visibility 0.8s;
 }
-#boot-screen.done { opacity: 0; visibility: hidden; }
+#boot-screen.done { opacity: 0; visibility: hidden; pointer-events: none; }
 .boot-ring {
     width: 88px; height: 88px; border-radius: 50%; position: relative; margin-bottom: 34px;
     border: 1px solid rgba(10, 132, 255, 0.25);
@@ -107,6 +115,8 @@ ul { list-style: none; }
     height: 74px; text-align: center; line-height: 1.9; letter-spacing: 0.04em;
 }
 #boot-log .ok { color: var(--green); }
+.boot-progress { width: 200px; height: 2px; border-radius: 2px; background: rgba(255,255,255,0.08); margin-top: 18px; overflow: hidden; }
+.boot-progress .bar { height: 100%; width: 0%; border-radius: 2px; background: linear-gradient(90deg, var(--blue), var(--green)); transition: width 0.3s var(--ease); }
 
 /* ==========================================================================
    NAVBAR
@@ -119,7 +129,9 @@ ul { list-style: none; }
     backdrop-filter: saturate(180%) blur(var(--blur));
     -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
     border-bottom: 1px solid var(--border);
+    transition: transform 0.35s var(--ease);
 }
+.navbar.hide-nav { transform: translateY(-100%); }
 .nav-brand {
     display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none;
     font-size: 15px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap;
@@ -129,7 +141,9 @@ ul { list-style: none; }
     background: linear-gradient(135deg, #0A84FF 0%, #30D158 130%);
     display: grid; place-items: center; font-size: 15px;
     box-shadow: 0 0 18px rgba(10, 132, 255, 0.45);
+    transition: transform 0.4s var(--ease-spring);
 }
+.nav-brand:hover .logo-mark { transform: rotate(15deg) scale(1.08); }
 .nav-brand small { display: block; font-size: 9.5px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.16em; }
 
 .nav-links {
@@ -142,9 +156,17 @@ ul { list-style: none; }
     padding: 8px 15px; font-size: 12.5px; font-weight: 600; color: var(--text-muted);
     border-radius: 100px; cursor: pointer; white-space: nowrap;
     transition: color 0.25s var(--ease), background 0.25s var(--ease);
+    position: relative;
 }
 .nav-item:hover { color: var(--text); }
 .nav-item.active { background: rgba(255, 255, 255, 0.13); color: var(--text); }
+.nav-item .nav-badge {
+    position: absolute; top: 2px; right: 4px;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--red); box-shadow: 0 0 8px var(--red);
+    display: none;
+}
+.nav-item .nav-badge.show { display: block; }
 
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-clock { font-family: var(--mono); font-size: 12px; color: var(--text-dim); letter-spacing: 0.06em; }
@@ -166,8 +188,8 @@ ul { list-style: none; }
    ========================================================================== */
 main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 120px; }
 .view-container { display: none; }
-.view-container.active { display: block; animation: viewIn 0.45s var(--ease) both; }
-@keyframes viewIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.view-container.active { display: block; animation: viewIn 0.5s var(--ease-out) both; }
+@keyframes viewIn { from { opacity: 0; transform: translateY(18px) scale(0.995); } to { opacity: 1; transform: none; } }
 
 .view-head { margin-bottom: 26px; }
 .view-kicker {
@@ -250,10 +272,6 @@ main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 1
     border: 1px solid var(--border); border-radius: var(--radius);
     padding: 18px; display: flex; flex-direction: column; gap: 10px;
     max-height: 600px; overflow-y: auto;
-}
-.hq-tv-slot {
-    height: 158px; border-radius: 14px; overflow: hidden; flex: 0 0 auto;
-    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
 }
 .stream-item {
     background: var(--glass-soft); padding: 12px 14px; border-radius: 13px;
@@ -353,15 +371,37 @@ main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 1
 .metric-tile {
     background: var(--glass); border: 1px solid var(--border); border-radius: 18px;
     padding: 16px 18px; backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
+    transition: transform 0.3s var(--ease), border-color 0.3s;
 }
+.metric-tile:hover { transform: translateY(-2px); border-color: var(--border-strong); }
 .metric-tile .m-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
 .metric-tile .m-value { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums; }
 .metric-tile .m-value.green { color: var(--green); }
 .metric-tile .m-value.blue { color: var(--blue); }
 
 /* ==========================================================================
-   NEWS INTELLIGENCE
+   NEWS INTELLIGENCE — Enhanced with Summaries
    ========================================================================== */
+.news-toolbar { display: flex; gap: 12px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
+.news-search {
+    flex: 1; min-width: 200px; padding: 10px 16px 10px 38px;
+    background: rgba(255,255,255,0.035); border: 1px solid var(--border);
+    border-radius: 100px; color: var(--text); font-size: 13px; outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: 14px center;
+}
+.news-search:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(10,132,255,0.12); }
+.news-sort-btn {
+    padding: 10px 16px; border-radius: 100px;
+    background: var(--glass-soft); border: 1px solid var(--border);
+    color: var(--text-dim); font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+    transition: all 0.25s var(--ease);
+}
+.news-sort-btn:hover { background: var(--glass-hover); color: var(--text); }
+.news-count { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
 .bento-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
 .bento-card {
     background: var(--glass); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
@@ -390,9 +430,34 @@ main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 1
 .bento-kicker { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.15em; }
 .bento-title { font-size: 16.5px; font-weight: 700; line-height: 1.32; letter-spacing: -0.01em; }
 .bento-card.featured .bento-title { font-size: 21px; }
-.bento-summary { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.bento-summary {
+    font-size: 12.5px; color: var(--text-dim); line-height: 1.6;
+    display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+    transition: all 0.3s var(--ease);
+}
+.bento-summary.clamp-2 { -webkit-line-clamp: 2; }
+.bento-summary.clamp-3 { -webkit-line-clamp: 3; }
+.bento-summary.clamp-5 { -webkit-line-clamp: 5; }
+.bento-summary.clamp-8 { -webkit-line-clamp: 8; }
+.bento-summary.clamp-full { -webkit-line-clamp: unset; }
+.summary-toggle {
+    font-size: 11px; font-weight: 700; color: var(--blue); cursor: pointer;
+    background: none; border: none; padding: 4px 0; align-self: flex-start;
+    transition: color 0.2s;
+}
+.summary-toggle:hover { color: #4da6ff; }
+.bento-reading-time {
+    font-size: 10px; color: var(--text-muted); font-weight: 600;
+    display: flex; align-items: center; gap: 5px;
+}
 .bento-meta { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text-muted); font-weight: 500; }
 .bento-meta .sep { width: 3px; height: 3px; border-radius: 50%; background: var(--text-muted); }
+.bento-link {
+    margin-top: 6px; display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; color: var(--blue);
+    transition: gap 0.25s var(--ease);
+}
+.bento-link:hover { gap: 10px; }
 .empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-muted); }
 .empty-state .big { font-size: 40px; margin-bottom: 14px; opacity: 0.5; }
 
@@ -404,26 +469,35 @@ main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 1
 .stock-card-box {
     height: 128px; position: relative;
     background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-    border-radius: 16px; overflow: hidden; padding: 6px;
-    transition: border-color 0.3s var(--ease);
+    border-radius: 16px; overflow: hidden; padding: 14px;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+    display: flex; flex-direction: column; justify-content: space-between;
 }
-.stock-card-box:hover { border-color: var(--border-strong); }
-.wl-remove {
-    position: absolute; top: 7px; right: 7px; z-index: 10;
-    width: 24px; height: 24px; border-radius: 50%; font-size: 11px; line-height: 1;
+.stock-card-box:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.stock-head { display: flex; justify-content: space-between; align-items: flex-start; }
+.stock-ticker { font-size: 14px; font-weight: 800; letter-spacing: 0.02em; }
+.stock-name { font-size: 10.5px; color: var(--text-muted); margin-top: 2px; font-weight: 500; }
+.stock-price { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stock-change { font-size: 11.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stock-change.up { color: var(--green); }
+.stock-change.down { color: var(--red); }
+.wl-toggle {
+    position: absolute; top: 10px; right: 10px; z-index: 10;
+    width: 26px; height: 26px; border-radius: 50%; font-size: 13px; line-height: 1;
     background: rgba(3,3,5,0.7); border: 1px solid var(--border); color: var(--text-muted);
     display: grid; place-items: center; transition: all 0.2s var(--ease);
 }
-.wl-remove:hover { color: var(--red); border-color: rgba(255,69,58,0.5); background: var(--red-soft); }
+.wl-toggle:hover { color: var(--amber); border-color: rgba(255,214,10,0.5); }
+.wl-toggle.on { color: var(--amber); background: var(--amber-soft); border-color: rgba(255,214,10,0.4); }
 .chart-container { height: 440px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); background: rgba(255,255,255,0.015); }
 
 .market-lower { display: grid; grid-template-columns: 1.25fr 1fr; gap: 18px; margin-top: 18px; align-items: start; }
 .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
 .pillar {
     background: var(--glass-soft); border: 1px solid var(--border); border-radius: 16px; padding: 18px;
-    transition: border-color 0.3s var(--ease);
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
 }
-.pillar:hover { border-color: var(--blue-border); }
+.pillar:hover { border-color: var(--blue-border); transform: translateY(-2px); }
 .pillar .p-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .pillar .p-num {
     width: 26px; height: 26px; border-radius: 8px; flex: 0 0 auto;
@@ -566,9 +640,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     border-radius: 12px; padding: 14px; margin: 16px 0; color: var(--green); letter-spacing: 0.03em;
     overflow-x: auto;
 }
-.checkpoint {
-    margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--border);
-}
+.checkpoint { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--border); }
 .checkpoint-badge {
     display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
     font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--amber);
@@ -601,7 +673,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 .quiz-progress-dots .qd.now { background: var(--blue); }
 
 /* ==========================================================================
-   SETTINGS
+   SETTINGS — Enhanced with summary slider
    ========================================================================== */
 .settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
 .setting-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
@@ -612,8 +684,34 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 .status-pill.ok { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-border); }
 .status-pill.warn { background: var(--red-soft); color: var(--red); border: 1px solid rgba(255,69,58,0.3); }
 
+/* Toggle switch */
+.toggle-switch {
+    width: 46px; height: 26px; border-radius: 13px; cursor: pointer;
+    background: rgba(255,255,255,0.12); border: 1px solid var(--border);
+    position: relative; flex: 0 0 auto;
+    transition: background 0.3s var(--ease), border-color 0.3s;
+}
+.toggle-switch.on { background: var(--blue); border-color: var(--blue); }
+.toggle-switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #fff; transition: transform 0.3s var(--ease-spring);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.toggle-switch.on::after { transform: translateX(20px); }
+
+/* Summary slider */
+.summary-slider-container {
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+}
+.summary-slider-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.summary-slider-head .s-name { font-size: 13.5px; font-weight: 700; }
+.summary-slider-head .s-value { font-family: var(--mono); font-size: 12px; color: var(--blue); font-weight: 700; }
+.summary-slider-labels { display: flex; justify-content: space-between; margin-top: 6px; }
+.summary-slider-labels span { font-size: 10px; color: var(--text-muted); font-weight: 600; }
+
 /* ==========================================================================
-   TOASTS + MOBILE TABBAR
+   TOASTS
    ========================================================================== */
 #toast-stack { position: fixed; bottom: 92px; left: 50%; transform: translateX(-50%); z-index: 5000; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: min(92vw, 420px); }
 .toast {
@@ -627,6 +725,65 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 @keyframes toastIn { from { opacity: 0; transform: translateY(18px) scale(0.92); } to { opacity: 1; transform: none; } }
 @keyframes toastOut { to { opacity: 0; transform: translateY(10px) scale(0.94); } }
 
+/* ==========================================================================
+   KEYBOARD SHORTCUT HINT
+   ========================================================================== */
+.kbd-hint {
+    position: fixed; bottom: 20px; right: 20px; z-index: 900;
+    padding: 8px 14px; border-radius: 10px;
+    background: var(--glass-heavy); border: 1px solid var(--border);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    font-size: 11px; color: var(--text-muted); font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+    opacity: 0.6; transition: opacity 0.3s;
+}
+.kbd-hint:hover { opacity: 1; }
+.kbd-hint kbd {
+    font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 4px;
+    background: rgba(255,255,255,0.08); border: 1px solid var(--border-strong);
+}
+
+/* ==========================================================================
+   ARTICLE MODAL
+   ========================================================================== */
+.modal-overlay {
+    position: fixed; inset: 0; z-index: 6000;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    display: none; align-items: center; justify-content: center;
+    padding: 30px; animation: fadeIn 0.3s var(--ease);
+}
+.modal-overlay.open { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-card {
+    width: 100%; max-width: 680px; max-height: 85vh; overflow-y: auto;
+    background: var(--bg-elevated); border: 1px solid var(--border-strong);
+    border-radius: 24px; padding: 32px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    animation: modalIn 0.4s var(--ease-spring);
+}
+@keyframes modalIn { from { opacity: 0; transform: scale(0.92) translateY(20px); } }
+.modal-close {
+    float: right; width: 32px; height: 32px; border-radius: 50%;
+    background: var(--glass-soft); border: 1px solid var(--border);
+    display: grid; place-items: center; font-size: 16px; color: var(--text-dim);
+    transition: all 0.2s var(--ease); cursor: pointer;
+}
+.modal-close:hover { background: var(--red-soft); color: var(--red); border-color: var(--red-border); }
+.modal-kicker { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 10px; }
+.modal-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 16px; }
+.modal-summary { font-size: 14.5px; line-height: 1.75; color: var(--text-dim); margin-bottom: 20px; }
+.modal-meta { display: flex; gap: 14px; align-items: center; font-size: 12px; color: var(--text-muted); margin-bottom: 20px; flex-wrap: wrap; }
+.modal-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 100px;
+    background: var(--blue); color: #fff; font-size: 13px; font-weight: 700;
+    transition: all 0.25s var(--ease);
+}
+.modal-link:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(10,132,255,0.4); }
+
+/* ==========================================================================
+   MOBILE TABBAR
+   ========================================================================== */
 .tabbar {
     display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
     background: rgba(3, 3, 5, 0.85); backdrop-filter: saturate(180%) blur(var(--blur)); -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
@@ -634,7 +791,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     padding: 8px max(10px, env(safe-area-inset-left)) max(10px, env(safe-area-inset-bottom));
     grid-template-columns: repeat(6, 1fr);
 }
-.tab-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 2px; color: var(--text-muted); font-size: 9.5px; font-weight: 700; border-radius: 12px; transition: color 0.25s var(--ease); }
+.tab-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 2px; color: var(--text-muted); font-size: 9.5px; font-weight: 700; border-radius: 12px; transition: color 0.25s var(--ease); cursor: pointer; }
 .tab-item svg { width: 21px; height: 21px; }
 .tab-item.active { color: var(--blue); }
 
@@ -669,6 +826,8 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     .stock-grid { grid-template-columns: 1fr 1fr; }
     .market-toolbar { flex-direction: column; align-items: stretch; }
     #toast-stack { bottom: 110px; }
+    .kbd-hint { display: none; }
+    .settings-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -684,17 +843,18 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="boot-ring"></div>
     <div class="boot-brand">CARLOS <span>HQ</span></div>
     <div id="boot-log"></div>
+    <div class="boot-progress"><div class="bar" id="boot-progress-bar"></div></div>
 </div>
 
 <!-- ======================= NAVBAR ======================= -->
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="nav-brand" onclick="switchView('hq')">
         <div class="logo-mark">⚡</div>
         <div>CARLOS HQ<small>J.A.R.V.I.S. OS</small></div>
     </div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
         <li class="nav-item active" data-target="hq" onclick="switchView('hq')">Mission Control</li>
-        <li class="nav-item" data-target="news" onclick="switchView('news')">News</li>
+        <li class="nav-item" data-target="news" onclick="switchView('news')">News<span class="nav-badge" id="news-badge"></span></li>
         <li class="nav-item" data-target="market" onclick="switchView('market')">Market</li>
         <li class="nav-item" data-target="lingua" onclick="switchView('lingua')">Lingua Lab</li>
         <li class="nav-item" data-target="academy" onclick="switchView('academy')">Academy</li>
@@ -713,7 +873,6 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <!-- ======================= VIEW: MISSION CONTROL ======================= -->
     <div id="view-hq" class="view-container active">
         <div class="cockpit-grid">
-
             <aside class="side-panel left">
                 <div class="section-label"><span class="dot"></span>Live Market Feed</div>
                 <div id="hq-market-widgets" style="display:flex; flex-direction:column; gap:12px;"></div>
@@ -738,16 +897,16 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 
                     <div class="command-bar">
                         <input type="text" id="command-input" placeholder="Befehl oder Frage an Jarvis…" autocomplete="off">
-                        <button class="mic-btn" id="mic-btn" onclick="toggleJarvisVoice()" title="Mikrofon">
+                        <button class="mic-btn" id="mic-btn" onclick="toggleMic()" title="Mikrofon">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
                         </button>
                     </div>
 
                     <div class="quick-actions">
-                        <button class="qa-chip" onclick="runQuickCommand('Öffne die News')">📰 News</button>
-                        <button class="qa-chip" onclick="runQuickCommand('Öffne das Market Terminal')">📈 Börse</button>
-                        <button class="qa-chip" onclick="runQuickCommand('Fasse die aktuelle Nachrichtenlage kurz zusammen')">🧠 Briefing</button>
-                        <button class="qa-chip" onclick="runQuickCommand('Öffne die Vokabeln')">🇬🇧 Vokabeln</button>
+                        <button class="qa-chip" onclick="runQuickCommand('news')">📰 News</button>
+                        <button class="qa-chip" onclick="runQuickCommand('market')">📈 Börse</button>
+                        <button class="qa-chip" onclick="runQuickCommand('briefing')">🧠 Briefing</button>
+                        <button class="qa-chip" onclick="runQuickCommand('lingua')">🇬🇧 Vokabeln</button>
                     </div>
                 </div>
             </section>
@@ -756,6 +915,8 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
                 <div class="section-label"><span class="dot"></span>Top News Feed</div>
                 <div id="hq-news-stream" style="display:flex; flex-direction:column; gap:10px;">
                     <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
+                    <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
+                    <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
                 </div>
             </aside>
         </div>
@@ -763,7 +924,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         <div class="hq-metrics">
             <div class="metric-tile"><div class="m-label">Gespeicherte Artikel</div><div class="m-value blue" id="metric-bookmarks">0</div></div>
             <div class="metric-tile"><div class="m-label">Watchlist Positionen</div><div class="m-value green" id="metric-watchlist">0</div></div>
-            <div class="metric-tile"><div class="m-label">Academy Fortschritt</div><div class="m-value" id="metric-academy">0%</div></div>
+            <div class="metric-tile"><div class="m-label">Academy Fortschritt</div><div class="m-value" id="metric-academy">0 %</div></div>
         </div>
     </div>
 
@@ -772,7 +933,15 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         <div class="view-head">
             <div class="view-kicker">Modul 01 — Intelligence</div>
             <h1 class="header-title">News Intelligence.</h1>
-            <p class="header-sub">Kuratierte Weltgeschehnisse aus deinem Cloud-Feed. Kategorien, Sub-Sektoren und dein persönliches Lesezeichen-Archiv.</p>
+            <p class="header-sub">Kuratierte Weltgeschehnisse mit KI-Zusammenfassungen. Kategorien, Bookmarks und konfigurierbarer Detailtiefe.</p>
+        </div>
+        <div class="news-toolbar">
+            <input type="text" class="news-search" id="news-search" placeholder="Artikel durchsuchen…" autocomplete="off">
+            <button class="news-sort-btn" id="news-sort-btn" onclick="toggleNewsSort()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5h10M11 9h7M11 13h4M3 17l4 4 4-4M7 3v18"/></svg>
+                <span id="news-sort-label">Neueste</span>
+            </button>
+            <span class="news-count" id="news-count"></span>
         </div>
         <div class="chip-row" id="news-categories" style="margin-bottom:12px;"></div>
         <div class="chip-row" id="news-subsectors" style="margin-bottom:22px;"></div>
@@ -817,52 +986,47 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
                     <div style="font-weight: 800; font-size:15px;" id="analyzer-headline">Analyse</div>
                     <div style="font-size:12px; font-weight:700; color:var(--blue);" id="analyzer-status">Analysiere…</div>
                 </div>
-                <div class="pillar-grid">
+                <div class="pillar-grid" id="analyzer-pillars">
                     <div class="pillar"><div class="p-head"><div class="p-num">1</div><div class="p-title">Bilanz &amp; Financials</div></div><p id="a-p1">—</p></div>
                     <div class="pillar"><div class="p-head"><div class="p-num">2</div><div class="p-title">Wachstumstreiber</div></div><p id="a-p2">—</p></div>
                     <div class="pillar"><div class="p-head"><div class="p-num">3</div><div class="p-title">Wettbewerb &amp; Moat</div></div><p id="a-p3">—</p></div>
                     <div class="pillar"><div class="p-head"><div class="p-num">4</div><div class="p-title">Management &amp; Kapitalallokation</div></div><p id="a-p4">—</p></div>
-                    <div class="pillar full"><div class="p-head"><div class="p-num" style="background:var(--green-soft); border-color:var(--green-border); color:var(--green);">5</div><div class="p-title">Makro &amp; Fazit</div></div><p id="a-p5">—</p></div>
+                    <div class="pillar full"><div class="p-head"><div class="p-num">5</div><div class="p-title">Makro-Fazit &amp; Einschätzung</div></div><p id="a-p5">—</p></div>
                 </div>
             </div>
         </div>
 
         <div class="market-lower">
             <div class="glass-card">
-                <div class="section-label"><span class="dot"></span>DCF Fair-Value Engine</div>
+                <div class="section-label"><span class="dot"></span>DCF-Bewertungsmodell</div>
+                <p style="color:var(--text-muted); font-size:13px; margin-bottom:18px;">Discounted-Cash-Flow: Passe die Annahmen an und erhalte einen fairen Wert pro Aktie.</p>
+                <div class="dcf-slider-row">
+                    <div class="sl-head"><label>Free Cash Flow (Mrd. $)</label><output id="dcf-fcf-out">5.0</output></div>
+                    <input type="range" id="dcf-fcf" min="0.1" max="50" step="0.1" value="5" oninput="updateDCF()">
+                </div>
+                <div class="dcf-slider-row">
+                    <div class="sl-head"><label>Wachstumsrate (%)</label><output id="dcf-growth-out">12 %</output></div>
+                    <input type="range" id="dcf-growth" min="0" max="40" step="0.5" value="12" oninput="updateDCF()">
+                </div>
                 <div class="dcf-inputs">
-                    <div class="mini-input"><label>Umsatz (Mrd. $)</label><input type="number" id="dcf-revenue" value="100" min="0" step="1"></div>
-                    <div class="mini-input"><label>Aktien (Mrd. Stk.)</label><input type="number" id="dcf-shares" value="2.5" min="0.01" step="0.1"></div>
-                    <div class="mini-input"><label>Nettoschulden (Mrd. $)</label><input type="number" id="dcf-netdebt" value="0" step="1"></div>
-                </div>
-                <div class="dcf-slider-row">
-                    <div class="sl-head"><label>Umsatzwachstum p.a. (5J)</label><output id="dcf-growth-out">12%</output></div>
-                    <input type="range" id="dcf-growth" min="-5" max="40" value="12" step="0.5">
-                </div>
-                <div class="dcf-slider-row">
-                    <div class="sl-head"><label>FCF-Marge (Endstufe)</label><output id="dcf-margin-out">25%</output></div>
-                    <input type="range" id="dcf-margin" min="1" max="60" value="25" step="0.5">
-                </div>
-                <div class="dcf-slider-row">
-                    <div class="sl-head"><label>WACC (Diskontsatz)</label><output id="dcf-wacc-out">9%</output></div>
-                    <input type="range" id="dcf-wacc" min="5" max="16" value="9" step="0.25">
-                </div>
-                <div class="dcf-slider-row">
-                    <div class="sl-head"><label>Terminal Growth</label><output id="dcf-tg-out">2.5%</output></div>
-                    <input type="range" id="dcf-tg" min="0" max="4" value="2.5" step="0.25">
+                    <div class="mini-input"><label>Diskontrate (%)</label><input type="number" id="dcf-discount" value="10" step="0.5" oninput="updateDCF()"></div>
+                    <div class="mini-input"><label>Terminal-Wachstum (%)</label><input type="number" id="dcf-terminal" value="2.5" step="0.5" oninput="updateDCF()"></div>
+                    <div class="mini-input"><label>Aktien (Mrd.)</label><input type="number" id="dcf-shares" value="2.2" step="0.1" oninput="updateDCF()"></div>
                 </div>
                 <div class="dcf-result">
-                    <div class="r-label">Implied Fair Value / Aktie</div>
-                    <div class="r-value" id="dcf-result-value">$0.00</div>
-                    <div class="r-sub" id="dcf-result-sub">Enterprise Value: — · Equity Value: —</div>
+                    <div class="r-label">Fairer Wert pro Aktie</div>
+                    <div class="r-value" id="dcf-fair-value">—</div>
+                    <div class="r-sub" id="dcf-sub-text">Passe die Parameter an</div>
                 </div>
             </div>
+
             <div class="glass-card">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                    <div class="section-label" style="margin-bottom:0;"><span class="dot"></span>Investment Scratchpad</div>
-                    <span class="save-indicator" id="scratchpad-status">Auto-Save</span>
+                <div class="section-label"><span class="dot"></span>Notizblock</div>
+                <textarea id="scratchpad" placeholder="Investment-Thesen, Ideen, Notizen…"></textarea>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                    <span class="save-indicator" id="save-indicator">Auto-Save aktiv</span>
+                    <button class="btn-ghost" onclick="clearScratchpad()">Löschen</button>
                 </div>
-                <textarea id="scratchpad" placeholder="Investmentthesen, Kursziele, Earnings-Notizen… Alles wird lokal gespeichert."></textarea>
             </div>
         </div>
     </div>
@@ -870,1461 +1034,1643 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <!-- ======================= VIEW: LINGUA LAB ======================= -->
     <div id="view-lingua" class="view-container">
         <div class="view-head">
-            <div class="view-kicker">Modul 03 — Language</div>
-            <h1 class="header-title">Lingua Lab Pro.</h1>
-            <p class="header-sub">C2-Vokabeltraining mit Flashcards und Writing Mastery gegen Germanismen — für Englisch auf Muttersprachler-Niveau.</p>
+            <div class="view-kicker">Modul 03 — Lingua</div>
+            <h1 class="header-title">Lingua Lab.</h1>
+            <p class="header-sub">Dein persönliches Sprachlabor mit Flashcards, Grammatik-Mastery und intelligenter Wiederholung.</p>
         </div>
         <div class="lingua-grid">
             <div class="glass-card" style="padding: 14px;">
-                <div class="sidebar-menu">
-                    <div class="sidebar-group">Training</div>
-                    <div class="sidebar-item active" id="lingua-tab-flashcards" onclick="setLinguaMode('flashcards', this)">🃏 Flashcards</div>
-                    <div class="sidebar-group">Writing Mastery</div>
-                    <div class="sidebar-item" id="lingua-tab-mastery" onclick="setLinguaMode('mastery', this)">✍️ Anti-Germanismen &amp; Stil</div>
+                <div class="sidebar-menu" id="lingua-sidebar">
+                    <div class="sidebar-group">Trainieren</div>
+                    <div class="sidebar-item active" data-mode="flashcards" onclick="setLinguaMode('flashcards', this)">🗂 Flashcards</div>
+                    <div class="sidebar-item" data-mode="mastery" onclick="setLinguaMode('mastery', this)">📖 Grammatik-Mastery</div>
+                    <div class="sidebar-group">Statistik</div>
+                    <div class="sidebar-item" data-mode="stats" onclick="setLinguaMode('stats', this)">📊 Fortschritt</div>
                 </div>
             </div>
-            <div class="glass-card" id="lingua-content-area" style="min-height: 480px;"></div>
+            <div class="glass-card" id="lingua-stage">
+                <div class="flashcard-stage" id="flashcard-stage">
+                    <div class="fc-progress"><div class="bar" id="fc-bar" style="width:0%"></div></div>
+                    <div class="flashcard-scene">
+                        <div class="flashcard" id="flashcard" onclick="flipCard()">
+                            <div class="fc-face front">
+                                <div class="fc-tag">Englisch → Deutsch</div>
+                                <div class="word-en" id="fc-word-en">—</div>
+                                <div class="word-ex" id="fc-example-en"></div>
+                            </div>
+                            <div class="fc-face back">
+                                <div class="fc-tag">Übersetzung</div>
+                                <div class="word-de" id="fc-word-de">—</div>
+                                <div class="word-ex" id="fc-example-de"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fc-controls">
+                        <button class="btn-ghost" onclick="prevCard()">← Zurück</button>
+                        <span class="fc-counter" id="fc-counter">0 / 0</span>
+                        <button class="btn-primary" onclick="nextCard()">Weiter →</button>
+                    </div>
+                </div>
+                <!-- Mastery panel -->
+                <div id="mastery-stage" style="display:none;">
+                    <div class="mastery-block">
+                        <h4>Present Perfect vs. Simple Past</h4>
+                        <div class="m-desc">Das Present Perfect beschreibt Handlungen mit Bezug zur Gegenwart. Simple Past ist für abgeschlossene Handlungen in der Vergangenheit.</div>
+                        <div class="mastery-ex bad">❌ <b>Falsch:</b> "I have seen him yesterday." → Zeitadverb "yesterday" erfordert Simple Past.</div>
+                        <div class="mastery-ex good">✅ <b>Richtig:</b> "I saw him yesterday." / "I have already seen the movie."</div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>If-Clauses (Conditionals)</h4>
+                        <div class="m-desc">Type I: reale Bedingung (If + Present Simple → will + Infinitiv). Type II: irreale Bedingung Gegenwart (If + Past Simple → would + Infinitiv).</div>
+                        <div class="mastery-ex bad">❌ <b>Falsch:</b> "If I would have time, I would help." → "would" gehört nicht in den if-Satz.</div>
+                        <div class="mastery-ex good">✅ <b>Richtig:</b> "If I had time, I would help."</div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>Since vs. For</h4>
+                        <div class="m-desc"><b>Since</b> = Zeitpunkt (since Monday, since 2020). <b>For</b> = Zeitraum (for 3 days, for a long time).</div>
+                        <div class="mastery-ex bad">❌ <b>Falsch:</b> "I've lived here since 5 years."</div>
+                        <div class="mastery-ex good">✅ <b>Richtig:</b> "I've lived here for 5 years." / "I've lived here since 2019."</div>
+                    </div>
+                </div>
+                <!-- Stats panel -->
+                <div id="stats-stage" style="display:none; text-align:center; padding: 40px 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">📊</div>
+                    <div style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Lernstatistik</div>
+                    <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Dein Fortschritt auf einen Blick</div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                        <div class="metric-tile"><div class="m-label">Vokabeln gelernt</div><div class="m-value blue" id="stat-learned">0</div></div>
+                        <div class="metric-tile"><div class="m-label">Karten geflippt</div><div class="m-value green" id="stat-flipped">0</div></div>
+                        <div class="metric-tile"><div class="m-label">Streak</div><div class="m-value" id="stat-streak" style="color:var(--amber)">0 Tage</div></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- ======================= VIEW: ACADEMY ======================= -->
     <div id="view-academy" class="view-container">
         <div class="view-head">
-            <div class="view-kicker">Modul 04 — Knowledge</div>
-            <h1 class="header-title">Business Economy Academy.</h1>
-            <p class="header-sub">Geführter Lernpfad: Erst Masterclass-Input auf Investmentbanking-Niveau, dann der Checkpoint-Test. Bestehen schaltet das nächste Level frei.</p>
+            <div class="view-kicker">Modul 04 — Academy</div>
+            <h1 class="header-title">Academy.</h1>
+            <p class="header-sub">Strukturierte Lernpfade mit interaktiven Quizzes. Vom Einsteiger zum Profi — ein Level nach dem anderen.</p>
         </div>
         <div class="academy-path" id="academy-path"></div>
-        <div class="glass-card academy-content" id="academy-content"></div>
+        <div class="glass-card">
+            <div class="academy-content" id="academy-content">
+                <p style="color:var(--text-muted);">Wähle ein Level oben aus, um zu beginnen.</p>
+            </div>
+        </div>
     </div>
 
     <!-- ======================= VIEW: SETTINGS ======================= -->
     <div id="view-settings" class="view-container">
         <div class="view-head">
-            <div class="view-kicker">Modul 05 — System</div>
-            <h1 class="header-title">System Settings.</h1>
-            <p class="header-sub">API-Konfiguration und Systemstatus deines privaten Operating Systems.</p>
+            <div class="view-kicker">System — Konfiguration</div>
+            <h1 class="header-title">Settings.</h1>
+            <p class="header-sub">Passe dein HQ an: Zusammenfassungslänge, Sprachsteuerung, Daten und Personalisierung.</p>
         </div>
         <div class="settings-grid">
             <div class="glass-card">
-                <div class="section-label"><span class="dot"></span>Gemini API Schlüssel</div>
-                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.65;">
-                    Trage deinen Google AI Studio Key ein — er wird ausschließlich lokal in deinem Browser gespeichert.
-                    <strong style="color: var(--text-dim);">Im Pay-as-you-go Modus sind API-Limits aufgehoben.</strong>
-                </p>
-                <div style="display:flex; gap:10px;">
-                    <input type="password" id="api-key-input" class="input-field" placeholder="AIzaSy…" autocomplete="off">
-                    <button class="btn-primary" onclick="saveApiKey()">Speichern</button>
+                <div class="section-label"><span class="dot"></span>News &amp; Zusammenfassungen</div>
+
+                <div class="summary-slider-container">
+                    <div class="summary-slider-head">
+                        <span class="s-name">📝 Zusammenfassungslänge</span>
+                        <span class="s-value" id="summary-length-label">Mittel (3 Sätze)</span>
+                    </div>
+                    <input type="range" id="summary-length-slider" min="1" max="5" step="1" value="3" oninput="updateSummaryLength(this.value)">
+                    <div class="summary-slider-labels">
+                        <span>Sehr kurz</span>
+                        <span>Kurz</span>
+                        <span>Mittel</span>
+                        <span>Lang</span>
+                        <span>Ausführlich</span>
+                    </div>
                 </div>
-                <div style="margin-top: 14px;"><span class="status-pill warn" id="api-key-status">Kein Key hinterlegt</span></div>
+
+                <div class="setting-row">
+                    <div><div class="s-name">🔖 Nur Bookmarks anzeigen</div><div class="s-desc">News-Feed zeigt nur gespeicherte Artikel</div></div>
+                    <div class="toggle-switch" id="toggle-bookmarks-only" onclick="toggleSetting(this, 'bookmarksOnly')"></div>
+                </div>
+                <div class="setting-row">
+                    <div><div class="s-name">📰 Auto-Refresh</div><div class="s-desc">News automatisch alle 5 Minuten aktualisieren</div></div>
+                    <div class="toggle-switch on" id="toggle-auto-refresh" onclick="toggleSetting(this, 'autoRefresh')"></div>
+                </div>
             </div>
+
             <div class="glass-card">
-                <div class="section-label"><span class="dot"></span>System Diagnostics</div>
+                <div class="section-label"><span class="dot"></span>J.A.R.V.I.S. Sprachsteuerung</div>
                 <div class="setting-row">
-                    <div><div class="s-name">Spracherkennung</div><div class="s-desc">webkitSpeechRecognition (Wake-Word "Hey Jarvis")</div></div>
-                    <span class="status-pill" id="diag-stt">—</span>
+                    <div><div class="s-name">🎤 Spracherkennung</div><div class="s-desc">Mikrofon für Sprachbefehle aktivieren</div></div>
+                    <div class="toggle-switch on" id="toggle-voice" onclick="toggleSetting(this, 'voiceEnabled')"></div>
                 </div>
                 <div class="setting-row">
-                    <div><div class="s-name">Sprachausgabe</div><div class="s-desc" id="diag-voice-name">speechSynthesis</div></div>
-                    <span class="status-pill" id="diag-tts">—</span>
+                    <div><div class="s-name">🔊 Sprachausgabe</div><div class="s-desc">Jarvis antwortet mit Stimme</div></div>
+                    <div class="toggle-switch on" id="toggle-tts" onclick="toggleSetting(this, 'ttsEnabled')"></div>
                 </div>
                 <div class="setting-row">
-                    <div><div class="s-name">News-Datenbank</div><div class="s-desc">nachrichten.json</div></div>
-                    <span class="status-pill" id="diag-news">—</span>
+                    <div><div class="s-name">🌐 Sprache</div><div class="s-desc">Ausgabesprache für Jarvis</div></div>
+                    <select class="input-field" id="jarvis-lang" style="max-width:140px; padding:8px 12px; font-size:12.5px;" onchange="saveSettings()">
+                        <option value="de-DE">Deutsch</option>
+                        <option value="en-US">English</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="section-label"><span class="dot"></span>Gemini API</div>
+                <div class="setting-row">
+                    <div><div class="s-name">🔑 API Key</div><div class="s-desc">Dein Google Gemini API Key für KI-Features</div></div>
+                    <div id="api-key-status" class="status-pill warn">FEHLT</div>
+                </div>
+                <div style="margin-top:4px;">
+                    <input type="password" id="gemini-api-key" class="input-field" placeholder="API Key eingeben…" autocomplete="off" style="font-size:12.5px;">
+                    <div style="display:flex; gap:8px; margin-top:10px;">
+                        <button class="btn-primary" onclick="saveApiKey()" style="font-size:12px; padding:10px 18px;">Speichern</button>
+                        <button class="btn-ghost" onclick="testApiKey()" style="font-size:12px; padding:10px 18px;">Testen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="section-label"><span class="dot"></span>Daten &amp; Speicher</div>
+                <div class="setting-row">
+                    <div><div class="s-name">💾 LocalStorage</div><div class="s-desc">Bookmarks, Watchlist, Notizen, Einstellungen</div></div>
+                    <div id="storage-status" class="status-pill ok">OK</div>
                 </div>
                 <div class="setting-row">
-                    <div><div class="s-name">Vokabel-Datenbank</div><div class="s-desc">vokabeln.json</div></div>
-                    <span class="status-pill" id="diag-vocab">—</span>
+                    <div><div class="s-name">🗑 Alle Daten löschen</div><div class="s-desc">Setzt das HQ komplett zurück</div></div>
+                    <button class="btn-ghost" onclick="resetAllData()" style="color:var(--red); border-color: rgba(255,69,58,0.3);">Reset</button>
                 </div>
                 <div class="setting-row">
-                    <div><div class="s-name">Lokaler Speicher</div><div class="s-desc">Bookmarks, Watchlist, Fortschritt, Notizen</div></div>
-                    <button class="btn-ghost" style="padding: 8px 16px; font-size: 12px;" onclick="resetLocalData()">Zurücksetzen</button>
+                    <div><div class="s-name">📤 Daten exportieren</div><div class="s-desc">Bookmarks und Watchlist als JSON</div></div>
+                    <button class="btn-ghost" onclick="exportData()">Export</button>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<!-- ======================= MOBILE TABBAR ======================= -->
-<nav class="tabbar">
-    <button class="tab-item active" data-target="hq" onclick="switchView('hq')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><line x1="12" y1="3" x2="12" y2="6.5"/><line x1="12" y1="17.5" x2="12" y2="21"/></svg>HQ
-    </button>
-    <button class="tab-item" data-target="news" onclick="switchView('news')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13a2 2 0 0 1 2 2v11a2 2 0 0 0 2-2V8"/><rect x="2" y="5" width="15" height="15" rx="2"/><line x1="6" y1="10" x2="13" y2="10"/><line x1="6" y1="14" x2="13" y2="14"/></svg>News
-    </button>
-    <button class="tab-item" data-target="market" onclick="switchView('market')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>Market
-    </button>
-    <button class="tab-item" data-target="lingua" onclick="switchView('lingua')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>Lingua
-    </button>
-    <button class="tab-item" data-target="academy" onclick="switchView('academy')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>Academy
-    </button>
-    <button class="tab-item" data-target="settings" onclick="switchView('settings')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>System
-    </button>
-</nav>
+<!-- ======================= ARTICLE MODAL ======================= -->
+<div class="modal-overlay" id="article-modal">
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeArticleModal()">✕</button>
+        <div class="modal-kicker" id="modal-kicker"></div>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-meta" id="modal-meta"></div>
+        <div class="modal-summary" id="modal-summary"></div>
+        <a class="modal-link" id="modal-link" href="#" target="_blank" rel="noopener">Vollständigen Artikel lesen →</a>
+    </div>
+</div>
 
+<!-- ======================= TOAST STACK ======================= -->
 <div id="toast-stack"></div>
 
+<!-- ======================= KEYBOARD HINT ======================= -->
+<div class="kbd-hint"><kbd>⌘</kbd>+<kbd>K</kbd> Befehlszeile</div>
+
+<!-- ======================= MOBILE TABBAR ======================= -->
+<nav class="tabbar">
+    <div class="tab-item active" onclick="switchView('hq')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        HQ
+    </div>
+    <div class="tab-item" onclick="switchView('news')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>
+        News
+    </div>
+    <div class="tab-item" onclick="switchView('market')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Market
+    </div>
+    <div class="tab-item" onclick="switchView('lingua')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1"/><path d="m22 22-5-10-5 10M14 18h6"/></svg>
+        Lingua
+    </div>
+    <div class="tab-item" onclick="switchView('academy')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg>
+        Academy
+    </div>
+    <div class="tab-item" onclick="switchView('settings')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        Settings
+    </div>
+</nav>
+
 <script>
-"use strict";
 /* ==========================================================================
-   CARLOS HQ — J.A.R.V.I.S. ULTIMATE OS — ENGINE
+   CARLOS HQ — J.A.R.V.I.S. ULTIMATE OS v2 — JavaScript Core
    ========================================================================== */
 
-/* ---------------------------- Global State ---------------------------- */
-const state = {
-    newsData: [],
-    bookmarks: loadLS('carlos_bookmarks', []),
-    watchlist: loadLS('carlos_portfolio', ['NASDAQ:AAPL', 'NASDAQ:TSLA', 'NASDAQ:MSFT']),
-    vocabData: null,
-    vocabIndex: 0,
-    vocabFlipped: false,
-    linguaMode: 'flashcards',
-    activeCategory: 'Alle',
-    activeSubSector: 'Alle',
+// ==================== GLOBAL STATE ====================
+const STATE = {
+    news: [],
+    bookmarks: new Set(JSON.parse(localStorage.getItem('hq_bookmarks') || '[]')),
+    watchlist: new Set(JSON.parse(localStorage.getItem('hq_watchlist') || '[]')),
+    vocabs: [],
+    currentView: 'hq',
+    newsCategory: 'alle',
+    newsSubsector: null,
+    newsSort: 'newest',
+    newsSearch: '',
     marketSector: 'semis',
+    fcIndex: 0,
+    fcFlipped: false,
     academyLevel: 0,
-    academyProgress: loadLS('carlos_academy', { completed: [] }),
-    quiz: { index: 0, results: [] },
-    isListening: false,
-    jarvisState: 'idle',            // idle | listening | thinking | speaking
-    activeView: 'hq',
-    tvChartLoaded: false,
-    renderedNewsList: [],
-    preferredVoice: null,
-    recognitionSupported: false
+    academyScores: JSON.parse(localStorage.getItem('hq_academy_scores') || '{}'),
+    jarvisMuted: false,
+    isRecording: false,
+    recognition: null,
+    settings: JSON.parse(localStorage.getItem('hq_settings') || JSON.stringify({
+        summaryLength: 3,
+        bookmarksOnly: false,
+        autoRefresh: true,
+        voiceEnabled: true,
+        ttsEnabled: true,
+        jarvisLang: 'de-DE'
+    })),
+    flippedCount: parseInt(localStorage.getItem('hq_flipped') || '0'),
+    globeAnim: null
 };
 
-const SECTORS = {
-    semis:    ['NASDAQ:NVDA', 'NYSE:TSM', 'NASDAQ:ASML', 'NASDAQ:AMD'],
-    bigtech:  ['NASDAQ:AAPL', 'NASDAQ:MSFT', 'NASDAQ:GOOGL', 'NASDAQ:AMZN'],
-    health:   ['NYSE:LLY', 'NYSE:UNH', 'NYSE:JNJ', 'NASDAQ:VRTX'],
-    consumer: ['NYSE:KO', 'NYSE:MCD', 'NYSE:WMT', 'NYSE:NKE']
-};
-const HQ_TICKERS = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:TSLA'];
-
-const JARVIS_PERSONA =
-    "Du bist J.A.R.V.I.S., das private KI-Betriebssystem von Master Carlos. " +
-    "Fakten über deinen Schöpfer: Carlos ist 16, geht aufs Gymnasium Ettenheim, codet in Python und Flutter, " +
-    "investiert seit seinem 10. Lebensjahr an der Börse und hat das Start-up Lox AI gegründet. " +
-    "Sprich ihn immer mit 'Master Carlos' an. Antworte auf Deutsch: blitzschnell, extrem kompetent, direkt, " +
-    "mit dem leicht frechen, loyalen Ton eines brillanten Kollegen. Keine Floskeln, keine Einleitungen, kein Markdown. " +
-    "Maximal 4 Sätze, außer Master Carlos verlangt explizit mehr Tiefe.";
-
-/* ---------------------------- Utilities ---------------------------- */
-function loadLS(key, fallback) {
-    try {
-        const raw = localStorage.getItem(key);
-        return raw ? JSON.parse(raw) : fallback;
-    } catch (e) { return fallback; }
+// ==================== SETTINGS HELPERS ====================
+function saveSettings() {
+    STATE.settings.jarvisLang = document.getElementById('jarvis-lang')?.value || 'de-DE';
+    localStorage.setItem('hq_settings', JSON.stringify(STATE.settings));
 }
-function saveLS(key, value) {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
-}
-function $(id) { return document.getElementById(id); }
-function escapeHTML(str) {
-    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-function showToast(msg, ms = 2600) {
-    const stack = $('toast-stack');
-    const t = document.createElement('div');
-    t.className = 'toast';
-    t.textContent = msg;
-    stack.appendChild(t);
-    setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 400); }, ms);
-}
-function estimateReadTime(item) {
-    if (item.lesezeit) return String(item.lesezeit).replace(/min.*/i, '').trim() + ' Min.';
-    const words = ((item.titel || '') + ' ' + (item.zusammenfassung || item.text || '')).split(/\s+/).length;
-    return Math.max(1, Math.round(words / 40) + 2) + ' Min.';
-}
-function articleKey(item) { return item.id || item.titel || item.title || ''; }
+function loadSettings() {
+    const s = STATE.settings;
+    const slider = document.getElementById('summary-length-slider');
+    if (slider) slider.value = s.summaryLength;
+    updateSummaryLength(s.summaryLength);
 
-/* ==========================================================================
-   BOOT SEQUENCE
-   ========================================================================== */
-const BOOT_LINES = [
-    'KERNEL v14.2 … <span class="ok">OK</span>',
-    'NEURAL VOICE ENGINE … <span class="ok">OK</span>',
-    'MARKET DATALINK … <span class="ok">OK</span>',
-    'WILLKOMMEN, MASTER CARLOS.'
-];
-function runBootSequence() {
-    const log = $('boot-log');
-    BOOT_LINES.forEach((line, i) => {
-        setTimeout(() => { log.innerHTML += line + '<br>'; }, 240 * i);
-    });
-    setTimeout(() => {
-        $('boot-screen').classList.add('done');
-        setTimeout(() => $('boot-screen').remove(), 800);
-    }, 240 * BOOT_LINES.length + 500);
-}
-
-/* ==========================================================================
-   VIEW ROUTER
-   ========================================================================== */
-function switchView(viewId) {
-    if (!$(`view-${viewId}`)) return;
-    state.activeView = viewId;
-    document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
-    $(`view-${viewId}`).classList.add('active');
-    document.querySelectorAll('.nav-item, .tab-item').forEach(el =>
-        el.classList.toggle('active', el.dataset.target === viewId));
-    window.scrollTo({ top: 0 });
-
-    if (viewId === 'market') {
-        renderMarketSectorGrid();
-        setupTradingViewChart();
-    }
-    if (viewId === 'hq') updateHQMetrics();
-}
-
-/* ==========================================================================
-   DATA LOADING
-   ========================================================================== */
-async function loadData() {
-    // News
-    try {
-        const res = await fetch('nachrichten.json?t=' + Date.now(), { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        state.newsData = Array.isArray(data) ? data
-            : (data.nachrichten || data.news || data.artikel || data.items || []);
-        setDiag('diag-news', state.newsData.length > 0, `${state.newsData.length} Artikel`);
-    } catch (e) {
-        state.newsData = [];
-        setDiag('diag-news', false, 'nicht gefunden');
-    }
-    renderHQNewsStream();
-    renderNewsCategories();
-    renderNewsGrid();
-
-    // Vokabeln
-    try {
-        const res = await fetch('vokabeln.json?t=' + Date.now(), { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        state.vocabData = normalizeVocabData(data);
-        setDiag('diag-vocab', true, `${state.vocabData.words.length} Vokabeln`);
-    } catch (e) {
-        state.vocabData = normalizeVocabData(null);
-        setDiag('diag-vocab', false, 'Fallback-Daten aktiv');
-    }
-    renderLinguaContent();
-}
-
-function normalizeVocabData(raw) {
-    const fallbackWords = [
-        { en: 'to corroborate', de: 'bestätigen / untermauern', ex: 'The new earnings data corroborates our bullish thesis on the semiconductor sector.' },
-        { en: 'ubiquitous', de: 'allgegenwärtig', ex: 'Smartphones have become so ubiquitous that we barely notice them anymore.' },
-        { en: 'to underpin', de: 'untermauern / stützen', ex: 'Strong free cash flow underpins the company’s generous buyback program.' },
-        { en: 'tenacious', de: 'hartnäckig / zäh', ex: 'Her tenacious pursuit of the deal impressed even the senior partners.' },
-        { en: 'to exacerbate', de: 'verschärfen / verschlimmern', ex: 'Rising rates exacerbated the pressure on highly leveraged companies.' }
-    ];
-    const fallbackTips = [
-        { titel: 'Vermeide wörtliche Übersetzungen', erklaerung: 'Deutsche Satzstrukturen 1:1 zu übertragen ist der häufigste Verräter. Denke in englischen Mustern, nicht in übersetzten deutschen.', falsch: 'We have to become better in the future.', richtig: 'We need to improve going forward.' },
-        { titel: 'Starke Verben statt Füllkonstruktionen', erklaerung: 'Muttersprachler packen die Bedeutung ins Verb — nicht in "make/do/have" plus Substantiv.', falsch: 'The report was a big help to make a decision.', richtig: 'The report facilitated the decision-making process.' },
-        { titel: '"Since" vs. "For" bei Zeiträumen', erklaerung: 'Der Klassiker unter den Germanismen: "seit" heißt nicht automatisch "since". Zeitspannen brauchen "for".', falsch: 'I am learning English since five years.', richtig: 'I have been learning English for five years.' },
-        { titel: 'Hedge wie ein Profi', erklaerung: 'Akademisches C2-Englisch behauptet selten absolut. "Arguably", "tends to", "suggests" wirken souveräner als harte Aussagen.', falsch: 'This proves that the strategy is the best.', richtig: 'This strongly suggests the strategy is superior.' }
-    ];
-    if (!raw) return { words: fallbackWords, tips: fallbackTips };
-    const words = (raw.core_words || raw.vokabeln || raw.words || (Array.isArray(raw) ? raw : []))
-        .map(w => ({
-            en: w.en || w.englisch || w.word || '',
-            de: w.de || w.deutsch || w.translation || '',
-            ex: w.ex || w.beispiel || w.example || ''
-        })).filter(w => w.en);
-    const tipsRaw = raw.writing_tips || raw.mastery || raw.tips || raw.anti_germanismen || [];
-    const tips = tipsRaw.map(t => ({
-        titel: t.titel || t.title || 'Schreibtipp',
-        erklaerung: t.erklaerung || t.tipp || t.desc || '',
-        falsch: t.falsch || t.wrong || '',
-        richtig: t.richtig || t.correct || ''
-    }));
-    return {
-        words: words.length ? words : fallbackWords,
-        tips: tips.length ? tips : fallbackTips
+    const toggleMap = {
+        'toggle-bookmarks-only': 'bookmarksOnly',
+        'toggle-auto-refresh': 'autoRefresh',
+        'toggle-voice': 'voiceEnabled',
+        'toggle-tts': 'ttsEnabled'
     };
-}
+    for (const [id, key] of Object.entries(toggleMap)) {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('on', !!s[key]);
+    }
+    const lang = document.getElementById('jarvis-lang');
+    if (lang) lang.value = s.jarvisLang || 'de-DE';
 
-function setDiag(id, ok, detail) {
-    const el = $(id);
-    if (!el) return;
-    el.className = 'status-pill ' + (ok ? 'ok' : 'warn');
-    el.textContent = ok ? ('Online · ' + detail) : ('Offline · ' + detail);
+    const key = localStorage.getItem('hq_gemini_key');
+    if (key) {
+        const status = document.getElementById('api-key-status');
+        if (status) { status.textContent = 'AKTIV'; status.className = 'status-pill ok'; }
+    }
 }
-
-/* ==========================================================================
-   J.A.R.V.I.S. — CYBER GLOBE (Canvas)
-   ========================================================================== */
-const globe = {
-    canvas: null, ctx: null, points: [], rot: 0, amp: 0, targetAmp: 0, raf: null, t: 0
-};
-function initGlobe() {
-    globe.canvas = $('globe-canvas');
-    if (!globe.canvas) return;
-    globe.ctx = globe.canvas.getContext('2d');
-    const N = 320;
-    for (let i = 0; i < N; i++) {
-        const phi = Math.acos(1 - 2 * (i + 0.5) / N);
-        const theta = Math.PI * (1 + Math.sqrt(5)) * i;
-        globe.points.push({
-            x: Math.sin(phi) * Math.cos(theta),
-            y: Math.cos(phi),
-            z: Math.sin(phi) * Math.sin(theta)
+function toggleSetting(el, key) {
+    el.classList.toggle('on');
+    STATE.settings[key] = el.classList.contains('on');
+    saveSettings();
+    if (key === 'bookmarksOnly') renderNews();
+    toast(`${key === 'bookmarksOnly' ? 'Bookmark-Filter' : key} ${STATE.settings[key] ? 'aktiviert' : 'deaktiviert'}`);
+}
+function updateSummaryLength(val) {
+    val = parseInt(val);
+    STATE.settings.summaryLength = val;
+    const labels = ['Sehr kurz (1 Satz)', 'Kurz (2 Sätze)', 'Mittel (3 Sätze)', 'Lang (5 Sätze)', 'Ausführlich (vollständig)'];
+    const label = document.getElementById('summary-length-label');
+    if (label) label.textContent = labels[val - 1] || labels[2];
+    const slider = document.getElementById('summary-length-slider');
+    if (slider) {
+        const pct = ((val - 1) / 4) * 100;
+        slider.style.setProperty('--fill', pct + '%');
+    }
+    saveSettings();
+    if (STATE.news.length > 0) renderNews();
+}
+function saveApiKey() {
+    const key = document.getElementById('gemini-api-key')?.value?.trim();
+    if (!key) return toast('Bitte API Key eingeben');
+    localStorage.setItem('hq_gemini_key', key);
+    const status = document.getElementById('api-key-status');
+    if (status) { status.textContent = 'AKTIV'; status.className = 'status-pill ok'; }
+    toast('✅ API Key gespeichert');
+}
+async function testApiKey() {
+    const key = localStorage.getItem('hq_gemini_key');
+    if (!key) return toast('Kein API Key gespeichert');
+    try {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contents: [{ parts: [{ text: 'Say OK' }] }] })
         });
-    }
-    resizeGlobe();
-    window.addEventListener('resize', resizeGlobe);
-    drawGlobe();
+        toast(r.ok ? '✅ API Key funktioniert!' : '❌ Ungültiger Key');
+    } catch { toast('❌ Verbindungsfehler'); }
 }
-function resizeGlobe() {
-    const c = globe.canvas;
-    if (!c) return;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const rect = c.parentElement.getBoundingClientRect();
-    c.width = rect.width * dpr;
-    c.height = rect.height * dpr;
-    globe.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function resetAllData() {
+    if (!confirm('Alle gespeicherten Daten (Bookmarks, Watchlist, Notizen, Einstellungen) löschen?')) return;
+    localStorage.removeItem('hq_bookmarks');
+    localStorage.removeItem('hq_watchlist');
+    localStorage.removeItem('hq_scratchpad');
+    localStorage.removeItem('hq_settings');
+    localStorage.removeItem('hq_academy_scores');
+    localStorage.removeItem('hq_flipped');
+    toast('🗑 Alle Daten gelöscht. Seite wird neu geladen…');
+    setTimeout(() => location.reload(), 1200);
 }
-function drawGlobe() {
-    const ctx = globe.ctx, c = globe.canvas;
-    const W = c.width / (Math.min(window.devicePixelRatio || 1, 2));
-    const H = c.height / (Math.min(window.devicePixelRatio || 1, 2));
-    ctx.clearRect(0, 0, W, H);
-
-    globe.t += 0.016;
-    globe.rot += 0.0035 + globe.amp * 0.012;
-    globe.amp += (globe.targetAmp - globe.amp) * 0.06;
-
-    const cx = W / 2, cy = H * 0.44;
-    const R = Math.min(W, H) * 0.30 * (1 + globe.amp * 0.06);
-
-    // Orbit rings
-    for (let r = 0; r < 3; r++) {
-        ctx.beginPath();
-        const rr = R * (1.28 + r * 0.19);
-        const squash = 0.32 + r * 0.06;
-        for (let a = 0; a <= Math.PI * 2 + 0.01; a += 0.05) {
-            const wave = Math.sin(a * 7 + globe.t * (2.2 + r)) * globe.amp * 9;
-            const x = cx + Math.cos(a + globe.rot * (r % 2 ? -0.6 : 0.8)) * (rr + wave);
-            const y = cy + Math.sin(a + globe.rot * (r % 2 ? -0.6 : 0.8)) * (rr + wave) * squash;
-            a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = `rgba(10, 132, 255, ${0.10 - r * 0.025 + globe.amp * 0.12})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-    }
-
-    // Core glow
-    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.5);
-    glow.addColorStop(0, `rgba(10, 132, 255, ${0.14 + globe.amp * 0.22})`);
-    glow.addColorStop(1, 'rgba(10, 132, 255, 0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(cx - R * 2, cy - R * 2, R * 4, R * 4);
-
-    // Sphere points
-    const sinR = Math.sin(globe.rot), cosR = Math.cos(globe.rot);
-    const tilt = 0.35, sinT = Math.sin(tilt), cosT = Math.cos(tilt);
-    for (const p of globe.points) {
-        let x = p.x * cosR + p.z * sinR;
-        let z = -p.x * sinR + p.z * cosR;
-        let y = p.y * cosT - z * sinT;
-        z = p.y * sinT + z * cosT;
-        const scale = 1 / (1.6 - z * 0.5);
-        const px = cx + x * R * scale;
-        const py = cy + y * R * scale;
-        const depth = (z + 1) / 2;
-        const size = 0.7 + depth * 1.5 + globe.amp * depth * 1.2;
-        const isGreen = ((p.x * 13.7 + p.y * 7.3) % 1 + 1) % 1 > 0.86;
-        const alpha = 0.12 + depth * 0.65;
-        ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = isGreen
-            ? `rgba(48, 209, 88, ${alpha})`
-            : `rgba(10, 132, 255, ${alpha})`;
-        ctx.fill();
-    }
-
-    // Equator scan-line
-    ctx.beginPath();
-    for (let a = 0; a <= Math.PI * 2 + 0.01; a += 0.04) {
-        const wave = Math.sin(a * 9 - globe.t * 4) * globe.amp * 7;
-        const x = cx + Math.cos(a) * (R * 1.02 + wave);
-        const y = cy + Math.sin(a) * (R * 1.02 + wave) * 0.28;
-        a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = `rgba(48, 209, 88, ${0.16 + globe.amp * 0.35})`;
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-
-    globe.raf = requestAnimationFrame(drawGlobe);
-}
-
-/* ==========================================================================
-   J.A.R.V.I.S. — STATE MACHINE + UI
-   ========================================================================== */
-function setJarvisState(newState, label) {
-    state.jarvisState = newState;
-    const chip = $('jarvis-state-chip');
-    const text = $('jarvis-state-text');
-    const map = {
-        idle:      { amp: 0.0,  show: false, label: '' },
-        listening: { amp: 0.45, show: true,  label: label || 'Höre zu, Master Carlos…' },
-        thinking:  { amp: 0.75, show: true,  label: label || 'Verarbeite…' },
-        speaking:  { amp: 1.0,  show: true,  label: label || 'Spreche…' }
+function exportData() {
+    const data = {
+        bookmarks: [...STATE.bookmarks],
+        watchlist: [...STATE.watchlist],
+        scratchpad: localStorage.getItem('hq_scratchpad') || '',
+        settings: STATE.settings,
+        exportDate: new Date().toISOString()
     };
-    const cfg = map[newState] || map.idle;
-    globe.targetAmp = cfg.amp;
-    chip.classList.toggle('visible', cfg.show);
-    if (cfg.show) text.textContent = cfg.label;
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `carlos-hq-export-${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    toast('📤 Export heruntergeladen');
 }
 
-function showJarvisReply(html, who = 'J.A.R.V.I.S.') {
-    const box = $('jarvis-reply-box');
-    $('jarvis-reply-who').textContent = who;
-    $('jarvis-reply-text').innerHTML = html;
-    box.classList.add('visible');
-    box.scrollTop = 0;
-}
-function hideJarvisReply() { $('jarvis-reply-box').classList.remove('visible'); }
-
-function typewriterReply(text) {
-    const target = $('jarvis-reply-text');
-    $('jarvis-reply-who').textContent = 'J.A.R.V.I.S.';
-    $('jarvis-reply-box').classList.add('visible');
-    target.textContent = '';
+// ==================== BOOT SEQUENCE ====================
+function runBoot() {
+    const log = document.getElementById('boot-log');
+    const bar = document.getElementById('boot-progress-bar');
+    const lines = [
+        ['Initialisiere Kernel…', false],
+        ['Lade neuronale Netze… <span class="ok">[OK]</span>', true],
+        ['Verbinde Datenbankmodule… <span class="ok">[OK]</span>', true],
+        ['J.A.R.V.I.S. Core aktiviert <span class="ok">[READY]</span>', true],
+    ];
     let i = 0;
-    const step = Math.max(1, Math.round(text.length / 90));
-    const timer = setInterval(() => {
-        i += step;
-        target.textContent = text.slice(0, i);
-        if (i >= text.length) clearInterval(timer);
-    }, 16);
-}
-
-/* ==========================================================================
-   VOICE OUTPUT — Premium Voice Hunting
-   ========================================================================== */
-function huntPremiumVoice() {
-    if (!('speechSynthesis' in window)) return null;
-    const voices = window.speechSynthesis.getVoices();
-    if (!voices.length) return null;
-    const german = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('de'));
-    const pool = german.length ? german : voices;
-    const scoreVoice = (v) => {
-        const n = v.name.toLowerCase();
-        let s = 0;
-        if (n.includes('premium')) s += 100;
-        if (n.includes('enhanced') || n.includes('erweitert')) s += 90;
-        if (n.includes('siri')) s += 85;
-        if (n.includes('natural')) s += 80;
-        if (n.includes('neural')) s += 78;
-        if (n.includes('anna')) s += 60;
-        if (n.includes('petra')) s += 55;
-        if (n.includes('markus') || n.includes('viktor') || n.includes('helena')) s += 50;
-        if (n.includes('google')) s += 45;
-        if (n.includes('microsoft')) s += 30;
-        if (v.localService) s += 8;
-        if (n.includes('compact') || n.includes('espeak')) s -= 60;
-        return s;
-    };
-    pool.sort((a, b) => scoreVoice(b) - scoreVoice(a));
-    return pool[0] || null;
-}
-function refreshVoice() {
-    state.preferredVoice = huntPremiumVoice();
-    const ok = 'speechSynthesis' in window;
-    setDiag('diag-tts', ok, ok ? 'bereit' : 'nicht verfügbar');
-    if (state.preferredVoice) {
-        const el = $('diag-voice-name');
-        if (el) el.textContent = 'Stimme: ' + state.preferredVoice.name;
-    }
-}
-
-function speakJarvis(text, onDone) {
-    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
-    window.speechSynthesis.cancel();
-    const clean = String(text)
-        .replace(/[*_#`>]/g, '')
-        .replace(/\[(.*?)\]\(.*?\)/g, '$1')
-        .replace(/https?:\/\/\S+/g, '')
-        .trim();
-    if (!clean) { if (onDone) onDone(); return; }
-    const u = new SpeechSynthesisUtterance(clean);
-    u.lang = 'de-DE';
-    u.rate = 1.07;
-    u.pitch = 0.98;
-    if (!state.preferredVoice) refreshVoice();
-    if (state.preferredVoice) u.voice = state.preferredVoice;
-    u.onstart = () => setJarvisState('speaking');
-    u.onend = () => {
-        setJarvisState(state.isListening ? 'listening' : 'idle',
-            state.isListening ? 'Warte auf "Hey Jarvis"…' : '');
-        if (onDone) onDone();
-    };
-    u.onerror = () => { setJarvisState('idle'); if (onDone) onDone(); };
-    window.speechSynthesis.speak(u);
-}
-
-/* ==========================================================================
-   VOICE INPUT — Wake-Word Loop mit aggressivem Auto-Restart
-   ========================================================================== */
-let recognition = null;
-let restartTimer = null;
-
-function initJarvisVoice() {
-    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    state.recognitionSupported = !!SpeechRec;
-    setDiag('diag-stt', state.recognitionSupported, state.recognitionSupported ? 'bereit' : 'Browser nicht unterstützt');
-    if (!SpeechRec) {
-        updateVoiceUI();
-        return;
-    }
-
-    recognition = new SpeechRec();
-    recognition.lang = 'de-DE';
-    recognition.continuous = true;
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-
-    recognition.onresult = (e) => {
-        const transcript = e.results[e.results.length - 1][0].transcript.trim();
-        if (!transcript) return;
-        const lower = transcript.toLowerCase();
-        const wakeMatch = lower.match(/\b(?:hey\s+)?(jarvis|jarvies|järvis|charvis|travis)\b/);
-        if (!wakeMatch) return;
-
-        const cmd = lower.slice(lower.indexOf(wakeMatch[0]) + wakeMatch[0].length)
-            .replace(/^[,.!?\s]+/, '').trim();
-
-        if (cmd.length > 0) {
-            processJarvisCommand(cmd);
-        } else {
-            setJarvisState('listening', 'Ja, Master Carlos?');
-            speakJarvis('Ja, Master Carlos?');
-        }
-    };
-
-    recognition.onstart = () => {
-        if (state.isListening) setJarvisState('listening', 'Warte auf "Hey Jarvis"…');
-    };
-    // Aggressiver Restart-Loop: Browser killen das Mikro gern nach Stille
-    recognition.onend = () => scheduleRestart(150);
-    recognition.onerror = (e) => {
-        if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
-            state.isListening = false;
-            updateVoiceUI();
-            showToast('🎙️ Mikrofonzugriff verweigert — Jarvis hört per Text weiter zu.');
+    const tick = () => {
+        if (i >= lines.length) {
+            if (bar) bar.style.width = '100%';
+            setTimeout(() => {
+                document.getElementById('boot-screen')?.classList.add('done');
+                initGlobe();
+            }, 500);
             return;
         }
-        scheduleRestart(e.error === 'network' ? 1500 : 300);
+        if (log) log.innerHTML = lines[i][0];
+        if (bar) bar.style.width = ((i + 1) / lines.length * 100) + '%';
+        i++;
+        setTimeout(tick, 400 + Math.random() * 250);
     };
-
-    startListening();
+    tick();
 }
 
-function scheduleRestart(delay) {
-    if (!state.isListening || !recognition) return;
-    clearTimeout(restartTimer);
-    restartTimer = setTimeout(() => {
-        if (!state.isListening) return;
-        try { recognition.start(); } catch (err) { scheduleRestart(700); }
-    }, delay);
-}
-
-function startListening() {
-    if (!recognition) return;
-    state.isListening = true;
-    try { recognition.start(); } catch (e) {}
-    updateVoiceUI();
-    setJarvisState('listening', 'Warte auf "Hey Jarvis"…');
-}
-function stopListening() {
-    state.isListening = false;
-    clearTimeout(restartTimer);
-    if (recognition) { try { recognition.stop(); } catch (e) {} }
-    updateVoiceUI();
-    setJarvisState('idle');
-}
-function toggleJarvisVoice() {
-    if (!state.recognitionSupported) {
-        showToast('Dein Browser unterstützt keine Spracherkennung — nutze die Befehlszeile.');
-        return;
+// ==================== NAVIGATION ====================
+function switchView(id) {
+    if (STATE.currentView === id) return;
+    STATE.currentView = id;
+    document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
+    const target = document.getElementById('view-' + id);
+    if (target) {
+        target.classList.remove('active');
+        void target.offsetWidth; // force reflow for animation
+        target.classList.add('active');
     }
-    state.isListening ? stopListening() : startListening();
-}
-function updateVoiceUI() {
-    const widget = $('jarvis-widget');
-    const label = $('jarvis-status-label');
-    const mic = $('mic-btn');
-    const active = state.isListening && state.recognitionSupported;
-    widget.classList.toggle('muted', !active);
-    label.textContent = active ? 'JARVIS AKTIV' : 'JARVIS STUMM';
-    mic.classList.toggle('rec', active);
-}
-
-/* ==========================================================================
-   J.A.R.V.I.S. — COMMAND BRAIN
-   ========================================================================== */
-const NAV_INTENTS = [
-    { keys: ['news', 'nachrichten', 'artikel'], view: 'news', say: 'News Intelligence ist offen, Master Carlos.' },
-    { keys: ['börse', 'boerse', 'markt', 'market', 'aktien', 'terminal', 'chart'], view: 'market', say: 'Market Terminal läuft. Die Kurse warten.' },
-    { keys: ['vokabel', 'englisch', 'lingua', 'flashcard'], view: 'lingua', say: 'Lingua Lab geöffnet. Zeit für C2-Niveau.' },
-    { keys: ['academy', 'akademie', 'lernen', 'business', 'finanzen lernen'], view: 'academy', say: 'Business Academy geladen. Masterclass wartet.' },
-    { keys: ['einstellung', 'settings', 'api'], view: 'settings', say: 'System Settings, Master Carlos.' },
-    { keys: ['cockpit', 'home', 'mission control', 'start', 'übersicht', 'hauptmenü'], view: 'hq', say: 'Zurück in Mission Control.' }
-];
-
-function runQuickCommand(cmd) { processJarvisCommand(cmd); }
-
-async function processJarvisCommand(rawCmd) {
-    const cmd = String(rawCmd || '').trim();
-    if (!cmd) return;
-    const lower = cmd.toLowerCase();
-    showJarvisReply(escapeHTML(cmd), 'Master Carlos');
-
-    // 1) Lokale Navigation — null Latenz
-    for (const intent of NAV_INTENTS) {
-        if (intent.keys.some(k => lower.includes(k)) && /öffne|zeig|geh|wechsel|gehe|mach.*auf|starte|open|^([\wäöü\s]{0,24})$/.test(lower)) {
-            switchView(intent.view);
-            typewriterReply(intent.say);
-            speakJarvis(intent.say);
-            return;
-        }
-    }
-
-    // 2) Lokale System-Intents
-    if (/wie spät|uhrzeit|wieviel uhr|wie viel uhr/.test(lower)) {
-        const now = new Date();
-        const reply = `Es ist ${now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })} Uhr, Master Carlos.`;
-        typewriterReply(reply); speakJarvis(reply); return;
-    }
-    if (/welcher tag|datum|welches datum/.test(lower)) {
-        const reply = `Heute ist ${new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}.`;
-        typewriterReply(reply); speakJarvis(reply); return;
-    }
-    if (/sei still|stumm|mute|hör auf zu hören|mikrofon aus/.test(lower)) {
-        stopListening();
-        typewriterReply('Verstanden. Ich bin stumm — bis du mich wieder aktivierst.');
-        return;
-    }
-    if (/(analysiere|analyse)\s+([a-zäöüß0-9\s\.]{1,30})/.test(lower)) {
-        const m = lower.match(/(?:analysiere|analyse)\s+(?:die\s+aktie\s+|aktie\s+)?([a-zäöüß0-9\s\.]{1,30})/);
-        if (m && m[1]) {
-            const ticker = m[1].trim().toUpperCase();
-            switchView('market');
-            $('analyzer-ticker').value = ticker;
-            const reply = `Verstanden — ich jage ${ticker} durch den Blackstone-Analyzer.`;
-            typewriterReply(reply);
-            speakJarvis(reply, () => runBlackstoneAnalyzer());
-            return;
-        }
-    }
-    if (/briefing|zusammenfassung|nachrichtenlage|fasse.*news|fasse.*nachrichten/.test(lower)) {
-        const headlines = state.newsData.slice(0, 6).map(n => '- ' + (n.titel || n.title)).join('\n');
-        if (headlines) {
-            askGemini(`Hier sind die aktuellen Schlagzeilen aus meinem News-Feed:\n${headlines}\n\nGib mir ein prägnantes Lage-Briefing in 3 Sätzen: das Wichtigste zuerst, dann was es für Märkte und Tech bedeutet.`);
-            return;
-        }
-    }
-
-    // 3) Alles andere → Gemini Brain
-    askGemini(cmd);
-}
-
-async function askGemini(prompt) {
-    const key = localStorage.getItem('carlos_api_key');
-    if (!key) {
-        const msg = 'Master Carlos, mir fehlt der Gemini API-Key. Hinterlege ihn in den Settings, dann bin ich voll einsatzfähig.';
-        typewriterReply(msg);
-        speakJarvis(msg);
-        switchView('settings');
-        return;
-    }
-    setJarvisState('thinking', 'Jarvis denkt nach…');
-    showJarvisReply('<span style="color:var(--blue); font-weight:700;">Denke nach…</span>');
-    try {
-        const reply = await callGemini(JARVIS_PERSONA + '\n\nMaster Carlos sagt: ' + prompt);
-        typewriterReply(reply);
-        speakJarvis(reply);
-    } catch (e) {
-        const msg = 'Die Gemini-Verbindung streikt gerade: ' + (e.message || 'Unbekannter Fehler') + '. Prüfe den API-Key in den Settings.';
-        typewriterReply(msg);
-        speakJarvis('Die API-Verbindung streikt gerade, Master Carlos.');
-        setJarvisState(state.isListening ? 'listening' : 'idle');
-    }
-}
-
-/* ---------------------------- Gemini Core ---------------------------- */
-async function callGemini(prompt, options = {}) {
-    const key = localStorage.getItem('carlos_api_key');
-    if (!key) throw new Error('Kein API-Key hinterlegt');
-    const body = {
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-            temperature: options.temperature ?? 0.7,
-            maxOutputTokens: options.maxTokens ?? 2048
-        }
-    };
-    if (options.json) body.generationConfig.responseMimeType = 'application/json';
-
-    const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(key)}`,
-        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
-    );
-    if (!res.ok) {
-        let detail = 'HTTP ' + res.status;
-        try { detail = (await res.json()).error?.message || detail; } catch (e) {}
-        throw new Error(detail);
-    }
-    const data = await res.json();
-    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join('') || '';
-    if (!text) throw new Error('Leere Antwort der API');
-    return text.trim();
-}
-function parseGeminiJSON(text) {
-    let cleaned = text.replace(/```json|```/g, '').trim();
-    const start = cleaned.indexOf('{');
-    const end = cleaned.lastIndexOf('}');
-    if (start !== -1 && end !== -1) cleaned = cleaned.slice(start, end + 1);
-    return JSON.parse(cleaned);
-}
-
-/* ==========================================================================
-   MISSION CONTROL — Panels
-   ========================================================================== */
-function renderHQMarketWidgets() {
-    const wrap = $('hq-market-widgets');
-    wrap.innerHTML = HQ_TICKERS.map((t, i) =>
-        `<div class="hq-tv-slot" id="hq-tv-${i}"></div>`).join('');
-    HQ_TICKERS.forEach((t, i) => {
-        mountTradingViewWidget($(`hq-tv-${i}`),
-            'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js',
-            { symbol: t, width: '100%', height: '100%', locale: 'de_DE', dateRange: '3M',
-              colorTheme: 'dark', isTransparent: true, autosize: true, chartOnly: false });
+    document.querySelectorAll('.nav-item').forEach(n => {
+        n.classList.toggle('active', n.dataset.target === id);
     });
-}
-
-function renderHQNewsStream() {
-    const wrap = $('hq-news-stream');
-    if (!state.newsData.length) {
-        wrap.innerHTML = `<div class="stream-item" style="border-left-color: var(--text-muted); cursor:default;">
-            <div class="stream-title" style="color:var(--text-muted);">Kein News-Feed gefunden. Lege <b>nachrichten.json</b> ins Verzeichnis.</div></div>`;
-        return;
+    document.querySelectorAll('.tab-item').forEach((t, idx) => {
+        const views = ['hq','news','market','lingua','academy','settings'];
+        t.classList.toggle('active', views[idx] === id);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Lazy-load TradingView chart when Market tab first opens
+    if (id === 'market' && !document.getElementById('tv-chart')?.querySelector('iframe')) {
+        loadTradingViewChart();
     }
-    wrap.innerHTML = state.newsData.slice(0, 5).map((n, i) => `
-        <div class="stream-item" onclick="openArticleFromHQ(${i})">
-            <div class="stream-cat">${escapeHTML(n.hauptkategorie || n.kategorie || 'News')}</div>
-            <div class="stream-title">${escapeHTML(n.titel || n.title || '')}</div>
-            <div class="stream-meta">${escapeHTML(n.sub_sektor || '')} · ${estimateReadTime(n)}</div>
-        </div>`).join('');
-}
-function openArticleFromHQ(idx) {
-    const item = state.newsData[idx];
-    switchView('news');
-    if (item && (item.quelle || item.url || item.link)) window.open(item.quelle || item.url || item.link, '_blank');
 }
 
-function updateHQMetrics() {
-    $('metric-bookmarks').textContent = state.bookmarks.length;
-    $('metric-watchlist').textContent = state.watchlist.length;
-    const total = ACADEMY_LEVELS.length;
-    const done = state.academyProgress.completed.length;
-    $('metric-academy').textContent = Math.round((done / total) * 100) + '%';
-}
-
-function tickClocks() {
+// ==================== CLOCK ====================
+function updateClock() {
     const now = new Date();
-    const time = now.toLocaleTimeString('de-DE');
-    $('nav-clock').textContent = time;
-    $('cockpit-clock').textContent = time + ' · ETTENHEIM · ONLINE';
-    const h = now.getHours();
-    const greeting = h < 5 ? 'Nachtschicht, Master Carlos?' :
-                     h < 11 ? 'Moin, Master Carlos.' :
-                     h < 18 ? 'Willkommen zurück, Master Carlos.' :
-                     'Guten Abend, Master Carlos.';
-    $('core-greeting').textContent = greeting;
+    const pad = n => String(n).padStart(2, '0');
+    const time = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    const el = document.getElementById('nav-clock');
+    if (el) el.textContent = time;
+    const cc = document.getElementById('cockpit-clock');
+    if (cc) {
+        const days = ['SONNTAG','MONTAG','DIENSTAG','MITTWOCH','DONNERSTAG','FREITAG','SAMSTAG'];
+        const months = ['JAN','FEB','MÄR','APR','MAI','JUN','JUL','AUG','SEP','OKT','NOV','DEZ'];
+        cc.textContent = `${days[now.getDay()]} · ${pad(now.getDate())} ${months[now.getMonth()]} ${now.getFullYear()} · ${time}`;
+    }
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ==================== GREETING ====================
+function updateGreeting() {
+    const h = new Date().getHours();
+    let greet;
+    if (h < 5) greet = 'Gute Nacht, Master Carlos.';
+    else if (h < 12) greet = 'Guten Morgen, Master Carlos.';
+    else if (h < 17) greet = 'Guten Tag, Master Carlos.';
+    else if (h < 21) greet = 'Guten Abend, Master Carlos.';
+    else greet = 'Gute Nacht, Master Carlos.';
+    const el = document.getElementById('core-greeting');
+    if (el) el.textContent = greet;
 }
 
-/* ==========================================================================
-   NEWS INTELLIGENCE
-   ========================================================================== */
-function getNewsCategories() {
-    const found = [...new Set(state.newsData.map(n => n.hauptkategorie || n.kategorie).filter(Boolean))];
-    return ['Alle', ...found, 'Gespeichert'];
+// ==================== DATA LOADING ====================
+async function loadData() {
+    try {
+        const [newsRes, vocabRes] = await Promise.allSettled([
+            fetch('nachrichten.json').then(r => r.ok ? r.json() : []),
+            fetch('vokabeln.json').then(r => r.ok ? r.json() : [])
+        ]);
+        STATE.news = newsRes.status === 'fulfilled' ? (Array.isArray(newsRes.value) ? newsRes.value : []) : [];
+        STATE.vocabs = vocabRes.status === 'fulfilled' ? (Array.isArray(vocabRes.value) ? vocabRes.value : []) : [];
+    } catch (e) {
+        console.warn('Daten-Laden fehlgeschlagen:', e);
+        STATE.news = [];
+        STATE.vocabs = [];
+    }
+    renderNewsCategories();
+    renderNews();
+    renderHqSidePanels();
+    renderFlashcard();
+    renderAcademyPath();
+    updateMetrics();
+}
+
+// ==================== NEWS RENDERING ====================
+function getSummaryClamp() {
+    const map = { 1: 'clamp-2', 2: 'clamp-2', 3: 'clamp-3', 4: 'clamp-5', 5: 'clamp-full' };
+    return map[STATE.settings.summaryLength] || 'clamp-3';
+}
+
+function truncateSummary(text, level) {
+    if (!text) return '';
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    const limits = { 1: 1, 2: 2, 3: 3, 4: 5, 5: 999 };
+    const max = limits[level] || 3;
+    return sentences.slice(0, max).join(' ').trim();
 }
 
 function renderNewsCategories() {
-    const bar = $('news-categories');
-    bar.innerHTML = getNewsCategories().map(c => {
-        const label = c === 'Gespeichert' ? `★ Gespeichert (${state.bookmarks.length})` : c;
-        return `<button class="chip ${state.activeCategory === c ? 'active' : ''}"
-            onclick="setNewsCategory(${JSON.stringify(c).replace(/"/g, '&quot;')})">${escapeHTML(label)}</button>`;
-    }).join('');
-    renderSubSectors();
-}
-function setNewsCategory(cat) {
-    state.activeCategory = cat;
-    state.activeSubSector = 'Alle';
-    renderNewsCategories();
-    renderNewsGrid();
-}
-function renderSubSectors() {
-    const bar = $('news-subsectors');
-    if (state.activeCategory === 'Alle' || state.activeCategory === 'Gespeichert') { bar.innerHTML = ''; return; }
-    const articles = state.newsData.filter(n => (n.hauptkategorie || n.kategorie) === state.activeCategory);
-    const subs = [...new Set(articles.map(n => n.sub_sektor || 'Allgemein'))];
-    if (subs.length <= 1) { bar.innerHTML = ''; return; }
-    bar.innerHTML = ['Alle', ...subs].map(s =>
-        `<button class="chip ${state.activeSubSector === s ? 'active' : ''}" style="font-size:11.5px; padding:6px 13px;"
-            onclick="setSubSector(${JSON.stringify(s).replace(/"/g, '&quot;')})">${escapeHTML(s)}</button>`).join('');
-}
-function setSubSector(sub) {
-    state.activeSubSector = sub;
-    renderSubSectors();
-    renderNewsGrid();
+    const cats = new Set(['alle']);
+    STATE.news.forEach(a => { if (a.category) cats.add(a.category); });
+    const container = document.getElementById('news-categories');
+    if (!container) return;
+    container.innerHTML = '';
+    cats.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'chip' + (c === STATE.newsCategory ? ' active' : '');
+        btn.textContent = c.charAt(0).toUpperCase() + c.slice(1);
+        btn.onclick = () => {
+            STATE.newsCategory = c;
+            STATE.newsSubsector = null;
+            renderNewsCategories();
+            renderNewsSubsectors();
+            renderNews();
+        };
+        container.appendChild(btn);
+    });
+    renderNewsSubsectors();
 }
 
-function renderNewsGrid() {
-    const grid = $('news-grid-container');
-    let list;
-    if (state.activeCategory === 'Gespeichert') list = state.bookmarks;
-    else if (state.activeCategory === 'Alle') list = state.newsData;
-    else list = state.newsData.filter(n => (n.hauptkategorie || n.kategorie) === state.activeCategory);
-    if (state.activeSubSector !== 'Alle' && state.activeCategory !== 'Gespeichert' && state.activeCategory !== 'Alle') {
-        list = list.filter(n => (n.sub_sektor || 'Allgemein') === state.activeSubSector);
+function renderNewsSubsectors() {
+    const container = document.getElementById('news-subsectors');
+    if (!container) return;
+    container.innerHTML = '';
+    if (STATE.newsCategory === 'alle') return;
+    const subs = new Set();
+    STATE.news.forEach(a => {
+        if (a.category === STATE.newsCategory && a.subsector) subs.add(a.subsector);
+    });
+    if (subs.size === 0) return;
+    subs.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'chip' + (s === STATE.newsSubsector ? ' active' : '');
+        btn.textContent = s;
+        btn.onclick = () => {
+            STATE.newsSubsector = STATE.newsSubsector === s ? null : s;
+            renderNewsSubsectors();
+            renderNews();
+        };
+        container.appendChild(btn);
+    });
+}
+
+function getFilteredNews() {
+    let articles = [...STATE.news];
+    if (STATE.settings.bookmarksOnly) {
+        articles = articles.filter(a => STATE.bookmarks.has(a.url || a.title));
     }
-    state.renderedNewsList = list;
+    if (STATE.newsCategory !== 'alle') {
+        articles = articles.filter(a => a.category === STATE.newsCategory);
+    }
+    if (STATE.newsSubsector) {
+        articles = articles.filter(a => a.subsector === STATE.newsSubsector);
+    }
+    if (STATE.newsSearch) {
+        const q = STATE.newsSearch.toLowerCase();
+        articles = articles.filter(a =>
+            (a.title || '').toLowerCase().includes(q) ||
+            (a.summary || '').toLowerCase().includes(q) ||
+            (a.source || '').toLowerCase().includes(q)
+        );
+    }
+    if (STATE.newsSort === 'oldest') articles.reverse();
+    return articles;
+}
 
-    if (!list.length) {
-        grid.innerHTML = `<div class="empty-state"><div class="big">${state.activeCategory === 'Gespeichert' ? '☆' : '📭'}</div>
-            ${state.activeCategory === 'Gespeichert'
-                ? 'Noch keine Lesezeichen. Markiere Artikel mit dem Stern.'
-                : 'Keine Artikel in dieser Auswahl gefunden.'}</div>`;
+function renderNews() {
+    const grid = document.getElementById('news-grid-container');
+    if (!grid) return;
+    const articles = getFilteredNews();
+    const count = document.getElementById('news-count');
+    if (count) count.textContent = `${articles.length} Artikel`;
+
+    if (articles.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><div class="big">${STATE.newsSearch ? '🔍' : '📭'}</div>${STATE.newsSearch ? 'Keine Treffer für "' + STATE.newsSearch + '"' : 'Keine Nachrichten verfügbar.'}</div>`;
         return;
     }
 
-    grid.innerHTML = list.map((item, idx) => {
-        const bookmarked = state.bookmarks.some(b => articleKey(b) === articleKey(item));
-        const img = item.bild || item.image || item.img || '';
-        const url = item.quelle || item.url || item.link || '#';
-        const kicker = item.kicker || item.sub_sektor || item.hauptkategorie || 'News';
-        const summary = item.zusammenfassung || item.summary || item.beschreibung || '';
-        const featured = idx === 0 && state.activeCategory === 'Alle' && list.length > 2;
+    const clamp = getSummaryClamp();
+    grid.innerHTML = articles.map((a, i) => {
+        const id = a.url || a.title || i;
+        const isBookmarked = STATE.bookmarks.has(id);
+        const featured = i === 0 && STATE.newsCategory === 'alle' && !STATE.newsSearch ? ' featured' : '';
+        const summary = truncateSummary(a.summary || a.description || '', STATE.settings.summaryLength);
+        const readingTime = a.summary ? Math.max(1, Math.ceil((a.summary.split(/\s+/).length) / 200)) : 1;
+        const source = a.source || 'Unbekannt';
+        const date = a.date ? formatDate(a.date) : '';
+        const img = a.image_url || a.image || a.urlToImage || '';
+        const category = a.category || 'News';
+
         return `
-        <article class="bento-card ${featured ? 'featured' : ''}">
+        <article class="bento-card${featured}" data-id="${i}">
             <div class="bento-media">
                 ${img
-                    ? `<img src="${escapeHTML(img)}" class="bento-img" loading="lazy" alt="" onerror="this.remove()">`
-                    : `<div class="bento-fallback">📰</div>`}
-                <button class="bookmark-btn ${bookmarked ? 'on' : ''}" onclick="toggleBookmark(${idx}, this)" title="Lesezeichen">
-                    ${bookmarked ? '★' : '☆'}
+                    ? `<img class="bento-img" src="${img}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">`
+                    : ''}
+                <div class="bento-fallback" ${img ? 'style="display:none"' : ''}>📰</div>
+                <button class="bookmark-btn ${isBookmarked ? 'on' : ''}" onclick="event.stopPropagation();toggleBookmark('${encodeURIComponent(id)}', this)" title="Lesezeichen">
+                    ${isBookmarked ? '★' : '☆'}
                 </button>
             </div>
-            <div class="bento-content">
-                <div class="bento-kicker">${escapeHTML(kicker)}</div>
-                <a href="${escapeHTML(url)}" target="_blank" rel="noopener"><h3 class="bento-title">${escapeHTML(item.titel || item.title || 'Ohne Titel')}</h3></a>
-                ${summary ? `<p class="bento-summary">${escapeHTML(summary)}</p>` : ''}
+            <div class="bento-content" onclick="openArticleModal(${i})">
+                <div class="bento-kicker">${escHtml(category)}</div>
+                <h3 class="bento-title">${escHtml(a.title || 'Ohne Titel')}</h3>
+                ${summary ? `<p class="bento-summary ${clamp}">${escHtml(summary)}</p>` : ''}
                 <div class="bento-meta">
-                    <span>⏱ ${estimateReadTime(item)}</span>
-                    ${item.datum || item.date ? `<span class="sep"></span><span>${escapeHTML(item.datum || item.date)}</span>` : ''}
+                    <span>${escHtml(source)}</span>
+                    ${date ? `<span class="sep"></span><span>${date}</span>` : ''}
+                    <span class="sep"></span>
+                    <span>~${readingTime} Min. Lesezeit</span>
                 </div>
+                ${a.url ? `<a class="bento-link" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Artikel lesen <span>→</span></a>` : ''}
             </div>
         </article>`;
     }).join('');
 }
 
-function toggleBookmark(renderIdx, btn) {
-    const item = state.renderedNewsList[renderIdx];
-    if (!item) return;
-    const key = articleKey(item);
-    const existing = state.bookmarks.findIndex(b => articleKey(b) === key);
-    if (existing > -1) {
-        state.bookmarks.splice(existing, 1);
-        showToast('☆ Lesezeichen entfernt');
-    } else {
-        state.bookmarks.push(item);
-        showToast('★ Artikel gespeichert');
-    }
-    saveLS('carlos_bookmarks', state.bookmarks);
-    renderNewsCategories();
-    renderNewsGrid();
-    updateHQMetrics();
-}
-
-/* ==========================================================================
-   MARKET TERMINAL
-   ========================================================================== */
-function mountTradingViewWidget(container, src, config) {
-    if (!container) return;
-    container.innerHTML = '';
-    const inner = document.createElement('div');
-    inner.className = 'tradingview-widget-container';
-    inner.style.cssText = 'width:100%;height:100%;';
-    const s = document.createElement('script');
-    s.src = src;
-    s.async = true;
-    s.innerHTML = JSON.stringify(config);
-    inner.appendChild(s);
-    container.appendChild(inner);
-}
-
-function setMarketSector(sector, el) {
-    state.marketSector = sector;
-    document.querySelectorAll('#market-sector-tabs .chip').forEach(c => c.classList.remove('active'));
-    if (el) el.classList.add('active');
-    renderMarketSectorGrid();
-}
-
-function renderMarketSectorGrid() {
-    const grid = $('market-stock-grid');
-    const isWL = state.marketSector === 'watchlist';
-    const list = isWL ? state.watchlist : SECTORS[state.marketSector] || [];
-
-    if (isWL && !list.length) {
-        grid.innerHTML = `<div class="empty-state" style="padding:34px;"><div class="big">📈</div>
-            Watchlist leer. Ticker oben eintippen und Enter drücken.</div>`;
-        return;
-    }
-    grid.innerHTML = list.map((t, i) => `
-        <div class="stock-card-box">
-            ${isWL ? `<button class="wl-remove" onclick="removeWatchlist('${escapeHTML(t)}')" title="Entfernen">✕</button>` : ''}
-            <div id="mkt-tv-${i}" style="width:100%;height:100%;"></div>
-        </div>`).join('');
-    list.forEach((t, i) => {
-        mountTradingViewWidget($(`mkt-tv-${i}`),
-            'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js',
-            { symbol: t, width: '100%', height: '100%', locale: 'de_DE', colorTheme: 'dark', isTransparent: true });
-    });
-}
-
-function addWatchlistStock(rawValue) {
-    let val = String(rawValue || '').toUpperCase().trim().replace(/[^A-Z0-9:.\-]/g, '');
-    if (!val) return;
-    if (!val.includes(':')) val = 'NASDAQ:' + val;
-    if (state.watchlist.includes(val)) { showToast(val + ' ist bereits in der Watchlist'); return; }
-    state.watchlist.push(val);
-    saveLS('carlos_portfolio', state.watchlist);
-    showToast('📈 ' + val + ' zur Watchlist hinzugefügt');
-    updateHQMetrics();
-    if (state.marketSector === 'watchlist') renderMarketSectorGrid();
-    else setMarketSector('watchlist', document.querySelector('#market-sector-tabs .chip[data-sector="watchlist"]'));
-}
-function removeWatchlist(ticker) {
-    state.watchlist = state.watchlist.filter(t => t !== ticker);
-    saveLS('carlos_portfolio', state.watchlist);
-    updateHQMetrics();
-    renderMarketSectorGrid();
-}
-
-function setupTradingViewChart() {
-    if (state.tvChartLoaded) return;
-    state.tvChartLoaded = true;
-    mountTradingViewWidget($('tv-chart'),
-        'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js',
-        { autosize: true, symbol: 'NASDAQ:IXIC', interval: 'D', theme: 'dark', style: '2',
-          hide_top_toolbar: false, hide_legend: false, allow_symbol_change: true, locale: 'de_DE' });
-}
-
-/* ---------------------------- Blackstone Analyzer ---------------------------- */
-async function runBlackstoneAnalyzer() {
-    const key = localStorage.getItem('carlos_api_key');
-    if (!key) {
-        showToast('⚠️ Erst den Gemini API-Key in den Settings hinterlegen.');
-        switchView('settings');
-        return;
-    }
-    const ticker = $('analyzer-ticker').value.trim();
-    if (!ticker) { showToast('Ticker eingeben, Master Carlos.'); return; }
-
-    const btn = $('analyzer-btn');
-    btn.disabled = true;
-    $('analyzer-results').style.display = 'block';
-    $('analyzer-headline').textContent = ticker.toUpperCase() + ' — Institutional Research';
-    const status = $('analyzer-status');
-    status.textContent = 'Blackstone AI Engine analysiert…';
-    status.style.color = 'var(--blue)';
-    const ids = ['a-p1', 'a-p2', 'a-p3', 'a-p4', 'a-p5'];
-    ids.forEach(id => { const el = $(id); el.classList.add('skeleton'); el.textContent = 'Analysiere Fundamentaldaten…'; });
-
-    const prompt =
-        `Du bist ein Senior Equity Research Analyst bei Blackstone. Analysiere das Unternehmen "${ticker}" ` +
-        `nach institutionellem Standard. Antworte AUSSCHLIESSLICH als valides JSON-Objekt mit exakt diesen Keys:\n` +
-        `{"bilanz": "...", "treiber": "...", "wettbewerb": "...", "management": "...", "fazit": "..."}\n` +
-        `Inhalte (jeweils 3-5 präzise Sätze, Deutsch, konkret und mit Zahlenlogik statt Allgemeinplätzen):\n` +
-        `- bilanz: Bilanzqualität, Verschuldung, Margen, Free-Cashflow-Profil\n` +
-        `- treiber: Die 2-3 wichtigsten strukturellen Wachstumstreiber\n` +
-        `- wettbewerb: Wettbewerbsposition, Moat, größte Bedrohung\n` +
-        `- management: Track Record des Managements und Kapitalallokation (Buybacks, M&A, R&D)\n` +
-        `- fazit: Makro-Einordnung, Bewertungseinschätzung und klares Fazit (Bull/Base/Bear in einem Satz)`;
-
+function formatDate(str) {
     try {
-        const raw = await callGemini(prompt, { json: true, temperature: 0.4, maxTokens: 2048 });
-        let parts;
-        try {
-            const obj = parseGeminiJSON(raw);
-            parts = [obj.bilanz, obj.treiber, obj.wettbewerb, obj.management, obj.fazit];
-        } catch (e) {
-            parts = raw.split('|||');
+        const d = new Date(str);
+        if (isNaN(d.getTime())) return str;
+        const now = new Date();
+        const diff = (now - d) / 1000;
+        if (diff < 3600) return `vor ${Math.floor(diff / 60)} Min.`;
+        if (diff < 86400) return `vor ${Math.floor(diff / 3600)} Std.`;
+        if (diff < 172800) return 'Gestern';
+        return d.toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
+    } catch { return str; }
+}
+
+function escHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
+
+function toggleBookmark(encodedId, btn) {
+    const id = decodeURIComponent(encodedId);
+    if (STATE.bookmarks.has(id)) {
+        STATE.bookmarks.delete(id);
+        if (btn) { btn.classList.remove('on'); btn.innerHTML = '☆'; }
+        toast('Lesezeichen entfernt');
+    } else {
+        STATE.bookmarks.add(id);
+        if (btn) { btn.classList.add('on'); btn.innerHTML = '★'; }
+        toast('✅ Lesezeichen gesetzt');
+    }
+    localStorage.setItem('hq_bookmarks', JSON.stringify([...STATE.bookmarks]));
+    updateMetrics();
+}
+
+function toggleNewsSort() {
+    STATE.newsSort = STATE.newsSort === 'newest' ? 'oldest' : 'newest';
+    const label = document.getElementById('news-sort-label');
+    if (label) label.textContent = STATE.newsSort === 'newest' ? 'Neueste' : 'Älteste';
+    renderNews();
+}
+
+function openArticleModal(index) {
+    const a = getFilteredNews()[index];
+    if (!a) return;
+    document.getElementById('modal-kicker').textContent = a.category || 'News';
+    document.getElementById('modal-title').textContent = a.title || '';
+    document.getElementById('modal-summary').textContent = a.summary || a.description || 'Keine Zusammenfassung verfügbar.';
+    const meta = document.getElementById('modal-meta');
+    meta.innerHTML = `<span>${escHtml(a.source || '')}</span>${a.date ? `<span class="sep" style="width:3px;height:3px;border-radius:50%;background:var(--text-muted)"></span><span>${formatDate(a.date)}</span>` : ''}`;
+    const link = document.getElementById('modal-link');
+    if (a.url) { link.href = a.url; link.style.display = ''; }
+    else link.style.display = 'none';
+    document.getElementById('article-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeArticleModal() {
+    document.getElementById('article-modal')?.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// ==================== HQ SIDE PANELS ====================
+function renderHqSidePanels() {
+    // News stream
+    const stream = document.getElementById('hq-news-stream');
+    if (stream) {
+        const top = STATE.news.slice(0, 6);
+        stream.innerHTML = top.length ? top.map((a, i) => `
+            <div class="stream-item" onclick="switchView('news')">
+                <div class="stream-cat">${escHtml(a.category || 'News')}</div>
+                <div class="stream-title">${escHtml(a.title || '')}</div>
+                <div class="stream-meta">${escHtml(a.source || '')} ${a.date ? '· ' + formatDate(a.date) : ''}</div>
+            </div>
+        `).join('') : '<div style="color:var(--text-muted);font-size:12px;padding:8px;">Keine Nachrichten geladen.</div>';
+    }
+
+    // Market widgets
+    renderHqMarketWidgets();
+
+    // News badge
+    const badge = document.getElementById('news-badge');
+    if (badge && STATE.news.length > 0) badge.classList.add('show');
+}
+
+// ==================== MARKET ====================
+const STOCK_DATA = {
+    semis: [
+        { ticker: 'NVDA', name: 'NVIDIA Corp.', price: 138.42, change: 3.21 },
+        { ticker: 'AMD', name: 'Advanced Micro Devices', price: 164.80, change: -1.45 },
+        { ticker: 'ASML', name: 'ASML Holding', price: 987.50, change: 2.68 },
+        { ticker: 'TSM', name: 'Taiwan Semiconductor', price: 192.30, change: 1.12 },
+        { ticker: 'AVGO', name: 'Broadcom Inc.', price: 178.90, change: 0.87 },
+        { ticker: 'MRVL', name: 'Marvell Technology', price: 78.44, change: -0.63 }
+    ],
+    bigtech: [
+        { ticker: 'AAPL', name: 'Apple Inc.', price: 234.82, change: 0.54 },
+        { ticker: 'MSFT', name: 'Microsoft Corp.', price: 468.35, change: 1.18 },
+        { ticker: 'GOOGL', name: 'Alphabet Inc.', price: 182.68, change: -0.32 },
+        { ticker: 'AMZN', name: 'Amazon.com', price: 209.13, change: 2.11 },
+        { ticker: 'META', name: 'Meta Platforms', price: 612.45, change: 0.93 },
+        { ticker: 'PLTR', name: 'Palantir Technologies', price: 43.21, change: 4.56 }
+    ],
+    health: [
+        { ticker: 'UNH', name: 'UnitedHealth', price: 521.40, change: -0.28 },
+        { ticker: 'JNJ', name: 'Johnson & Johnson', price: 155.67, change: 0.41 },
+        { ticker: 'LLY', name: 'Eli Lilly', price: 812.90, change: 1.85 },
+        { ticker: 'PFE', name: 'Pfizer Inc.', price: 28.14, change: -1.22 }
+    ],
+    consumer: [
+        { ticker: 'TSLA', name: 'Tesla Inc.', price: 267.48, change: 2.84 },
+        { ticker: 'NKE', name: 'Nike Inc.', price: 98.12, change: -0.67 },
+        { ticker: 'SBUX', name: 'Starbucks Corp.', price: 101.35, change: 0.43 },
+        { ticker: 'DIS', name: 'Walt Disney', price: 114.22, change: 1.14 }
+    ]
+};
+
+function setMarketSector(sector, btn) {
+    STATE.marketSector = sector;
+    document.querySelectorAll('#market-sector-tabs .chip').forEach(c => c.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    renderStockGrid();
+}
+
+function renderStockGrid() {
+    const grid = document.getElementById('market-stock-grid');
+    if (!grid) return;
+
+    let stocks;
+    if (STATE.marketSector === 'watchlist') {
+        stocks = [];
+        for (const [sector, items] of Object.entries(STOCK_DATA)) {
+            items.forEach(s => { if (STATE.watchlist.has(s.ticker)) stocks.push(s); });
         }
-        ids.forEach((id, i) => {
-            const el = $(id);
-            el.classList.remove('skeleton');
-            el.textContent = (parts[i] || 'Keine Daten geliefert.').toString().replace(/\[.*?\]/g, '').trim();
-        });
-        status.textContent = '✓ Analyse abgeschlossen';
-        status.style.color = 'var(--green)';
-        speakJarvis(`Research zu ${ticker} steht, Master Carlos. Das Fazit findest du in Säule fünf.`);
-    } catch (e) {
-        ids.forEach(id => { const el = $(id); el.classList.remove('skeleton'); el.textContent = '—'; });
-        status.textContent = '✗ Fehler: ' + (e.message || 'API nicht erreichbar');
-        status.style.color = 'var(--red)';
-    } finally {
-        btn.disabled = false;
+        if (stocks.length === 0) {
+            grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;padding:40px;"><div class="big">★</div>Noch keine Aktien in der Watchlist.<br>Klicke ★ bei einer Aktie, um sie hinzuzufügen.</div>';
+            return;
+        }
+    } else {
+        stocks = STOCK_DATA[STATE.marketSector] || [];
     }
-}
 
-/* ---------------------------- DCF Engine ---------------------------- */
-function initDCF() {
-    const sliders = ['dcf-growth', 'dcf-margin', 'dcf-wacc', 'dcf-tg'];
-    const inputs = ['dcf-revenue', 'dcf-shares', 'dcf-netdebt'];
-    sliders.forEach(id => $(id).addEventListener('input', computeDCF));
-    inputs.forEach(id => $(id).addEventListener('input', computeDCF));
-    computeDCF();
-}
-function computeDCF() {
-    const growth = parseFloat($('dcf-growth').value) / 100;
-    const margin = parseFloat($('dcf-margin').value) / 100;
-    const wacc = parseFloat($('dcf-wacc').value) / 100;
-    const tg = parseFloat($('dcf-tg').value) / 100;
-    const revenue = parseFloat($('dcf-revenue').value) || 0;
-    const shares = parseFloat($('dcf-shares').value) || 0;
-    const netDebt = parseFloat($('dcf-netdebt').value) || 0;
-
-    $('dcf-growth-out').textContent = (growth * 100).toFixed(1).replace('.0', '') + '%';
-    $('dcf-margin-out').textContent = (margin * 100).toFixed(1).replace('.0', '') + '%';
-    $('dcf-wacc-out').textContent = (wacc * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
-    $('dcf-tg-out').textContent = (tg * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
-    // Slider-Füllstand für den Gradient
-    ['dcf-growth', 'dcf-margin', 'dcf-wacc', 'dcf-tg'].forEach(id => {
-        const s = $(id);
-        const pct = ((s.value - s.min) / (s.max - s.min)) * 100;
-        s.style.setProperty('--fill', pct + '%');
-    });
-
-    let ev = 0;
-    let rev = revenue;
-    // 5 Jahre explizite FCF-Prognose (Marge linear auf Zielmarge hochgefahren)
-    for (let y = 1; y <= 5; y++) {
-        rev *= (1 + growth);
-        const yearMargin = margin * (0.6 + 0.4 * (y / 5));
-        const fcf = rev * yearMargin;
-        ev += fcf / Math.pow(1 + wacc, y);
-    }
-    // Terminal Value (Gordon Growth)
-    if (wacc > tg) {
-        const terminalFCF = rev * margin * (1 + tg);
-        const tv = terminalFCF / (wacc - tg);
-        ev += tv / Math.pow(1 + wacc, 5);
-    }
-    const equity = ev - netDebt;
-    const perShare = shares > 0 ? equity / shares : 0;
-
-    $('dcf-result-value').textContent = perShare > 0
-        ? '$' + perShare.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-        : '—';
-    $('dcf-result-sub').textContent =
-        `Enterprise Value: $${ev.toFixed(0)} Mrd. · Equity Value: $${equity.toFixed(0)} Mrd.`;
-}
-
-/* ---------------------------- Scratchpad ---------------------------- */
-function initScratchpad() {
-    const pad = $('scratchpad');
-    pad.value = localStorage.getItem('carlos_scratchpad') || '';
-    let timer = null;
-    pad.addEventListener('input', () => {
-        const st = $('scratchpad-status');
-        st.textContent = 'Speichere…';
-        st.classList.remove('saved');
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            localStorage.setItem('carlos_scratchpad', pad.value);
-            st.textContent = '✓ Gespeichert';
-            st.classList.add('saved');
-        }, 500);
-    });
-}
-
-/* ==========================================================================
-   LINGUA LAB PRO
-   ========================================================================== */
-function setLinguaMode(mode, el) {
-    state.linguaMode = mode;
-    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-    if (el) el.classList.add('active');
-    renderLinguaContent();
-}
-
-function renderLinguaContent() {
-    const area = $('lingua-content-area');
-    if (!state.vocabData) {
-        area.innerHTML = `<div class="empty-state"><div class="big">⏳</div>Lade Vokabeldaten…</div>`;
-        return;
-    }
-    if (state.linguaMode === 'flashcards') {
-        area.classList.add('flashcard-stage');
-        const words = state.vocabData.words;
-        const item = words[state.vocabIndex] || words[0];
-        const progress = ((state.vocabIndex + 1) / words.length) * 100;
-        area.innerHTML = `
-            <div class="fc-progress"><div class="bar" style="width:${progress}%;"></div></div>
-            <div class="flashcard-scene">
-                <div class="flashcard ${state.vocabFlipped ? 'flipped' : ''}" id="flashcard" onclick="flipCard()">
-                    <div class="fc-face front">
-                        <div class="fc-tag">C2 Vocabulary</div>
-                        <div class="word-en">${escapeHTML(item.en)}</div>
-                        <div class="word-ex" style="opacity:0.55;">Klicken zum Aufdecken</div>
-                    </div>
-                    <div class="fc-face back">
-                        <div class="fc-tag" style="color:var(--blue);">Deutsch</div>
-                        <div class="word-de">${escapeHTML(item.de)}</div>
-                        ${item.ex ? `<div class="word-ex">“${escapeHTML(item.ex)}”</div>` : ''}
-                    </div>
+    grid.innerHTML = stocks.map(s => {
+        const up = s.change >= 0;
+        const inWL = STATE.watchlist.has(s.ticker);
+        return `
+        <div class="stock-card-box">
+            <button class="wl-toggle ${inWL ? 'on' : ''}" onclick="toggleWatchlist('${s.ticker}', this)" title="Watchlist">★</button>
+            <div class="stock-head">
+                <div>
+                    <div class="stock-ticker">${s.ticker}</div>
+                    <div class="stock-name">${s.name}</div>
                 </div>
             </div>
-            <div class="fc-controls">
-                <button class="chip" onclick="prevCard()">← Zurück</button>
-                <span class="fc-counter">${state.vocabIndex + 1} / ${words.length}</span>
-                <button class="chip active" onclick="nextCard()">Nächste →</button>
-            </div>`;
-    } else {
-        area.classList.remove('flashcard-stage');
-        const tips = state.vocabData.tips;
-        area.innerHTML = `
-            <div class="section-label"><span class="dot"></span>Writing Mastery — Wie klinge ich wie ein Muttersprachler?</div>
-            ${tips.map(t => `
-                <div class="mastery-block">
-                    <h4>${escapeHTML(t.titel)}</h4>
-                    ${t.erklaerung ? `<div class="m-desc">${escapeHTML(t.erklaerung)}</div>` : ''}
-                    ${t.falsch ? `<div class="mastery-ex bad">✗ <b>Germanismus:</b> ${escapeHTML(t.falsch)}</div>` : ''}
-                    ${t.richtig ? `<div class="mastery-ex good">✓ <b>Native:</b> ${escapeHTML(t.richtig)}</div>` : ''}
-                </div>`).join('')}`;
-    }
-}
-function flipCard() {
-    state.vocabFlipped = !state.vocabFlipped;
-    const card = $('flashcard');
-    if (card) card.classList.toggle('flipped', state.vocabFlipped);
-}
-function nextCard() {
-    if (!state.vocabData) return;
-    state.vocabFlipped = false;
-    state.vocabIndex = (state.vocabIndex + 1) % state.vocabData.words.length;
-    renderLinguaContent();
-}
-function prevCard() {
-    if (!state.vocabData) return;
-    state.vocabFlipped = false;
-    state.vocabIndex = (state.vocabIndex - 1 + state.vocabData.words.length) % state.vocabData.words.length;
-    renderLinguaContent();
-}
-
-/* ==========================================================================
-   BUSINESS ECONOMY ACADEMY
-   ========================================================================== */
-const ACADEMY_LEVELS = [
-    {
-        id: 'L1',
-        title: 'Die Bilanz-Dreifaltigkeit & Free Cashflow',
-        sub: 'Fundament der Analyse',
-        content: `
-            <h3>Warum drei Berichte?</h3>
-            <p>Jedes börsennotierte Unternehmen erzählt seine Geschichte in drei Dokumenten — und nur wer alle drei <strong>gleichzeitig</strong> liest, sieht die Wahrheit. Einzeln betrachtet lügt jeder Bericht auf seine eigene Art.</p>
-            <ul>
-                <li><strong>Income Statement (GuV):</strong> Zeigt Umsatz, Kosten und Gewinn über einen Zeitraum. Achtung: Der "Gewinn" ist eine buchhalterische Meinung — beeinflussbar durch Abschreibungsmethoden, Rückstellungen und Einmaleffekte.</li>
-                <li><strong>Balance Sheet (Bilanz):</strong> Eine Momentaufnahme. Links das Vermögen (Assets), rechts die Finanzierung (Liabilities + Equity). Beide Seiten sind <strong>immer</strong> identisch — daher "Bilanz". Hier siehst du Verschuldung, Goodwill-Risiken und Liquidität.</li>
-                <li><strong>Cashflow Statement:</strong> Der Lügendetektor. Es zeigt, wie viel echtes Geld in der Periode wirklich geflossen ist — aufgeteilt in Operating, Investing und Financing.</li>
-            </ul>
-            <h3>Der König: Free Cashflow</h3>
-            <p>Profis bewerten Unternehmen fast nie über den Buchgewinn, sondern über den <strong>Free Cashflow (FCF)</strong> — das Bargeld, das nach allen operativen Kosten und Investitionen (CapEx) übrig bleibt und an Aktionäre fließen kann.</p>
-            <div class="formula">FCF = Operativer Cashflow − Capital Expenditures (CapEx)</div>
-            <p>Warum ist das entscheidend? Ein Unternehmen kann jahrelang Buchgewinne ausweisen und trotzdem pleitegehen, wenn kein Cash fließt (Stichwort: Wirecard). Umgekehrt können Firmen wie Amazon jahrelang minimale Gewinne zeigen, während der operative Cashflow explodiert — weil sie aggressiv reinvestieren.</p>
-            <div class="callout"><strong>Merksatz der Wall Street:</strong> "Revenue is vanity, profit is sanity, but cash is king." Der Aktienwert ist mathematisch nichts anderes als die Summe aller zukünftigen Free Cashflows, abgezinst auf heute.</div>`,
-        quiz: [
-            { q: 'Warum gilt das Cashflow Statement als "Lügendetektor" der Bilanzanalyse?', options: ['Weil es von Wirtschaftsprüfern doppelt geprüft wird', 'Weil es reale Geldflüsse zeigt, die kaum durch Buchhaltungsentscheidungen verzerrbar sind', 'Weil es den Aktienkurs direkt vorhersagt', 'Weil es die Schulden des Unternehmens auflistet'], correct: 1, why: 'Buchgewinne sind durch Abschreibungen, Rückstellungen etc. gestaltbar — echte Zahlungsströme dagegen kaum.' },
-            { q: 'Wie berechnet sich der Free Cashflow?', options: ['Umsatz minus alle Kosten', 'Nettogewinn plus Dividenden', 'Operativer Cashflow minus CapEx', 'EBITDA minus Steuern'], correct: 2, why: 'FCF = operativer Cashflow abzüglich der Investitionen (CapEx). Das ist das frei verfügbare Bargeld.' },
-            { q: 'Ein Unternehmen zeigt hohe Buchgewinne, aber der operative Cashflow ist seit Jahren negativ. Was ist die professionelle Schlussfolgerung?', options: ['Kaufen — der Gewinn zählt', 'Rotes Warnsignal: Die Gewinnqualität ist fragwürdig, tiefer graben', 'Egal, solange die Dividende stimmt', 'Das ist bei allen Wachstumsfirmen normal und harmlos'], correct: 1, why: 'Dauerhaft auseinanderlaufende Gewinne und Cashflows sind ein klassisches Warnsignal für aggressive Bilanzierung — siehe Wirecard.' }
-        ]
-    },
-    {
-        id: 'L2',
-        title: 'Bewertung: Multiples & DCF',
-        sub: 'Was ist eine Aktie wert?',
-        content: `
-            <h3>Zwei Denkschulen der Bewertung</h3>
-            <p>Institutionelle Investoren bewerten auf zwei Wegen: <strong>relativ</strong> (Multiples — was zahlt der Markt für vergleichbare Firmen?) und <strong>absolut</strong> (DCF — was sind die zukünftigen Cashflows heute wert?).</p>
-            <h3>Multiples richtig lesen</h3>
-            <ul>
-                <li><strong>KGV (P/E):</strong> Preis pro Aktie ÷ Gewinn pro Aktie. Schnell, aber gefährlich: Es ignoriert Verschuldung und Cash-Qualität.</li>
-                <li><strong>EV/EBITDA:</strong> Der Profi-Standard. Enterprise Value (Marktkapitalisierung + Nettoschulden) ÷ operatives Ergebnis. Macht Firmen mit unterschiedlicher Verschuldung vergleichbar.</li>
-                <li><strong>P/FCF:</strong> Marktkapitalisierung ÷ Free Cashflow. Die ehrlichste Kennzahl, weil sie direkt am Cash hängt.</li>
-            </ul>
-            <div class="callout">Ein "niedriges" Multiple ist nicht automatisch billig: Ein KGV von 8 bei einem sterbenden Geschäftsmodell ist teurer als ein KGV von 30 bei 25% Wachstum p.a. — Kontext schlägt Kennzahl.</div>
-            <h3>Das DCF-Modell</h3>
-            <p>Das Discounted-Cashflow-Modell ist der theoretische Goldstandard: Du prognostizierst die Free Cashflows der nächsten ~5 Jahre, addierst einen <strong>Terminal Value</strong> für alles danach und zinst alles mit dem <strong>WACC</strong> (gewichtete Kapitalkosten) auf heute ab.</p>
-            <div class="formula">Fair Value = Σ FCFₜ / (1+WACC)ᵗ + TV / (1+WACC)⁵</div>
-            <p>Der WACC ist deine geforderte Rendite: Je riskanter das Unternehmen, desto höher der Diskontsatz — und desto weniger sind zukünftige Cashflows heute wert. Deshalb crashen Wachstumsaktien, wenn die Zinsen steigen: Der Diskontsatz frisst den Barwert ihrer fernen Gewinne.</p>
-            <div class="callout green"><strong>Praxis-Hack:</strong> Spiel im Market Terminal mit dem DCF-Rechner. Du wirst sehen: Kleine Änderungen bei WACC und Terminal Growth bewegen den fairen Wert massiv — deshalb sind DCF-Modelle Szenario-Werkzeuge, keine Präzisionsinstrumente.</div>`,
-        quiz: [
-            { q: 'Warum bevorzugen Profis EV/EBITDA gegenüber dem KGV?', options: ['Es ist einfacher zu berechnen', 'Es berücksichtigt die Verschuldung und macht Firmen kapitalstrukturneutral vergleichbar', 'Es ist immer niedriger als das KGV', 'Banken schreiben es vor'], correct: 1, why: 'Der Enterprise Value enthält die Nettoschulden — so werden hoch und niedrig verschuldete Firmen fair vergleichbar.' },
-            { q: 'Die Zinsen steigen stark. Was passiert im DCF-Modell mit dem fairen Wert von Wachstumsaktien?', options: ['Er steigt, weil Wachstum wertvoller wird', 'Er bleibt gleich — Zinsen sind irrelevant', 'Er fällt, weil der höhere Diskontsatz ferne Cashflows stärker entwertet', 'Er verdoppelt sich'], correct: 2, why: 'Wachstumsaktien beziehen ihren Wert aus fernen Cashflows — genau die werden durch einen höheren WACC am stärksten abgezinst.' },
-            { q: 'Ein Unternehmen hat ein KGV von 8. Welche Aussage ist professionell korrekt?', options: ['Sofort kaufen — objektiv billig', 'Ohne Kontext (Wachstum, Cash-Qualität, Risiken) ist das Multiple allein bedeutungslos', 'KGV 8 bedeutet 8% Rendite pro Jahr garantiert', 'Das Unternehmen ist überbewertet'], correct: 1, why: 'Multiples sind nur im Kontext von Wachstum, Qualität und Risiko interpretierbar — ein niedriges Multiple kann eine Value Trap sein.' }
-        ]
-    },
-    {
-        id: 'L3',
-        title: 'Moats & Kapitalallokation',
-        sub: 'Was Compounder ausmacht',
-        content: `
-            <h3>Der Economic Moat</h3>
-            <p>Warren Buffetts wichtigstes Konzept: Ein <strong>Moat</strong> (Burggraben) ist ein struktureller Wettbewerbsvorteil, der hohe Kapitalrenditen über Jahrzehnte verteidigt. Ohne Moat werden Übergewinne von der Konkurrenz wegkonkurriert — mit Moat compoundet das Kapital.</p>
-            <ul>
-                <li><strong>Netzwerkeffekte:</strong> Jeder neue Nutzer macht das Produkt wertvoller (Visa, Meta, Airbnb).</li>
-                <li><strong>Switching Costs:</strong> Wechsel ist teuer oder riskant (SAP, Microsoft 365, Bloomberg-Terminals).</li>
-                <li><strong>Skalenvorteile:</strong> Der Größte produziert am billigsten (TSMC, Amazon Logistik, Costco).</li>
-                <li><strong>Immaterielle Assets:</strong> Marken, Patente, Lizenzen (LVMH, Novo Nordisk, Coca-Cola).</li>
-            </ul>
-            <p>Messbar wird der Moat am <strong>ROIC</strong> (Return on Invested Capital): Liegt er dauerhaft deutlich über den Kapitalkosten (WACC), existiert ein echter Burggraben.</p>
-            <div class="formula">Wertschöpfung ⟺ ROIC &gt; WACC (dauerhaft)</div>
-            <h3>Kapitalallokation — der unterschätzte Hebel</h3>
-            <p>Das Management entscheidet jedes Jahr, wohin der Free Cashflow fließt. Diese Entscheidung trennt Compounder von Kapitalvernichtern:</p>
-            <ul>
-                <li><strong>Reinvestition ins Kerngeschäft:</strong> Genial bei hohem ROIC, Verschwendung bei niedrigem.</li>
-                <li><strong>Aktienrückkäufe:</strong> Wertschaffend nur unterhalb des inneren Werts — sonst Kapitalvernichtung auf Autopilot.</li>
-                <li><strong>M&A:</strong> Statistisch zerstören die meisten Übernahmen Wert ("Winner's Curse"). Skepsis ist Pflicht.</li>
-                <li><strong>Dividenden:</strong> Ehrlich, aber steuerlich ineffizient — sinnvoll, wenn dem Management die besseren Ideen ausgehen.</li>
-            </ul>
-            <div class="callout"><strong>Die Königsfrage an jedes Investment:</strong> Kann dieses Unternehmen große Mengen Kapital über lange Zeit zu hohen Renditen reinvestieren? Wenn ja, hast du einen Compounder — und Zeit wird dein bester Freund.</div>`,
-        quiz: [
-            { q: 'Woran erkennt man quantitativ einen echten Economic Moat?', options: ['Am bekannten Markennamen', 'ROIC liegt dauerhaft deutlich über dem WACC', 'Am hohen Umsatzwachstum im letzten Quartal', 'An einer hohen Dividendenrendite'], correct: 1, why: 'Nur wer dauerhaft mehr auf sein Kapital verdient als es kostet, verteidigt Übergewinne — das ist die messbare Definition eines Moats.' },
-            { q: 'Wann schaffen Aktienrückkäufe Wert für die verbleibenden Aktionäre?', options: ['Immer — weniger Aktien heißt automatisch mehr Wert', 'Nur wenn die Aktie unter ihrem inneren Wert gekauft wird', 'Nur in Bullenmärkten', 'Wenn der Vorstand Boni erhält'], correct: 1, why: 'Rückkäufe über dem inneren Wert transferieren Vermögen von bleibenden zu verkaufenden Aktionären — Kapitalvernichtung.' },
-            { q: 'Welcher Moat schützt Microsoft 365 und SAP am stärksten?', options: ['Netzwerkeffekte', 'Markenimage', 'Hohe Switching Costs — Wechsel ist teuer, riskant und aufwendig', 'Patente'], correct: 2, why: 'Unternehmenssoftware ist tief in Prozesse integriert — Migration kostet Geld, Zeit und Nerven. Das bindet Kunden über Jahrzehnte.' }
-        ]
-    }
-];
-
-function isLevelUnlocked(idx) {
-    if (idx === 0) return true;
-    return state.academyProgress.completed.includes(ACADEMY_LEVELS[idx - 1].id);
-}
-function isLevelDone(idx) {
-    return state.academyProgress.completed.includes(ACADEMY_LEVELS[idx].id);
-}
-
-function renderAcademyPath() {
-    $('academy-path').innerHTML = ACADEMY_LEVELS.map((lvl, i) => {
-        const unlocked = isLevelUnlocked(i);
-        const done = isLevelDone(i);
-        return `
-        <div class="level-node ${i === state.academyLevel ? 'active' : ''} ${!unlocked ? 'locked' : ''} ${done ? 'done' : ''}"
-             onclick="${unlocked ? `openAcademyLevel(${i})` : `showToast('🔒 Erst Level ${i} abschließen, Master Carlos.')`}">
-            <div class="ln-badge">${done ? '✓' : (unlocked ? i + 1 : '🔒')}</div>
-            <div>
-                <div class="ln-title">${escapeHTML(lvl.title)}</div>
-                <div class="ln-sub">Level ${i + 1} · ${escapeHTML(lvl.sub)}${done ? ' · Abgeschlossen' : ''}</div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+                <div class="stock-price">$${s.price.toFixed(2)}</div>
+                <div class="stock-change ${up ? 'up' : 'down'}">${up ? '+' : ''}${s.change.toFixed(2)}%</div>
             </div>
         </div>`;
     }).join('');
 }
 
-function openAcademyLevel(idx) {
-    state.academyLevel = idx;
-    state.quiz = { index: 0, results: [] };
-    renderAcademyPath();
-    renderAcademyContent();
+function toggleWatchlist(ticker, btn) {
+    if (STATE.watchlist.has(ticker)) {
+        STATE.watchlist.delete(ticker);
+        if (btn) btn.classList.remove('on');
+        toast(`${ticker} aus Watchlist entfernt`);
+    } else {
+        STATE.watchlist.add(ticker);
+        if (btn) btn.classList.add('on');
+        toast(`★ ${ticker} zur Watchlist hinzugefügt`);
+    }
+    localStorage.setItem('hq_watchlist', JSON.stringify([...STATE.watchlist]));
+    updateMetrics();
+    if (STATE.marketSector === 'watchlist') renderStockGrid();
 }
 
-function renderAcademyContent() {
-    const lvl = ACADEMY_LEVELS[state.academyLevel];
-    $('academy-content').innerHTML = `
-        <span class="view-kicker" style="margin-bottom:0;">Level ${state.academyLevel + 1} · Masterclass Input</span>
-        <h2>${escapeHTML(lvl.title)}</h2>
-        <div class="academy-prose">${lvl.content}</div>
-        <div class="checkpoint" id="academy-checkpoint">
-            <div class="checkpoint-badge">⚡ Checkpoint · Wissens-Check</div>
-            <div id="quiz-area"></div>
+function renderHqMarketWidgets() {
+    const container = document.getElementById('hq-market-widgets');
+    if (!container) return;
+    const topStocks = [
+        ...STOCK_DATA.semis.slice(0, 2),
+        ...STOCK_DATA.bigtech.slice(0, 2)
+    ];
+    container.innerHTML = topStocks.map(s => {
+        const up = s.change >= 0;
+        return `
+        <div class="stream-item" onclick="switchView('market')" style="border-left-color:${up ? 'var(--green)' : 'var(--red)'}">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <div class="stream-cat">${s.ticker}</div>
+                    <div class="stream-title" style="font-size:11.5px;">${s.name}</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-weight:800; font-size:14px; font-variant-numeric:tabular-nums;">$${s.price.toFixed(2)}</div>
+                    <div style="font-size:11px; font-weight:700; color:${up ? 'var(--green)' : 'var(--red)'};">${up ? '+' : ''}${s.change.toFixed(2)}%</div>
+                </div>
+            </div>
         </div>`;
-    renderQuizQuestion();
+    }).join('');
 }
 
-function renderQuizQuestion() {
-    const lvl = ACADEMY_LEVELS[state.academyLevel];
-    const quiz = state.quiz;
-    const area = $('quiz-area');
+// Add stock via input
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('add-stock-input');
+    if (input) {
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const ticker = input.value.trim().toUpperCase();
+                if (!ticker) return;
+                STATE.watchlist.add(ticker);
+                localStorage.setItem('hq_watchlist', JSON.stringify([...STATE.watchlist]));
+                input.value = '';
+                toast(`★ ${ticker} zur Watchlist hinzugefügt`);
+                updateMetrics();
+                if (STATE.marketSector === 'watchlist') renderStockGrid();
+            }
+        });
+    }
+});
 
-    if (quiz.index >= lvl.quiz.length) {
-        const score = quiz.results.filter(Boolean).length;
-        const passed = score === lvl.quiz.length;
-        if (passed && !isLevelDone(state.academyLevel)) {
-            state.academyProgress.completed.push(lvl.id);
-            saveLS('carlos_academy', state.academyProgress);
-            updateHQMetrics();
-            speakJarvis(`Level ${state.academyLevel + 1} gemeistert, Master Carlos. Sauber.`);
+function loadTradingViewChart() {
+    const container = document.getElementById('tv-chart');
+    if (!container || container.querySelector('iframe')) return;
+    container.innerHTML = `
+    <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv&symbol=NASDAQ:IXIC&interval=D&hidesidetoolbar=0&symboledit=1&saveimage=0&toolbarbg=0a0a14&studies=&theme=dark&style=1&timezone=Europe/Berlin&withdateranges=1&showpopupbutton=0&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&showpopupbutton=0&locale=de_DE&utm_source=localhost&utm_medium=widget_new&utm_campaign=chart"
+        style="width:100%;height:100%;border:0;" allowtransparency="true" scrolling="no" allowfullscreen></iframe>`;
+}
+
+// ==================== DCF MODEL ====================
+function updateDCF() {
+    const fcf = parseFloat(document.getElementById('dcf-fcf')?.value || 5);
+    const growth = parseFloat(document.getElementById('dcf-growth')?.value || 12) / 100;
+    const discount = parseFloat(document.getElementById('dcf-discount')?.value || 10) / 100;
+    const terminal = parseFloat(document.getElementById('dcf-terminal')?.value || 2.5) / 100;
+    const shares = parseFloat(document.getElementById('dcf-shares')?.value || 2.2);
+
+    // Update outputs
+    const fcfOut = document.getElementById('dcf-fcf-out');
+    if (fcfOut) fcfOut.textContent = fcf.toFixed(1);
+    const growthOut = document.getElementById('dcf-growth-out');
+    if (growthOut) growthOut.textContent = (growth * 100).toFixed(1) + ' %';
+
+    // Update slider fills
+    ['dcf-fcf', 'dcf-growth'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
+            el.style.setProperty('--fill', pct + '%');
         }
-        renderAcademyPath();
-        const hasNext = state.academyLevel < ACADEMY_LEVELS.length - 1;
-        area.innerHTML = `
-            <div style="text-align:center; padding: 24px 10px;">
-                <div style="font-size: 44px; margin-bottom: 14px;">${passed ? '🏆' : '📉'}</div>
-                <div style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">
-                    ${passed ? 'Checkpoint bestanden!' : 'Noch nicht ganz.'}
-                </div>
-                <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 22px;">
-                    ${score} von ${lvl.quiz.length} korrekt. ${passed
-                        ? (hasNext ? 'Das nächste Level ist freigeschaltet.' : 'Du hast die komplette Academy gemeistert, Master Carlos.')
-                        : 'Für die Freischaltung brauchst du alle Fragen korrekt — der Stoff steht oben.'}
-                </div>
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-                    ${!passed ? `<button class="btn-primary" onclick="retryQuiz()">Nochmal versuchen</button>` : ''}
-                    ${passed && hasNext ? `<button class="btn-primary" onclick="openAcademyLevel(${state.academyLevel + 1})">Weiter zu Level ${state.academyLevel + 2} →</button>` : ''}
-                    <button class="btn-ghost" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Stoff nochmal lesen</button>
-                </div>
-            </div>`;
+    });
+
+    if (discount <= terminal || shares <= 0) {
+        document.getElementById('dcf-fair-value').textContent = '—';
+        document.getElementById('dcf-sub-text').textContent = 'Ungültige Parameter';
         return;
     }
 
-    const q = lvl.quiz[quiz.index];
-    const keys = ['A', 'B', 'C', 'D'];
-    area.innerHTML = `
-        <div class="quiz-progress-dots">
-            ${lvl.quiz.map((_, i) => `<div class="qd ${i < quiz.index ? (quiz.results[i] ? 'hit' : 'miss') : (i === quiz.index ? 'now' : '')}"></div>`).join('')}
-        </div>
-        <div class="quiz-q">Frage ${quiz.index + 1}/${lvl.quiz.length}: ${escapeHTML(q.q)}</div>
-        <div id="quiz-options">
-            ${q.options.map((opt, i) => `
-                <button class="quiz-option" data-idx="${i}" onclick="answerQuiz(${i})">
-                    <span class="opt-key">${keys[i]}</span><span>${escapeHTML(opt)}</span>
-                </button>`).join('')}
-        </div>
-        <div class="quiz-feedback" id="quiz-feedback"></div>`;
-}
-
-function answerQuiz(chosen) {
-    const lvl = ACADEMY_LEVELS[state.academyLevel];
-    const q = lvl.quiz[state.quiz.index];
-    const correct = chosen === q.correct;
-    state.quiz.results.push(correct);
-
-    document.querySelectorAll('#quiz-options .quiz-option').forEach(btn => {
-        btn.disabled = true;
-        const i = parseInt(btn.dataset.idx, 10);
-        if (i === q.correct) btn.classList.add('correct');
-        else if (i === chosen) btn.classList.add('wrong');
-    });
-    const fb = $('quiz-feedback');
-    fb.className = 'quiz-feedback visible ' + (correct ? 'ok' : 'nope');
-    fb.innerHTML = `<strong>${correct ? '✓ Korrekt.' : '✗ Daneben.'}</strong> ${escapeHTML(q.why)}`;
-
-    setTimeout(() => {
-        state.quiz.index++;
-        renderQuizQuestion();
-    }, correct ? 1400 : 2600);
-}
-function retryQuiz() {
-    state.quiz = { index: 0, results: [] };
-    renderQuizQuestion();
-    $('academy-checkpoint').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-/* ==========================================================================
-   SETTINGS
-   ========================================================================== */
-function saveApiKey() {
-    const val = $('api-key-input').value.trim();
-    if (val) {
-        localStorage.setItem('carlos_api_key', val);
-        showToast('🔐 API-Key gespeichert — Jarvis ist voll einsatzfähig.');
-        speakJarvis('API-Schlüssel gespeichert, Master Carlos. Volle Rechenleistung verfügbar.');
-    } else {
-        localStorage.removeItem('carlos_api_key');
-        showToast('API-Key entfernt.');
+    let totalPV = 0;
+    let cf = fcf;
+    for (let y = 1; y <= 10; y++) {
+        cf *= (1 + growth);
+        totalPV += cf / Math.pow(1 + discount, y);
     }
-    updateApiKeyStatus();
-}
-function updateApiKeyStatus() {
-    const has = !!localStorage.getItem('carlos_api_key');
-    const el = $('api-key-status');
-    el.className = 'status-pill ' + (has ? 'ok' : 'warn');
-    el.textContent = has ? 'Key hinterlegt · Unlimitierter Modus' : 'Kein Key hinterlegt';
-}
-function resetLocalData() {
-    if (!confirm('Wirklich alle lokalen Daten (Bookmarks, Watchlist, Fortschritt, Notizen) löschen? Der API-Key bleibt erhalten.')) return;
-    ['carlos_bookmarks', 'carlos_portfolio', 'carlos_academy', 'carlos_scratchpad'].forEach(k => localStorage.removeItem(k));
-    location.reload();
+    const terminalValue = (cf * (1 + terminal)) / (discount - terminal);
+    const pvTerminal = terminalValue / Math.pow(1 + discount, 10);
+    const fairValue = ((totalPV + pvTerminal) * 1e9) / (shares * 1e9);
+
+    document.getElementById('dcf-fair-value').textContent = '$' + fairValue.toFixed(2);
+    document.getElementById('dcf-sub-text').textContent = `10Y DCF · ${(growth*100).toFixed(1)}% CAGR · ${(discount*100).toFixed(1)}% WACC`;
 }
 
-/* ==========================================================================
-   INIT
-   ========================================================================== */
+// ==================== SCRATCHPAD ====================
+(function() {
+    const pad = document.getElementById('scratchpad');
+    if (!pad) return;
+    pad.value = localStorage.getItem('hq_scratchpad') || '';
+    let timeout;
+    pad.addEventListener('input', () => {
+        clearTimeout(timeout);
+        const ind = document.getElementById('save-indicator');
+        if (ind) { ind.textContent = 'Speichert…'; ind.classList.remove('saved'); }
+        timeout = setTimeout(() => {
+            localStorage.setItem('hq_scratchpad', pad.value);
+            if (ind) { ind.textContent = '✓ Gespeichert'; ind.classList.add('saved'); }
+        }, 600);
+    });
+})();
+function clearScratchpad() {
+    if (!confirm('Notizblock wirklich löschen?')) return;
+    const pad = document.getElementById('scratchpad');
+    if (pad) pad.value = '';
+    localStorage.removeItem('hq_scratchpad');
+    toast('Notizblock gelöscht');
+}
+
+// ==================== BLACKSTONE ANALYZER ====================
+async function runBlackstoneAnalyzer() {
+    const key = localStorage.getItem('hq_gemini_key');
+    const ticker = document.getElementById('analyzer-ticker')?.value?.trim();
+    if (!ticker) return toast('Bitte Ticker eingeben');
+    if (!key) return toast('⚠ Gemini API Key fehlt → Settings');
+
+    const results = document.getElementById('analyzer-results');
+    const btn = document.getElementById('analyzer-btn');
+    const headline = document.getElementById('analyzer-headline');
+    const status = document.getElementById('analyzer-status');
+
+    if (results) results.style.display = 'block';
+    if (btn) btn.disabled = true;
+    if (headline) headline.textContent = `Analyse: ${ticker.toUpperCase()}`;
+    if (status) status.textContent = '⏳ Analysiere mit Gemini…';
+    for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById('a-p' + i);
+        if (el) el.innerHTML = '<span class="skeleton" style="display:inline-block;width:100%;height:14px;margin:4px 0;"></span><span class="skeleton" style="display:inline-block;width:80%;height:14px;margin:4px 0;"></span>';
+    }
+
+    const prompt = `Du bist ein Elite-Aktienanalyst bei Blackstone. Erstelle eine institutionelle Equity-Research-Analyse für "${ticker}". 
+Antworte in exakt diesem JSON-Format:
+{"p1":"Bilanz & Financials Analyse (3-4 Sätze)","p2":"Wachstumstreiber (3-4 Sätze)","p3":"Wettbewerb & Moat (3-4 Sätze)","p4":"Management & Kapitalallokation (3-4 Sätze)","p5":"Makro-Fazit mit konkreter Einschätzung und Fair-Value-Range (4-5 Sätze)"}
+Antworte NUR mit dem JSON, kein Markdown, keine Erklärung.`;
+
+    try {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        });
+        const data = await r.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+            const parsed = JSON.parse(jsonMatch[0]);
+            for (let i = 1; i <= 5; i++) {
+                const el = document.getElementById('a-p' + i);
+                if (el) el.textContent = parsed['p' + i] || '—';
+            }
+            if (status) status.textContent = '✅ Analyse abgeschlossen';
+        } else {
+            throw new Error('Kein JSON in Antwort');
+        }
+    } catch (e) {
+        console.error('Analyzer error:', e);
+        if (status) status.textContent = '❌ Fehler: ' + e.message;
+        for (let i = 1; i <= 5; i++) {
+            const el = document.getElementById('a-p' + i);
+            if (el) el.textContent = '—';
+        }
+    }
+    if (btn) btn.disabled = false;
+}
+
+// ==================== LINGUA LAB ====================
+function setLinguaMode(mode, el) {
+    document.querySelectorAll('#lingua-sidebar .sidebar-item').forEach(i => i.classList.remove('active'));
+    if (el) el.classList.add('active');
+    document.getElementById('flashcard-stage').style.display = mode === 'flashcards' ? '' : 'none';
+    document.getElementById('mastery-stage').style.display = mode === 'mastery' ? '' : 'none';
+    document.getElementById('stats-stage').style.display = mode === 'stats' ? '' : 'none';
+    if (mode === 'stats') updateLinguaStats();
+}
+
+function renderFlashcard() {
+    if (!STATE.vocabs.length) {
+        const wEn = document.getElementById('fc-word-en');
+        if (wEn) wEn.textContent = 'Keine Vokabeln geladen';
+        return;
+    }
+    const v = STATE.vocabs[STATE.fcIndex];
+    if (!v) return;
+    const card = document.getElementById('flashcard');
+    if (card) card.classList.remove('flipped');
+    STATE.fcFlipped = false;
+
+    document.getElementById('fc-word-en').textContent = v.en || v.english || v.word || '—';
+    document.getElementById('fc-word-de').textContent = v.de || v.german || v.translation || '—';
+    document.getElementById('fc-example-en').textContent = v.example_en || v.example || '';
+    document.getElementById('fc-example-de').textContent = v.example_de || '';
+    document.getElementById('fc-counter').textContent = `${STATE.fcIndex + 1} / ${STATE.vocabs.length}`;
+
+    const bar = document.getElementById('fc-bar');
+    if (bar) bar.style.width = ((STATE.fcIndex + 1) / STATE.vocabs.length * 100) + '%';
+}
+
+function flipCard() {
+    const card = document.getElementById('flashcard');
+    if (!card || !STATE.vocabs.length) return;
+    card.classList.toggle('flipped');
+    if (!STATE.fcFlipped) {
+        STATE.fcFlipped = true;
+        STATE.flippedCount++;
+        localStorage.setItem('hq_flipped', STATE.flippedCount);
+    }
+}
+function nextCard() {
+    if (!STATE.vocabs.length) return;
+    STATE.fcIndex = (STATE.fcIndex + 1) % STATE.vocabs.length;
+    renderFlashcard();
+}
+function prevCard() {
+    if (!STATE.vocabs.length) return;
+    STATE.fcIndex = (STATE.fcIndex - 1 + STATE.vocabs.length) % STATE.vocabs.length;
+    renderFlashcard();
+}
+function updateLinguaStats() {
+    const el1 = document.getElementById('stat-learned');
+    if (el1) el1.textContent = STATE.vocabs.length;
+    const el2 = document.getElementById('stat-flipped');
+    if (el2) el2.textContent = STATE.flippedCount;
+}
+
+// ==================== ACADEMY ====================
+const ACADEMY_LESSONS = [
+    {
+        title: 'Grundlagen', sub: 'Was sind Aktien?', icon: '📘',
+        content: `<h2>Lektion 1: Was sind Aktien?</h2>
+        <div class="academy-prose">
+            <p>Eine <strong>Aktie</strong> ist ein Anteil an einem Unternehmen. Wenn du eine Aktie kaufst, wirst du zum Miteigentümer. Der Preis einer Aktie wird durch Angebot und Nachfrage an der Börse bestimmt.</p>
+            <h3>Warum investieren?</h3>
+            <ul>
+                <li><strong>Vermögensaufbau:</strong> Historisch haben Aktien ~7-10% jährliche Rendite erzielt</li>
+                <li><strong>Dividenden:</strong> Viele Unternehmen zahlen regelmäßig Gewinne aus</li>
+                <li><strong>Inflationsschutz:</strong> Sachwerte bieten langfristigen Schutz</li>
+            </ul>
+            <div class="callout">💡 Warren Buffett: "Der Aktienmarkt überträgt Geld von den Ungeduldigen zu den Geduldigen."</div>
+        </div>`,
+        quiz: {
+            q: 'Was repräsentiert eine Aktie?',
+            options: ['Einen Kredit an das Unternehmen', 'Einen Eigentumsanteil am Unternehmen', 'Eine Versicherungspolice', 'Einen Rohstoff'],
+            correct: 1,
+            feedback: 'Richtig! Eine Aktie ist ein Eigentumsanteil. Du bist Miteigentümer des Unternehmens.'
+        }
+    },
+    {
+        title: 'Bewertung', sub: 'KGV, KUV & Co.', icon: '📊',
+        content: `<h2>Lektion 2: Bewertungskennzahlen</h2>
+        <div class="academy-prose">
+            <p>Um zu beurteilen, ob eine Aktie "günstig" oder "teuer" ist, nutzen wir <strong>Bewertungskennzahlen</strong>.</p>
+            <h3>Kurs-Gewinn-Verhältnis (KGV / P/E Ratio)</h3>
+            <div class="formula">KGV = Aktienkurs / Gewinn pro Aktie (EPS)</div>
+            <p>Ein KGV von 20 bedeutet: Du zahlst 20€ für jeden 1€ Gewinn. Niedrig = günstig, Hoch = teuer (aber Wachstum eingepreist).</p>
+            <h3>Kurs-Umsatz-Verhältnis (KUV / P/S Ratio)</h3>
+            <div class="formula">KUV = Marktkapitalisierung / Jahresumsatz</div>
+            <p>Besonders für <strong>unprofitable Wachstumsunternehmen</strong> wichtig, da sie oft noch keinen Gewinn haben.</p>
+            <div class="callout green">🎯 Tipp: Vergleiche KGV immer innerhalb der gleichen Branche. Ein KGV von 30 bei Tech ist normal, bei Versorgern wäre es sehr hoch.</div>
+        </div>`,
+        quiz: {
+            q: 'Ein Unternehmen hat einen Aktienkurs von 100€ und einen Gewinn pro Aktie von 5€. Wie hoch ist das KGV?',
+            options: ['5', '15', '20', '50'],
+            correct: 2,
+            feedback: 'Korrekt! KGV = 100€ / 5€ = 20. Das bedeutet, du zahlst das 20-fache des Jahresgewinns.'
+        }
+    },
+    {
+        title: 'DCF-Analyse', sub: 'Innerer Wert berechnen', icon: '🧮',
+        content: `<h2>Lektion 3: Discounted Cash Flow</h2>
+        <div class="academy-prose">
+            <p>Die <strong>DCF-Analyse</strong> ist die Königsdisziplin der Bewertung. Sie berechnet den heutigen Wert aller zukünftigen Cashflows.</p>
+            <h3>Das Konzept</h3>
+            <p>100€ heute sind mehr wert als 100€ in einem Jahr — denn du könntest das Geld investieren. Die DCF diskontiert zukünftige Cashflows auf den heutigen Wert.</p>
+            <div class="formula">Innerer Wert = Σ FCF_t / (1+r)^t + Terminal Value / (1+r)^n</div>
+            <h3>Die Inputs</h3>
+            <ul>
+                <li><strong>Free Cash Flow (FCF):</strong> Geld, das dem Unternehmen nach allen Investitionen bleibt</li>
+                <li><strong>Wachstumsrate:</strong> Erwartetes FCF-Wachstum über 5-10 Jahre</li>
+                <li><strong>Diskontrate (WACC):</strong> Gewichtete Kapitalkosten, typisch 8-12%</li>
+                <li><strong>Terminal Growth:</strong> Langfristiges Wachstum nach der Prognoseperiode (meist 2-3%)</li>
+            </ul>
+            <div class="callout">💡 Probiere das DCF-Modell im Market Terminal aus! Du kannst die Parameter live anpassen.</div>
+        </div>`,
+        quiz: {
+            q: 'Warum werden zukünftige Cashflows "diskontiert"?',
+            options: ['Weil Inflation sie entwertet', 'Weil Geld heute mehr wert ist als in der Zukunft', 'Weil Unternehmen schrumpfen', 'Weil Steuern anfallen'],
+            correct: 1,
+            feedback: 'Genau! Das Konzept des Zeitwerts des Geldes besagt, dass heutiges Geld mehr wert ist, weil man es investieren kann.'
+        }
+    },
+    {
+        title: 'Risikomanagement', sub: 'Diversifikation & Position Sizing', icon: '🛡',
+        content: `<h2>Lektion 4: Risikomanagement</h2>
+        <div class="academy-prose">
+            <p><strong>Risikomanagement</strong> ist wichtiger als Stock-Picking. Selbst die beste Aktie kann fallen — dein Portfolio muss das überleben.</p>
+            <h3>Diversifikation</h3>
+            <p>Verteile dein Kapital auf verschiedene Sektoren, Regionen und Assetklassen. Eine gute Faustregel:</p>
+            <ul>
+                <li>Mindestens <strong>15-25 Positionen</strong> über 4+ Sektoren</li>
+                <li>Maximal <strong>5-8% pro Einzelposition</strong></li>
+                <li>Geografische Streuung (US, Europa, Emerging Markets)</li>
+            </ul>
+            <div class="callout green">🛡 "Diversifikation ist der einzige Gratis-Lunch an der Börse." — Harry Markowitz (Nobelpreis)</div>
+        </div>`,
+        quiz: {
+            q: 'Was ist eine sinnvolle maximale Positionsgröße für eine Einzelaktie?',
+            options: ['25% des Portfolios', '50% des Portfolios', '5-8% des Portfolios', '100% — All-in!'],
+            correct: 2,
+            feedback: 'Richtig! 5-8% pro Position begrenzt das Verlustrisiko, selbst wenn eine Aktie stark fällt.'
+        }
+    },
+    {
+        title: 'Makroökonomie', sub: 'Zinsen, Inflation, BIP', icon: '🌍', locked: false,
+        content: `<h2>Lektion 5: Makroökonomie für Investoren</h2>
+        <div class="academy-prose">
+            <p>Makroökonomische Faktoren beeinflussen alle Anlageklassen. Die drei wichtigsten:</p>
+            <h3>Zinsen</h3>
+            <p>Wenn die Zentralbank die Zinsen <strong>erhöht</strong>, werden Aktien weniger attraktiv (Anleihen bieten sichere Rendite). Zinssenkungen sind bullish für Aktien.</p>
+            <h3>Inflation</h3>
+            <p>Moderate Inflation (2-3%) ist gesund. Hohe Inflation zwingt Zentralbanken zu Zinserhöhungen → bearish.</p>
+            <h3>BIP-Wachstum</h3>
+            <p>Wachsende Wirtschaft = steigende Unternehmensgewinne = steigende Aktienkurse (langfristig).</p>
+            <div class="callout">💡 "Don't fight the Fed" — Investiere nicht gegen die Zentralbank. Ihre Geldpolitik bestimmt die Marktrichtung.</div>
+        </div>`,
+        quiz: {
+            q: 'Was passiert typischerweise mit Aktien, wenn Zinsen steigen?',
+            options: ['Sie steigen stark', 'Sie werden weniger attraktiv / fallen', 'Es hat keinen Einfluss', 'Nur Tech-Aktien steigen'],
+            correct: 1,
+            feedback: 'Korrekt! Höhere Zinsen machen risikofreie Anlagen attraktiver und erhöhen die Diskontrate für zukünftige Cashflows.'
+        }
+    }
+];
+
+function renderAcademyPath() {
+    const container = document.getElementById('academy-path');
+    if (!container) return;
+    container.innerHTML = ACADEMY_LESSONS.map((l, i) => {
+        const done = STATE.academyScores[i] !== undefined;
+        const active = i === STATE.academyLevel;
+        const locked = l.locked && !done && i > 0 && STATE.academyScores[i-1] === undefined;
+        return `
+        <div class="level-node ${active ? 'active' : ''} ${done ? 'done' : ''} ${locked ? 'locked' : ''}" onclick="${locked ? '' : `loadLesson(${i})`}">
+            <div class="ln-badge">${done ? '✓' : l.icon}</div>
+            <div>
+                <div class="ln-title">${l.title}</div>
+                <div class="ln-sub">${l.sub}</div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function loadLesson(index) {
+    STATE.academyLevel = index;
+    renderAcademyPath();
+    const lesson = ACADEMY_LESSONS[index];
+    if (!lesson) return;
+    const container = document.getElementById('academy-content');
+    if (!container) return;
+
+    let html = lesson.content;
+    if (lesson.quiz) {
+        const q = lesson.quiz;
+        html += `
+        <div class="checkpoint">
+            <div class="checkpoint-badge">⚡ Checkpoint — Quiz</div>
+            <div class="quiz-q">${q.q}</div>
+            <div id="quiz-options">
+                ${q.options.map((opt, i) => `
+                    <button class="quiz-option" onclick="checkAnswer(${index}, ${i}, this)">
+                        <div class="opt-key">${String.fromCharCode(65 + i)}</div>
+                        ${escHtml(opt)}
+                    </button>`).join('')}
+            </div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+            <div id="quiz-next" style="display:none; margin-top:14px;">
+                ${index < ACADEMY_LESSONS.length - 1
+                    ? `<button class="btn-primary" onclick="loadLesson(${index + 1})">Weiter zu Lektion ${index + 2} →</button>`
+                    : `<button class="btn-primary" disabled>🎓 Alle Lektionen abgeschlossen!</button>`}
+            </div>
+        </div>`;
+    }
+    container.innerHTML = html;
+}
+
+function checkAnswer(lessonIdx, optIdx, btn) {
+    const lesson = ACADEMY_LESSONS[lessonIdx];
+    if (!lesson?.quiz) return;
+    const correct = lesson.quiz.correct === optIdx;
+    const buttons = document.querySelectorAll('#quiz-options .quiz-option');
+    buttons.forEach((b, i) => {
+        b.disabled = true;
+        if (i === lesson.quiz.correct) b.classList.add('correct');
+        if (i === optIdx && !correct) b.classList.add('wrong');
+    });
+    const fb = document.getElementById('quiz-feedback');
+    if (fb) {
+        fb.className = `quiz-feedback visible ${correct ? 'ok' : 'nope'}`;
+        fb.textContent = correct ? `✅ ${lesson.quiz.feedback}` : `❌ Leider falsch. ${lesson.quiz.feedback}`;
+    }
+    STATE.academyScores[lessonIdx] = correct ? 1 : 0;
+    localStorage.setItem('hq_academy_scores', JSON.stringify(STATE.academyScores));
+    renderAcademyPath();
+    updateMetrics();
+    document.getElementById('quiz-next').style.display = '';
+}
+
+// ==================== METRICS ====================
+function updateMetrics() {
+    const bm = document.getElementById('metric-bookmarks');
+    if (bm) bm.textContent = STATE.bookmarks.size;
+    const wl = document.getElementById('metric-watchlist');
+    if (wl) wl.textContent = STATE.watchlist.size;
+    const ac = document.getElementById('metric-academy');
+    if (ac) {
+        const total = ACADEMY_LESSONS.length;
+        const done = Object.keys(STATE.academyScores).length;
+        ac.textContent = total > 0 ? Math.round((done / total) * 100) + ' %' : '0 %';
+    }
+}
+
+// ==================== JARVIS VOICE ====================
+function initJarvisVoice() {
+    if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        console.warn('Speech Recognition nicht unterstützt');
+        return;
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    STATE.recognition = new SpeechRecognition();
+    STATE.recognition.continuous = false;
+    STATE.recognition.interimResults = false;
+    STATE.recognition.lang = STATE.settings.jarvisLang || 'de-DE';
+
+    STATE.recognition.onresult = (e) => {
+        const text = e.results[0][0].transcript;
+        stopRecording();
+        processCommand(text);
+    };
+    STATE.recognition.onerror = () => stopRecording();
+    STATE.recognition.onend = () => stopRecording();
+}
+
+function toggleJarvisVoice() {
+    STATE.jarvisMuted = !STATE.jarvisMuted;
+    const widget = document.getElementById('jarvis-widget');
+    const label = document.getElementById('jarvis-status-label');
+    if (widget) widget.classList.toggle('muted', STATE.jarvisMuted);
+    if (label) label.textContent = STATE.jarvisMuted ? 'JARVIS STUMM' : 'JARVIS AKTIV';
+    toast(STATE.jarvisMuted ? '🔇 Jarvis stummgeschaltet' : '🔊 Jarvis aktiviert');
+}
+
+function toggleMic() {
+    if (STATE.isRecording) {
+        stopRecording();
+    } else {
+        startRecording();
+    }
+}
+
+function startRecording() {
+    if (!STATE.recognition || !STATE.settings.voiceEnabled) {
+        toast('⚠ Spracherkennung nicht verfügbar');
+        return;
+    }
+    try {
+        STATE.recognition.lang = STATE.settings.jarvisLang || 'de-DE';
+        STATE.recognition.start();
+        STATE.isRecording = true;
+        document.getElementById('mic-btn')?.classList.add('rec');
+        const chip = document.getElementById('jarvis-state-chip');
+        const text = document.getElementById('jarvis-state-text');
+        if (chip) chip.classList.add('visible');
+        if (text) text.textContent = 'Höre zu…';
+    } catch (e) { console.warn('Mic error:', e); }
+}
+
+function stopRecording() {
+    STATE.isRecording = false;
+    document.getElementById('mic-btn')?.classList.remove('rec');
+    document.getElementById('jarvis-state-chip')?.classList.remove('visible');
+    try { STATE.recognition?.stop(); } catch {}
+}
+
+function speakJarvis(text) {
+    if (STATE.jarvisMuted || !STATE.settings.ttsEnabled) return;
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = STATE.settings.jarvisLang || 'de-DE';
+    utter.rate = 1.05;
+    utter.pitch = 0.95;
+    // Try to find a German voice
+    const voices = window.speechSynthesis.getVoices();
+    const lang = STATE.settings.jarvisLang || 'de-DE';
+    const preferredVoice = voices.find(v => v.lang === lang) || voices.find(v => v.lang.startsWith(lang.split('-')[0]));
+    if (preferredVoice) utter.voice = preferredVoice;
+    window.speechSynthesis.speak(utter);
+}
+
+function showJarvisReply(text, who = 'J.A.R.V.I.S.') {
+    const box = document.getElementById('jarvis-reply-box');
+    const whoEl = document.getElementById('jarvis-reply-who');
+    const textEl = document.getElementById('jarvis-reply-text');
+    if (!box || !textEl) return;
+    if (whoEl) whoEl.textContent = who;
+    textEl.textContent = '';
+    box.classList.add('visible');
+    // Typewriter effect
+    let i = 0;
+    const type = () => {
+        if (i < text.length) {
+            textEl.textContent += text[i];
+            i++;
+            setTimeout(type, 12 + Math.random() * 18);
+        }
+    };
+    type();
+}
+
+async function processCommand(input) {
+    const cmd = input.toLowerCase().trim();
+    showJarvisReply('Verarbeite…');
+
+    // Navigation commands
+    if (cmd.includes('news') || cmd.includes('nachrichten')) {
+        switchView('news');
+        showJarvisReply('News Intelligence geöffnet. Hier sind deine aktuellen Nachrichten.');
+        speakJarvis('News Intelligence geöffnet.');
+        return;
+    }
+    if (cmd.includes('markt') || cmd.includes('market') || cmd.includes('börse') || cmd.includes('aktien')) {
+        switchView('market');
+        showJarvisReply('Market Terminal geöffnet. Deine Marktdaten sind bereit.');
+        speakJarvis('Market Terminal geöffnet.');
+        return;
+    }
+    if (cmd.includes('vokabel') || cmd.includes('lingua') || cmd.includes('sprach')) {
+        switchView('lingua');
+        showJarvisReply('Lingua Lab geöffnet. Bereit zum Lernen!');
+        speakJarvis('Lingua Lab geöffnet.');
+        return;
+    }
+    if (cmd.includes('academy') || cmd.includes('lernen') || cmd.includes('lektion')) {
+        switchView('academy');
+        showJarvisReply('Academy geöffnet. Wähle eine Lektion aus.');
+        speakJarvis('Academy geöffnet.');
+        return;
+    }
+    if (cmd.includes('settings') || cmd.includes('einstellung')) {
+        switchView('settings');
+        showJarvisReply('Einstellungen geöffnet.');
+        speakJarvis('Einstellungen geöffnet.');
+        return;
+    }
+    if (cmd.includes('home') || cmd.includes('start') || cmd.includes('mission')) {
+        switchView('hq');
+        showJarvisReply('Zurück zur Mission Control.');
+        speakJarvis('Mission Control.');
+        return;
+    }
+
+    // Briefing
+    if (cmd.includes('briefing') || cmd.includes('zusammenfas')) {
+        const key = localStorage.getItem('hq_gemini_key');
+        if (!key) {
+            showJarvisReply('Für ein Briefing benötige ich den Gemini API Key. Bitte in den Settings hinterlegen.');
+            speakJarvis('Bitte hinterlege deinen Gemini API Key in den Settings.');
+            return;
+        }
+        const newsSnippets = STATE.news.slice(0, 8).map(a => a.title).join('; ');
+        showJarvisReply('Erstelle dein Briefing…');
+        try {
+            const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: `Fasse diese Nachrichten in einem kurzen Briefing (5-6 Sätze, deutsch) zusammen: ${newsSnippets}` }] }]
+                })
+            });
+            const data = await r.json();
+            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Kein Briefing verfügbar.';
+            showJarvisReply(reply);
+            speakJarvis(reply);
+        } catch {
+            showJarvisReply('Fehler beim Erstellen des Briefings.');
+        }
+        return;
+    }
+
+    // AI fallback
+    const key = localStorage.getItem('hq_gemini_key');
+    if (key) {
+        try {
+            showJarvisReply('Denke nach…');
+            const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: `Du bist J.A.R.V.I.S., der persönliche KI-Assistent von Carlos. Antworte kurz, präzise und auf Deutsch. Frage: ${input}` }] }]
+                })
+            });
+            const data = await r.json();
+            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Ich konnte keine Antwort generieren.';
+            showJarvisReply(reply);
+            speakJarvis(reply.substring(0, 200));
+        } catch {
+            showJarvisReply('Verbindungsfehler. Prüfe deine Internetverbindung.');
+        }
+    } else {
+        showJarvisReply(`Ich habe "${input}" verstanden. Für KI-Antworten hinterlege bitte einen Gemini API Key in den Settings.`);
+    }
+}
+
+function runQuickCommand(cmd) {
+    switch (cmd) {
+        case 'news': switchView('news'); break;
+        case 'market': switchView('market'); break;
+        case 'briefing': processCommand('briefing'); break;
+        case 'lingua': switchView('lingua'); break;
+        default: processCommand(cmd);
+    }
+}
+
+// ==================== GLOBE / PARTICLE CANVAS ====================
+function initGlobe() {
+    const canvas = document.getElementById('globe-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [], connections = [];
+    const PARTICLE_COUNT = 70;
+    const CONNECTION_DIST = 120;
+
+    function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        w = canvas.width = rect.width * devicePixelRatio;
+        h = canvas.height = rect.height * devicePixelRatio;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+    }
+
+    function createParticles() {
+        particles = [];
+        const rw = w / devicePixelRatio;
+        const rh = h / devicePixelRatio;
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random() * rw,
+                y: Math.random() * rh,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                r: 1 + Math.random() * 1.5,
+                o: 0.15 + Math.random() * 0.35
+            });
+        }
+    }
+
+    function draw() {
+        const rw = w / devicePixelRatio;
+        const rh = h / devicePixelRatio;
+        ctx.clearRect(0, 0, rw, rh);
+
+        // Move particles
+        particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > rw) p.vx *= -1;
+            if (p.y < 0 || p.y > rh) p.vy *= -1;
+        });
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < CONNECTION_DIST) {
+                    const alpha = (1 - dist / CONNECTION_DIST) * 0.12;
+                    ctx.strokeStyle = `rgba(10, 132, 255, ${alpha})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Draw particles
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(10, 132, 255, ${p.o})`;
+            ctx.fill();
+        });
+
+        STATE.globeAnim = requestAnimationFrame(draw);
+    }
+
+    resize();
+    createParticles();
+    draw();
+
+    // Debounced resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            resize();
+            createParticles();
+        }, 200);
+    });
+}
+
+// ==================== TOAST ====================
+function toast(msg) {
+    const stack = document.getElementById('toast-stack');
+    if (!stack) return;
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    stack.appendChild(t);
+    setTimeout(() => {
+        t.classList.add('out');
+        setTimeout(() => t.remove(), 400);
+    }, 2800);
+}
+
+// ==================== NEWS SEARCH (debounced) ====================
+(function() {
+    let timer;
+    document.addEventListener('DOMContentLoaded', () => {
+        const search = document.getElementById('news-search');
+        if (search) {
+            search.addEventListener('input', (e) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    STATE.newsSearch = e.target.value.trim();
+                    renderNews();
+                }, 250);
+            });
+        }
+    });
+})();
+
+// ==================== COMMAND INPUT ====================
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('command-input');
+    if (input) {
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && input.value.trim()) {
+                processCommand(input.value.trim());
+                input.value = '';
+            }
+        });
+    }
+});
+
+// ==================== KEYBOARD SHORTCUTS ====================
+document.addEventListener('keydown', (e) => {
+    // Cmd+K or Ctrl+K to focus command bar
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        const input = document.getElementById('command-input');
+        if (input) {
+            if (STATE.currentView !== 'hq') switchView('hq');
+            setTimeout(() => input.focus(), 100);
+        }
+    }
+    // Escape to close modal
+    if (e.key === 'Escape') {
+        closeArticleModal();
+    }
+    // Arrow keys for flashcards
+    if (STATE.currentView === 'lingua') {
+        if (e.key === 'ArrowRight') nextCard();
+        if (e.key === 'ArrowLeft') prevCard();
+        if (e.key === ' ' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+            flipCard();
+        }
+    }
+});
+
+// ==================== MODAL CLOSE ON OVERLAY CLICK ====================
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'article-modal') closeArticleModal();
+});
+
+// ==================== AUTO REFRESH ====================
+function startAutoRefresh() {
+    setInterval(async () => {
+        if (!STATE.settings.autoRefresh) return;
+        try {
+            const r = await fetch('nachrichten.json');
+            if (r.ok) {
+                const data = await r.json();
+                if (Array.isArray(data) && data.length > STATE.news.length) {
+                    STATE.news = data;
+                    renderNews();
+                    renderHqSidePanels();
+                    updateMetrics();
+                    const badge = document.getElementById('news-badge');
+                    if (badge) badge.classList.add('show');
+                }
+            }
+        } catch {}
+    }, 300000); // 5 min
+}
+
+// ==================== STORAGE STATUS ====================
+function updateStorageStatus() {
+    try {
+        const used = JSON.stringify(localStorage).length;
+        const el = document.getElementById('storage-status');
+        if (el) {
+            el.textContent = `${(used / 1024).toFixed(1)} KB`;
+            el.className = 'status-pill ok';
+        }
+    } catch {}
+}
+
+// ==================== INIT ====================
 window.addEventListener('load', async () => {
-    runBootSequence();
-    initGlobe();
-    tickClocks();
-    setInterval(tickClocks, 1000);
+    // Boot
+    runBoot();
+
+    // Greeting
+    updateGreeting();
 
     // Settings
-    const savedKey = localStorage.getItem('carlos_api_key');
-    if (savedKey) $('api-key-input').value = savedKey;
-    updateApiKeyStatus();
+    loadSettings();
 
-    // Voices (async in den meisten Browsern)
-    refreshVoice();
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.onvoiceschanged = refreshVoice;
-    }
-
-    // Module
-    renderHQMarketWidgets();
-    renderAcademyPath();
-    openAcademyLevel(state.academyLevel);
-    initDCF();
-    initScratchpad();
-    updateHQMetrics();
-
-    // Command Bar
-    $('command-input').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const val = e.target.value.trim();
-            if (val) { processJarvisCommand(val); e.target.value = ''; }
-        }
-    });
-    $('add-stock-input').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') { addWatchlistStock(e.target.value); e.target.value = ''; }
-    });
-    $('analyzer-ticker').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') runBlackstoneAnalyzer();
-    });
-    // Global: "/" fokussiert die Befehlszeile
-    document.addEventListener('keydown', (e) => {
-        if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-            e.preventDefault();
-            switchView('hq');
-            $('command-input').focus();
-        }
-    });
-
-    // Daten + Stimme
+    // Data + Voice
     await loadData();
     initJarvisVoice();
 
+    // Market
+    renderStockGrid();
+    updateDCF();
+
+    // Storage
+    updateStorageStatus();
+
+    // Auto refresh
+    startAutoRefresh();
+
+    // Voices load async
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = () => {};
+    }
+
+    // Speak greeting after boot
     setTimeout(() => {
         speakJarvis('Moin, Master Carlos. Alle Systeme online — Headquarter steht bereit.');
-    }, 1400);
+    }, 2800);
+});
+
+// Cleanup on unload
+window.addEventListener('beforeunload', () => {
+    if (STATE.globeAnim) cancelAnimationFrame(STATE.globeAnim);
+    if (STATE.recognition) { try { STATE.recognition.stop(); } catch {} }
 });
 </script>
 </body>
