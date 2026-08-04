@@ -1,0 +1,47 @@
+{
+  "core_words": [
+    {"en": "to establish", "de": "etablieren, aufbauen, nachweisen", "ex": "We need to establish clear boundaries before signing the contract."},
+    {"en": "to emphasize", "de": "betonen, hervorheben", "ex": "The CEO emphasized the importance of sustainable growth."},
+    {"en": "to mitigate", "de": "abmildern, abschwächen (Risiken)", "ex": "Our primary goal is to mitigate financial risks in Q3."},
+    {"en": "to leverage", "de": "zunutze machen, hebeln", "ex": "We can leverage our existing infrastructure to scale faster."},
+    {"en": "to facilitate", "de": "erleichtern, fördern", "ex": "The new software will facilitate smoother communication across teams."},
+    {"en": "to scrutinize", "de": "genau untersuchen, prüfen", "ex": "The board will scrutinize the quarterly report tomorrow."},
+    {"en": "ambiguous", "de": "mehrdeutig, unklar", "ex": "The instructions were too ambiguous to execute properly."},
+    {"en": "profound", "de": "beträchtlich, tiefgreifend", "ex": "This policy change will have a profound impact on the market."},
+    {"en": "inevitable", "de": "unvermeidlich", "ex": "With rising inflation, a price correction was inevitable."},
+    {"en": "lucrative", "de": "lukrativ, gewinnbringend", "ex": "Real estate remains a highly lucrative investment sector."},
+    {"en": "subsequent", "de": "darauffolgend, anschließend", "ex": "The initial failure and subsequent recovery taught us a lot."},
+    {"en": "consequently", "de": "folglich, infolgedessen", "ex": "Sales dropped significantly; consequently, we had to cut costs."},
+    {"en": "nevertheless", "de": "nichtsdestotrotz, trotzdem", "ex": "The project was delayed. Nevertheless, it was a massive success."},
+    {"en": "framework", "de": "Rahmenbedingungen, Gerüst", "ex": "We operate within a strict legal framework."},
+    {"en": "incentive", "de": "Anreiz, Ansporn", "ex": "The bonus acts as an incentive for higher productivity."}
+  ],
+  "writing_mastery": {
+    "tips": [
+      {
+        "title": "Vermeide 'Germanisms' (Falsche Freunde)",
+        "desc": "Deutsche Muttersprachler übersetzen oft 1:1. Das klingt unnatürlich.",
+        "bad": "We have to become better in the future.",
+        "good": "We need to improve going forward."
+      },
+      {
+        "title": "Verwende starke Verben statt Adjektive",
+        "desc": "Im Englischen wirken Sätze viel professioneller, wenn das Verb die Arbeit macht.",
+        "bad": "The report was a big help to make a decision.",
+        "good": "The report facilitated the decision-making process."
+      },
+      {
+        "title": "Struktur: The 'So What?' Principle",
+        "desc": "Fange englische Absätze immer mit der Kernaussage an, nicht mit der Herleitung.",
+        "bad": "Because the market crashed and inflation rose, we lost money.",
+        "good": "We experienced a revenue decline, driven by market volatility and rising inflation."
+      },
+      {
+        "title": "Wortschatz-Hack: Umschreiben wie ein Profi",
+        "desc": "Wenn dir ein Fachwort fehlt, nutze akademische Füllwörter zur Umschreibung.",
+        "bad": "I don't know the exact word for this machine thing.",
+        "good": "The technical mechanism responsible for this process is currently under review."
+      }
+    ]
+  }
+}
