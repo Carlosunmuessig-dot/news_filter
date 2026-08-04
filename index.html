@@ -3,57 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Carlos HQ - T.R.A.V.I.S. OS v11.0 PRO</title>
+    <title>Carlos HQ - J.A.R.V.I.S. Ultimate OS v12.0</title>
     
     <style>
-        /* === CORE VARIABLES & THEME === */
         :root {
             --bg-color: #030305;
-            --surface-glass: rgba(18, 18, 24, 0.65);
-            --surface-solid: #0d0d12;
+            --surface-glass: rgba(16, 16, 22, 0.75);
+            --surface-card: #0d0d12;
             --border-glass: rgba(255, 255, 255, 0.08);
             --text-main: #f5f5f7;
             --text-muted: #8a8a93;
             --accent-blue: #0A84FF;
             --accent-green: #30D158;
             --accent-red: #FF453A;
-            --blur: 24px;
-            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --blur: 25px;
+            --transition: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* === GLOBAL RESET & TYPOGRAPHY === */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        button, input { font-family: inherit; }
+        button, input, textarea { font-family: inherit; }
         ul { list-style: none; }
         ::-webkit-scrollbar { width: 0px; background: transparent; }
 
-        /* === SMOOTH VIEW TRANSITIONS === */
-        .view-container {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeViewIn var(--transition-smooth) forwards;
+        /* INTRO SCREEN */
+        #intro-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000; color: #fff; display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s;
         }
-        .view-container.active { display: block; }
-        @keyframes fadeViewIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .intro-title { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; background: linear-gradient(90deg, #fff, var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* === GLASSMORPHISM NAVBAR === */
+        /* NAVBAR */
         .navbar {
-            position: fixed; top: 0; left: 0; width: 100%; height: 65px;
-            background: rgba(5, 5, 7, 0.8);
-            backdrop-filter: saturate(180%) blur(var(--blur));
+            position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+            background: rgba(3, 3, 5, 0.85); backdrop-filter: saturate(180%) blur(var(--blur));
             -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
-            border-bottom: 1px solid var(--border-glass);
-            z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 30px;
+            border-bottom: 1px solid var(--border-glass); z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; padding: 0 35px;
         }
         .nav-brand { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .nav-links {
@@ -61,44 +54,43 @@
             border-radius: 100px; padding: 4px; border: 1px solid var(--border-glass);
         }
         .nav-item {
-            padding: 6px 14px; font-size: 13px; font-weight: 500; color: var(--text-muted);
-            border-radius: 100px; cursor: pointer; transition: all 0.2s ease;
+            padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted);
+            border-radius: 100px; cursor: pointer; transition: var(--transition);
         }
         .nav-item:hover { color: var(--text-main); }
-        .nav-item.active { background: rgba(255, 255, 255, 0.12); color: var(--text-main); font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .nav-item.active { background: rgba(255, 255, 255, 0.12); color: var(--text-main); font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-        /* TRAVIS STATUS WIDGET */
-        .travis-widget {
-            display: flex; align-items: center; gap: 8px; padding: 6px 14px;
-            background: rgba(10, 132, 255, 0.1); border: 1px solid rgba(10, 132, 255, 0.2);
-            border-radius: 100px; cursor: pointer; transition: var(--transition-smooth);
+        /* JARVIS VOICE STATUS WIDGET */
+        .jarvis-widget {
+            display: flex; align-items: center; gap: 8px; padding: 6px 16px;
+            background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.3);
+            border-radius: 100px; cursor: pointer; transition: var(--transition);
         }
-        .travis-widget.listening { background: rgba(48, 209, 88, 0.1); border-color: rgba(48, 209, 88, 0.3); }
-        .pulse-dot {
-            width: 8px; height: 8px; border-radius: 50%; background: var(--accent-blue);
-            box-shadow: 0 0 10px var(--accent-blue);
-        }
-        .listening .pulse-dot { background: var(--accent-green); box-shadow: 0 0 15px var(--accent-green); animation: pulse 1s infinite; }
+        .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); box-shadow: 0 0 12px var(--accent-green); animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { transform: scale(0.9); opacity: 0.7; } 50% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(0.9); opacity: 0.7; } }
 
-        /* === MAIN LAYOUT === */
-        main { max-width: 1400px; margin: 0 auto; padding: 100px 25px 80px; }
+        /* VIEWS */
+        .view-container { display: none; opacity: 0; transform: translateY(10px); animation: fadeViewIn var(--transition) forwards; }
+        .view-container.active { display: block; }
+        @keyframes fadeViewIn { to { opacity: 1; transform: translateY(0); } }
 
-        /* === UI COMPONENTS (Glass Cards, Buttons, Inputs) === */
+        main { max-width: 1450px; margin: 0 auto; padding: 110px 30px 80px; }
+
+        /* GLASS COMPONENTS */
         .glass-card {
             background: var(--surface-glass); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
-            border: 1px solid var(--border-glass); border-radius: 24px; padding: 24px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.2); transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-glass); border-radius: 24px; padding: 28px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25); transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .header-title { font-size: 36px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
+        .header-title { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
         .header-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; }
-        
+
         .chip {
             background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass);
-            padding: 8px 16px; border-radius: 100px; color: var(--text-main); font-size: 13px; font-weight: 500;
-            cursor: pointer; transition: all 0.2s ease;
+            padding: 8px 18px; border-radius: 100px; color: var(--text-main); font-size: 13px; font-weight: 500;
+            cursor: pointer; transition: var(--transition);
         }
-        .chip:hover { background: rgba(255, 255, 255, 0.1); }
+        .chip:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255,255,255,0.2); }
         .chip.active { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
 
         .input-field {
@@ -107,180 +99,207 @@
         }
         .input-field:focus { border-color: var(--accent-blue); background: rgba(10, 132, 255, 0.05); }
 
-        /* === MISSION CONTROL (CYBER COCKPIT) === */
-        .cockpit-grid { display: grid; grid-template-columns: 300px 1fr 300px; gap: 24px; align-items: stretch; }
-        
-        .travis-core {
-            position: relative; height: 500px; border-radius: 32px;
-            background: radial-gradient(circle at 50% 40%, rgba(10, 132, 255, 0.15) 0%, rgba(5, 5, 7, 0.9) 70%);
-            border: 1px solid var(--border-glass); box-shadow: inset 0 0 80px rgba(0,0,0,0.8), 0 20px 50px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; overflow: hidden;
+        /* MISSION CONTROL COCKPIT */
+        .cockpit-grid { display: grid; grid-template-columns: 320px 1fr 320px; gap: 24px; align-items: stretch; }
+        .side-panel {
+            background: var(--surface-glass); backdrop-filter: blur(var(--blur)); border-radius: 24px;
+            padding: 22px; border: 1px solid var(--border-glass); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
         }
-        /* Advanced CSS Globe Animation */
+        .side-panel h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-blue); letter-spacing: 0.1em; margin-bottom: 4px; }
+        .stream-item { background: rgba(255, 255, 255, 0.02); padding: 12px 14px; border-radius: 14px; border-left: 3px solid var(--accent-blue); transition: var(--transition); }
+        .stream-item:hover { background: rgba(255, 255, 255, 0.05); transform: translateX(2px); }
+
+        .jarvis-core {
+            position: relative; height: 560px; border-radius: 32px;
+            background: radial-gradient(circle at 50% 45%, rgba(10, 132, 255, 0.15) 0%, rgba(3, 3, 5, 0.95) 75%);
+            border: 1px solid var(--border-glass); box-shadow: inset 0 0 100px rgba(0,0,0,0.8), 0 25px 50px rgba(0,0,0,0.6);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; overflow: hidden;
+        }
         .cyber-globe {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 320px; height: 320px; border-radius: 50%;
-            border: 1px solid rgba(10, 132, 255, 0.1);
-            background: repeating-conic-gradient(from 0deg, transparent 0deg 10deg, rgba(10, 132, 255, 0.05) 10deg 20deg);
-            animation: spinGlobe 40s linear infinite; pointer-events: none;
+            width: 360px; height: 360px; border-radius: 50%; border: 1px solid rgba(10, 132, 255, 0.15);
+            background: repeating-conic-gradient(from 0deg, transparent 0deg 15deg, rgba(10, 132, 255, 0.04) 15deg 30deg);
+            animation: spinGlobe 50s linear infinite; pointer-events: none;
         }
         .cyber-globe::before {
-            content: ''; position: absolute; inset: 20px; border-radius: 50%;
-            border: 1px dashed rgba(48, 209, 88, 0.2); animation: spinGlobe 20s linear infinite reverse;
+            content: ''; position: absolute; inset: 25px; border-radius: 50%;
+            border: 1px dashed rgba(48, 209, 88, 0.3); animation: spinGlobe 25s linear infinite reverse;
         }
         @keyframes spinGlobe { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
         .core-text { z-index: 2; }
-        .travis-reply-box {
-            margin-top: 20px; padding: 16px 24px; background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px); border: 1px solid var(--border-glass); border-radius: 16px;
-            font-size: 14px; line-height: 1.5; color: #fff; max-width: 90%; display: none; text-align: left;
+        .jarvis-reply-box {
+            margin-top: 24px; padding: 18px 22px; background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px); border: 1px solid var(--border-glass); border-radius: 18px;
+            font-size: 14px; line-height: 1.6; color: #fff; max-width: 90%; display: none; text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .side-stream { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; max-height: 500px; padding-right: 5px; }
-        .stream-item { background: rgba(255, 255, 255, 0.02); padding: 12px; border-radius: 12px; border-left: 2px solid var(--accent-blue); }
+        /* NEWS BENTO */
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+        .bento-card { background: var(--surface-glass); border: 1px solid var(--border-glass); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); }
+        .bento-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+        .bento-img { width: 100%; height: 200px; object-fit: cover; }
+        .bento-content { padding: 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .bento-title { font-size: 18px; font-weight: 600; margin: 10px 0; line-height: 1.35; color: #fff; }
 
-        /* === BENTO GRIDS (News & Saved) === */
-        .bento-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .bento-card { padding: 0; display: flex; flex-direction: column; overflow: hidden; }
-        .bento-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
-        .bento-img { width: 100%; height: 180px; object-fit: cover; }
-        .bento-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-        .bento-title { font-size: 16px; font-weight: 600; margin: 8px 0; line-height: 1.3; }
-        
-        /* === LINGUA LAB PRO === */
-        .lingua-grid { display: grid; grid-template-columns: 250px 1fr; gap: 30px; }
-        .sidebar-menu { display: flex; flex-direction: column; gap: 8px; }
-        .sidebar-item { padding: 12px 16px; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-muted); transition: 0.2s; }
+        /* LINGUA LAB & MASTERY */
+        .lingua-grid { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+        .sidebar-menu { display: flex; flex-direction: column; gap: 6px; }
+        .sidebar-item { padding: 12px 18px; border-radius: 14px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-muted); transition: var(--transition); }
         .sidebar-item:hover { background: rgba(255,255,255,0.05); color: var(--text-main); }
-        .sidebar-item.active { background: rgba(10, 132, 255, 0.15); color: var(--accent-blue); font-weight: 600; }
+        .sidebar-item.active { background: rgba(10, 132, 255, 0.2); color: var(--accent-blue); font-weight: 600; }
         
-        .flashcard-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; }
+        .flashcard-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 450px; }
         .flashcard {
-            width: 100%; max-width: 550px; min-height: 300px; background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-glass); border-radius: 24px; padding: 40px; text-align: center;
-            cursor: pointer; transition: transform 0.3s; display: flex; flex-direction: column; justify-content: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            width: 100%; max-width: 600px; min-height: 320px; background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass); border-radius: 28px; padding: 40px; text-align: center;
+            cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; justify-content: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
-        .flashcard:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.04); }
+        .flashcard:hover { transform: scale(1.01); background: rgba(255, 255, 255, 0.04); }
         .word-en { font-size: 42px; font-weight: 700; color: var(--accent-blue); margin-bottom: 15px; }
         .word-de { font-size: 22px; font-weight: 500; margin-bottom: 15px; display: none; }
         .word-ex { font-size: 15px; color: var(--text-muted); font-style: italic; display: none; }
 
-        /* Writing Mastery View */
+        /* Writing Mastery */
         .mastery-article { font-size: 15px; line-height: 1.7; color: #d1d1d6; }
-        .mastery-article h4 { color: var(--text-main); font-size: 18px; margin: 24px 0 10px; }
-        .bad-example { color: var(--accent-red); text-decoration: line-through; }
+        .mastery-article h4 { color: var(--text-main); font-size: 18px; margin: 24px 0 10px; display: flex; align-items: center; gap: 8px; }
+        .bad-example { color: var(--accent-red); margin-bottom: 4px; }
         .good-example { color: var(--accent-green); font-weight: 500; }
 
-        /* === MARKET & ACADEMY === */
-        .chart-container { height: 400px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-glass); }
+        /* MARKET & ACADEMY */
+        .chart-container { height: 420px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-glass); }
+        .stock-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 25px; }
+        .stock-pill { background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 16px; padding: 16px; display: flex; justify-content: space-between; align-items: center; }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
             .cockpit-grid { grid-template-columns: 1fr; }
-            .side-panel { display: none; /* Hide side panels on mobile for cleaner look */ }
+            .side-panel { display: none; }
             .lingua-grid { grid-template-columns: 1fr; }
-            .navbar { padding: 0 15px; }
-            .nav-links { display: none; /* Can be replaced with a hamburger menu later */ }
+            .navbar { padding: 0 20px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
+
+    <div id="intro-screen">
+        <h1 class="intro-title">Carlos HQ • J.A.R.V.I.S. OS</h1>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-brand" onclick="switchView('hq')">⚡ CARLOS HQ</div>
         <ul class="nav-links">
             <li class="nav-item active" data-target="hq" onclick="switchView('hq')">Mission Control</li>
-            <li class="nav-item" data-target="news" onclick="switchView('news')">News</li>
-            <li class="nav-item" data-target="market" onclick="switchView('market')">Market & Equity</li>
-            <li class="nav-item" data-target="lingua" onclick="switchView('lingua')">Lingua Lab</li>
-            <li class="nav-item" data-target="academy" onclick="switchView('academy')">Academy</li>
+            <li class="nav-item" data-target="news" onclick="switchView('news')">News & Bookmarks</li>
+            <li class="nav-item" data-target="market" onclick="switchView('market')">Market & Analyzer</li>
+            <li class="nav-item" data-target="lingua" onclick="switchView('lingua')">Lingua Lab Pro</li>
+            <li class="nav-item" data-target="academy" onclick="switchView('academy')">Business Academy</li>
             <li class="nav-item" data-target="settings" onclick="switchView('settings')">Settings</li>
         </ul>
-        <div class="travis-widget" id="travis-btn" onclick="toggleTravis()">
+        <div class="jarvis-widget" onclick="toggleJarvisVoice()">
             <div class="pulse-dot"></div>
-            <span id="travis-label" style="font-size: 12px; font-weight: 600;">T.R.A.V.I.S. Standby</span>
+            <span id="jarvis-status-label" style="font-size: 12px; font-weight: 600; color: var(--accent-green);">Jarvis (Aktiv)</span>
         </div>
     </nav>
 
     <main>
-        <!-- === VIEW 1: MISSION CONTROL === -->
+        <!-- === VIEW 1: MISSION CONTROL (HQ) === -->
         <div id="view-hq" class="view-container active">
             <div class="cockpit-grid">
                 
+                <!-- LINKS: LIVE AKTIENSTAND & WATCHLIST -->
                 <div class="side-panel">
                     <h3>Live Markets</h3>
-                    <div class="side-stream" id="market-stream">
-                        <!-- Filled by JS -->
+                    <div id="hq-market-stream">
+                        <div class="stream-item">Lade Marktdaten...</div>
                     </div>
                 </div>
 
-                <div class="travis-core">
+                <!-- MITTE: GLOBE & JARVIS -->
+                <div class="jarvis-core">
                     <div class="cyber-globe"></div>
                     <div class="core-text">
-                        <div style="color: var(--accent-green); font-size: 12px; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600;">SYSTEM ONLINE</div>
-                        <h1 style="font-size: 42px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px;">Moin, Master Carlos.</h1>
-                        <p style="color: var(--text-muted); font-size: 15px; max-width: 400px; margin: 0 auto;">"Hey Travis" ist aktiv. Frag mich etwas oder gib mir einen Befehl.</p>
+                        <div style="color: var(--accent-green); font-size: 11px; letter-spacing: 2px; margin-bottom: 12px; font-weight: 700;" id="cockpit-clock">SYSTEM ONLINE</div>
+                        <h1 style="font-size: 40px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px;">Moin, Master Carlos.</h1>
+                        <p style="color: var(--text-muted); font-size: 14px; max-width: 400px; margin: 0 auto;">Sag <strong>„Jarvis“</strong> gefolgt von deinem Befehl (z. B. „Öffne News“, „Börse“, „Vokabeln“) oder stell mir eine Frage.</p>
                         
-                        <div id="travis-reply-box" class="travis-reply-box"></div>
+                        <div id="jarvis-reply-box" class="jarvis-reply-box"></div>
                     </div>
                 </div>
 
+                <!-- RECHTS: NEWS ZUSAMMENFASSUNG -->
                 <div class="side-panel">
-                    <h3>Global Newsfeed</h3>
-                    <div class="side-stream" id="news-stream">
-                        <!-- Filled by JS -->
+                    <h3>Top News Summary</h3>
+                    <div id="hq-news-stream">
+                        <div class="stream-item">Lade Nachrichten...</div>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- === VIEW 2: NEWS INTELLIGENCE === -->
+        <!-- === VIEW 2: NEWS & BOOKMARKS === -->
         <div id="view-news" class="view-container">
             <h1 class="header-title">News Intelligence.</h1>
-            <p class="header-sub">Kuratierte Artikel, automatisch aktualisiert aus der Cloud.</p>
+            <p class="header-sub">Kuratierte Weltgeschehnisse, Cloud-aktualisiert & Lesezeichen.</p>
             
-            <div style="display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 10px;" id="news-categories">
-                <!-- Categories JS -->
+            <div style="display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px;" id="news-categories">
+                <!-- Kategorien-Chips per JS -->
             </div>
             <div style="display: flex; gap: 8px; margin-bottom: 30px; flex-wrap: wrap;" id="news-subsectors">
-                <!-- Subsectors JS -->
+                <!-- Unterkategorien per JS -->
             </div>
 
             <div class="bento-grid" id="news-grid-container">
-                <p style="color: var(--text-muted);">Lade aktuelle Nachrichten...</p>
+                <p style="color: var(--text-muted);">Lade News-Stream...</p>
             </div>
         </div>
 
         <!-- === VIEW 3: MARKET & EQUITY RESEARCH === -->
         <div id="view-market" class="view-container">
             <h1 class="header-title">Market Terminal.</h1>
-            <p class="header-sub">Live NASDAQ Chart & Blackstone Equity Analyzer</p>
+            <p class="header-sub">Globale Sektoren, Watchlist & Blackstone Equity Research</p>
             
+            <!-- Global Sectors & Watchlist -->
             <div class="glass-card" style="margin-bottom: 30px;">
-                <h3 style="margin-bottom: 15px;">NASDAQ Composite (IXIC)</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="market-sector-tabs">
+                        <button class="chip active" onclick="setMarketSector('semis')">Semis & AI</button>
+                        <button class="chip" onclick="setMarketSector('bigtech')">Big Tech</button>
+                        <button class="chip" onclick="setMarketSector('health')">Healthcare</button>
+                        <button class="chip" onclick="setMarketSector('consumer')">Consumer</button>
+                        <button class="chip" onclick="setMarketSector('watchlist')">Watchlist</button>
+                    </div>
+                    <input type="text" id="add-stock-input" class="input-field" style="max-width: 250px;" placeholder="Ticker (z.B. AAPL) + Enter" onkeypress="addWatchlistStock(event)">
+                </div>
+                <div class="stock-grid" id="market-stock-grid"></div>
+                <h3 style="margin: 30px 0 15px 0; font-size: 16px;">NASDAQ Composite Index</h3>
                 <div class="chart-container" id="tv-chart"></div>
             </div>
 
+            <!-- Equity Analyzer -->
             <div class="glass-card">
                 <h2 style="margin-bottom: 8px;">Institutional Equity Analyzer</h2>
-                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">KI-gestützte 5-Säulen-Analyse nach Investmentbanking-Standards.</p>
+                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Blackstone-Standard: 5-Säulen-Modell via Gemini API.</p>
                 
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                    <input type="text" id="ticker-input" class="input-field" placeholder="Ticker eingeben (z.B. TSLA, NVDA)">
-                    <button class="chip active" onclick="runAnalyzer()" style="border-radius: 14px;">Analyse generieren</button>
+                    <input type="text" id="analyzer-ticker" class="input-field" placeholder="Ticker (z.B. NVDA, TSLA)">
+                    <button class="chip active" onclick="runBlackstoneAnalyzer()" style="border-radius: 14px;">Analyse starten</button>
                 </div>
 
-                <div id="analyzer-output" style="display: none; padding-top: 20px; border-top: 1px solid var(--border-glass);">
+                <div id="analyzer-results" style="display: none; padding-top: 20px; border-top: 1px solid var(--border-glass);">
                     <div style="color: var(--accent-blue); font-weight: 600; margin-bottom: 15px;" id="analyzer-status">Analysiere...</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px;"><strong style="color:var(--accent-blue);">1. Bilanz</strong><p id="a-p1" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px;"><strong style="color:var(--accent-blue);">2. Treiber</strong><p id="a-p2" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px;"><strong style="color:var(--accent-blue);">3. Wettbewerb</strong><p id="a-p3" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
-                        <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px;"><strong style="color:var(--accent-blue);">4. Management</strong><p id="a-p4" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">1. Bilanz</strong><p id="a-p1" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">2. Treiber</strong><p id="a-p2" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">3. Wettbewerb</strong><p id="a-p3" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px;"><strong style="color:var(--accent-blue);">4. Management</strong><p id="a-p4" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 16px; grid-column: 1/-1;"><strong style="color:var(--accent-blue);">5. Fazit & Makro</strong><p id="a-p5" style="font-size:14px; margin-top:8px; color:var(--text-muted);">Lade...</p></div>
                     </div>
                 </div>
             </div>
@@ -289,22 +308,19 @@
         <!-- === VIEW 4: LINGUA LAB PRO === -->
         <div id="view-lingua" class="view-container">
             <h1 class="header-title">Lingua Lab Pro.</h1>
-            <p class="header-sub">Die 500 wichtigsten C2-Vokabeln & Master-Writing Skills.</p>
+            <p class="header-sub">Die 500 wichtigsten C2-Vokabeln & Writing Mastery (Anti-Germanismen).</p>
 
             <div class="lingua-grid">
-                <!-- Sidebar Menu -->
                 <div class="glass-card" style="padding: 15px;">
                     <div class="sidebar-menu">
                         <div style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); margin: 10px 0 5px 10px; font-weight: 700;">Vokabel-Training</div>
                         <div class="sidebar-item active" onclick="setLinguaMode('flashcards', this)">Flashcards (Input)</div>
-                        <div class="sidebar-item" onclick="setLinguaMode('quiz', this)">Multiple Choice Test</div>
                         
                         <div style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); margin: 20px 0 5px 10px; font-weight: 700;">Writing Mastery</div>
-                        <div class="sidebar-item" onclick="setLinguaMode('mastery', this)">Anti-Germanisms & Tipps</div>
+                        <div class="sidebar-item" onclick="setLinguaMode('mastery', this)">Anti-Germanismen & Tipps</div>
                     </div>
                 </div>
 
-                <!-- Main Content Area -->
                 <div class="glass-card flashcard-stage" id="lingua-content-area">
                     <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="flashcard-counter">Lade Vokabeln...</div>
                     <div class="flashcard" onclick="flipCard()">
@@ -320,31 +336,31 @@
             </div>
         </div>
 
-        <!-- === VIEW 5: ACADEMY === -->
+        <!-- === VIEW 5: BUSINESS ACADEMY === -->
         <div id="view-academy" class="view-container">
             <h1 class="header-title">Business Academy.</h1>
-            <p class="header-sub">Geführte Masterclasses für Wirtschaft und Finance.</p>
+            <p class="header-sub">Geführter Masterclass-Pfad mit tiefem Input und Zwischen-Tests.</p>
 
-            <div class="glass-card">
+            <div class="glass-card" style="margin-bottom: 25px;">
                 <span style="font-size: 11px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Level 1 • Masterclass Input</span>
-                <h2 style="margin: 10px 0 20px;">Die Bilanz-Dreifaltigkeit & Free Cashflow</h2>
-                <div style="font-size: 15px; line-height: 1.6; color: #d1d1d6;">
-                    <p style="margin-bottom: 15px;">Um wie ein Profi zu analysieren, musst du drei Dokumente verbinden:</p>
+                <h2 style="margin: 10px 0 20px;">Die Bilanz-Dreifaltigkeit & Free Cashflow (FCF)</h2>
+                <div style="font-size: 15px; line-height: 1.7; color: #d1d1d6;">
+                    <p style="margin-bottom: 15px;">Um Unternehmen wie ein Blackstone-Analyst zu bewerten, verknüpfst du drei Berichte:</p>
                     <ul style="margin-left: 20px; list-style: disc; margin-bottom: 20px;">
-                        <li style="margin-bottom: 8px;"><strong>Income Statement (GuV):</strong> Zeigt den operativen Papier-Gewinn (Umsatz minus Kosten).</li>
-                        <li style="margin-bottom: 8px;"><strong>Balance Sheet (Bilanz):</strong> Eine Momentaufnahme von Vermögen (Assets) und Schulden (Liabilities).</li>
-                        <li style="margin-bottom: 8px;"><strong>Cashflow Statement:</strong> Das wichtigste Dokument. Zeigt, wie viel echtes Geld rein- und rausfließt.</li>
+                        <li style="margin-bottom: 8px;"><strong>Income Statement (GuV):</strong> Operativer Papier-Gewinn (Umsatz minus operative Kosten und Zinsen).</li>
+                        <li style="margin-bottom: 8px;"><strong>Balance Sheet (Bilanz):</strong> Momentaufnahme von Vermögen (Assets) und Schulden (Liabilities).</li>
+                        <li style="margin-bottom: 8px;"><strong>Cashflow Statement:</strong> Reales Geld, das tatsächlich im Unternehmen ankommt.</li>
                     </ul>
                     <p style="padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 3px solid var(--accent-blue);">
-                        <strong>Der Free Cashflow (FCF)</strong> ist das Geld, das nach Abzug aller notwendigen Instandhaltungskosten (CapEx) übrig bleibt. Nur der FCF kann für Dividenden oder Wachstum genutzt werden.
+                        <strong>Der Free Cashflow (FCF)</strong> misst das reale Bargeld nach Abzug aller notwendigen Investitionen (CapEx). Nur dieses Geld generiert echten Shareholder Value.
                     </p>
                 </div>
 
                 <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-glass);">
                     <h3 style="font-size: 16px; margin-bottom: 15px;">Wissens-Check</h3>
                     <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <button class="input-field" style="text-align: left; cursor: pointer;" onclick="checkAcademy(false)">A) Die GuV ist entscheidender als der Cashflow.</button>
-                        <button class="input-field" style="text-align: left; cursor: pointer;" onclick="checkAcademy(true)">B) Der Free Cashflow misst das reale Geld nach Investitionen (CapEx).</button>
+                        <button class="input-field" style="text-align: left; cursor: pointer;" onclick="checkAcademy(false)">A) Der Gewinn laut GuV ist wichtiger als der Cashflow.</button>
+                        <button class="input-field" style="text-align: left; cursor: pointer;" onclick="checkAcademy(true)">B) Der Free Cashflow misst das reale Bargeld nach CapEx.</button>
                     </div>
                     <div id="academy-feedback" style="margin-top: 15px; font-weight: 600; font-size: 14px;"></div>
                 </div>
@@ -354,11 +370,11 @@
         <!-- === VIEW 6: SETTINGS === -->
         <div id="view-settings" class="view-container">
             <h1 class="header-title">System Settings.</h1>
-            <p class="header-sub">API Keys und Konfiguration.</p>
+            <p class="header-sub">API Konfiguration & System-Status</p>
             
             <div class="glass-card">
-                <h3>Gemini API Schlüssel (Pay-as-you-go)</h3>
-                <p style="font-size: 14px; color: var(--text-muted); margin: 10px 0 20px;">Trage hier deinen API-Key aus dem Google AI Studio ein. Wenn du im Google Cloud Konto ein Billing eingerichtet hast, gibt es keine Limits mehr.</p>
+                <h3>Gemini API Schlüssel (Pay-as-you-go / Unlimitierter Modus)</h3>
+                <p style="font-size: 14px; color: var(--text-muted); margin: 10px 0 20px;">Trage deinen AI Studio Key ein. Bei hinterlegtem Billing-Konto sind alle Ratenlimits aufgehoben.</p>
                 <input type="password" id="api-key-input" class="input-field" placeholder="AIzaSy..." onchange="localStorage.setItem('carlos_api_key', this.value)">
             </div>
         </div>
@@ -366,239 +382,392 @@
     </main>
 
     <script>
-        // === STATE & DATA ===
+        // STATE
         const state = {
-            currentView: 'hq',
-            isListening: true, // Auto-start Wake Word
             newsData: [],
+            bookmarks: JSON.parse(localStorage.getItem('carlos_bookmarks')) || [],
+            watchlist: JSON.parse(localStorage.getItem('carlos_portfolio')) || ['NASDAQ:AAPL', 'NASDAQ:TSLA', 'NASDAQ:NVDA'],
             vocabData: null,
             vocabIndex: 0,
             vocabFlipped: false,
-            linguaMode: 'flashcards'
+            linguaMode: 'flashcards',
+            activeCategory: 'Alle',
+            activeSubSector: 'Alle',
+            marketSector: 'semis',
+            isListening: true
         };
 
-        // === INITIALIZATION ===
+        const sectors = {
+            semis: ['NASDAQ:NVDA', 'NASDAQ:TSMC', 'NASDAQ:ASML', 'NASDAQ:AMD', 'NASDAQ:AVGO'],
+            bigtech: ['NASDAQ:AAPL', 'NASDAQ:MSFT', 'NASDAQ:GOOGL', 'NASDAQ:AMZN', 'NASDAQ:META'],
+            health: ['NYSE:LLY', 'NYSE:UNH', 'NYSE:JNJ', 'NYSE:PFE', 'NYSE:ABBV'],
+            consumer: ['NYSE:KO', 'NYSE:PEP', 'NYSE:MCD', 'NYSE:WMT', 'NYSE:NKE']
+        };
+
         window.onload = async () => {
             document.getElementById('intro-screen').style.opacity = '0';
             setTimeout(() => document.getElementById('intro-screen').style.display = 'none', 800);
 
-            // Load API Key
             const savedKey = localStorage.getItem('carlos_api_key');
             if(savedKey) document.getElementById('api-key-input').value = savedKey;
 
-            // Initialize systems
-            initWakeWord();
-            await fetchData();
-            renderCockpitTickers();
+            await loadData();
+            initJarvisVoice();
             setupTradingView();
 
-            // Initial Travis Greeting
-            speakTravis("Moin Master Carlos. Systeme sind hochgefahren. Ich höre im Hintergrund zu.");
+            setInterval(() => {
+                const now = new Date();
+                document.getElementById('cockpit-clock').innerText = now.toLocaleTimeString('de-DE') + " • ETTENHEIM SYSTEM ONLINE";
+            }, 1000);
+
+            speakJarvis("Moin Master Carlos. Headquarter online. Ich höre zu.");
         };
 
-        // === NAVIGATION ===
+        // NAVIGATION
         function switchView(viewId) {
             document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
             document.getElementById(`view-${viewId}`).classList.add('active');
             
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            document.querySelector(`.nav-item[data-target="${viewId}"]`).classList.add('active');
+            const navEl = document.querySelector(`.nav-item[data-target="${viewId}"]`);
+            if(navEl) navEl.classList.add('active');
+
+            if(viewId === 'market') renderMarketSectorGrid();
         }
 
-        // === DATA FETCHING (News & Vokabeln) ===
-        async function fetchData() {
+        // DATA LOADING
+        async function loadData() {
             try {
-                // Fetch News
-                const newsRes = await fetch('nachrichten.json?t=' + Date.now());
-                if(newsRes.ok) {
-                    const data = await newsRes.json();
+                const res = await fetch('nachrichten.json?t=' + Date.now());
+                if(res.ok) {
+                    const data = await res.json();
                     state.newsData = Array.isArray(data) ? data : data.nachrichten || [];
-                    renderNews();
+                    renderHQStreams();
+                    renderNewsCategories();
+                    renderNewsGrid();
                 }
                 
-                // Fetch Vocab (from the external file we will create)
                 const vocabRes = await fetch('vokabeln.json?t=' + Date.now());
                 if(vocabRes.ok) {
                     state.vocabData = await vocabRes.json();
                     updateFlashcard();
                 }
-            } catch (e) {
-                console.warn("Ladefehler lokaler Dateien. Bitte stelle sicher, dass nachrichten.json und vokabeln.json existieren.");
+            } catch(e) {
+                console.warn("Lokale JSON-Dateien konnten nicht geladen werden.");
             }
         }
 
-        // === T.R.A.V.I.S. VOICE (High Quality Selection) ===
-        function speakTravis(text) {
+        // JARVIS VOICE OUTPUT (HIGH-QUALITY SYSTEM VOICE)
+        function speakJarvis(text) {
             if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel(); // Stop current speaking
-            
+            window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'de-DE';
             utterance.rate = 1.05;
 
-            // Wait for voices to load (Browser quirk)
             let voices = window.speechSynthesis.getVoices();
-            if (voices.length === 0) {
-                window.speechSynthesis.onvoiceschanged = () => {
-                    voices = window.speechSynthesis.getVoices();
-                    setVoiceAndSpeak(utterance, voices);
-                };
-            } else {
-                setVoiceAndSpeak(utterance, voices);
-            }
-        }
+            let bestVoice = voices.find(v => v.lang.startsWith('de') && (v.name.includes('Google') || v.name.includes('Siri') || v.name.includes('Anna') || v.name.includes('Katja')));
+            if(!bestVoice) bestVoice = voices.find(v => v.lang.startsWith('de'));
+            if(bestVoice) utterance.voice = bestVoice;
 
-        function setVoiceAndSpeak(utterance, voices) {
-            // Logic to find the absolute best Apple/Mac Voice (Premium, Siri, Anna, Markus)
-            let bestVoice = voices.find(v => v.lang.startsWith('de') && (v.name.includes('Premium') || v.name.includes('Siri') || v.name.includes('Enhanced')));
-            if (!bestVoice) bestVoice = voices.find(v => v.lang.startsWith('de') && (v.name.includes('Anna') || v.name.includes('Markus')));
-            if (!bestVoice) bestVoice = voices.find(v => v.lang.startsWith('de')); // Fallback
-
-            if (bestVoice) utterance.voice = bestVoice;
             window.speechSynthesis.speak(utterance);
         }
 
-        // === WAKE WORD RECOGNITION (AGGRESSIVE AUTO-RESTART) ===
+        // WAKE WORD ("JARVIS")
         let recognition;
-        function initWakeWord() {
+        function initJarvisVoice() {
             const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SpeechRec) {
-                document.getElementById('travis-label').innerText = "Spracherkennung nicht unterstützt";
-                return;
-            }
+            if(!SpeechRec) return;
 
             recognition = new SpeechRec();
             recognition.lang = 'de-DE';
             recognition.continuous = true;
             recognition.interimResults = false;
 
-            recognition.onresult = (event) => {
-                const speech = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
-                if (speech.includes('hey travis') || speech.includes('travis')) {
-                    let cmd = speech.replace('hey travis', '').replace('travis', '').trim();
-                    if (cmd.length > 0) processAICommand(cmd);
-                    else speakTravis("Ja, Master Carlos?");
+            recognition.onresult = (e) => {
+                const speech = e.results[e.results.length - 1][0].transcript.trim().toLowerCase();
+                const box = document.getElementById('jarvis-reply-box');
+                box.style.display = 'block';
+                box.innerHTML = `<strong>Erkannt:</strong> "${speech}"`;
+
+                if(speech.includes('jarvis')) {
+                    let cmd = speech.replace('jarvis', '').trim();
+                    if(cmd.length > 0) processJarvisCommand(cmd);
+                    else speakJarvis("Ja, Master Carlos?");
                 }
             };
 
-            // AGGRESSIVE RESTART: WebKit stops mic on silence. We restart it immediately.
             recognition.onend = () => {
-                if (state.isListening) {
-                    setTimeout(() => {
-                        try { recognition.start(); } catch(e) {}
-                    }, 200); // 200ms delay prevents crash loops
+                if(state.isListening) {
+                    setTimeout(() => { try { recognition.start(); } catch(e){} }, 250);
                 }
             };
 
-            try { recognition.start(); updateTravisUI(true); } catch(e) {}
+            try { recognition.start(); } catch(e) {}
         }
 
-        function toggleTravis() {
+        function toggleJarvisVoice() {
             state.isListening = !state.isListening;
-            if (state.isListening) {
-                try { recognition.start(); } catch(e) {}
-                updateTravisUI(true);
-                speakTravis("Sprachüberwachung reaktiviert.");
+            const label = document.getElementById('jarvis-status-label');
+            if(state.isListening) {
+                try { recognition.start(); } catch(e){}
+                label.innerText = "Jarvis (Aktiv)";
+                label.style.color = "var(--accent-green)";
+                speakJarvis("Sprachüberwachung reaktiviert.");
             } else {
-                try { recognition.stop(); } catch(e) {}
-                updateTravisUI(false);
-                speakTravis("Sprachüberwachung pausiert.");
+                try { recognition.stop(); } catch(e){}
+                label.innerText = "Jarvis (Stumm)";
+                label.style.color = "var(--accent-red)";
+                speakJarvis("Sprachüberwachung pausiert.");
             }
         }
 
-        function updateTravisUI(active) {
-            const widget = document.getElementById('travis-btn');
-            const label = document.getElementById('travis-label');
-            if (active) {
-                widget.classList.add('listening');
-                label.innerText = "T.R.A.V.I.S. hört zu...";
-            } else {
-                widget.classList.remove('listening');
-                label.innerText = "T.R.A.V.I.S. pausiert";
-            }
-        }
-
-        // === AI BRAIN (GEMINI API) ===
-        async function processAICommand(cmd) {
-            const replyBox = document.getElementById('travis-reply-box');
-            replyBox.style.display = 'block';
-            replyBox.innerHTML = `<strong>Du:</strong> ${cmd}<br><span style="color: var(--accent-blue);">Analysiere...</span>`;
-
-            // 1. Check for hardcoded navigation commands
+        async function processJarvisCommand(cmd) {
+            const box = document.getElementById('jarvis-reply-box');
             const lower = cmd.toLowerCase();
-            if(lower.includes('news')) { switchView('news'); speakTravis("Öffne News."); replyBox.style.display = 'none'; return; }
-            if(lower.includes('börse') || lower.includes('markt')) { switchView('market'); speakTravis("Öffne Market Terminal."); replyBox.style.display = 'none'; return; }
-            if(lower.includes('vokabeln')) { switchView('lingua'); speakTravis("Lingua Lab geöffnet."); replyBox.style.display = 'none'; return; }
 
-            // 2. Call Gemini
-            const apiKey = localStorage.getItem('carlos_api_key');
-            if(!apiKey) {
-                speakTravis("Bitte API Key in den Settings eintragen.");
-                replyBox.innerHTML = "API Key fehlt."; return;
+            if(lower.includes('news') || lower.includes('nachrichten')) {
+                switchView('news'); speakJarvis("Öffne News Intelligence."); box.style.display = 'none'; return;
             }
+            if(lower.includes('börse') || lower.includes('aktien') || lower.includes('markt')) {
+                switchView('market'); speakJarvis("Lade Market Terminal."); box.style.display = 'none'; return;
+            }
+            if(lower.includes('vokabeln')) {
+                switchView('lingua'); speakJarvis("Lingua Lab geöffnet."); box.style.display = 'none'; return;
+            }
+            if(lower.includes('academy') || lower.includes('wirtschaft')) {
+                switchView('academy'); speakJarvis("Business Academy aktiv."); box.style.display = 'none'; return;
+            }
+
+            // Gemini API AI Brain
+            const key = localStorage.getItem('carlos_api_key');
+            if(!key) { speakJarvis("API Key fehlt in den Settings."); box.innerHTML = "API Key fehlt."; return; }
 
             try {
-                const prompt = "Du bist T.R.A.V.I.S., der persönliche KI-Assistent von Master Carlos (16, Entwickler, Investor). Antworte auf Deutsch, präzise, locker und extrem kompetent. Keine langen Begrüßungen.";
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+                box.innerHTML = `<strong>Frage:</strong> ${cmd}<br><span style="color:var(--accent-blue);">Jarvis denkt nach...</span>`;
+                const prompt = "Du bist J.A.R.V.I.S., der persönliche KI-Assistent von Master Carlos (16, Entwickler, Investor). Antworte auf Deutsch, präzise, locker und kompetent.";
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
                     method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt + "\nFrage: " + cmd }] }] })
+                    body: JSON.stringify({contents: [{role: "user", parts: [{text: prompt + "\nFrage: " + cmd}]}]})
                 });
-                const data = await res.json();
-                const aiText = data.candidates[0].content.parts[0].text;
-                
-                replyBox.innerHTML = `<strong>Du:</strong> ${cmd}<br><br><span style="color: var(--accent-green);">Travis:</span> ${aiText}`;
-                speakTravis(aiText);
-
-            } catch (err) {
-                speakTravis("Verbindungsfehler zur AI-Schnittstelle.");
-                replyBox.innerHTML = "API Limit oder Netzwerkfehler.";
+                const d = await res.json();
+                const reply = d.candidates[0].content.parts[0].text;
+                box.innerHTML = `<strong>Jarvis:</strong> ${reply}`;
+                speakJarvis(reply);
+            } catch(e) {
+                speakJarvis("Verbindungsfehler zur API.");
+                box.innerHTML = "API Fehler.";
             }
         }
 
-        // === NEWS & UI RENDERING ===
-        function renderCockpitTickers() {
-            if(!state.newsData || state.newsData.length === 0) return;
-            const newsStream = document.getElementById('news-stream');
-            const marketStream = document.getElementById('market-stream');
+// HQ STREAMS (MISSION CONTROL)
+        function renderHQStreams() {
+            if(!state.newsData.length) return;
             
-            // Render News Titles
-            newsStream.innerHTML = state.newsData.slice(0, 6).map(n => 
-                `<div class="stream-item">
-                    <div style="font-size: 10px; color: var(--accent-blue); text-transform: uppercase; font-weight: 700; margin-bottom: 4px;">${n.hauptkategorie}</div>
-                    <div style="font-size: 13px; font-weight: 500;">${n.titel}</div>
-                </div>`
+            // Market Feed (Left)
+            const marketStream = document.getElementById('hq-market-stream');
+            marketStream.innerHTML = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:TSLA', 'NASDAQ:MSFT'].map(t => 
+                `<div class="stream-item" style="border-left-color:var(--accent-green);"><strong>${t}</strong> <span style="float:right; color:var(--accent-green);">Live Feed</span></div>`
             ).join('');
 
-            // Static Market Data Mockup for Cockpit
-            const tickers = ['NASDAQ:AAPL', 'NASDAQ:NVDA', 'NASDAQ:MSFT'];
-            marketStream.innerHTML = tickers.map(t => `<div class="stream-item" style="border-left-color: var(--accent-green); font-weight: 600;">${t} <span style="float:right; color:var(--accent-green);">Live</span></div>`).join('');
+            // News Summary (Right) - Focus on Wirtschaft, Tech, Politik
+            const newsStream = document.getElementById('hq-news-stream');
+            const topNews = state.newsData.filter(n => ['Wirtschaft', 'Technologie & Wissenschaft', 'Politik'].includes(n.hauptkategorie));
+            newsStream.innerHTML = topNews.slice(0, 5).map(n => 
+                `<div class="stream-item">
+                    <div style="font-size:10px; font-weight:700; color:var(--accent-blue); text-transform:uppercase; margin-bottom:2px;">${n.hauptkategorie}</div>
+                    <div style="font-size:12px; font-weight:600;">${n.titel}</div>
+                </div>`
+            ).join('');
         }
 
-        function renderNews() {
+        // NEWS INTELLIGENCE & BOOKMARKS
+        function renderNewsCategories() {
+            const bar = document.getElementById('news-categories');
+            const cats = ['Alle', 'Wirtschaft', 'Technologie & Wissenschaft', 'Politik', 'Gespeichert'];
+            bar.innerHTML = cats.map(c => `<button class="chip ${state.activeCategory === c ? 'active' : ''}" onclick="setNewsCategory('${c}')">${c === 'Gespeichert' ? '★ Gespeichert (' + state.bookmarks.length + ')' : c}</button>`).join('');
+            renderSubSectors();
+        }
+
+        function setNewsCategory(cat) {
+            state.activeCategory = cat;
+            state.activeSubSector = 'Alle';
+            renderNewsCategories();
+            renderNewsGrid();
+        }
+
+        function renderSubSektors() {
+            const subBar = document.getElementById('news-subsectors');
+            if(state.activeCategory === 'Alle' || state.activeCategory === 'Gespeichert') { subBar.innerHTML = ''; return; }
+            
+            const articles = state.newsData.filter(n => n.hauptkategorie === state.activeCategory);
+            const subs = ['Alle', ...new Set(articles.map(n => n.sub_sektor || 'Allgemein'))];
+            if(subs.length <= 1) { subBar.innerHTML = ''; return; }
+
+            subBar.innerHTML = subs.map(s => `<button class="chip ${state.activeSubSector === s ? 'active' : ''}" onclick="setSubSector('${s}')">${s}</button>`).join('');
+        }
+
+        function setSubSector(sub) {
+            state.activeSubSector = sub;
+            renderSubSektors();
+            renderNewsGrid();
+        }
+
+        function renderNewsGrid() {
             const grid = document.getElementById('news-grid-container');
-            if(!state.newsData || state.newsData.length === 0) {
-                grid.innerHTML = "<p>Keine Daten vorhanden. Führe scraper.py aus.</p>"; return;
+            let list = [];
+
+            if(state.activeCategory === 'Gespeichert') {
+                list = state.bookmarks;
+            } else if(state.activeCategory === 'Alle') {
+                list = state.newsData;
+            } else {
+                list = state.newsData.filter(n => n.hauptkategorie === state.activeCategory);
+                if(state.activeSubSector !== 'Alle') {
+                    list = list.filter(n => (n.sub_sektor || 'Allgemein') === state.activeSubSector);
+                }
             }
-            grid.innerHTML = state.newsData.map(n => `
-                <div class="glass-card bento-card">
-                    ${n.bild ? `<img src="${n.bild}" class="bento-img">` : ''}
+
+            if(!list.length) {
+                grid.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1;">Keine Artikel gefunden.</p>`;
+                return;
+            }
+
+            grid.innerHTML = list.map(item => {
+                const isBookmarked = state.bookmarks.some(b => b.titel === item.titel);
+                const safeItem = encodeURIComponent(JSON.stringify(item));
+                return `
+                <div class="bento-card">
+                    ${item.bild ? `<img src="${item.bild}" class="bento-img">` : ''}
                     <div class="bento-content">
-                        <span style="font-size:11px; color:var(--accent-blue); font-weight:700; text-transform:uppercase;">${n.hauptkategorie}</span>
-                        <a href="${n.quelle}" target="_blank" style="color:inherit; text-decoration:none;"><h3 class="bento-title">${n.titel}</h3></a>
-                        <p style="font-size:14px; color:var(--text-muted); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">${n.text}</p>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-blue); font-weight:700; text-transform:uppercase;">${item.sub_sektor || 'News'}</span>
+                                <button class="chip" style="padding:4px 10px; font-size:14px;" onclick="toggleBookmark('${safeItem}', this)">${isBookmarked ? '★' : '☆'}</button>
+                            </div>
+                            <a href="${item.quelle}" target="_blank" style="color:inherit; text-decoration:none;"><h3 class="bento-title">${item.titel}</h3></a>
+                            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">${item.text || ''}</p>
+                        </div>
                     </div>
+                </div>`;
+            }).join('');
+        }
+
+        function toggleBookmark(encoded, btn) {
+            const item = JSON.parse(decodeURIComponent(encoded));
+            const idx = state.bookmarks.findIndex(b => b.titel === item.titel);
+            if(idx > -1) {
+                state.bookmarks.splice(idx, 1);
+            } else {
+                state.bookmarks.push(item);
+            }
+            localStorage.setItem('carlos_bookmarks', JSON.stringify(state.bookmarks));
+            renderNewsCategories();
+            if(state.activeCategory === 'Gespeichert') renderNewsGrid();
+            else renderNewsGrid();
+        }
+
+        // MARKET & WATCHLIST
+        function setMarketSector(sec) {
+            state.marketSector = sec;
+            document.querySelectorAll('#market-sector-tabs .chip').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            renderMarketSectorGrid();
+        }
+
+        function renderMarketSectorGrid() {
+            const grid = document.getElementById('market-stock-grid');
+            let list = state.marketSector === 'watchlist' ? state.watchlist : sectors[state.marketSector];
+
+            grid.innerHTML = list.map(t => `
+                <div class="stock-pill">
+                    <div>
+                        <div style="font-weight:700; font-size:14px;">${t}</div>
+                        <div style="font-size:11px; color:var(--accent-green);">Live Feed</div>
+                    </div>
+                    ${state.marketSector === 'watchlist' ? `<button class="chip" style="padding:2px 8px; color:var(--accent-red);" onclick="removeWatchlist('${t}')">✕</button>` : ''}
                 </div>
             `).join('');
         }
 
-        // === LINGUA LAB PRO ===
+        function addWatchlistStock(e) {
+            if(e.key === 'Enter') {
+                const input = document.getElementById('add-stock-input');
+                let val = input.value.toUpperCase().trim();
+                if(val && !val.includes(':')) val = 'NASDAQ:' + val;
+                if(val && !state.watchlist.includes(val)) {
+                    state.watchlist.push(val);
+                    localStorage.setItem('carlos_portfolio', JSON.stringify(state.watchlist));
+                    if(state.marketSector === 'watchlist') renderMarketSectorGrid();
+                    input.value = '';
+                }
+            }
+        }
+
+        function removeWatchlist(t) {
+            state.watchlist = state.watchlist.filter(item => item !== t);
+            localStorage.setItem('carlos_portfolio', JSON.stringify(state.watchlist));
+            renderMarketSectorGrid();
+        }
+
+        // BLACKSTONE EQUITY ANALYZER (ROBUST PARSING)
+        async function runBlackstoneAnalyzer() {
+            const key = localStorage.getItem('carlos_api_key');
+            if(!key) { alert("API Key in Settings fehlt!"); switchView('settings'); return; }
+            const ticker = document.getElementById('analyzer-ticker').value.toUpperCase().trim();
+            if(!ticker) return;
+
+            document.getElementById('analyzer-results').style.display = 'block';
+            const status = document.getElementById('analyzer-status');
+            status.innerText = "Blackstone AI Engine analysiert...";
+
+            ['a-p1','a-p2','a-p3','a-p4','a-p5'].forEach(id => {
+                document.getElementById(id).className = "skeleton";
+                document.getElementById(id).innerText = "Lade...";
+            });
+
+            const prompt = `Analysiere "${ticker}" im institutionellen Blackstone-Standard in exakt 5 Abschnitten, getrennt durch das Trennzeichen '|||':
+            [1. BILANZ & FINANZEN]
+            |||
+            [2. OPERATIVE TREIBER]
+            |||
+            [3. WETTBEWERBSVORTEIL]
+            |||
+            [4. MANAGEMENT & GOVERNANCE]
+            |||
+            [5. MAKRO & FAZIT]`;
+
+            try {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
+                    method: 'POST', headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({contents: [{role: "user", parts: [{text: prompt}]}]})
+                });
+                const d = await res.json();
+                const text = d.candidates[0].content.parts[0].text;
+                const parts = text.split('|||');
+
+                ['a-p1','a-p2','a-p3','a-p4','a-p5'].forEach((id, idx) => {
+                    const el = document.getElementById(id);
+                    el.className = "";
+                    el.style.color = "var(--text-muted)";
+                    el.innerText = parts[idx] ? parts[idx].replace(/\[.*?\]/g, '').trim() : "Keine Daten verfügbar.";
+                });
+                status.innerText = "Analyse erfolgreich abgeschlossen.";
+                status.style.color = "var(--accent-green)";
+            } catch(e) {
+                status.innerText = "Fehler bei der API-Abfrage.";
+                status.style.color = "var(--accent-red)";
+            }
+        }
+
+        // LINGUA LAB PRO & WRITING MASTERY
         function setLinguaMode(mode, el) {
             document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
             el.classList.add('active');
             state.linguaMode = mode;
-            
             const area = document.getElementById('lingua-content-area');
-            if (mode === 'flashcards') {
+
+            if(mode === 'flashcards') {
                 area.innerHTML = `
                     <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="flashcard-counter"></div>
                     <div class="flashcard" onclick="flipCard()">
@@ -608,201 +777,77 @@
                     </div>
                     <div style="display: flex; gap: 15px; margin-top: 30px;">
                         <button class="chip" onclick="prevCard()">← Zurück</button>
-                        <button class="chip active" onclick="nextCard()">Weiter →</button>
+                        <button class="chip active" onclick="nextCard()">Nächste →</button>
                     </div>`;
                 updateFlashcard();
-            } else if (mode === 'mastery') {
-                if(!state.vocabData || !state.vocabData.writing_mastery) return;
-                const tips = state.vocabData.writing_mastery.tips;
+            } else if(mode === 'mastery') {
                 area.innerHTML = `
                     <div style="text-align: left; width: 100%; max-width: 800px; padding: 20px;">
-                        <h2 style="margin-bottom: 20px; color: var(--accent-blue);">Writing Mastery: Anti-Germanisms</h2>
+                        <h2 style="margin-bottom: 20px; color: var(--accent-blue);">Writing Mastery: Anti-Germanismen</h2>
                         <div class="mastery-article">
-                            ${tips.map(t => `
-                                <h4>${t.title}</h4>
-                                <p>${t.desc}</p>
-                                <ul style="margin-top: 10px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px;">
-                                    <li class="bad-example">❌ Falsch: ${t.bad}</li>
-                                    <li class="good-example">✅ Profi: ${t.good}</li>
-                                </ul>
-                            `).join('')}
+                            <h4>1. Vermeide wörtliche Übersetzungen (Falsche Freunde)</h4>
+                            <p>Deutsche Sätze oft 1:1 ins Englische zu übertragen wirkt unnatürlich.</p>
+                            <ul style="margin: 10px 0 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; list-style:none;">
+                                <li class="bad-example">❌ <em>We have to become better in the future.</em></li>
+                                <li class="good-example">✅ <em>We need to improve going forward.</em></li>
+                            </ul>
+
+                            <h4>2. Starke Verben statt Füllwörter</h4>
+                            <p>Verwende präzise Verben, um Sätze im Englischen kraftvoller zu machen.</p>
+                            <ul style="margin: 10px 0 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; list-style:none;">
+                                <li class="bad-example">❌ <em>The report was a big help to make a decision.</em></li>
+                                <li class="good-example">✅ <em>The report facilitated the decision-making process.</em></li>
+                            </ul>
+
+                            <h4>3. Das 'So What?'-Prinzip für Einleitungen</h4>
+                            <p>Setze die Kernaussage im geschäftlichen oder akademischen Englisch immer an den Anfang.</p>
                         </div>
                     </div>`;
-            } else {
-                area.innerHTML = `<h2 style="color:var(--text-muted);">Multiple Choice Modus wird geladen...</h2>`;
             }
         }
 
         function updateFlashcard() {
             if(!state.vocabData || state.linguaMode !== 'flashcards') return;
             const words = state.vocabData.core_words;
-            const word = words[state.vocabIndex];
+            const item = words[state.vocabIndex];
+            document.getElementById('flashcard-counter').innerText = `Vokabel ${state.vocabIndex + 1} von ${words.length}`;
+            document.getElementById('fc-en').innerText = item.en;
             
-            document.getElementById('flashcard-counter').innerText = `Wort ${state.vocabIndex + 1} von ${words.length}`;
-            document.getElementById('fc-en').innerText = word.en;
-            
-            const deEl = document.getElementById('fc-de');
-            const exEl = document.getElementById('fc-ex');
-            
+            const de = document.getElementById('fc-de');
+            const ex = document.getElementById('fc-ex');
             if(state.vocabFlipped) {
-                deEl.style.display = 'block'; deEl.innerText = word.de;
-                exEl.style.display = 'block'; exEl.innerText = `"${word.ex}"`;
+                de.style.display = 'block'; de.innerText = item.de;
+                ex.style.display = 'block'; ex.innerText = `"${item.ex}"`;
             } else {
-                deEl.style.display = 'none'; exEl.style.display = 'block'; exEl.innerText = "Klicken zum Aufdecken";
+                de.style.display = 'none';
+                ex.style.display = 'block'; ex.innerText = "Klicken zum Aufdecken";
             }
         }
         function flipCard() { state.vocabFlipped = !state.vocabFlipped; updateFlashcard(); }
         function nextCard() { if(!state.vocabData) return; state.vocabFlipped = false; state.vocabIndex = (state.vocabIndex + 1) % state.vocabData.core_words.length; updateFlashcard(); }
         function prevCard() { if(!state.vocabData) return; state.vocabFlipped = false; state.vocabIndex = (state.vocabIndex - 1 + state.vocabData.core_words.length) % state.vocabData.core_words.length; updateFlashcard(); }
 
-        // === ACADEMY QUIZ ===
-        function checkAcademy(isCorrect) {
+        // ACADEMY QUIZ
+        function checkAcademy(correct) {
             const fb = document.getElementById('academy-feedback');
-            if(isCorrect) { fb.style.color = "var(--accent-green)"; fb.innerText = "Korrekt! Du hast die Bedeutung des FCF verstanden."; } 
-            else { fb.style.color = "var(--accent-red)"; fb.innerText = "Falsch. Lies dir die Textbox über den FCF noch einmal genau durch."; }
+            if(correct) {
+                fb.style.color = "var(--accent-green)";
+                fb.innerText = "Korrekt! Der Free Cashflow ist die entscheidende Kennzahl.";
+            } else {
+                fb.style.color = "var(--accent-red)";
+                fb.innerText = "Falsch. Der Buchgewinn unterscheidet sich vom realen Cashflow.";
+            }
         }
 
-        // === TRADING VIEW (MARKET) ===
+        // TRADING VIEW EMBED
         function setupTradingView() {
             const c = document.getElementById('tv-chart');
             const s = document.createElement('script');
             s.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
             s.async = true;
-            s.innerHTML = JSON.stringify({"autosize": true, "symbol": "NASDAQ:IXIC", "interval": "D", "theme": "dark", "style": "2", "hide_top_toolbar": true});
+            s.innerHTML = JSON.stringify({"autosize": true, "symbol": "NASDAQ:IXIC", "interval": "D", "theme": "dark", "style": "2", "hide_top_toolbar": true, "locale": "de_DE"});
             c.appendChild(s);
-        }
-
-        // === EQUITY ANALYZER ===
-        async function runAnalyzer() {
-            const key = localStorage.getItem('carlos_api_key');
-            if(!key) { alert("API Key in Settings fehlt!"); return; }
-            const ticker = document.getElementById('ticker-input').value;
-            if(!ticker) return;
-
-            document.getElementById('analyzer-output').style.display = 'block';
-            const status = document.getElementById('analyzer-status');
-            status.innerText = "Kontaktiere Blackstone AI Engine...";
-            
-            try {
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
-                    method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({contents: [{role: "user", parts: [{text: `Analysiere ${ticker} kurz und hochprofessionell in 4 Punkten getrennt durch '|||': [BILANZ]|||[TREIBER]|||[WETTBEWERB]|||[MANAGEMENT]`}]}]})
-                });
-                const d = await res.json();
-                const p = d.candidates[0].content.parts[0].text.split('|||');
-                document.getElementById('a-p1').innerText = p[0] || '-';
-                document.getElementById('a-p2').innerText = p[1] || '-';
-                document.getElementById('a-p3').innerText = p[2] || '-';
-                document.getElementById('a-p4').innerText = p[3] || '-';
-                status.innerText = "Analyse abgeschlossen.";
-                status.style.color = "var(--accent-green)";
-            } catch(e) {
-                status.innerText = "Fehler bei der Analyse.";
-                status.style.color = "var(--accent-red)";
-            }
         }
     </script>
 </body>
 </html>
-```eof
-
-Ich erstelle dir jetzt die `vokabeln.json`. Hier sind ein großer Teil der Core-Vokabeln (wir starten mit einer starken Basis, du kannst das JSON-Format jederzeit erweitern) UND die extrem wichtige Writing-Mastery-Sektion enthalten.
-
-```json:vokabeln.json
-{
-  "core_words": [
-    {"en": "to establish", "de": "etablieren, aufbauen, nachweisen", "ex": "We need to establish clear boundaries before signing the contract."},
-    {"en": "to emphasize", "de": "betonen, hervorheben", "ex": "The CEO emphasized the importance of sustainable growth."},
-    {"en": "to mitigate", "de": "abmildern, abschwächen (Risiken)", "ex": "Our primary goal is to mitigate financial risks in Q3."},
-    {"en": "to leverage", "de": "zunutze machen, hebeln", "ex": "We can leverage our existing infrastructure to scale faster."},
-    {"en": "to facilitate", "de": "erleichtern, fördern", "ex": "The new software will facilitate smoother communication across teams."},
-    {"en": "to scrutinize", "de": "genau untersuchen, prüfen", "ex": "The board will scrutinize the quarterly report tomorrow."},
-    {"en": "ambiguous", "de": "mehrdeutig, unklar", "ex": "The instructions were too ambiguous to execute properly."},
-    {"en": "profound", "de": "beträchtlich, tiefgreifend", "ex": "This policy change will have a profound impact on the market."},
-    {"en": "inevitable", "de": "unvermeidlich", "ex": "With rising inflation, a price correction was inevitable."},
-    {"en": "lucrative", "de": "lukrativ, gewinnbringend", "ex": "Real estate remains a highly lucrative investment sector."},
-    {"en": "subsequent", "de": "darauffolgend, anschließend", "ex": "The initial failure and subsequent recovery taught us a lot."},
-    {"en": "consequently", "de": "folglich, infolgedessen", "ex": "Sales dropped significantly; consequently, we had to cut costs."},
-    {"en": "nevertheless", "de": "nichtsdestotrotz, trotzdem", "ex": "The project was delayed. Nevertheless, it was a massive success."},
-    {"en": "framework", "de": "Rahmenbedingungen, Gerüst", "ex": "We operate within a strict legal framework."},
-    {"en": "incentive", "de": "Anreiz, Ansporn", "ex": "The bonus acts as an incentive for higher productivity."}
-  ],
-  "writing_mastery": {
-    "tips": [
-      {
-        "title": "Vermeide 'Germanisms' (Falsche Freunde)",
-        "desc": "Deutsche Muttersprachler übersetzen oft 1:1. Das klingt unnatürlich.",
-        "bad": "We have to become better in the future.",
-        "good": "We need to improve going forward."
-      },
-      {
-        "title": "Verwende starke Verben statt Adjektive",
-        "desc": "Im Englischen wirken Sätze viel professioneller, wenn das Verb die Arbeit macht.",
-        "bad": "The report was a big help to make a decision.",
-        "good": "The report facilitated the decision-making process."
-      },
-      {
-        "title": "Struktur: The 'So What?' Principle",
-        "desc": "Fange englische Absätze immer mit der Kernaussage an, nicht mit der Herleitung.",
-        "bad": "Because the market crashed and inflation rose, we lost money.",
-        "good": "We experienced a revenue decline, driven by market volatility and rising inflation."
-      },
-      {
-        "title": "Wortschatz-Hack: Umschreiben wie ein Profi",
-        "desc": "Wenn dir ein Fachwort fehlt, nutze akademische Füllwörter zur Umschreibung.",
-        "bad": "I don't know the exact word for this machine thing.",
-        "good": "The technical mechanism responsible for this process is currently under review."
-      }
-    ]
-  }
-}
-```eof
-
-Damit deine `nachrichten.json` völlig automatisch und kostenlos im Hintergrund auf dem neuesten Stand bleibt, legst du in deinem GitHub-Repository einen neuen Ordner an: `.github` -> darin den Ordner `workflows` -> und darin diese Datei:
-
-```yaml:.github/workflows/scraper.yml
-name: Auto-Scraper News Update
-
-# Dieser Trigger startet das Skript automatisch alle 15 Minuten
-on:
-  schedule:
-    - cron: '*/15 * * * *' # Alle 15 Minuten
-  workflow_dispatch: # Erlaubt auch manuelles Starten per Klick
-
-jobs:
-  run-scraper:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Code aus dem Repository holen (Checkout)
-        uses: actions/checkout@v3
-
-      - name: Python installieren
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Abhängigkeiten installieren (Requests, BeautifulSoup etc.)
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests beautifulsoup4; fi
-
-      - name: Scraper Skript ausführen
-        run: python scraper.py # Stelle sicher, dass dein Skript exakt so heißt!
-
-      - name: Änderungen committen und hochladen
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action Bot"
-          git add nachrichten.json
-          git commit -m "Automatisches News Update" || echo "Keine Änderungen zum Committen"
-          git push
-```eof
-
-### Deine nächsten Schritte für das perfekte System:
-1.  **Lade die `index.html` und `vokabeln.json`** in deinen Ordner und pushe sie.
-2.  **Richte die Automatisierung ein:** Lege die Ordnerstruktur `.github/workflows/scraper.yml` an und füge den obigen Code ein. GitHub wird dein Python-Skript von nun an magisch alle 15 Minuten ausführen. (Achtung: Dein Python Skript muss `scraper.py` heißen und im Hauptordner liegen).
-3.  **Die perfekte Stimme einschalten:** Geh in deine Mac Systemeinstellungen unter *Bedienungshilfen -> Gesprochene Inhalte -> Systemstimme*. Lade dir eine "Premium" Stimme herunter (z.B. Anna Premium). Der Code erkennt sie beim nächsten Start automatisch!
-4.  **Limits killen:** Füge im Google AI Studio einfach deine Kreditkarte / Billing Information ein. Es zieht dir das Limit ab, aber wie gesagt: Bei deinem Text-Volumen kommst du im Monat auf Cent-Beträge. 
-
-Dein J.A.R.V.I.S.-System (bzw. T.R.A.V.I.S.) ist jetzt eine High-End-Architektur. Das CSS ist massiv aufgewertet (Glassmorphismus, flüssige Animationen, Flexbox) und das Javascript ist sauber gekapselt!
