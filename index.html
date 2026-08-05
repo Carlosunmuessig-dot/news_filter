@@ -1036,32 +1036,39 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         <div class="view-head">
             <div class="view-kicker">Modul 03 — Lingua</div>
             <h1 class="header-title">Lingua Lab.</h1>
-            <p class="header-sub">Dein persönliches Sprachlabor mit Flashcards, Grammatik-Mastery und intelligenter Wiederholung.</p>
+            <p class="header-sub">Dein persönliches Sprachlabor mit Flashcards, Writing Mastery und intelligenter Wiederholung.</p>
         </div>
         <div class="lingua-grid">
             <div class="glass-card" style="padding: 14px;">
                 <div class="sidebar-menu" id="lingua-sidebar">
+                    <!-- Dynamically populated from vokabeln.json -->
                     <div class="sidebar-group">Trainieren</div>
-                    <div class="sidebar-item active" data-mode="flashcards" onclick="setLinguaMode('flashcards', this)">🗂 Flashcards</div>
-                    <div class="sidebar-item" data-mode="mastery" onclick="setLinguaMode('mastery', this)">📖 Grammatik-Mastery</div>
+                    <div class="sidebar-item active" data-mode="flashcards" data-cat="all" onclick="setLinguaMode('flashcards', this); setVocabCategory('all')">🗂 Alle Vokabeln</div>
+                    <div id="lingua-cat-list"></div>
+                    <div class="sidebar-group">Mastery</div>
+                    <div class="sidebar-item" data-mode="mastery" onclick="setLinguaMode('mastery', this)">✍️ Writing Mastery</div>
                     <div class="sidebar-group">Statistik</div>
                     <div class="sidebar-item" data-mode="stats" onclick="setLinguaMode('stats', this)">📊 Fortschritt</div>
                 </div>
             </div>
             <div class="glass-card" id="lingua-stage">
                 <div class="flashcard-stage" id="flashcard-stage">
+                    <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:560px; margin-bottom:8px;">
+                        <div class="fc-cat-label" id="fc-cat-label" style="font-size:10.5px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue);">Alle Vokabeln</div>
+                        <button class="btn-ghost" onclick="shuffleVocabs()" style="font-size:11px; padding:6px 14px;">🔀 Mischen</button>
+                    </div>
                     <div class="fc-progress"><div class="bar" id="fc-bar" style="width:0%"></div></div>
                     <div class="flashcard-scene">
                         <div class="flashcard" id="flashcard" onclick="flipCard()">
                             <div class="fc-face front">
-                                <div class="fc-tag">Englisch → Deutsch</div>
+                                <div class="fc-tag" id="fc-tag-front">Englisch → Deutsch</div>
                                 <div class="word-en" id="fc-word-en">—</div>
-                                <div class="word-ex" id="fc-example-en"></div>
+                                <div class="word-ex" id="fc-example-en" style="font-style:italic; color:var(--text-dim); margin-top:18px; font-size:13px; line-height:1.6;"></div>
                             </div>
                             <div class="fc-face back">
                                 <div class="fc-tag">Übersetzung</div>
                                 <div class="word-de" id="fc-word-de">—</div>
-                                <div class="word-ex" id="fc-example-de"></div>
+                                <div class="word-ex" id="fc-example-de" style="font-style:normal; color:var(--text-dim); margin-top:14px; font-size:12.5px;"></div>
                             </div>
                         </div>
                     </div>
@@ -1071,37 +1078,30 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
                         <button class="btn-primary" onclick="nextCard()">Weiter →</button>
                     </div>
                 </div>
-                <!-- Mastery panel -->
+                <!-- Mastery panel (dynamically populated from writing_mastery) -->
                 <div id="mastery-stage" style="display:none;">
-                    <div class="mastery-block">
-                        <h4>Present Perfect vs. Simple Past</h4>
-                        <div class="m-desc">Das Present Perfect beschreibt Handlungen mit Bezug zur Gegenwart. Simple Past ist für abgeschlossene Handlungen in der Vergangenheit.</div>
-                        <div class="mastery-ex bad">❌ <b>Falsch:</b> "I have seen him yesterday." → Zeitadverb "yesterday" erfordert Simple Past.</div>
-                        <div class="mastery-ex good">✅ <b>Richtig:</b> "I saw him yesterday." / "I have already seen the movie."</div>
+                    <div style="margin-bottom:20px;">
+                        <div style="font-size:20px; font-weight:800; margin-bottom:6px;">✍️ Writing Mastery</div>
+                        <div style="font-size:13px; color:var(--text-muted); line-height:1.5;">Professionelles Englisch schreiben — vermeide typische Fehler deutscher Muttersprachler.</div>
                     </div>
-                    <div class="mastery-block">
-                        <h4>If-Clauses (Conditionals)</h4>
-                        <div class="m-desc">Type I: reale Bedingung (If + Present Simple → will + Infinitiv). Type II: irreale Bedingung Gegenwart (If + Past Simple → would + Infinitiv).</div>
-                        <div class="mastery-ex bad">❌ <b>Falsch:</b> "If I would have time, I would help." → "would" gehört nicht in den if-Satz.</div>
-                        <div class="mastery-ex good">✅ <b>Richtig:</b> "If I had time, I would help."</div>
-                    </div>
-                    <div class="mastery-block">
-                        <h4>Since vs. For</h4>
-                        <div class="m-desc"><b>Since</b> = Zeitpunkt (since Monday, since 2020). <b>For</b> = Zeitraum (for 3 days, for a long time).</div>
-                        <div class="mastery-ex bad">❌ <b>Falsch:</b> "I've lived here since 5 years."</div>
-                        <div class="mastery-ex good">✅ <b>Richtig:</b> "I've lived here for 5 years." / "I've lived here since 2019."</div>
+                    <div id="mastery-tips-container">
+                        <div style="color:var(--text-muted); font-size:13px;">Lade Writing Mastery Tipps…</div>
                     </div>
                 </div>
                 <!-- Stats panel -->
-                <div id="stats-stage" style="display:none; text-align:center; padding: 40px 20px;">
-                    <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">📊</div>
-                    <div style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Lernstatistik</div>
-                    <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Dein Fortschritt auf einen Blick</div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
-                        <div class="metric-tile"><div class="m-label">Vokabeln gelernt</div><div class="m-value blue" id="stat-learned">0</div></div>
-                        <div class="metric-tile"><div class="m-label">Karten geflippt</div><div class="m-value green" id="stat-flipped">0</div></div>
-                        <div class="metric-tile"><div class="m-label">Streak</div><div class="m-value" id="stat-streak" style="color:var(--amber)">0 Tage</div></div>
+                <div id="stats-stage" style="display:none; padding: 20px 0;">
+                    <div style="text-align:center; margin-bottom:24px;">
+                        <div style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">📊</div>
+                        <div style="font-size: 20px; font-weight: 800; margin-bottom: 6px;">Lernstatistik</div>
+                        <div style="color: var(--text-muted); font-size: 13px;">Dein Fortschritt auf einen Blick</div>
                     </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom:24px;">
+                        <div class="metric-tile"><div class="m-label">Vokabeln gesamt</div><div class="m-value blue" id="stat-learned">0</div></div>
+                        <div class="metric-tile"><div class="m-label">Karten geflippt</div><div class="m-value green" id="stat-flipped">0</div></div>
+                        <div class="metric-tile"><div class="m-label">Kategorien</div><div class="m-value" id="stat-categories" style="color:var(--amber)">0</div></div>
+                    </div>
+                    <div class="section-label"><span class="dot"></span>Vokabeln pro Kategorie</div>
+                    <div id="stats-category-breakdown" style="display:grid; gap:10px;"></div>
                 </div>
             </div>
         </div>
@@ -1268,6 +1268,10 @@ const STATE = {
     bookmarks: new Set(JSON.parse(localStorage.getItem('hq_bookmarks') || '[]')),
     watchlist: new Set(JSON.parse(localStorage.getItem('hq_watchlist') || '[]')),
     vocabs: [],
+    vocabCategories: {},      // {CoreVerbs: [...], AbstractConcepts: [...], ...}
+    vocabCategoryKeys: [],    // ['CoreVerbs', 'AbstractConcepts', ...]
+    activeVocabCategory: 'all', // 'all' or category key
+    writingMastery: [],       // [{title, desc, bad, good}, ...]
     currentView: 'hq',
     newsCategory: 'alle',
     newsSubsector: null,
@@ -1478,26 +1482,50 @@ async function loadData() {
     try {
         const [newsRes, vocabRes] = await Promise.allSettled([
             fetch('nachrichten.json').then(r => r.ok ? r.json() : []),
-            fetch('vokabeln.json').then(r => r.ok ? r.json() : [])
+            fetch('vokabeln.json').then(r => r.ok ? r.json() : {})
         ]);
+        // --- News ---
         let rawNews = newsRes.status === 'fulfilled' ? newsRes.value : [];
-        // Support both [{...}] and {articles:[{...}]} formats
         if (rawNews && !Array.isArray(rawNews)) {
             rawNews = rawNews.articles || rawNews.data || rawNews.items || rawNews.nachrichten || [];
         }
-        // Normalize every article to consistent field names
         STATE.news = (Array.isArray(rawNews) ? rawNews : []).map(normalizeArticle);
-        STATE.vocabs = vocabRes.status === 'fulfilled' ? (Array.isArray(vocabRes.value) ? vocabRes.value : []) : [];
+
+        // --- Vokabeln ---
+        const rawVocab = vocabRes.status === 'fulfilled' ? vocabRes.value : {};
+        if (rawVocab && rawVocab.categories && typeof rawVocab.categories === 'object') {
+            // Structured format: {categories: {CoreVerbs: [...], ...}, writing_mastery: {...}}
+            STATE.vocabCategories = rawVocab.categories;
+            STATE.vocabCategoryKeys = Object.keys(rawVocab.categories);
+            // Flatten all categories into one array, tag each word with its category
+            STATE.vocabs = [];
+            for (const [catKey, words] of Object.entries(rawVocab.categories)) {
+                if (Array.isArray(words)) {
+                    words.forEach(w => STATE.vocabs.push({ ...w, _category: catKey }));
+                }
+            }
+            // Writing Mastery tips
+            STATE.writingMastery = rawVocab.writing_mastery?.tips || [];
+        } else if (Array.isArray(rawVocab)) {
+            // Flat array fallback: [{en, de, ex}, ...]
+            STATE.vocabs = rawVocab;
+            STATE.vocabCategories = { 'Alle': rawVocab };
+            STATE.vocabCategoryKeys = ['Alle'];
+        } else {
+            STATE.vocabs = [];
+        }
     } catch (e) {
         console.warn('Daten-Laden fehlgeschlagen:', e);
         STATE.news = [];
         STATE.vocabs = [];
     }
-    console.log(`[HQ] ${STATE.news.length} Nachrichten geladen, ${STATE.vocabs.length} Vokabeln geladen`);
+    console.log(`[HQ] ${STATE.news.length} Nachrichten, ${STATE.vocabs.length} Vokabeln (${STATE.vocabCategoryKeys.length} Kategorien)`);
     renderNewsCategories();
     renderNews();
     renderHqSidePanels();
+    buildLinguaSidebar();
     renderFlashcard();
+    renderMasteryTips();
     renderAcademyPath();
     updateMetrics();
 }
@@ -2006,9 +2034,71 @@ Antworte NUR mit dem JSON, kein Markdown, keine Erklärung.`;
 }
 
 // ==================== LINGUA LAB ====================
+const VOCAB_CAT_ICONS = {
+    'CoreVerbs': '🔥', 'AbstractConcepts': '💎', 'Connectors': '🔗', 'Precision': '🎯',
+    'Alle': '📚', 'all': '📚'
+};
+const VOCAB_CAT_LABELS = {
+    'CoreVerbs': 'Core Verbs', 'AbstractConcepts': 'Abstract Concepts',
+    'Connectors': 'Connectors', 'Precision': 'Precision Words'
+};
+
+function buildLinguaSidebar() {
+    const container = document.getElementById('lingua-cat-list');
+    if (!container) return;
+    if (STATE.vocabCategoryKeys.length === 0) {
+        container.innerHTML = '<div style="color:var(--text-muted);font-size:12px;padding:8px 16px;">Keine Kategorien geladen.</div>';
+        return;
+    }
+    container.innerHTML = STATE.vocabCategoryKeys.map(key => {
+        const icon = VOCAB_CAT_ICONS[key] || '📝';
+        const label = VOCAB_CAT_LABELS[key] || key;
+        const count = STATE.vocabCategories[key]?.length || 0;
+        return `<div class="sidebar-item" data-mode="flashcards" data-cat="${key}" onclick="setLinguaMode('flashcards', this); setVocabCategory('${key}')">
+            ${icon} ${label} <span style="margin-left:auto;font-size:10px;color:var(--text-muted);font-weight:800;">${count}</span>
+        </div>`;
+    }).join('');
+}
+
+function setVocabCategory(catKey) {
+    STATE.activeVocabCategory = catKey;
+    STATE.fcIndex = 0;
+    // Update active state in sidebar
+    document.querySelectorAll('#lingua-sidebar .sidebar-item[data-cat]').forEach(el => {
+        el.classList.toggle('active', el.dataset.cat === catKey);
+    });
+    // Update category label
+    const label = document.getElementById('fc-cat-label');
+    if (label) {
+        if (catKey === 'all') label.textContent = `Alle Vokabeln (${STATE.vocabs.length})`;
+        else label.textContent = `${VOCAB_CAT_LABELS[catKey] || catKey} (${STATE.vocabCategories[catKey]?.length || 0})`;
+    }
+    renderFlashcard();
+}
+
+function getActiveVocabs() {
+    if (STATE.activeVocabCategory === 'all') return STATE.vocabs;
+    return STATE.vocabCategories[STATE.activeVocabCategory] || STATE.vocabs;
+}
+
+function shuffleVocabs() {
+    const active = getActiveVocabs();
+    // Fisher-Yates shuffle
+    for (let i = active.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [active[i], active[j]] = [active[j], active[i]];
+    }
+    STATE.fcIndex = 0;
+    renderFlashcard();
+    toast('🔀 Karten gemischt!');
+}
+
 function setLinguaMode(mode, el) {
-    document.querySelectorAll('#lingua-sidebar .sidebar-item').forEach(i => i.classList.remove('active'));
-    if (el) el.classList.add('active');
+    // Only update active for non-category items or if it's a top-level mode switch
+    if (!el?.dataset?.cat) {
+        document.querySelectorAll('#lingua-sidebar .sidebar-item').forEach(i => i.classList.remove('active'));
+        if (el) el.classList.add('active');
+    }
     document.getElementById('flashcard-stage').style.display = mode === 'flashcards' ? '' : 'none';
     document.getElementById('mastery-stage').style.display = mode === 'mastery' ? '' : 'none';
     document.getElementById('stats-stage').style.display = mode === 'stats' ? '' : 'none';
@@ -2016,30 +2106,44 @@ function setLinguaMode(mode, el) {
 }
 
 function renderFlashcard() {
-    if (!STATE.vocabs.length) {
+    const vocabs = getActiveVocabs();
+    if (!vocabs.length) {
         const wEn = document.getElementById('fc-word-en');
         if (wEn) wEn.textContent = 'Keine Vokabeln geladen';
+        document.getElementById('fc-example-en').textContent = '';
+        document.getElementById('fc-counter').textContent = '0 / 0';
         return;
     }
-    const v = STATE.vocabs[STATE.fcIndex];
+    if (STATE.fcIndex >= vocabs.length) STATE.fcIndex = 0;
+    const v = vocabs[STATE.fcIndex];
     if (!v) return;
     const card = document.getElementById('flashcard');
     if (card) card.classList.remove('flipped');
     STATE.fcFlipped = false;
 
-    document.getElementById('fc-word-en').textContent = v.en || v.english || v.word || '—';
-    document.getElementById('fc-word-de').textContent = v.de || v.german || v.translation || '—';
-    document.getElementById('fc-example-en').textContent = v.example_en || v.example || '';
-    document.getElementById('fc-example-de').textContent = v.example_de || '';
-    document.getElementById('fc-counter').textContent = `${STATE.fcIndex + 1} / ${STATE.vocabs.length}`;
-
+    // Front: English word + example
+    document.getElementById('fc-word-en').textContent = v.en || '—';
+    document.getElementById('fc-example-en').textContent = v.ex || '';
+    // Back: German translation
+    document.getElementById('fc-word-de').textContent = v.de || '—';
+    // Show category on back if available
+    const exDe = document.getElementById('fc-example-de');
+    if (exDe) exDe.textContent = v._category ? (VOCAB_CAT_LABELS[v._category] || v._category) : '';
+    // Front tag shows category
+    const tagFront = document.getElementById('fc-tag-front');
+    if (tagFront) {
+        const catName = v._category ? (VOCAB_CAT_LABELS[v._category] || v._category) : '';
+        tagFront.textContent = catName ? `${catName} · EN → DE` : 'Englisch → Deutsch';
+    }
+    document.getElementById('fc-counter').textContent = `${STATE.fcIndex + 1} / ${vocabs.length}`;
     const bar = document.getElementById('fc-bar');
-    if (bar) bar.style.width = ((STATE.fcIndex + 1) / STATE.vocabs.length * 100) + '%';
+    if (bar) bar.style.width = ((STATE.fcIndex + 1) / vocabs.length * 100) + '%';
 }
 
 function flipCard() {
     const card = document.getElementById('flashcard');
-    if (!card || !STATE.vocabs.length) return;
+    const vocabs = getActiveVocabs();
+    if (!card || !vocabs.length) return;
     card.classList.toggle('flipped');
     if (!STATE.fcFlipped) {
         STATE.fcFlipped = true;
@@ -2048,20 +2152,55 @@ function flipCard() {
     }
 }
 function nextCard() {
-    if (!STATE.vocabs.length) return;
-    STATE.fcIndex = (STATE.fcIndex + 1) % STATE.vocabs.length;
+    const vocabs = getActiveVocabs();
+    if (!vocabs.length) return;
+    STATE.fcIndex = (STATE.fcIndex + 1) % vocabs.length;
     renderFlashcard();
 }
 function prevCard() {
-    if (!STATE.vocabs.length) return;
-    STATE.fcIndex = (STATE.fcIndex - 1 + STATE.vocabs.length) % STATE.vocabs.length;
+    const vocabs = getActiveVocabs();
+    if (!vocabs.length) return;
+    STATE.fcIndex = (STATE.fcIndex - 1 + vocabs.length) % vocabs.length;
     renderFlashcard();
 }
+
+function renderMasteryTips() {
+    const container = document.getElementById('mastery-tips-container');
+    if (!container) return;
+    if (STATE.writingMastery.length === 0) {
+        container.innerHTML = '<div style="color:var(--text-muted);font-size:13px;padding:20px;text-align:center;">Keine Writing Mastery Tipps verfügbar.</div>';
+        return;
+    }
+    container.innerHTML = STATE.writingMastery.map(tip => `
+        <div class="mastery-block">
+            <h4>${escHtml(tip.title || '')}</h4>
+            <div class="m-desc">${escHtml(tip.desc || '')}</div>
+            ${tip.bad ? `<div class="mastery-ex bad">❌ <b>Falsch:</b> "${escHtml(tip.bad)}"</div>` : ''}
+            ${tip.good ? `<div class="mastery-ex good">✅ <b>Richtig:</b> "${escHtml(tip.good)}"</div>` : ''}
+        </div>
+    `).join('');
+}
+
 function updateLinguaStats() {
     const el1 = document.getElementById('stat-learned');
     if (el1) el1.textContent = STATE.vocabs.length;
     const el2 = document.getElementById('stat-flipped');
     if (el2) el2.textContent = STATE.flippedCount;
+    const el3 = document.getElementById('stat-categories');
+    if (el3) el3.textContent = STATE.vocabCategoryKeys.length;
+    // Per-category breakdown
+    const breakdown = document.getElementById('stats-category-breakdown');
+    if (breakdown) {
+        breakdown.innerHTML = STATE.vocabCategoryKeys.map(key => {
+            const icon = VOCAB_CAT_ICONS[key] || '📝';
+            const label = VOCAB_CAT_LABELS[key] || key;
+            const count = STATE.vocabCategories[key]?.length || 0;
+            return `<div style="display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:var(--glass-soft); border:1px solid var(--border); border-radius:12px;">
+                <span style="font-size:13px; font-weight:600;">${icon} ${label}</span>
+                <span style="font-size:14px; font-weight:800; color:var(--blue); font-variant-numeric:tabular-nums;">${count}</span>
+            </div>`;
+        }).join('');
+    }
 }
 
 // ==================== ACADEMY ====================
