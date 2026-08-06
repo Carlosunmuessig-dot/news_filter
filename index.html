@@ -832,6 +832,50 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+/* News ticker */
+.news-ticker-wrapper {
+    max-height: 460px; overflow: hidden; position: relative;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 90%, transparent 100%);
+}
+.news-ticker-track { display:flex; flex-direction:column; gap:10px; animation: tickerScroll 30s linear infinite; }
+.news-ticker-track:hover { animation-play-state: paused; }
+@keyframes tickerScroll { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+/* JARVIS speaking glow */
+.jarvis-core.speaking { animation: jarvisSpeakGlow 1.5s ease-in-out infinite; }
+.jarvis-core.speaking canvas { filter: brightness(1.8) hue-rotate(10deg); transition: filter 0.4s ease; }
+@keyframes jarvisSpeakGlow {
+    0%, 100% { box-shadow: inset 0 0 60px rgba(10,132,255,0.08); }
+    50% { box-shadow: inset 0 0 100px rgba(10,132,255,0.2), 0 0 40px rgba(10,132,255,0.05); }
+}
+/* Metric tiles entrance */
+.metric-tile { animation: fadeSlideUp 0.5s ease-out backwards; }
+.metric-tile:nth-child(1) { animation-delay: 0.1s; }
+.metric-tile:nth-child(2) { animation-delay: 0.2s; }
+.metric-tile:nth-child(3) { animation-delay: 0.3s; }
+@keyframes fadeSlideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+/* Stream items entrance */
+.stream-item { animation: fadeSlideIn 0.4s ease-out backwards; }
+@keyframes fadeSlideIn { from { opacity:0; transform:translateX(-12px); } to { opacity:1; transform:translateX(0); } }
+/* Stock cards hover */
+.stock-card-box { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.stock-card-box:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,132,255,0.12); }
+/* Pillar hover */
+.pillar { transition: transform 0.2s ease, border-color 0.3s ease; }
+.pillar:hover { transform: scale(1.02); border-color: var(--blue-border); }
+/* Glass card entrance */
+.glass-card { animation: glassAppear 0.6s ease-out backwards; }
+@keyframes glassAppear { from { opacity:0; transform:translateY(12px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+/* View transition */
+.view-container.active { animation: viewEnter 0.4s ease-out; }
+@keyframes viewEnter { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+/* Pulse ring */
+.jarvis-widget .pulse-dot { animation: pulseRing 2s ease-out infinite; }
+@keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(48,209,88,0.6); }
+    70% { box-shadow: 0 0 0 12px rgba(48,209,88,0); }
+    100% { box-shadow: 0 0 0 0 rgba(48,209,88,0); }
+}
 </style>
 </head>
 <body>
@@ -913,10 +957,10 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 
             <aside class="side-panel right">
                 <div class="section-label"><span class="dot"></span>Top News Feed</div>
-                <div id="hq-news-stream" style="display:flex; flex-direction:column; gap:10px;">
-                    <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
-                    <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
-                    <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
+                <div class="news-ticker-wrapper" id="hq-news-stream-wrapper">
+                    <div id="hq-news-stream" class="news-ticker-track">
+                        <div class="stream-item"><div class="stream-title skeleton">Lade Nachrichten…</div></div>
+                    </div>
                 </div>
             </aside>
         </div>
@@ -970,7 +1014,13 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
                 <input type="text" id="add-stock-input" class="input-field" style="max-width: 250px;" placeholder="Ticker (z.B. MSFT) + Enter" autocomplete="off">
             </div>
             <div class="stock-grid" id="market-stock-grid"></div>
-            <div class="section-label" style="margin: 26px 0 14px;"><span class="dot"></span>NASDAQ Composite — Advanced Chart</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin:26px 0 14px; flex-wrap:wrap; gap:8px;">
+                <div class="section-label" style="margin:0;"><span class="dot"></span>Live Chart</div>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <input type="text" id="chart-symbol-input" class="input-field" style="width:140px; padding:8px 12px; font-size:12px;" placeholder="Symbol (z.B. AAPL)" value="AAPL">
+                    <button class="btn-ghost" onclick="loadChartForSymbol()" style="font-size:11px; padding:8px 14px;">Chart laden</button>
+                </div>
+            </div>
             <div class="chart-container" id="tv-chart"></div>
         </div>
 
@@ -999,7 +1049,11 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         <div class="market-lower">
             <div class="glass-card">
                 <div class="section-label"><span class="dot"></span>DCF-Bewertungsmodell</div>
-                <p style="color:var(--text-muted); font-size:13px; margin-bottom:18px;">Discounted-Cash-Flow: Passe die Annahmen an und erhalte einen fairen Wert pro Aktie.</p>
+                <p style="color:var(--text-muted); font-size:13px; margin-bottom:14px;">Discounted-Cash-Flow: Passe die Annahmen an und erhalte einen fairen Wert pro Aktie.</p>
+                <div style="display:flex; gap:10px; align-items:center; margin-bottom:18px; flex-wrap:wrap;">
+                    <input type="text" id="dcf-ticker" class="input-field" style="flex:1; min-width:140px; font-size:13px;" placeholder="Aktie (z.B. NVDA, Apple, ASML)">
+                    <button class="btn-ghost" onclick="loadDCFPreset()" style="font-size:11px; padding:8px 14px;">Preset laden</button>
+                </div>
                 <div class="dcf-slider-row">
                     <div class="sl-head"><label>Free Cash Flow (Mrd. $)</label><output id="dcf-fcf-out">5.0</output></div>
                     <input type="range" id="dcf-fcf" min="0.1" max="50" step="0.1" value="5" oninput="updateDCF()">
@@ -1159,6 +1213,17 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
             </div>
 
             <div class="glass-card">
+                <div class="section-label"><span class="dot"></span>Dashboard Aktien</div>
+                <div class="setting-row">
+                    <div><div class="s-name">📈 Live Market Feed</div><div class="s-desc">Welche Aktien im HQ-Dashboard links angezeigt werden (kommagetrennt)</div></div>
+                </div>
+                <div style="margin-top:8px;">
+                    <input type="text" id="dashboard-stocks-input" class="input-field" style="font-size:12.5px; width:100%;" placeholder="z.B. NVDA, AAPL, MSFT, TSLA">
+                    <button class="btn-ghost" onclick="saveDashboardStocks()" style="font-size:12px; padding:8px 14px; margin-top:8px;">Speichern</button>
+                </div>
+            </div>
+
+            <div class="glass-card">
                 <div class="section-label"><span class="dot"></span>J.A.R.V.I.S. Sprachsteuerung</div>
                 <div class="setting-row">
                     <div><div class="s-name">🎤 Spracherkennung</div><div class="s-desc">Mikrofon für Sprachbefehle aktivieren</div></div>
@@ -1291,7 +1356,8 @@ const STATE = {
         autoRefresh: true,
         voiceEnabled: true,
         ttsEnabled: true,
-        jarvisLang: 'de-DE'
+        jarvisLang: 'de-DE',
+        dashboardStocks: ['NVDA', 'AAPL', 'MSFT', 'TSLA']
     })),
     flippedCount: parseInt(localStorage.getItem('hq_flipped') || '0'),
     globeAnim: null
@@ -1531,17 +1597,67 @@ async function loadData() {
 }
 
 // Normalize article keys — supports German scrapers, RSS feeds, NewsAPI, etc.
-function normalizeArticle(a) {
+// Auto-detects image URLs by scanning ALL fields for http + image patterns
+function normalizeArticle(a, index) {
+    // --- Smart image detection ---
+    // 1. Try known field names first
+    let img = a.image || a.image_url || a.bild || a.bild_url || a.urlToImage
+           || a.img || a.img_url || a.thumbnail || a.thumbnail_url
+           || a.media || a.foto || a.photo || a.picture
+           || a.hero_image || a.lead_image || a.preview_image
+           || a.vorschaubild || a.titelbild || a.bildUrl || a.imageUrl
+           || a.og_image || a.cover || a.cover_image || a.header_image
+           || a.banner || a.visual || a.featured_image || '';
+
+    // 2. If still empty, scan ALL fields for anything that looks like an image URL
+    if (!img) {
+        const imgPattern = /https?:\/\/\S+\.(?:jpg|jpeg|png|gif|webp|avif|svg|bmp)/i;
+        const cdnPattern = /https?:\/\/\S+(?:images|img|media|cdn|photo|bild|foto|picture|thumb)\S*/i;
+        for (const [key, val] of Object.entries(a)) {
+            if (typeof val === 'string' && val.startsWith('http')) {
+                if (imgPattern.test(val) || cdnPattern.test(val)) {
+                    img = val;
+                    break;
+                }
+            }
+            // Also check nested objects one level deep
+            if (val && typeof val === 'object' && !Array.isArray(val)) {
+                for (const [, nested] of Object.entries(val)) {
+                    if (typeof nested === 'string' && nested.startsWith('http') && imgPattern.test(nested)) {
+                        img = nested;
+                        break;
+                    }
+                }
+                if (img) break;
+            }
+            // Check arrays (e.g. images: ["url1", "url2"])
+            if (Array.isArray(val) && val.length > 0) {
+                const first = typeof val[0] === 'string' ? val[0] : (val[0]?.url || val[0]?.src || val[0]?.href || '');
+                if (first && typeof first === 'string' && first.startsWith('http') && imgPattern.test(first)) {
+                    img = first;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Debug: log first article's keys so user can see the structure
+    if (index === 0) {
+        console.log('[HQ] Erster Artikel — Felder:', Object.keys(a));
+        console.log('[HQ] Erster Artikel — Daten:', JSON.stringify(a, null, 2).substring(0, 1500));
+        console.log('[HQ] Erkanntes Bild:', img || '(kein Bild gefunden)');
+    }
+
     return {
         title:    a.title || a.titel || a.headline || a.überschrift || a.name || '',
         url:      a.url || a.link || a.href || a.article_url || a.artikel_url || '',
-        image:    a.image || a.image_url || a.bild || a.bild_url || a.urlToImage || a.img || a.thumbnail || a.media || a.foto || '',
+        image:    img,
         source:   a.source || a.quelle || a.publisher || a.verlag || a.medium || a.autor || a.author || '',
         category: a.category || a.kategorie || a.ressort || a.rubrik || a.section || a.thema || a.topic || '',
         subsector:a.subsector || a.unterkategorie || a.sub_category || a.sub_kategorie || a.tag || '',
         summary:  a.summary || a.zusammenfassung || a.description || a.beschreibung || a.teaser || a.abstract || a.snippet || a.content || a.inhalt || a.text || '',
         date:     a.date || a.datum || a.published || a.published_at || a.publishedAt || a.zeit || a.timestamp || a.time || a.created_at || '',
-        _raw: a  // keep original for debugging
+        _raw: a
     };
 }
 
@@ -1813,11 +1929,16 @@ function renderStockGrid() {
     let stocks;
     if (STATE.marketSector === 'watchlist') {
         stocks = [];
+        const foundTickers = new Set();
         for (const [sector, items] of Object.entries(STOCK_DATA)) {
-            items.forEach(s => { if (STATE.watchlist.has(s.ticker)) stocks.push(s); });
+            items.forEach(s => { if (STATE.watchlist.has(s.ticker)) { stocks.push(s); foundTickers.add(s.ticker); } });
         }
+        // Add custom tickers not in STOCK_DATA
+        STATE.watchlist.forEach(t => {
+            if (!foundTickers.has(t)) stocks.push({ticker: t, name: t, price: 0, change: 0});
+        });
         if (stocks.length === 0) {
-            grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;padding:40px;"><div class="big">★</div>Noch keine Aktien in der Watchlist.<br>Klicke ★ bei einer Aktie, um sie hinzuzufügen.</div>';
+            grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;padding:40px;"><div class="big">★</div>Noch keine Aktien in der Watchlist.<br>Klicke ★ bei einer Aktie oder gib einen Ticker oben ein.</div>';
             return;
         }
     } else {
@@ -1862,10 +1983,12 @@ function toggleWatchlist(ticker, btn) {
 function renderHqMarketWidgets() {
     const container = document.getElementById('hq-market-widgets');
     if (!container) return;
-    const topStocks = [
-        ...STOCK_DATA.semis.slice(0, 2),
-        ...STOCK_DATA.bigtech.slice(0, 2)
-    ];
+    const configuredTickers = STATE.settings.dashboardStocks || ['NVDA', 'AAPL', 'MSFT', 'TSLA'];
+    const allStocks = [];
+    for (const items of Object.values(STOCK_DATA)) items.forEach(s => allStocks.push(s));
+    const topStocks = configuredTickers.map(ticker =>
+        allStocks.find(s => s.ticker === ticker) || {ticker, name: ticker, price: 0, change: 0}
+    );
     container.innerHTML = topStocks.map(s => {
         const up = s.change >= 0;
         return `
@@ -1876,12 +1999,22 @@ function renderHqMarketWidgets() {
                     <div class="stream-title" style="font-size:11.5px;">${s.name}</div>
                 </div>
                 <div style="text-align:right;">
-                    <div style="font-weight:800; font-size:14px; font-variant-numeric:tabular-nums;">$${s.price.toFixed(2)}</div>
-                    <div style="font-size:11px; font-weight:700; color:${up ? 'var(--green)' : 'var(--red)'};">${up ? '+' : ''}${s.change.toFixed(2)}%</div>
+                    <div style="font-weight:800; font-size:14px; font-variant-numeric:tabular-nums;">${s.price > 0 ? '$'+s.price.toFixed(2) : '—'}</div>
+                    <div style="font-size:11px; font-weight:700; color:${up ? 'var(--green)' : 'var(--red)'};">${s.price > 0 ? (up?'+':'')+s.change.toFixed(2)+'%' : ''}</div>
                 </div>
             </div>
         </div>`;
     }).join('');
+}
+
+function saveDashboardStocks() {
+    const input = document.getElementById('dashboard-stocks-input')?.value?.trim();
+    if (!input) return toast('Bitte Ticker eingeben');
+    const tickers = input.split(',').map(t => t.trim().toUpperCase()).filter(t => t.length > 0);
+    STATE.settings.dashboardStocks = tickers;
+    saveSettings();
+    renderHqMarketWidgets();
+    toast(`✅ Dashboard zeigt jetzt: ${tickers.join(', ')}`);
 }
 
 // Add stock via input
@@ -1903,12 +2036,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function loadTradingViewChart() {
+function loadTradingViewChart(symbol) {
     const container = document.getElementById('tv-chart');
-    if (!container || container.querySelector('iframe')) return;
+    if (!container) return;
+    symbol = symbol || document.getElementById('chart-symbol-input')?.value?.trim() || 'AAPL';
     container.innerHTML = `
-    <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv&symbol=NASDAQ:IXIC&interval=D&hidesidetoolbar=0&symboledit=1&saveimage=0&toolbarbg=0a0a14&studies=&theme=dark&style=1&timezone=Europe/Berlin&withdateranges=1&showpopupbutton=0&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&showpopupbutton=0&locale=de_DE&utm_source=localhost&utm_medium=widget_new&utm_campaign=chart"
+    <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv&symbol=${encodeURIComponent(symbol)}&interval=D&hidesidetoolbar=0&symboledit=1&saveimage=0&toolbarbg=0a0a14&studies=&theme=dark&style=1&timezone=Europe/Berlin&withdateranges=1&showpopupbutton=0&locale=de_DE"
         style="width:100%;height:100%;border:0;" allowtransparency="true" scrolling="no" allowfullscreen></iframe>`;
+}
+function loadChartForSymbol() {
+    const sym = document.getElementById('chart-symbol-input')?.value?.trim();
+    if (!sym) return toast('Bitte Symbol eingeben');
+    loadTradingViewChart(sym);
+    toast(`📈 Chart für ${sym.toUpperCase()} geladen`);
 }
 
 // ==================== DCF MODEL ====================
@@ -1950,11 +2090,39 @@ function updateDCF() {
     const pvTerminal = terminalValue / Math.pow(1 + discount, 10);
     const fairValue = ((totalPV + pvTerminal) * 1e9) / (shares * 1e9);
 
+    const tickerLabel = document.getElementById('dcf-ticker')?.value?.trim() || '';
     document.getElementById('dcf-fair-value').textContent = '$' + fairValue.toFixed(2);
-    document.getElementById('dcf-sub-text').textContent = `10Y DCF · ${(growth*100).toFixed(1)}% CAGR · ${(discount*100).toFixed(1)}% WACC`;
+    document.getElementById('dcf-sub-text').textContent = `${tickerLabel ? tickerLabel.toUpperCase() + ' · ' : ''}10Y DCF · ${(growth*100).toFixed(1)}% CAGR · ${(discount*100).toFixed(1)}% WACC`;
 }
 
-// ==================== SCRATCHPAD ====================
+function loadDCFPreset() {
+    const ticker = document.getElementById('dcf-ticker')?.value?.trim().toUpperCase();
+    if (!ticker) return toast('Bitte Ticker eingeben');
+    const presets = {
+        'AAPL': {fcf:11, growth:8, discount:10, terminal:2.5, shares:15.4},
+        'MSFT': {fcf:7, growth:14, discount:9.5, terminal:3, shares:7.4},
+        'NVDA': {fcf:3, growth:35, discount:12, terminal:3, shares:24.5},
+        'GOOGL': {fcf:7.5, growth:15, discount:10, terminal:2.5, shares:12.2},
+        'AMZN': {fcf:5.5, growth:20, discount:10.5, terminal:3, shares:10.3},
+        'TSLA': {fcf:2, growth:25, discount:13, terminal:3, shares:3.2},
+        'META': {fcf:5, growth:18, discount:10, terminal:2.5, shares:2.5},
+        'ASML': {fcf:4, growth:16, discount:10, terminal:2.5, shares:0.39}
+    };
+    const p = presets[ticker];
+    if (p) {
+        document.getElementById('dcf-fcf').value = p.fcf;
+        document.getElementById('dcf-growth').value = p.growth;
+        document.getElementById('dcf-discount').value = p.discount;
+        document.getElementById('dcf-terminal').value = p.terminal;
+        document.getElementById('dcf-shares').value = p.shares;
+        updateDCF();
+        toast(`📊 DCF-Preset für ${ticker} geladen`);
+    } else {
+        toast(`Kein Preset für ${ticker} — passe die Werte manuell an`);
+    }
+}
+
+// ==================== SCRATCHPAD ==
 (function() {
     const pad = document.getElementById('scratchpad');
     if (!pad) return;
@@ -2010,6 +2178,9 @@ Antworte NUR mit dem JSON, kein Markdown, keine Erklärung.`;
             body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
         });
         const data = await r.json();
+        if (!r.ok) {
+            throw new Error(data?.error?.message || `HTTP ${r.status}`);
+        }
         const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
         const jsonMatch = text.match(/\{[\s\S]*\}/);
         if (jsonMatch) {
@@ -2024,7 +2195,8 @@ Antworte NUR mit dem JSON, kein Markdown, keine Erklärung.`;
         }
     } catch (e) {
         console.error('Analyzer error:', e);
-        if (status) status.textContent = '❌ Fehler: ' + e.message;
+        if (status) status.textContent = '❌ Fehler bei der Analyse';
+        toast('❌ ' + (e.message || 'Unbekannter Fehler') + '. Prüfe API Key in Settings.');
         for (let i = 1; i <= 5; i++) {
             const el = document.getElementById('a-p' + i);
             if (el) el.textContent = '—';
