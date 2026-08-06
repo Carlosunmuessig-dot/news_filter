@@ -178,37 +178,8 @@
       {"en": "lucrative", "de": "lukrativ, einträglich", "ex": "Software engineering is a highly lucrative career path."},
       {"en": "mandatory", "de": "obligatorisch, zwingend", "ex": "Attendance at the quarterly review meeting is mandatory."},
       {"en": "marginal", "de": "geringfügig", "ex": "The update only resulted in a marginal improvement in speed."}
-    ]
-  },
-  "writing_mastery": {
-    "tips": [
-      {
-        "title": "Vermeide 'Germanisms' (Falsche Freunde)",
-        "desc": "Deutsche Muttersprachler übersetzen oft 1:1 ('Handy' -> 'Handy', 'Become' statt 'Get' etc.). Das wirkt sofort unnatürlich.",
-        "bad": "We have to become better in the future.",
-        "good": "We need to improve going forward."
-      },
-      {
-        "title": "Verwende starke Verben statt nominaler Konstruktionen",
-        "desc": "Im Englischen wirken Sätze professioneller, wenn das Verb die Action macht statt umständlicher Substantive.",
-        "bad": "The report was a big help to make a decision.",
-        "good": "The report facilitated the decision-making process."
-      },
-      {
-        "title": "Das 'So What?'-Prinzip für Einleitungen",
-        "desc": "Fange geschäftliche E-Mails oder akademische Essays niemals mit langen historischen Einleitungen an, sondern direkt mit der Kernaussage.",
-        "bad": "Because the market crashed and inflation rose, we lost money.",
-        "good": "We experienced a revenue decline, driven by market volatility and rising inflation."
-      },
-      {
-        "title": "Akademisches Umschreiben bei fehlendem Vokabular",
-        "desc": "Wenn dir ein spezifisches Wort im Englischen fehlt, nutze professionelle Füllstrukturen.",
-        "bad": "I don't know the exact word for this machine thing.",
-        "good": "The technical mechanism responsible for this process is currently under review."
-      }
-    ]
-  }
-}"StrategicVerbs": [
+    ],
+    "StrategicVerbs": [
       {"en": "to accelerate", "de": "beschleunigen, vorantreiben", "ex": "The new marketing strategy should accelerate our user acquisition."},
       {"en": "to ascertain", "de": "ermitteln, feststellen", "ex": "We need to ascertain the exact cause of the server outage."},
       {"en": "to circumvent", "de": "umgehen, überlisten", "ex": "Hackers tried to circumvent the new security protocols."},
@@ -304,3 +275,33 @@
       {"en": "to turn a blind eye", "de": "ein Auge zudrücken", "ex": "Auditors cannot turn a blind eye to these glaring accounting errors."},
       {"en": "to weather the storm", "de": "die Krise überstehen", "ex": "The tech giant has enough cash reserves to weather the economic storm."}
     ]
+  },
+  "writing_mastery": {
+    "tips": [
+      {
+        "title": "Vermeide 'Germanisms' (Falsche Freunde)",
+        "desc": "Deutsche Muttersprachler übersetzen oft 1:1 ('Handy' -> 'Handy', 'Become' statt 'Get' etc.). Das wirkt sofort unnatürlich.",
+        "bad": "We have to become better in the future.",
+        "good": "We need to improve going forward."
+      },
+      {
+        "title": "Verwende starke Verben statt nominaler Konstruktionen",
+        "desc": "Im Englischen wirken Sätze professioneller, wenn das Verb die Action macht statt umständlicher Substantive.",
+        "bad": "The report was a big help to make a decision.",
+        "good": "The report facilitated the decision-making process."
+      },
+      {
+        "title": "Das 'So What?'-Prinzip für Einleitungen",
+        "desc": "Fange geschäftliche E-Mails oder akademische Essays niemals mit langen historischen Einleitungen an, sondern direkt mit der Kernaussage.",
+        "bad": "Because the market crashed and inflation rose, we lost money.",
+        "good": "We experienced a revenue decline, driven by market volatility and rising inflation."
+      },
+      {
+        "title": "Akademisches Umschreiben bei fehlendem Vokabular",
+        "desc": "Wenn dir ein spezifisches Wort im Englischen fehlt, nutze professionelle Füllstrukturen.",
+        "bad": "I don't know the exact word for this machine thing.",
+        "good": "The technical mechanism responsible for this process is currently under review."
+      }
+    ]
+  }
+}
