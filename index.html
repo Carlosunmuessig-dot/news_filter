@@ -2654,18 +2654,29 @@ function stopRecording() {
 
 function speakJarvis(text) {
     if (STATE.jarvisMuted || !STATE.settings.ttsEnabled) return;
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = STATE.settings.jarvisLang || 'de-DE';
-    utter.rate = 1.05;
-    utter.pitch = 0.95;
-    // Try to find a German voice
-    const voices = window.speechSynthesis.getVoices();
-    const lang = STATE.settings.jarvisLang || 'de-DE';
-    const preferredVoice = voices.find(v => v.lang === lang) || voices.find(v => v.lang.startsWith(lang.split('-')[0]));
-    if (preferredVoice) utter.voice = preferredVoice;
-    window.speechSynthesis.speak(utter);
+    
+    // Stop any currently playing audio
+    if (window.jarvisAudio) {
+        window.jarvisAudio.pause();
+    }
+    
+    const core = document.querySelector('.jarvis-core');
+    if (core) core.classList.add('speaking');
+    
+    // Fetch and play new audio via edge-tts on the backend
+    const url = `http://127.0.0.1:8000/api/tts?text=${encodeURIComponent(text)}`;
+    window.jarvisAudio = new Audio(url);
+    window.jarvisAudio.onended = () => {
+        if (core) core.classList.remove('speaking');
+    };
+    window.jarvisAudio.onerror = () => {
+        console.warn('Audio play failed');
+        if (core) core.classList.remove('speaking');
+    };
+    window.jarvisAudio.play().catch(e => {
+        console.warn('Audio play blocked:', e);
+        if (core) core.classList.remove('speaking');
+    });
 }
 
 function showJarvisReply(text, who = 'J.A.R.V.I.S.') {

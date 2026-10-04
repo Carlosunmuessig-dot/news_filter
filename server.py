@@ -2,12 +2,13 @@ import os
 import json
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import google.generativeai as genai
 import uvicorn
 import yfinance as yf
+import edge_tts
 
 app = FastAPI()
 
@@ -90,6 +91,22 @@ async def get_stocks(tickers: str = ""):
         except Exception:
             pass
     return {"stocks": results}
+
+@app.get("/api/tts")
+async def get_tts(text: str = ""):
+    if not text:
+        return {"error": "No text provided"}
+    
+    # Der gewählte deutsche Sprecher für Jarvis
+    voice = "de-DE-ConradNeural"
+    communicate = edge_tts.Communicate(text, voice)
+    
+    async def audio_stream():
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                yield chunk["data"]
+                
+    return StreamingResponse(audio_stream(), media_type="audio/mpeg")
 
 if __name__ == "__main__":
     # Startet den lokalen Server auf http://localhost:8000
