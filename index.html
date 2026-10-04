@@ -1653,8 +1653,8 @@ function normalizeArticle(a, index) {
         url:      a.url || a.link || a.href || a.article_url || a.artikel_url || '',
         image:    img,
         source:   a.source || a.quelle || a.publisher || a.verlag || a.medium || a.autor || a.author || '',
-        category: a.category || a.kategorie || a.ressort || a.rubrik || a.section || a.thema || a.topic || '',
-        subsector:a.subsector || a.unterkategorie || a.sub_category || a.sub_kategorie || a.tag || '',
+        category: a.category || a.kategorie || a.hauptkategorie || a.ressort || a.rubrik || a.section || a.thema || a.topic || '',
+        subsector:a.subsector || a.unterkategorie || a.sub_sektor || a.sub_category || a.sub_kategorie || a.tag || '',
         summary:  a.summary || a.zusammenfassung || a.description || a.beschreibung || a.teaser || a.abstract || a.snippet || a.content || a.inhalt || a.text || '',
         date:     a.date || a.datum || a.published || a.published_at || a.publishedAt || a.zeit || a.timestamp || a.time || a.created_at || '',
         _raw: a
