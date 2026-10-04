@@ -877,6 +877,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     100% { box-shadow: 0 0 0 0 rgba(48,209,88,0); }
 }
 </style>
+<script src="//unpkg.com/globe.gl"></script>
 </head>
 <body>
 
@@ -923,7 +924,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
             </aside>
 
             <section class="jarvis-core">
-                <canvas id="globe-canvas"></canvas>
+                <div id="globe-canvas" style="opacity: 0.65; mix-blend-mode: screen; z-index: 1;"></div>
                 <div class="core-content">
                     <div class="core-status-line"><span class="dot"></span><span id="cockpit-clock">SYSTEM ONLINE</span></div>
                     <h1 class="core-greeting" id="core-greeting">Moin, Master Carlos.</h1>
@@ -3035,6 +3036,62 @@ window.addEventListener('beforeunload', () => {
     if (STATE.globeAnim) cancelAnimationFrame(STATE.globeAnim);
     if (STATE.recognition) { try { STATE.recognition.stop(); } catch {} }
 });
+
+// ==================== GLOBE.GL ====================
+function initGlobe() {
+    const container = document.getElementById('globe-canvas');
+    if (!container) return;
+    
+    // Because container might be hidden initially if not on HQ view, wait for next tick or use fixed size
+    const globe = Globe()(container)
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+        .backgroundColor('rgba(0,0,0,0)')
+        .width(container.clientWidth || 800)
+        .height(container.clientHeight || 600);
+    
+    // Auto-rotate
+    globe.controls().autoRotate = true;
+    globe.controls().autoRotateSpeed = 0.8;
+    // Disable zoom/pan so it doesn't interfere with scrolling
+    globe.controls().enableZoom = false;
+    
+    // Add market pins
+    const marketData = [
+        { name: 'New York (NYSE)', lat: 40.7128, lng: -74.0060, change: 1.2 },
+        { name: 'Frankfurt (DAX)', lat: 50.1109, lng: 8.6821, change: -0.5 },
+        { name: 'Tokyo (TSE)', lat: 35.6762, lng: 139.6503, change: 0.8 },
+        { name: 'London (LSE)', lat: 51.5074, lng: -0.1278, change: 0.2 },
+        { name: 'Hong Kong (HKEX)', lat: 22.3193, lng: 114.1694, change: -1.1 }
+    ];
+    
+    globe.pointsData(marketData)
+        .pointLat('lat')
+        .pointLng('lng')
+        .pointColor(d => d.change >= 0 ? '#30D158' : '#FF453A')
+        .pointAltitude(0.05)
+        .pointRadius(0.8)
+        .pointResolution(32);
+        
+    // Handle resize
+    window.addEventListener('resize', () => {
+        if (container.clientWidth && container.clientHeight) {
+            globe.width(container.clientWidth).height(container.clientHeight);
+        }
+    });
+
+    // Update dimensions when HQ view becomes active
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((m) => {
+            if (m.target.classList.contains('active') && container.clientWidth) {
+                globe.width(container.clientWidth).height(container.clientHeight);
+            }
+        });
+    });
+    const hqView = document.getElementById('view-hq');
+    if (hqView) observer.observe(hqView, { attributes: true, attributeFilter: ['class'] });
+}
+initGlobe();
 </script>
 </body>
  </html>
