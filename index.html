@@ -1922,7 +1922,7 @@ function setMarketSector(sector, btn) {
     renderStockGrid();
 }
 
-function renderStockGrid() {
+async function renderStockGrid() {
     const grid = document.getElementById('market-stock-grid');
     if (!grid) return;
 
@@ -1943,6 +1943,24 @@ function renderStockGrid() {
         }
     } else {
         stocks = STOCK_DATA[STATE.marketSector] || [];
+    }
+
+    const tickers = stocks.map(s => s.ticker).join(',');
+    if (tickers) {
+        try {
+            const res = await fetch(`/api/stocks?tickers=${tickers}`);
+            const data = await res.json();
+            if (data && data.stocks) {
+                stocks.forEach(s => {
+                    if (data.stocks[s.ticker]) {
+                        s.price = data.stocks[s.ticker].price;
+                        s.change = data.stocks[s.ticker].change;
+                    }
+                });
+            }
+        } catch (e) {
+            console.error("Failed to fetch yfinance data", e);
+        }
     }
 
     grid.innerHTML = stocks.map(s => {

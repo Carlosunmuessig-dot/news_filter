@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import google.generativeai as genai
 import uvicorn
+import yfinance as yf
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -58,6 +59,27 @@ async def get_news():
             return json.load(f)
     except FileNotFoundError:
         return {"nachrichten": []}
+
+@app.get("/api/stocks")
+async def get_stocks(tickers: str = ""):
+    ticker_list = [t.strip().upper() for t in tickers.split(",") if t.strip()]
+    if not ticker_list:
+        return {"stocks": {}}
+    
+    results = {}
+    for t in ticker_list:
+        try:
+            info = yf.Ticker(t).fast_info
+            last_price = info.last_price
+            prev_close = info.previous_close
+            change_pct = ((last_price - prev_close) / prev_close) * 100 if prev_close else 0
+            results[t] = {
+                "price": round(float(last_price), 2),
+                "change": round(float(change_pct), 2)
+            }
+        except Exception:
+            pass
+    return {"stocks": results}
 
 if __name__ == "__main__":
     # Startet den lokalen Server auf http://localhost:8000
