@@ -3049,7 +3049,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 // ==================== GLOBE.GL ====================
-function initGlobe() {
+async function initGlobe() {
     const container = document.getElementById('globe-canvas');
     if (!container) return;
     
@@ -3069,20 +3069,49 @@ function initGlobe() {
     
     // Add market pins
     const marketData = [
-        { name: 'New York (NYSE)', lat: 40.7128, lng: -74.0060, change: 1.2 },
-        { name: 'Frankfurt (DAX)', lat: 50.1109, lng: 8.6821, change: -0.5 },
-        { name: 'Tokyo (TSE)', lat: 35.6762, lng: 139.6503, change: 0.8 },
-        { name: 'London (LSE)', lat: 51.5074, lng: -0.1278, change: 0.2 },
-        { name: 'Hong Kong (HKEX)', lat: 22.3193, lng: 114.1694, change: -1.1 }
+        { name: 'S&P 500 (New York)', lat: 40.7128, lng: -74.0060, ticker: '^GSPC', change: 0, price: 0 },
+        { name: 'DAX (Frankfurt)', lat: 50.1109, lng: 8.6821, ticker: '^GDAXI', change: 0, price: 0 },
+        { name: 'Nikkei 225 (Tokyo)', lat: 35.6762, lng: 139.6503, ticker: '^N225', change: 0, price: 0 },
+        { name: 'FTSE 100 (London)', lat: 51.5074, lng: -0.1278, ticker: '^FTSE', change: 0, price: 0 },
+        { name: 'Hang Seng (Hong Kong)', lat: 22.3193, lng: 114.1694, ticker: '^HSI', change: 0, price: 0 }
     ];
     
-    globe.pointsData(marketData)
-        .pointLat('lat')
-        .pointLng('lng')
-        .pointColor(d => d.change >= 0 ? '#30D158' : '#FF453A')
-        .pointAltitude(0.05)
-        .pointRadius(0.8)
-        .pointResolution(32);
+    const renderPins = (data) => {
+        globe.pointsData(data)
+            .pointLat('lat')
+            .pointLng('lng')
+            .pointColor(d => d.change >= 0 ? '#30D158' : '#FF453A')
+            .pointAltitude(0.05)
+            .pointRadius(0.8)
+            .pointResolution(32)
+            .pointLabel(d => `
+                <div style="background:rgba(4,4,8,0.9); padding:10px 14px; border:1px solid rgba(255,255,255,0.15); border-radius:12px; font-family:'Inter',sans-serif;">
+                    <div style="font-size:12px; font-weight:800; margin-bottom:4px; color:#f5f5f7;">${d.name}</div>
+                    <div style="font-size:14px; font-weight:700; color:#0A84FF;">$${d.price.toFixed(2)}</div>
+                    <div style="font-size:11px; font-weight:700; color:${d.change >= 0 ? '#30D158' : '#FF453A'};">${d.change >= 0 ? '+' : ''}${d.change}%</div>
+                </div>
+            `);
+    };
+    
+    renderPins(marketData);
+
+    // Fetch real data for pins
+    try {
+        const tickers = marketData.map(d => d.ticker).join(',');
+        const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${tickers}`);
+        const apiData = await res.json();
+        if (apiData && apiData.stocks) {
+            marketData.forEach(d => {
+                if (apiData.stocks[d.ticker]) {
+                    d.change = apiData.stocks[d.ticker].change;
+                    d.price = apiData.stocks[d.ticker].price;
+                }
+            });
+            renderPins(marketData);
+        }
+    } catch(e) {
+        console.warn("Globe API fetch error", e);
+    }
         
     // Handle resize
     window.addEventListener('resize', () => {
