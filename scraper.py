@@ -59,6 +59,25 @@ def clean_cookies(cookies):
             del cookie['sameSite']
     return cookies
 
+def cap_and_balance_articles(articles, max_total=400):
+    from collections import defaultdict
+    kategorien_count = defaultdict(int)
+    
+    # Wir haben ca. 7 Hauptkategorien, Limit pro Kategorie auf ca. 60 setzen
+    limit_per_cat = max(1, max_total // 7)
+    
+    final_list = []
+    for a in articles:
+        kat = a.get("hauptkategorie", "Unkategorisiert")
+        if kategorien_count[kat] < limit_per_cat:
+            final_list.append(a)
+            kategorien_count[kat] += 1
+            
+        if len(final_list) >= max_total:
+            break
+            
+    return final_list
+
 async def scrape_and_summarize():
     urls_zum_lesen = []
     bild_mapping = {} 
@@ -184,19 +203,22 @@ async def scrape_and_summarize():
             if artikel.get("titel") and artikel.get("titel") not in bekannte_titel:
                 bestehende_nachrichten.insert(0, artikel)
 
+        # Capping & Balancing (max 400 Artikel, fair verteilt)
+        bestehende_nachrichten = cap_and_balance_articles(bestehende_nachrichten, 400)
+
         # Abspeichern
         with open("nachrichten.json", "w", encoding="utf-8") as f:
             json.dump(bestehende_nachrichten, f, ensure_ascii=False, indent=2)
             
-        print(f"Erfolg! Archiv enthält jetzt {len(bestehende_nachrichten)} Artikel mit Bildern.")
+        print(f"Erfolg! Archiv enthält jetzt {len(bestehende_nachrichten)} balancierte Artikel mit Bildern.")
     except Exception as e:
         print("Fehler beim Verarbeiten durch Gemini:", e)
 
 async def main_loop():
     while True:
         await scrape_and_summarize()
-        print("\n[Timer] Warte 17 Minuten bis zum naechsten Durchlauf...")
-        await asyncio.sleep(1020)
+        print("\n[Timer] Warte 30 Minuten bis zum naechsten Durchlauf...")
+        await asyncio.sleep(1800)
 
 if __name__ == "__main__":
     asyncio.run(main_loop())
