@@ -1,5 +1,6 @@
 import os
 import json
+import asyncio
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -141,6 +142,56 @@ async def news_updated():
         except:
             pass
     return {"status": "ok"}
+
+@app.get("/api/morning-briefing")
+async def morning_briefing():
+    try:
+        sp = yf.Ticker('^GSPC').history(period="1d")
+        sp500 = sp['Close'].iloc[-1]
+        chg = ((sp500 - sp['Open'].iloc[-1]) / sp['Open'].iloc[-1]) * 100
+        market_str = f"S&P 500 steht bei {sp500:.0f} Punkten ({chg:+.1f}%)"
+    except:
+        market_str = "Die Marktdaten sind gerade nicht verfügbar"
+
+    try:
+        with open("nachrichten.json", "r", encoding="utf-8") as f:
+            news = json.load(f)
+            if isinstance(news, dict): news = news.get("nachrichten", [])
+            news_text = " - ".join([n.get("titel", n.get("title", "")) for n in news[:3]])
+    except:
+        news_text = "Keine neuen Nachrichten."
+
+    prompt = f"Du bist J.A.R.V.I.S. Erstelle ein kurzes Morning-Briefing für Master Carlos (max 3 Sätze). {market_str}. Top Schlagzeilen: {news_text}. Sprich sachlich, loyal, professionell wie im Film. Keine Sonderzeichen."
+    try:
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        resp = model.generate_content(prompt)
+        text = resp.text.strip()
+    except:
+        text = f"Guten Morgen Sir. {market_str}. Die wichtigsten Schlagzeilen liegen bereit."
+        
+    return {"text": text}
+
+async def proactive_market_monitor():
+    while True:
+        await asyncio.sleep(1800) # 30 min
+        try:
+            sp = yf.Ticker('^GSPC').history(period="1d")
+            sp500 = sp['Close'].iloc[-1]
+            chg = ((sp500 - sp['Open'].iloc[-1]) / sp['Open'].iloc[-1]) * 100
+            if abs(chg) > 1.5:
+                direction = "gefallen" if chg < 0 else "gestiegen"
+                msg = f"Sir, eine Marktanomalie wurde festgestellt. Der S und P 500 ist ungewöhnlich stark um {abs(chg):.1f} Prozent {direction}."
+                for ws in active_websockets:
+                    try:
+                        await ws.send_json({"type": "proactive_alert", "message": msg})
+                    except:
+                        pass
+        except:
+            pass
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(proactive_market_monitor())
 
 if __name__ == "__main__":
     # Startet den lokalen Server auf http://localhost:8000

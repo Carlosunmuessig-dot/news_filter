@@ -404,12 +404,25 @@ main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 1
 
 .bento-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
 .bento-card {
-    background: var(--glass); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+    background: rgba(18, 18, 22, 0.45);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px; overflow: hidden;
     display: flex; flex-direction: column; position: relative;
-    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
 }
-.bento-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: 0 24px 55px rgba(0,0,0,0.5); }
+.bento-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% -20%, rgba(10,132,255,0.15), transparent 60%);
+    opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 1;
+}
+.bento-card:hover { 
+    transform: translateY(-6px) scale(1.01); 
+    border-color: rgba(255, 255, 255, 0.15); 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); 
+}
+.bento-card:hover::before { opacity: 1; }
 .bento-card.featured { grid-column: span 2; }
 .bento-media { position: relative; overflow: hidden; height: 185px; background: linear-gradient(135deg, #101018, #0a0a12); }
 .bento-card.featured .bento-media { height: 250px; }
@@ -426,12 +439,12 @@ main { max-width: 1480px; margin: 0 auto; padding: 96px clamp(14px, 3vw, 30px) 1
 }
 .bookmark-btn:hover { transform: scale(1.12); color: var(--amber); border-color: var(--amber); }
 .bookmark-btn.on { color: var(--amber); border-color: rgba(255, 214, 10, 0.5); background: rgba(255, 214, 10, 0.12); }
-.bento-content { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
-.bento-kicker { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.15em; }
-.bento-title { font-size: 16.5px; font-weight: 700; line-height: 1.32; letter-spacing: -0.01em; }
-.bento-card.featured .bento-title { font-size: 21px; }
+.bento-content { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; z-index: 2; }
+.bento-kicker { font-size: 11px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.15em; }
+.bento-title { font-size: 18px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: #f5f5f7; }
+.bento-card.featured .bento-title { font-size: 24px; }
 .bento-summary {
-    font-size: 12.5px; color: var(--text-dim); line-height: 1.6;
+    font-size: 13.5px; color: #a1a1a6; line-height: 1.5;
     display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
     transition: all 0.3s var(--ease);
 }
@@ -3073,8 +3086,29 @@ window.addEventListener('load', async () => {
     }
 
     // Speak greeting after boot
-    setTimeout(() => {
-        speakJarvis('Moin, Master Carlos. Alle Systeme online — Headquarter steht bereit.');
+    setTimeout(async () => {
+        const today = new Date().toISOString().split('T')[0];
+        const lastPlayed = localStorage.getItem('lastBriefingDate');
+        if (lastPlayed !== today) {
+            try {
+                const res = await fetch('http://127.0.0.1:8000/api/morning-briefing');
+                const data = await res.json();
+                if (data.text) {
+                    speakJarvis(data.text);
+                    localStorage.setItem('lastBriefingDate', today);
+                    
+                    const term = document.getElementById('terminal-content');
+                    if (term) {
+                        term.innerHTML += `<p style="color:#FF9F0A;">> [JARVIS] MORNING BRIEFING GENERATED: ${data.text}</p>`;
+                        term.parentElement.scrollTop = term.parentElement.scrollHeight;
+                    }
+                }
+            } catch (e) {
+                speakJarvis('Moin, Master Carlos. Alle Systeme online — Headquarter steht bereit.');
+            }
+        } else {
+            speakJarvis('Willkommen zurück, Sir. Alle Systeme online.');
+        }
     }, 2800);
 });
 
@@ -3120,6 +3154,12 @@ function initWebSocket() {
                         term.innerHTML += '<p style="color:#0A84FF;">> [SYSTEM] UI UPDATED WITH NEW DATA.</p>';
                         term.parentElement.scrollTop = term.parentElement.scrollHeight;
                     }
+                }
+            } else if (data.type === 'proactive_alert') {
+                speakJarvis(data.message);
+                if (term) {
+                    term.innerHTML += `<p style="color:#FF453A;">> [ALERT] PROACTIVE MARKET MONITOR TRIGGERED: ${data.message}</p>`;
+                    term.parentElement.scrollTop = term.parentElement.scrollHeight;
                 }
             }
         } catch (err) {}
