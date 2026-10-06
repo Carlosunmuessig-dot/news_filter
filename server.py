@@ -171,6 +171,20 @@ async def morning_briefing():
         
     return {"text": text}
 
+class ChatMessage(BaseModel):
+    message: str
+
+@app.post("/api/chat")
+async def chat_with_jarvis(msg: ChatMessage):
+    prompt = f"Du bist J.A.R.V.I.S., der KI-Assistent von Master Carlos. Antworte extrem kurz, präzise, loyal und auf Deutsch. Frage: {msg.message}"
+    try:
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        resp = model.generate_content(prompt)
+        reply = resp.text.strip()
+    except Exception as e:
+        reply = "Entschuldigung Sir, ich habe derzeit keine Verbindung zu meinem Sprachzentrum."
+    return {"reply": reply}
+
 async def proactive_market_monitor():
     while True:
         await asyncio.sleep(1800) # 30 min

@@ -2640,6 +2640,9 @@ function updateMetrics() {
 }
 
 // ==================== JARVIS VOICE ====================
+let isJarvisAwake = false;
+let jarvisAwakeTimer = null;
+
 function initJarvisVoice() {
     if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
         console.warn('Speech Recognition nicht unterstützt');
@@ -2647,17 +2650,43 @@ function initJarvisVoice() {
     }
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     STATE.recognition = new SpeechRecognition();
-    STATE.recognition.continuous = false;
+    STATE.recognition.continuous = true;
     STATE.recognition.interimResults = false;
     STATE.recognition.lang = STATE.settings.jarvisLang || 'de-DE';
 
-    STATE.recognition.onresult = (e) => {
-        const text = e.results[0][0].transcript;
-        stopRecording();
-        processCommand(text);
+    STATE.recognition.onresult = async (e) => {
+        const last = e.results.length - 1;
+        const text = e.results[last][0].transcript.trim();
+        const lower = text.toLowerCase();
+        
+        if (lower.includes('okay jarvis') || lower.includes('hey jarvis') || lower.includes('jarvis')) {
+            isJarvisAwake = true;
+            clearTimeout(jarvisAwakeTimer);
+            jarvisAwakeTimer = setTimeout(() => isJarvisAwake = false, 60000); // 60s awake
+            
+            let cmd = lower.replace(/okay jarvis|hey jarvis|jarvis/g, '').trim();
+            if (cmd.length > 2) {
+                processCommand(cmd);
+            } else {
+                speakJarvis("Sir?");
+            }
+        } else if (isJarvisAwake) {
+            clearTimeout(jarvisAwakeTimer);
+            jarvisAwakeTimer = setTimeout(() => isJarvisAwake = false, 60000);
+            processCommand(text);
+        }
     };
-    STATE.recognition.onerror = () => stopRecording();
-    STATE.recognition.onend = () => stopRecording();
+    
+    STATE.recognition.onerror = () => {};
+    STATE.recognition.onend = () => {
+        if (!STATE.jarvisMuted) {
+            try { STATE.recognition.start(); } catch(e){}
+        }
+    };
+    
+    if (!STATE.jarvisMuted) {
+        try { STATE.recognition.start(); } catch(e){}
+    }
 }
 
 function toggleJarvisVoice() {
@@ -2816,27 +2845,20 @@ async function processCommand(input) {
         }
         return;
     }
-
-    // AI fallback
-    const key = localStorage.getItem('hq_gemini_key');
-    if (key) {
-        try {
-            showJarvisReply('Denke nach…');
-            const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: `Du bist J.A.R.V.I.S., der persönliche KI-Assistent von Carlos. Antworte kurz, präzise und auf Deutsch. Frage: ${input}` }] }]
-                })
-            });
-            const data = await r.json();
-            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Ich konnte keine Antwort generieren.';
-            showJarvisReply(reply);
-            speakJarvis(reply.substring(0, 200));
-        } catch {
-            showJarvisReply('Verbindungsfehler. Prüfe deine Internetverbindung.');
-        }
-    } else {
-        showJarvisReply(`Ich habe "${input}" verstanden. Für KI-Antworten hinterlege bitte einen Gemini API Key in den Settings.`);
+    // AI fallback via backend
+    try {
+        showJarvisReply('Denke nach…');
+        const r = await fetch('http://127.0.0.1:8000/api/chat', {
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: input })
+        });
+        const data = await r.json();
+        const reply = data.reply || 'Ich konnte keine Antwort generieren.';
+        showJarvisReply(reply);
+        speakJarvis(reply);
+    } catch {
+        showJarvisReply('Verbindungsfehler zum Jarvis Backend.');
     }
 }
 
