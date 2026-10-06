@@ -5,7 +5,7 @@ import json
 import google.generativeai as genai
 
 # Konfiguration (Hier den eigenen Key einsetzen, falls die Variable fehlt)
-API_KEY = os.environ.get("AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ")
+API_KEY = "AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ"
 
 genai.configure(api_key=API_KEY)
 
@@ -71,7 +71,7 @@ VERHALTENSREGELN:
 try:
     # Das ultimative Modell laden & Tools übergeben
     model = genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
+        model_name="gemini-3.8-flash",
         system_instruction=SYSTEM_PROMPT,
         tools=[search_web, read_file, write_file]
     )
