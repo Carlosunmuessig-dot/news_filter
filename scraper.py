@@ -1,6 +1,7 @@
 import asyncio
 import json
 import os
+import urllib.request
 import feedparser
 import ssl
 from bs4 import BeautifulSoup
@@ -59,6 +60,18 @@ def clean_cookies(cookies):
             del cookie['sameSite']
     return cookies
 
+def send_log(msg):
+    print(msg)
+    try:
+        req = urllib.request.Request(
+            "http://127.0.0.1:8000/api/log", 
+            data=json.dumps({"message": msg}).encode("utf-8"), 
+            headers={"Content-Type": "application/json"}
+        )
+        urllib.request.urlopen(req, timeout=1)
+    except:
+        pass
+
 def cap_and_balance_articles(articles, max_total=400):
     from collections import defaultdict
     kategorien_count = defaultdict(int)
@@ -91,7 +104,7 @@ async def scrape_and_summarize():
         with open("cookies_zeit.json", "r") as f:
             cookies_zeit = clean_cookies(json.load(f))
 
-    print("\nStarte den getarnten Browser für Feeds und Artikel...")
+    send_log("\nStarte den getarnten Browser für Feeds und Artikel...")
     async with async_playwright() as p:
         browser = await p.firefox.launch(headless=True)
         context = await browser.new_context(
@@ -101,7 +114,7 @@ async def scrape_and_summarize():
         page = await context.new_page()
 
         # SCHRITT 1: Links sammeln UND Bilder direkt aus dem Feed sichern (Anti-Blocker)
-        print("Scanne RSS-Feeds nach den neuesten Artikeln...")
+        send_log("Scanne RSS-Feeds nach den neuesten Artikeln...")
         for name, feed_url in RSS_FEEDS.items():
             try:
                 response = await context.request.get(feed_url, timeout=15000)
@@ -126,19 +139,19 @@ async def scrape_and_summarize():
                             
                             bild_mapping[entry.link] = bild_url
 
-                    print(f"-> Links gefunden bei {name}")
+                    send_log(f"-> Links gefunden bei {name}")
                 else:
-                    print(f"-> Keine Artikel im Feed gefunden ({name})")
+                    send_log(f"-> Keine Artikel im Feed gefunden ({name})")
             except Exception as e:
-                print(f"Fehler beim Lesen des Feeds von {name}")
+                send_log(f"Fehler beim Lesen des Feeds von {name}")
 
         if not urls_zum_lesen:
-            print("Keine Links in den Feeds gefunden. Abbruch.")
+            send_log("Keine Links in den Feeds gefunden. Abbruch.")
             await browser.close()
             return
 
         # SCHRITT 2: Artikelinhalte lesen (und falls Feed kein Bild hatte, Webseite als Backup scannen)
-        print(f"\nLese jetzt {len(urls_zum_lesen)} Artikel aus...")
+        send_log(f"\nLese jetzt {len(urls_zum_lesen)} Artikel aus...")
         alle_texte = ""
         for url in urls_zum_lesen:
             try:
@@ -166,10 +179,10 @@ async def scrape_and_summarize():
         await browser.close()
 
     if not alle_texte.strip():
-        print("Keine Texte extrahiert. Abbruch.")
+        send_log("Keine Texte extrahiert. Abbruch.")
         return
 
-    print("Sende geballte Artikel an Gemini zur Analyse...")
+    send_log("Sende geballte Artikel an Gemini zur Analyse...")
     model = genai.GenerativeModel(
         model_name="gemini-2.5-flash",
         generation_config={"response_mime_type": "application/json"},
@@ -210,14 +223,22 @@ async def scrape_and_summarize():
         with open("nachrichten.json", "w", encoding="utf-8") as f:
             json.dump(bestehende_nachrichten, f, ensure_ascii=False, indent=2)
             
-        print(f"Erfolg! Archiv enthält jetzt {len(bestehende_nachrichten)} balancierte Artikel mit Bildern.")
+        send_log(f"Erfolg! Archiv enthält jetzt {len(bestehende_nachrichten)} balancierte Artikel mit Bildern.")
+        
+        # Trigger frontend update
+        try:
+            req = urllib.request.Request("http://127.0.0.1:8000/api/news-updated", data=b"", method="POST")
+            urllib.request.urlopen(req, timeout=1)
+        except:
+            pass
+            
     except Exception as e:
-        print("Fehler beim Verarbeiten durch Gemini:", e)
+        send_log(f"Fehler beim Verarbeiten durch Gemini: {e}")
 
 async def main_loop():
     while True:
         await scrape_and_summarize()
-        print("\n[Timer] Warte 30 Minuten bis zum naechsten Durchlauf...")
+        send_log("\n[Timer] Warte 30 Minuten bis zum naechsten Durchlauf...")
         await asyncio.sleep(1800)
 
 if __name__ == "__main__":
