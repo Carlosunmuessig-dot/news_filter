@@ -1399,7 +1399,7 @@ const STATE = {
         voiceEnabled: true,
         ttsEnabled: true,
         jarvisLang: 'de-DE',
-        dashboardStocks: ['NVDA', 'AAPL', 'MSFT', 'TSLA']
+        dashboardStocks: ['^GSPC', '^GDAXI', 'NVDA', 'AAPL']
     })),
     flippedCount: parseInt(localStorage.getItem('hq_flipped') || '0'),
     globeAnim: null
@@ -1412,6 +1412,11 @@ function saveSettings() {
 }
 function loadSettings() {
     const s = STATE.settings;
+    if (JSON.stringify(s.dashboardStocks) === JSON.stringify(['NVDA', 'AAPL', 'MSFT', 'TSLA'])) {
+        s.dashboardStocks = ['^GSPC', '^GDAXI', 'NVDA', 'AAPL'];
+        saveSettings();
+    }
+
     const slider = document.getElementById('summary-length-slider');
     if (slider) slider.value = s.summaryLength;
     updateSummaryLength(s.summaryLength);
@@ -2048,15 +2053,35 @@ function toggleWatchlist(ticker, btn) {
     if (STATE.marketSector === 'watchlist') renderStockGrid();
 }
 
-function renderHqMarketWidgets() {
+async function renderHqMarketWidgets() {
     const container = document.getElementById('hq-market-widgets');
     if (!container) return;
-    const configuredTickers = STATE.settings.dashboardStocks || ['NVDA', 'AAPL', 'MSFT', 'TSLA'];
+    const configuredTickers = STATE.settings.dashboardStocks || ['^GSPC', '^GDAXI', 'NVDA', 'AAPL'];
     const allStocks = [];
     for (const items of Object.values(STOCK_DATA)) items.forEach(s => allStocks.push(s));
-    const topStocks = configuredTickers.map(ticker =>
+    
+    let topStocks = configuredTickers.map(ticker =>
         allStocks.find(s => s.ticker === ticker) || {ticker, name: ticker, price: 0, change: 0}
     );
+
+    const tickersToFetch = topStocks.map(s => s.ticker).join(',');
+    if (tickersToFetch) {
+        try {
+            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${tickersToFetch}`);
+            const data = await res.json();
+            if (data && data.stocks) {
+                topStocks.forEach(s => {
+                    if (data.stocks[s.ticker]) {
+                        s.price = data.stocks[s.ticker].price;
+                        s.change = data.stocks[s.ticker].change;
+                    }
+                });
+            }
+        } catch (e) {
+            console.error("Failed to fetch yfinance data for HQ", e);
+        }
+    }
+
     container.innerHTML = topStocks.map(s => {
         const up = s.change >= 0;
         return `
