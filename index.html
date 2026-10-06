@@ -876,6 +876,26 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     70% { box-shadow: 0 0 0 12px rgba(48,209,88,0); }
     100% { box-shadow: 0 0 0 0 rgba(48,209,88,0); }
 }
+.live-terminal {
+    width: 100%;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 255, 0, 0.2);
+    border-radius: 12px;
+    margin-top: 24px;
+    padding: 12px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #30D158;
+    text-align: left;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+.live-terminal p { margin: 2px 0; opacity: 0.9; }
+.live-terminal .cursor { display: inline-block; width: 6px; height: 12px; background: #30D158; animation: blink 1s step-end infinite; margin-left: 4px; vertical-align: middle; }
+@keyframes blink { 50% { opacity: 0; } }
 </style>
 <script src="https://unpkg.com/globe.gl"></script>
 </head>
@@ -952,6 +972,13 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
                         <button class="qa-chip" onclick="runQuickCommand('market')">📈 Börse</button>
                         <button class="qa-chip" onclick="runQuickCommand('briefing')">🧠 Briefing</button>
                         <button class="qa-chip" onclick="runQuickCommand('lingua')">🇬🇧 Vokabeln</button>
+                    </div>
+                    
+                    <div class="live-terminal" id="live-terminal">
+                        <div id="terminal-content">
+                            <p>> J.A.R.V.I.S. SYSTEM ONLINE.</p>
+                            <p>> AWAITING SECURE CONNECTION...</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -3056,6 +3083,54 @@ window.addEventListener('beforeunload', () => {
     if (STATE.globeAnim) cancelAnimationFrame(STATE.globeAnim);
     if (STATE.recognition) { try { STATE.recognition.stop(); } catch {} }
 });
+
+// ==================== WEBSOCKET TERMINAL & AUTO-UPDATE ====================
+function initWebSocket() {
+    const ws = new WebSocket('ws://127.0.0.1:8000/ws/terminal');
+    const term = document.getElementById('terminal-content');
+    
+    ws.onopen = () => {
+        if (term) term.innerHTML += '<p>> WEBSOCKET CONNECTED. LISTENING FOR BACKEND EVENTS...</p>';
+    };
+    
+    ws.onmessage = async (e) => {
+        try {
+            const data = JSON.parse(e.data);
+            if (data.type === 'log') {
+                if (term) {
+                    const p = document.createElement('p');
+                    p.textContent = `> ${data.message}`;
+                    term.appendChild(p);
+                    term.parentElement.scrollTop = term.parentElement.scrollHeight;
+                }
+            } else if (data.type === 'news_updated') {
+                // Background update
+                const r = await fetch('nachrichten.json');
+                if (r.ok) {
+                    let rawData = await r.json();
+                    if (rawData && !Array.isArray(rawData)) rawData = rawData.nachrichten || [];
+                    const normalized = (Array.isArray(rawData) ? rawData : []).map(normalizeArticle);
+                    STATE.news = normalized;
+                    renderNewsCategories();
+                    renderNews();
+                    updateMetrics();
+                    speakJarvis("Sir, das Hintergrund-System hat soeben neue Artikel verarbeitet und geladen.");
+                    
+                    if (term) {
+                        term.innerHTML += '<p style="color:#0A84FF;">> [SYSTEM] UI UPDATED WITH NEW DATA.</p>';
+                        term.parentElement.scrollTop = term.parentElement.scrollHeight;
+                    }
+                }
+            }
+        } catch (err) {}
+    };
+    
+    ws.onclose = () => {
+        if (term) term.innerHTML += '<p style="color:#FF453A;">> CONNECTION LOST. RECONNECTING...</p>';
+        setTimeout(initWebSocket, 5000);
+    };
+}
+initWebSocket();
 
 // ==================== GLOBE.GL ====================
 async function initGlobe() {
