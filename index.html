@@ -2241,10 +2241,8 @@ function clearScratchpad() {
 
 // ==================== BLACKSTONE ANALYZER ====================
 async function runBlackstoneAnalyzer() {
-    const key = localStorage.getItem('hq_gemini_key');
     const ticker = document.getElementById('analyzer-ticker')?.value?.trim();
     if (!ticker) return toast('Bitte Ticker eingeben');
-    if (!key) return toast('⚠ Gemini API Key fehlt → Settings');
 
     const results = document.getElementById('analyzer-results');
     const btn = document.getElementById('analyzer-btn');
@@ -2254,48 +2252,35 @@ async function runBlackstoneAnalyzer() {
     if (results) results.style.display = 'block';
     if (btn) btn.disabled = true;
     if (headline) headline.textContent = `Analyse: ${ticker.toUpperCase()}`;
-    if (status) status.textContent = '⏳ Analysiere mit Gemini…';
+    if (status) status.textContent = '⏳ Analysiere mit OpenJarvis…';
     for (let i = 1; i <= 5; i++) {
         const el = document.getElementById('a-p' + i);
         if (el) el.innerHTML = '<span class="skeleton" style="display:inline-block;width:100%;height:14px;margin:4px 0;"></span><span class="skeleton" style="display:inline-block;width:80%;height:14px;margin:4px 0;"></span>';
     }
 
-    const prompt = `Du bist ein Elite-Aktienanalyst bei Blackstone. Erstelle eine institutionelle Equity-Research-Analyse für "${ticker}". 
-Antworte in exakt diesem JSON-Format:
-{"p1":"Bilanz & Financials Analyse (3-4 Sätze)","p2":"Wachstumstreiber (3-4 Sätze)","p3":"Wettbewerb & Moat (3-4 Sätze)","p4":"Management & Kapitalallokation (3-4 Sätze)","p5":"Makro-Fazit mit konkreter Einschätzung und Fair-Value-Range (4-5 Sätze)"}
-Antworte NUR mit dem JSON, kein Markdown, keine Erklärung.`;
-
     try {
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        const r = await fetch('http://127.0.0.1:8000/api/analyze-stock', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ticker: ticker })
         });
-        const data = await r.json();
-        if (!r.ok) {
-            throw new Error(data?.error?.message || `HTTP ${r.status}`);
+        const parsed = await r.json();
+        for (let i = 1; i <= 5; i++) {
+            const el = document.getElementById('a-p' + i);
+            if (el) el.textContent = parsed['p' + i] || '—';
         }
-        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-        const jsonMatch = text.match(/\{[\s\S]*\}/);
-        if (jsonMatch) {
-            const parsed = JSON.parse(jsonMatch[0]);
-            for (let i = 1; i <= 5; i++) {
-                const el = document.getElementById('a-p' + i);
-                if (el) el.textContent = parsed['p' + i] || '—';
-            }
-            if (status) status.textContent = '✅ Analyse abgeschlossen';
-        } else {
-            throw new Error('Kein JSON in Antwort');
-        }
+        if (status) status.textContent = '✅ Analyse abgeschlossen';
     } catch (e) {
         console.error('Analyzer error:', e);
         if (status) status.textContent = '❌ Fehler bei der Analyse';
-        toast('❌ ' + (e.message || 'Unbekannter Fehler') + '. Prüfe API Key in Settings.');
+        toast('❌ Fehler bei der Analyse via OpenJarvis.');
         for (let i = 1; i <= 5; i++) {
             const el = document.getElementById('a-p' + i);
             if (el) el.textContent = '—';
         }
+    } finally {
+        if (btn) btn.disabled = false;
     }
-    if (btn) btn.disabled = false;
 }
 
 // ==================== LINGUA LAB ====================
@@ -2846,23 +2831,11 @@ async function processCommand(input) {
 
     // Briefing
     if (cmd.includes('briefing') || cmd.includes('zusammenfas')) {
-        const key = localStorage.getItem('hq_gemini_key');
-        if (!key) {
-            showJarvisReply('Für ein Briefing benötige ich den Gemini API Key. Bitte in den Settings hinterlegen.');
-            speakJarvis('Bitte hinterlege deinen Gemini API Key in den Settings.');
-            return;
-        }
-        const newsSnippets = STATE.news.slice(0, 8).map(a => a.title).join('; ');
         showJarvisReply('Erstelle dein Briefing…');
         try {
-            const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: `Fasse diese Nachrichten in einem kurzen Briefing (5-6 Sätze, deutsch) zusammen: ${newsSnippets}` }] }]
-                })
-            });
+            const r = await fetch('http://127.0.0.1:8000/api/morning-briefing');
             const data = await r.json();
-            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Kein Briefing verfügbar.';
+            const reply = data?.text || 'Kein Briefing verfügbar.';
             showJarvisReply(reply);
             speakJarvis(reply);
         } catch {

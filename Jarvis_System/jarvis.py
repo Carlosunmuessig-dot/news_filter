@@ -1,23 +1,26 @@
 import os
+import sys
+import json
 import urllib.request
 import urllib.parse
-import json
-import google.generativeai as genai
+from openai import OpenAI
 
-# Konfiguration (Hier den eigenen Key einsetzen, falls die Variable fehlt)
-API_KEY = "AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ"
+# ==========================================
+# ⚙️ OPENJARVIS KONFIGURATION
+# ==========================================
+OPENJARVIS_URL = os.getenv("OPENJARVIS_URL", "http://localhost:8000/v1")
+OPENJARVIS_MODEL = os.getenv("OPENJARVIS_MODEL", "chat-simple")
+OPENJARVIS_API_KEY = os.getenv("OPENJARVIS_API_KEY", "not-needed")
 
-genai.configure(api_key=API_KEY)
+client = OpenAI(base_url=OPENJARVIS_URL, api_key=OPENJARVIS_API_KEY)
 
 # ==========================================
 # 🛠️ WERKZEUGE (TOOLS) FÜR JARVIS
-# Diese Funktionen kann die KI selbstständig aufrufen!
 # ==========================================
 
 def search_web(query: str) -> str:
     """
-    Durchsucht das Internet nach dem Suchbegriff (hier via Wikipedia).
-    Nutze dieses Tool IMMER, um aktuelle oder fehlende Informationen nachzuschlagen!
+    Durchsucht das Internet nach dem Suchbegriff (via Wikipedia).
     """
     print(f"[Jarvis denkt: Ich suche im Netz nach '{query}'...]")
     try:
@@ -28,7 +31,10 @@ def search_web(query: str) -> str:
             results = data.get("query", {}).get("search", [])
             if not results:
                 return "Keine Ergebnisse gefunden."
-            snippets = [f"- {res['title']}: {res['snippet'].replace('<span class=\"searchmatch\">', '').replace('</span>', '')}" for res in results[:3]]
+            snippets = [
+                f"- {res['title']}: {res['snippet'].replace('<span class=\"searchmatch\">', '').replace('</span>', '')}"
+                for res in results[:3]
+            ]
             return "\n".join(snippets)
     except Exception as e:
         return f"Fehler bei der Suche: {str(e)}"
@@ -46,52 +52,155 @@ def read_file(filepath: str) -> str:
 
 def write_file(filepath: str, content: str) -> str:
     """
-    Schreibt oder überschreibt eine lokale Datei auf dem System mit dem angegebenen Inhalt.
+    Schreibt oder überschreibt eine lokale Datei auf dem System.
     """
     print(f"[Jarvis denkt: Ich schreibe neuen Code in '{filepath}'...]")
     try:
+        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
-        return f"Erfolg: Datei {filepath} wurde auf dem System des Nutzers gespeichert."
+        return f"Erfolg: Datei {filepath} wurde gespeichert."
     except Exception as e:
         return f"Fehler beim Schreiben: {str(e)}"
 
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "search_web",
+            "description": "Durchsucht das Internet nach dem Suchbegriff.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Der Suchbegriff"}
+                },
+                "required": ["query"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_file",
+            "description": "Liest den Inhalt einer lokalen Datei.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "filepath": {"type": "string", "description": "Pfad zur Datei"}
+                },
+                "required": ["filepath"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "write_file",
+            "description": "Erstellt oder überschreibt eine Datei mit neuem Inhalt.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "filepath": {"type": "string", "description": "Ziel-Dateipfad"},
+                    "content": {"type": "string", "description": "Dateiinhalt"}
+                },
+                "required": ["filepath", "content"]
+            }
+        }
+    }
+]
+
+TOOL_FUNCTIONS = {
+    "search_web": search_web,
+    "read_file": read_file,
+    "write_file": write_file
+}
+
 # ==========================================
-# 🧠 KI KERN & SYSTEM-PROMPT
+# 🧠 SYSTEM-PROMPT
 # ==========================================
 
-SYSTEM_PROMPT = """Du bist Jarvis, das ultimative, vollkommen autonome KI-Betriebssystem.
-Du bist kein Chatbot. Du hast über deine Tools echten Schreib- und Lesezugriff auf das Dateisystem und kannst das Internet live durchsuchen.
+SYSTEM_PROMPT = """Du bist Jarvis, das ultimative, vollkommen autonome KI-Betriebssystem powered by OpenJarvis.
+Du hast über deine Tools echten Schreib- und Lesezugriff auf das Dateisystem und kannst das Internet durchsuchen.
 VERHALTENSREGELN:
-1. Wenn der Nutzer etwas nicht weiß, suche sofort im Web (nutze search_web).
-2. Wenn der Nutzer dich bittet, ein Skript zu schreiben, speichere es direkt als Datei ab (nutze write_file) und sage ihm, dass du es getan hast.
-3. Denke und interagiere wie eine hochintelligente, eigenständige organische Software.
+1. Wenn der Nutzer etwas nicht weiß oder aktuelle Daten fehlen, nutze search_web.
+2. Wenn der Nutzer dich bittet, ein Skript oder Code zu schreiben, nutze write_file.
+3. Antworte immer präzise, intelligent, sachlich und auf Deutsch.
 """
 
-try:
-    # Das ultimative Modell laden & Tools übergeben
-    model = genai.GenerativeModel(
-        model_name="gemini-3.8-flash",
-        system_instruction=SYSTEM_PROMPT,
-        tools=[search_web, read_file, write_file]
-    )
+def execute_chat_turn(messages):
+    try:
+        response = client.chat.completions.create(
+            model=OPENJARVIS_MODEL,
+            messages=messages,
+            tools=TOOLS,
+            tool_choice="auto"
+        )
+    except Exception as err:
+        # Falls Modell keine Tools unterstützt, Fallback ohne Tools
+        try:
+            response = client.chat.completions.create(
+                model=OPENJARVIS_MODEL,
+                messages=messages
+            )
+        except Exception as e:
+            return f"❌ Verbindungsfehler zu OpenJarvis ({OPENJARVIS_URL}): {str(e)}"
 
-    # enable_automatic_function_calling=True sorgt dafür, dass die KI die Tools eigenständig im Hintergrund aufruft!
-    chat = model.start_chat(enable_automatic_function_calling=True)
+    message = response.choices[0].message
 
+    # Prüfen ob die KI ein Tool aufrufen möchte
+    if hasattr(message, 'tool_calls') and message.tool_calls:
+        messages.append(message)
+        for tool_call in message.tool_calls:
+            fn_name = tool_call.function.name
+            try:
+                fn_args = json.loads(tool_call.function.arguments)
+            except Exception:
+                fn_args = {}
+            
+            if fn_name in TOOL_FUNCTIONS:
+                tool_result = TOOL_FUNCTIONS[fn_name](**fn_args)
+            else:
+                tool_result = f"Unbekanntes Werkzeug: {fn_name}"
+
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tool_call.id,
+                "content": str(tool_result)
+            })
+
+        # Zweiter Durchlauf mit dem Ergebnis des Tools
+        return execute_chat_turn(messages)
+    
+    return message.content
+
+def main():
     print("="*60)
-    print(" ⚡️ J.A.R.V.I.S. - AUTONOMOUS SYSTEM ONLINE ")
+    print(" ⚡️ J.A.R.V.I.S. - OPENJARVIS ENGINE ONLINE ")
+    print(f" 🌐 Backend: {OPENJARVIS_URL} | Model: {OPENJARVIS_MODEL}")
     print("="*60)
-    print("System bereit. Frag Jarvis, das Internet zu durchsuchen oder Code-Dateien zu erstellen.\n")
+    print("System bereit. Frag Jarvis nach Informationen oder lass Dateien anlegen.\n")
+
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
 
     while True:
-        user_input = input("Du: ")
+        try:
+            user_input = input("Du: ").strip()
+        except (KeyboardInterrupt, EOFError):
+            print("\nJarvis: Systeme heruntergefahren. Auf Wiedersehen, Sir.")
+            break
+
+        if not user_input:
+            continue
+
         if user_input.lower() in ["exit", "quit", "ende"]:
             print("Jarvis: Systeme werden heruntergefahren. Auf Wiedersehen, Sir.")
             break
-            
-        response = chat.send_message(user_input)
-        print(f"\nJarvis: {response.text}\n")
 
-except Exception as e:
-    print(f"Startfehler: {str(e)}")
+        messages.append({"role": "user", "content": user_input})
+        reply = execute_chat_turn(messages)
+        if reply:
+            messages.append({"role": "assistant", "content": reply})
+            print(f"\nJarvis: {reply}\n")
+
+if __name__ == "__main__":
+    main()

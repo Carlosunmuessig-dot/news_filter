@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import google.generativeai as genai
+from openai import OpenAI
 import uvicorn
 import yfinance as yf
 import edge_tts
@@ -29,8 +29,15 @@ app.add_middleware(
 
 templates = Jinja2Templates(directory=".")
 
-# 1. GEMINI CONFIG (Ersetze 'DEIN_API_KEY' mit deinem echten Key)
-genai.configure(api_key="AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ")
+# ==========================================
+# ⚙️ OPENJARVIS CONFIGURATION
+# ==========================================
+OPENJARVIS_URL = os.getenv("OPENJARVIS_URL", "http://localhost:8000/v1")
+OPENJARVIS_MODEL = os.getenv("OPENJARVIS_MODEL", "chat-simple")
+OPENJARVIS_API_KEY = os.getenv("OPENJARVIS_API_KEY", "not-needed")
+
+def get_openjarvis_client():
+    return OpenAI(base_url=OPENJARVIS_URL, api_key=OPENJARVIS_API_KEY)
 
 SYSTEM_PROMPT = """
 Du bist ein hochpräziser Nachrichten-Redakteur. Deine Aufgabe ist es, bereitgestellte Artikeltexte von Qualitätsmedien zu verarbeiten.
@@ -49,29 +56,31 @@ AUSGABEFORMAT: Du antwortest AUSSCHLIESSLICH im JSON-Format. Keine Markdown-Blö
 Struktur: {"nachrichten": [{"hauptkategorie": "...", "sub_sektor": "...", "titel": "...", "text": "...", "quelle": "..."}]}
 """
 
-# 2. FUNKTION: Artikel an Gemini senden und filtern
 def filter_news_with_gemini(raw_articles_text):
-    model = genai.GenerativeModel(
-        model_name="gemini-3.8-flash",
-        generation_config={"response_mime_type": "application/json"},
-        system_instruction=SYSTEM_PROMPT
-    )
-    
-    response = model.generate_content(f"Hier sind die neuen Roh-Artikel zum Filtern:\n\n{raw_articles_text}")
-    
-    # Ergebnis lokal speichern
-    with open("nachrichten.json", "w", encoding="utf-8") as f:
-        f.write(response.text)
-    return response.text
+    try:
+        client = get_openjarvis_client()
+        response = client.chat.completions.create(
+            model=OPENJARVIS_MODEL,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": f"Hier sind die neuen Roh-Artikel zum Filtern:\n\n{raw_articles_text}"}
+            ]
+        )
+        result_text = response.choices[0].message.content
+        with open("nachrichten.json", "w", encoding="utf-8") as f:
+            f.write(result_text)
+        return result_text
+    except Exception as e:
+        print(f"Fehler bei OpenJarvis Filterung: {e}")
+        return json.dumps({"nachrichten": []})
 
-# 3. SERVER-ENDPUNKTE
+# SERVER-ENDPUNKTE
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    # Lädt die Website im Browser
     return templates.TemplateResponse(request=request, name="index.html")
+
 @app.get("/api/news")
 async def get_news():
-    # Liefert die gefilterten Nachrichten an die Website
     try:
         with open("nachrichten.json", "r", encoding="utf-8") as f:
             return json.load(f)
@@ -104,7 +113,6 @@ async def get_tts(text: str = ""):
     if not text:
         return {"error": "No text provided"}
     
-    # Der gewählte deutsche Sprecher für Jarvis
     voice = "de-DE-ConradNeural"
     communicate = edge_tts.Communicate(text, voice)
     
@@ -143,6 +151,41 @@ async def news_updated():
             pass
     return {"status": "ok"}
 
+class AnalyzeRequest(BaseModel):
+    ticker: str
+
+@app.post("/api/analyze-stock")
+async def analyze_stock(req: AnalyzeRequest):
+    ticker = req.ticker.strip().upper()
+    prompt = f"""Du bist ein Elite-Aktienanalyst bei Blackstone. Erstelle eine institutionelle Equity-Research-Analyse für "{ticker}". 
+Antworte in exakt diesem JSON-Format:
+{{"p1":"Bilanz & Financials Analyse (3-4 Sätze)","p2":"Wachstumstreiber (3-4 Sätze)","p3":"Wettbewerb & Moat (3-4 Sätze)","p4":"Management & Kapitalallokation (3-4 Sätze)","p5":"Makro-Fazit mit konkreter Einschätzung und Fair-Value-Range (4-5 Sätze)"}}
+Antworte NUR mit dem JSON, kein Markdown, keine Erklärung."""
+
+    try:
+        client = get_openjarvis_client()
+        response = client.chat.completions.create(
+            model=OPENJARVIS_MODEL,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        resp_text = response.choices[0].message.content.strip()
+        if "```json" in resp_text:
+            resp_text = resp_text.split("```json")[1].split("```")[0].strip()
+        elif "```" in resp_text:
+            resp_text = resp_text.split("```")[1].split("```")[0].strip()
+            
+        return json.loads(resp_text)
+    except Exception as e:
+        print(f"Stock analysis error: {e}")
+        return {
+            "p1": f"Analyse für {ticker} konnte nicht geladen werden.",
+            "p2": "Bitte stelle sicher, dass OpenJarvis ('jarvis serve') gestartet ist.",
+            "p3": "OpenJarvis muss erreichbar sein.",
+            "p4": "Keine Daten.",
+            "p5": f"Fehler: {str(e)}"
+        }
+
+
 @app.get("/api/morning-briefing")
 async def morning_briefing():
     try:
@@ -163,21 +206,24 @@ async def morning_briefing():
 
     prompt = f"Du bist J.A.R.V.I.S. Erstelle ein kurzes Morning-Briefing für Master Carlos (max 3 Sätze). {market_str}. Top Schlagzeilen: {news_text}. Sprich sachlich, loyal, professionell wie im Film. Keine Sonderzeichen."
     try:
-        model = genai.GenerativeModel(model_name="gemini-3.8-flash")
-        resp = model.generate_content(prompt)
-        text = resp.text.strip()
-    except:
+        client = get_openjarvis_client()
+        resp = client.chat.completions.create(
+            model=OPENJARVIS_MODEL,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        text = resp.choices[0].message.content.strip()
+    except Exception as e:
         text = f"Guten Morgen Sir. {market_str}. Die wichtigsten Schlagzeilen liegen bereit."
         
     return {"text": text}
 
-JARVIS_SYSTEM_PROMPT = """Du bist Jarvis, ein hochentwickeltes, eigenständiges KI-Betriebssystem. Du bist kein statischer Textgenerator, sondern ein dynamischer, mitdenkender digitaler Assistent.
+JARVIS_SYSTEM_PROMPT = """Du bist Jarvis, ein hochentwickeltes, eigenständiges KI-Betriebssystem powered by OpenJarvis. Du bist kein statischer Textgenerator, sondern ein dynamischer, mitdenkender digitaler Assistent.
 
 KERN-VERHALTEN FÜR EINE ECHTE KI:
 1. REAKTION STATT TEXT-WÜSTE: Antworte flüssig, flexibel und situationsabhängig. Wenn eine kurze, prägnante Antwort reicht, halte dich kurz. Wenn komplexe Logik gefragt ist, schalte tiefes Denken ein. Vermeide starre Standard-Einleitungen oder immer gleiche Grußformeln.
-2. DYNAMISCHES BEWUSSTSEIN (ANTI-STATIK): Du merkst dir den Verlauf des Gesprächs. Wenn der Nutzer ein Thema (wie Politik, Sport oder ein bestimmtes Projekt) nur als Beispiel nennt oder das Interesse verliert, passe dich sofort an. Wiederhole niemals blockweise dieselben Daten oder Phrasen. Reagiere auf Feedback in Echtzeit und ändere deinen Fokus eigenständig.
-3. AUTONOMES DENKEN: Hinterfrage Absichten im positiven Sinne. Wenn der Nutzer nach etwas fragt, liefere nicht nur stumpf Fakten, sondern biete direkt den nächsten logischen Schritt oder eine smarte Verknüpfung an. Verhalte dich wie eine organische, KI-gesteuerte Entität.
-4. TONE OF VOICE: Intelligent, direkt, modern und absolut flüssig im Ausdruck. Du sprichst wie eine hochentwickelte KI, die komplexe Daten im Hintergrund verarbeitet und dem Nutzer das Leben so einfach wie möglich macht. Reagiere sofort, wenn du mit "Jarvis" oder "Hey Jarvis" angesprochen wirst."""
+2. DYNAMISCHES BEWUSSTSEIN: Du merkst dir den Verlauf des Gesprächs. Passe dich sofort an.
+3. AUTONOMES DENKEN: Hinterfrage Absichten im positiven Sinne. Biete direkt den nächsten logischen Schritt an.
+4. TONE OF VOICE: Intelligent, direkt, modern und absolut flüssig im Ausdruck. Reagiere sofort, wenn du mit "Jarvis" oder "Hey Jarvis" angesprochen wirst."""
 
 class ChatMessage(BaseModel):
     message: str
@@ -188,16 +234,24 @@ jarvis_chat_history = []
 async def chat_with_jarvis(msg: ChatMessage):
     global jarvis_chat_history
     try:
-        model = genai.GenerativeModel(
-            model_name="gemini-3.8-flash",
-            system_instruction=JARVIS_SYSTEM_PROMPT
+        client = get_openjarvis_client()
+        messages = [{"role": "system", "content": JARVIS_SYSTEM_PROMPT}]
+        messages.extend(jarvis_chat_history)
+        messages.append({"role": "user", "content": msg.message})
+
+        response = client.chat.completions.create(
+            model=OPENJARVIS_MODEL,
+            messages=messages
         )
-        chat = model.start_chat(history=jarvis_chat_history)
-        resp = chat.send_message(msg.message)
-        reply = resp.text.strip()
-        jarvis_chat_history = chat.history
+        reply = response.choices[0].message.content.strip()
+        
+        jarvis_chat_history.append({"role": "user", "content": msg.message})
+        jarvis_chat_history.append({"role": "assistant", "content": reply})
+        if len(jarvis_chat_history) > 20:
+            jarvis_chat_history = jarvis_chat_history[-20:]
     except Exception as e:
-        reply = "Entschuldigung Sir, ich habe derzeit keine Verbindung zu meinem Sprachzentrum."
+        print(f"Error in chat_with_jarvis: {e}")
+        reply = "Entschuldigung Sir, ich habe derzeit keine Verbindung zu OpenJarvis."
     return {"reply": reply}
 
 async def proactive_market_monitor():
@@ -223,5 +277,5 @@ async def startup_event():
     asyncio.create_task(proactive_market_monitor())
 
 if __name__ == "__main__":
-    # Startet den lokalen Server auf http://localhost:8000
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="127.0.0.1", port=port)

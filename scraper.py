@@ -5,14 +5,16 @@ import urllib.request
 import feedparser
 import ssl
 from bs4 import BeautifulSoup
-import google.generativeai as genai
+from openai import OpenAI
 from playwright.async_api import async_playwright
 
 # SSL-Zertifikatsprüfung deaktivieren
 ssl._create_default_https_context = ssl._create_unverified_context
 
-# 1. DEIN API KEY
-genai.configure(api_key="AQ.Ab8RN6LsIROlz2BHliHLO4KJTtygS644x6Z-y38lAygHO-avyQ")
+# 1. OPENJARVIS KONFIGURATION
+OPENJARVIS_URL = os.getenv("OPENJARVIS_URL", "http://localhost:8000/v1")
+OPENJARVIS_MODEL = os.getenv("OPENJARVIS_MODEL", "chat-simple")
+OPENJARVIS_API_KEY = os.getenv("OPENJARVIS_API_KEY", "not-needed")
 
 # 2. DER SYSTEM-PROMPT
 SYSTEM_PROMPT = """
@@ -76,7 +78,6 @@ def cap_and_balance_articles(articles, max_total=400):
     from collections import defaultdict
     kategorien_count = defaultdict(int)
     
-    # Wir haben ca. 7 Hauptkategorien, Limit pro Kategorie auf ca. 60 setzen
     limit_per_cat = max(1, max_total // 7)
     
     final_list = []
@@ -113,7 +114,7 @@ async def scrape_and_summarize():
         )
         page = await context.new_page()
 
-        # SCHRITT 1: Links sammeln UND Bilder direkt aus dem Feed sichern (Anti-Blocker)
+        # SCHRITT 1: Links sammeln UND Bilder direkt aus dem Feed sichern
         send_log("Scanne RSS-Feeds nach den neuesten Artikeln...")
         for name, feed_url in RSS_FEEDS.items():
             try:
@@ -126,7 +127,6 @@ async def scrape_and_summarize():
                         if entry.link not in urls_zum_lesen:
                             urls_zum_lesen.append(entry.link)
                             
-                            # Bild-Link aus dem Feed extrahieren
                             bild_url = ""
                             if 'media_content' in entry and len(entry.media_content) > 0:
                                 bild_url = entry.media_content[0].get('url', '')
@@ -150,7 +150,7 @@ async def scrape_and_summarize():
             await browser.close()
             return
 
-        # SCHRITT 2: Artikelinhalte lesen (und falls Feed kein Bild hatte, Webseite als Backup scannen)
+        # SCHRITT 2: Artikelinhalte lesen
         send_log(f"\nLese jetzt {len(urls_zum_lesen)} Artikel aus...")
         alle_texte = ""
         for url in urls_zum_lesen:
@@ -163,7 +163,6 @@ async def scrape_and_summarize():
                 
                 await page.goto(url, wait_until="domcontentloaded", timeout=30000)
                 
-                # Wenn im Feed kein Bild war, versuchen wir es als Backup über die Website
                 if not bild_mapping.get(url):
                     html_code = await page.content()
                     soup = BeautifulSoup(html_code, 'html.parser')
@@ -182,16 +181,24 @@ async def scrape_and_summarize():
         send_log("Keine Texte extrahiert. Abbruch.")
         return
 
-    send_log("Sende geballte Artikel an Gemini zur Analyse...")
-    model = genai.GenerativeModel(
-        model_name="gemini-3.8-flash",
-        generation_config={"response_mime_type": "application/json"},
-        system_instruction=SYSTEM_PROMPT
-    )
-    
+    send_log("Sende Artikel an OpenJarvis zur Analyse...")
     try:
-        response = await model.generate_content_async(alle_texte)
-        neue_daten = json.loads(response.text)
+        client = OpenAI(base_url=OPENJARVIS_URL, api_key=OPENJARVIS_API_KEY)
+        response = await asyncio.to_thread(
+            client.chat.completions.create,
+            model=OPENJARVIS_MODEL,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": alle_texte}
+            ]
+        )
+        resp_text = response.choices[0].message.content.strip()
+        if "```json" in resp_text:
+            resp_text = resp_text.split("```json")[1].split("```")[0].strip()
+        elif "```" in resp_text:
+            resp_text = resp_text.split("```")[1].split("```")[0].strip()
+
+        neue_daten = json.loads(resp_text)
         neue_artikel = neue_daten.get("nachrichten", [])
         
         # BILDER ZUWEISEN
@@ -216,7 +223,7 @@ async def scrape_and_summarize():
             if artikel.get("titel") and artikel.get("titel") not in bekannte_titel:
                 bestehende_nachrichten.insert(0, artikel)
 
-        # Capping & Balancing (max 400 Artikel, fair verteilt)
+        # Capping & Balancing (max 400 Artikel)
         bestehende_nachrichten = cap_and_balance_articles(bestehende_nachrichten, 400)
 
         # Abspeichern
@@ -233,7 +240,7 @@ async def scrape_and_summarize():
             pass
             
     except Exception as e:
-        send_log(f"Fehler beim Verarbeiten durch Gemini: {e}")
+        send_log(f"Fehler beim Verarbeiten durch OpenJarvis: {e}")
 
 async def main_loop():
     while True:
