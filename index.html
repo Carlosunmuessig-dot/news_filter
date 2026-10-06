@@ -2003,7 +2003,7 @@ async function renderStockGrid() {
     const tickers = stocks.map(s => s.ticker).join(',');
     if (tickers) {
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${tickers}`);
+            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${encodeURIComponent(tickers)}`);
             const data = await res.json();
             if (data && data.stocks) {
                 stocks.forEach(s => {
@@ -2067,7 +2067,7 @@ async function renderHqMarketWidgets() {
     const tickersToFetch = topStocks.map(s => s.ticker).join(',');
     if (tickersToFetch) {
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${tickersToFetch}`);
+            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${encodeURIComponent(tickersToFetch)}`);
             const data = await res.json();
             if (data && data.stocks) {
                 topStocks.forEach(s => {
