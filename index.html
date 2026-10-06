@@ -1006,7 +1006,8 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         <div class="glass-card" style="margin-bottom: 18px;">
             <div class="market-toolbar">
                 <div class="chip-row" id="market-sector-tabs" style="padding-bottom:0;">
-                    <button class="chip active" data-sector="semis" onclick="setMarketSector('semis', this)">Semis &amp; AI</button>
+                    <button class="chip active" data-sector="indices" onclick="setMarketSector('indices', this)">Global Indices</button>
+                    <button class="chip" data-sector="semis" onclick="setMarketSector('semis', this)">Semis &amp; AI</button>
                     <button class="chip" data-sector="bigtech" onclick="setMarketSector('bigtech', this)">Big Tech</button>
                     <button class="chip" data-sector="health" onclick="setMarketSector('health', this)">Healthcare</button>
                     <button class="chip" data-sector="consumer" onclick="setMarketSector('consumer', this)">Consumer</button>
@@ -1343,7 +1344,7 @@ const STATE = {
     newsSubsector: null,
     newsSort: 'newest',
     newsSearch: '',
-    marketSector: 'semis',
+    marketSector: 'indices',
     fcIndex: 0,
     fcFlipped: false,
     academyLevel: 0,
@@ -1886,6 +1887,14 @@ function renderHqSidePanels() {
 
 // ==================== MARKET ====================
 const STOCK_DATA = {
+    indices: [
+        { ticker: '^GSPC', name: 'S&P 500', price: 0, change: 0 },
+        { ticker: '^GDAXI', name: 'DAX', price: 0, change: 0 },
+        { ticker: '^IXIC', name: 'NASDAQ', price: 0, change: 0 },
+        { ticker: '^N225', name: 'Nikkei 225', price: 0, change: 0 },
+        { ticker: '^FTSE', name: 'FTSE 100', price: 0, change: 0 },
+        { ticker: '^HSI', name: 'Hang Seng', price: 0, change: 0 }
+    ],
     semis: [
         { ticker: 'NVDA', name: 'NVIDIA Corp.', price: 138.42, change: 3.21 },
         { ticker: 'AMD', name: 'Advanced Micro Devices', price: 164.80, change: -1.45 },
