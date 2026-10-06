@@ -1,5 +1,349 @@
 [
   {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Fedor Holz: Ex-Pokerstar zeigt seinen Kalender und spricht über Fokus",
+    "text": "Fedor Holz, ehemals der erfolgreichste Pokerspieler der Welt, gibt Einblicke in seine Strategien für Fokus und Zeitmanagement, die er nun im Finanzwesen anwendet. Seine Karriere, die auf Disziplin und strategischem Denken im Poker aufbaute, bietet wertvolle Lektionen für den Umgang mit Terminen und die Priorisierung von Aufgaben. Der Artikel beleuchtet, wie Holz seine Erfahrungen nutzt, um seine Work-Life-Balance zu optimieren und auch nach einem kurzen Ausflug in die Gastronomie erfolgreich zu sein.",
+    "quelle": "https://www.manager-magazin.de/karriere/fedor-holz-ex-pokerstar-zeigt-seinen-kalender-und-spricht-ueber-fokus-a-fc755f1f-9279-4dc4-83c1-ad95a3c9c2bd#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/1cb01376-4ccc-4c18-bfed-625e6920a930_w520_r2.08_fpx50_fpy49.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "Brasilien: Wahlausgang treibt Märkte – Abseits der KI-Rallye: Das sind unsere Anlagetipps",
+    "text": "Brasiliens Finanzmärkte erleben nach dem Wahlausgang, der Flávio Bolsonaro zum klaren Favoriten für das Präsidentenamt machte, einen Aufschwung und positionieren das Land als attraktive 'Anti-Nvidia-Wette'. Der Bovespa-Aktienindex und der Real legten kräftig zu, was die Anleger auf eine verbesserte Haushaltspolitik und internationale Beziehungen hoffen lässt. Der Artikel liefert Anlagetipps für Brasilien, darunter eine Real-lautende Anleihe und einen MSCI Brazil ETF, und hebt das rohstoffreiche Land als gut positionierte Volkswirtschaft abseits der globalen KI-Rallye hervor.",
+    "quelle": "https://www.manager-magazin.de/finanzen/geldanlage/brasilien-wahlausgang-treibt-maerkte-abseits-der-ki-rallye-das-sind-unsere-anlagetipps-a-9f05ff37-72f2-4ab3-9d4c-ad914a3d34ce#ref=rss",
+    "bild": "https://cdn.prod.www.manager-magazin.de/images/4cccb4a1-1d25-452e-ab85-eb27e8b56fc9_w520_r2.08_fpx55.98_fpy49.99.jpg"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Medizin & Forschung",
+    "titel": "Aus totem Stern entstanden: Erstmals Spur von Exoplanet der zweiten Generation",
+    "text": "Eine Forschungsgruppe hat in Hubble-Daten den ersten Hinweis auf einen Exoplaneten der zweiten Generation entdeckt, der sich aus Überresten eines toten Sterns, eines Weißen Zwergs (HS 0209+0832), gebildet haben könnte. Die Präsenz von Niob, das unter exotischen Bedingungen in sterbenden Sternen entsteht, und die vermutete Jupitergröße des Planeten, der den Weißen Zwerg in geringem Abstand umkreist, stützen diese These. Dieser Fund könnte unser Verständnis der Sternsystementwicklung revolutionieren und einen Blick in die mögliche Zukunft unseres eigenen Sonnensystems bieten.",
+    "quelle": "https://www.heise.de/news/Aus-totem-Stern-entstanden-Erstmals-Spur-von-Exoplanet-der-zweiten-Generation-11477083.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/1/9/0/heic2613a-a02e51b1cb47db6f.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
+  },
+  {
+    "hauptkategorie": "Technologie & Wissenschaft",
+    "sub_sektor": "Künstliche Intelligenz & Software",
+    "titel": "LibreOffice und OpenOffice: Warnung vor Codeschmuggel-Lücke, Updates kommen",
+    "text": "Eine hochriskante Sicherheitslücke in LibreOffice Calc und Apache OpenOffice (Version 4.1.16 und älter) ermöglicht Angreifern das Einschleusen von Java-Schadcode über manipulierte Dokumente, die externe Datenquellen mit einem Java-Datenbanktreiber verknüpfen. LibreOffice-Versionen 26.2.5 und 26.8.0 beheben diese Schwachstelle; für OpenOffice wird Version 4.1.17 erwartet, wobei Nutzern aufgrund der geringen Pflege des Apache-Projekts ein Umstieg auf LibreOffice empfohlen wird. Bis zum Update kann das temporäre Deaktivieren der Java-Runtime-Integration in OpenOffice Angriffe ins Leere laufen lassen.",
+    "quelle": "https://www.heise.de/news/LibreOffice-und-OpenOffice-Warnung-vor-Codeschmuggel-Luecke-Updates-kommen-11477059.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+    "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/1/7/8/LibreOffice-Problem-Aufmacher-e108b0dd25546e8e.png?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Deutsche Wirtschaft: Industrie mit unerwartet starkem Auftragseinbruch",
+    "text": "Die deutsche Industrie verzeichnete im August einen unerwartet starken Auftragseinbruch von 10,6 Prozent gegenüber dem Vormonat, dem größten Rückgang seit Jahresbeginn. Dieser ist hauptsächlich auf das Ausbleiben großer Rüstungsaufträge im Sonstigen Fahrzeugbau zurückzuführen. Trotz des monatlichen Rückgangs bleibt das Gesamtbild der deutschen Industrie seit Herbst 2025 positiv, mit gut gefüllten Auftragsbüchern, die ein Polster von rund neun Monaten bieten. Für einen dauerhaften Konjunkturaufschwung fehlt jedoch noch eine neue Investitionsdynamik, obwohl das Wirtschaftsministerium optimistisch auf zukünftige staatliche Beschaffungen blickt.",
+    "quelle": "https://www.wiwo.de/unternehmen/industrie/deutsche-wirtschaft-industrie-mit-unerwartet-starkem-auftragseinbruch/100259987.html",
+    "bild": "https://images.wiwo.de/ylN5hoDzDZm-/cover/900/506/0/0/313/312/0.5/0.5/archiv-14.10.2025-baden-wuerttemberg-ehingen-hinter-kraenen-geht-am-morgen-die-sonne-auf-die-den.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "Brasilien: Bolsonaro und Lula gehen in Stichwahl",
+    "text": "Flávio Bolsonaro (PL) hat in der ersten Runde der brasilianischen Präsidentschaftswahl überraschend die meisten Stimmen (47,03 Prozent) vor Amtsinhaber Luiz Inácio Lula da Silva (PT) mit 45,16 Prozent erhalten, was eine Stichwahl am 25. Oktober nötig macht. Bolsonaros Partei baute auch ihre Positionen bei den Senats- und Gouverneurswahlen massiv aus. Die Finanzmärkte reagierten positiv auf Bolsonaros Führung, mit einem starken Anstieg des brasilianischen Aktienindex und einer Aufwertung des Real gegenüber dem Dollar, da Investoren ihm zutrauen, die Haushaltsprobleme anzugehen und die Beziehungen zu den USA zu verbessern.",
+    "quelle": "https://www.wiwo.de/finanzen/boerse/brasilien-bolsonaro-und-lula-gehen-in-stichwahl/100259920.html",
+    "bild": "https://images.wiwo.de/2yjpBpNKbqlp/cover/900/506/0/0/0/527/0.5/0.5/july-25-2026-sao-paulo-brazil-brazilian-senator-flavio-bolsonaro-takes-part-in-the-liberal-party.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Zeitumstellung Oktober: Wann werden die Uhren auf Winterzeit umgestellt?",
+    "text": "Am Sonntag, den 25. Oktober 2026, werden die Uhren in Deutschland von der mitteleuropäischen Sommerzeit auf die mitteleuropäische Winterzeit um 03:00 Uhr auf 02:00 Uhr zurückgestellt. Die Zeitumstellung, 1980 zur Energieeinsparung eingeführt, ist jedoch in ihrer Effektivität umstritten und führt laut Studien nur zu minimalen Stromeinsparungen. Obwohl das EU-Parlament 2019 die Abschaffung ab 2021 billigte, konnte keine einheitliche Regelung gefunden werden, sodass die Praxis bis mindestens Ende 2026 beibehalten wird, obwohl 76 Prozent der Deutschen laut Forsa-Umfrage eine Abschaffung befürworten.",
+    "quelle": "https://www.wiwo.de/politik/deutschland/zeitumstellung-oktober-wann-werden-die-uhren-auf-winterzeit-umgestellt/29166720.html",
+    "bild": "https://images.wiwo.de/mVb1dIzhELzC/cover/900/506/0/0/96/95/0.5/0.5/zeitumstellung-2024.jpeg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Warum Chinas Autobauer E-Autos viel günstiger produzieren als deutsche",
+    "text": "Chinesische und US-Hersteller wie Tesla produzieren Elektroautos deutlich kostengünstiger als deutsche Konzerne, dank innovativer Fertigungsverfahren wie 'Cell-to-Chassis' und 'Gigacasting'. 'Cell-to-Chassis' integriert Batterien direkt in die Fahrzeugstruktur, was bis zu 1800 Dollar pro Auto spart, während 'Gigacasting' große Karosseriesegmente in einem Guss fertigt und damit tausende Schweißpunkte und bis zu 50 Prozent der Kosten in der Karosserieherstellung einspart. Deutsche Hersteller haben diese in Europa entwickelten Innovationen weitgehend verschlafen und geben stattdessen hohe Lohnkosten als Hauptgrund für ihre Wettbewerbsnachteile an.",
+    "quelle": "https://www.wiwo.de/unternehmen/auto/vw-mercedes-bmw-warum-chinas-autobauer-e-autos-viel-guenstiger-produzieren-als-deutsche/100258928.html",
+    "bild": "https://images.wiwo.de/iWV76EG7JC4g/cover/900/506/0/0/0/0/0.5/0.5/volvo-ex60.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Schenkungsteuer: Wie übertrage ich mein Wertpapierdepot an meine Kinder?",
+    "text": "Ein Leser fragt nach Wegen zur steueroptimierten Übertragung seines Wertpapierdepots an seine drei Kinder. Der Artikel beleuchtet die Möglichkeiten der Schenkungsteueroptimierung durch frühzeitige Vermögensübertragung. Er gibt Hinweise darauf, wie man die Freibeträge effektiv nutzen und die Übertragung rechtlich und finanziell sinnvoll gestalten kann, um die Erbschaftsteuerlast für die Erben zu minimieren.",
+    "quelle": "https://www.wiwo.de/finanzen/steuern-recht/schenkungsteuer-wie-uebertrage-ich-mein-wertpapierdepot-an-meine-kinder/100257994.html",
+    "bild": "https://images.wiwo.de/7S3Oq5ztTu4p/cover/900/506/0/0/0/627/0.5/0.5/young-father-and-cryptocurrency-trader-working-analyzing-digital-market-charts-and-financial-data-wh.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Pentagon dispute Trumps first war foreshadowed Iran challenges",
+    "text": "Heftige Debatten unter Pentagon-Beamten Anfang 2025 über Militäroptionen für Präsident Donald Trump gegen die jemenitischen Huthi-Rebellen deuteten bereits auf die späteren Herausforderungen im Umgang mit dem Iran hin. Es gab Bedenken bezüglich der Waffenbestände und unklarer Ziele, als die USA begannen, die vom Iran unterstützte Gruppe zu bombardieren. Trotz der Bemühungen plagen die Houthis die Region weiterhin, was die komplexen und dauerhaften Probleme dieses ersten Militäreinsatzes verdeutlicht.",
+    "quelle": "https://www.washingtonpost.com/world/2026/10/05/pentagon-dispute-trumps-first-war-foreshadowed-iran-challenges/",
+    "bild": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/7Z3K3TXU6SXN5BKG2ETVHHRGZQ_size-normalized.jpg&w=1440"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "AfD-Demos in Sachsen-Anhalt: 'Problematisch wird es immer dann, wenn zwei gegnerische Gruppen aufeinandertreffen'",
+    "text": "Zur konstituierenden Landtagssitzung in Sachsen-Anhalt, bei der ein AfD-Politiker als Landtagspräsident gewählt werden könnte, wurden vier Demonstrationen angekündigt. DPolG-Chef Heiko Teggatz erläutert die Maßnahmen der Polizei, um ein Aufeinandertreffen gegnerischer Gruppen von AfD-Befürwortern und Gegnern zu verhindern. Er betont, dass Situationen mit rivalisierenden Parteien stets problematisch seien und eine besondere Herausforderung für die öffentliche Sicherheit darstellen.",
+    "quelle": "https://www.welt.de/politik/deutschland/video6ac4a3878b65780eaf134a10/afd-demos-in-sachsen-anhalt-problematisch-wird-es-immer-dann-wenn-zwei-gegnerische-gruppen-aufeinandertreffen.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/olop8mm79a92/rendition/d351de45-9c18-491c-80d3-617c0071ed08/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Russlands Schattenkrieg: 'Es wird vielleicht Anschläge geben und es ist besser, gut darauf vorbereitet zu sein'",
+    "text": "US-Journalist Eric Kirschbaum warnt unter Verweis auf den BND vor Russlands 'Schattenkrieg' in Deutschland und betont die Notwendigkeit, auf mögliche Anschläge vorbereitet zu sein. Er lobte die Außenpolitik von Friedrich Merz bezüglich der Ukraine, forderte aber gleichzeitig mehr Geduld von den Bürgern. Die Aussage unterstreicht die wachsenden Bedenken hinsichtlich hybrider Bedrohungen und der Notwendigkeit nationaler Sicherheitsvorkehrungen.",
+    "quelle": "https://www.welt.de/mediathek/talk/meine-welt-meine-meinung/video6ac492088b65780eaf13480e/russlands-schattenkrieg-es-wird-vielleicht-anschlaege-geben-und-es-ist-besser-gut-darauf-vorbereitet-zu-sein.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/h3hijy8m8vf1/rendition/938d61ae-79fc-47d1-8b86-75e956688e9e/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Mysterioeser Gestank quaelt Siegens Bewohner – Warn-App schlaegt an",
+    "text": "Die Innenstadt von Siegen wird erneut von einem mysteriösen, metallisch-brandähnlichen Gestank geplagt, dessen Ursache Feuerwehr und Umweltamt trotz intensiver nächtlicher Suche nicht finden konnten. Die Warn-App Nina informierte die Bevölkerung, dass keine gesundheitsgefährdenden Stoffe in der Luft seien. Eine Inversionswetterlage, die wenig Luftbewegung zulässt, wird als Grund für das langsame Abziehen des unangenehmen Geruchs vermutet.",
+    "quelle": "https://www.welt.de/vermischtes/article6ac4aa3073cfe42b5b0254ed/ursache-unklar-mysterioeser-gestank-quaelt-siegens-bewohner-warn-app-schlaegt-an.html",
+    "bild": "https://images.welt.de/6ac4aa3073cfe42b5b0254ed/bb77298fdc3b7dc66588615cb6853a41/ci23x11-w1200/dpa-com-260917-935-1615418-jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Michael Kretschmer lässt Dresdner Christstollen per Dienstwagen nach Rom fahren",
+    "text": "Sachsens Ministerpräsident Michael Kretschmer ließ einen Dresdner Christstollen rund 1400 Kilometer per Dienstwagen nach Rom transportieren, um ihn bei einer Papstaudienz im Vatikan zu überreichen. Der aufwendige Transport war nötig, da das Gebäck als zu empfindlich für den Flug galt. Dieser Vorfall sorgte für Aufmerksamkeit und zeigt die besonderen logistischen Anstrengungen bei der Übergabe kultureller Geschenke auf höchster politischer Ebene.",
+    "quelle": "https://www.welt.de/politik/video6ac4901b0a14891ddd2b3c7e/zu-empfindlich-fuer-flug-michael-kretschmer-laesst-dresdner-christstollen-per-dienstwagen-nach-rom-fahren.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/ep079u7fcr7r/rendition/4d5ad2ac-4c0a-414c-b4ec-eb870993f3e1/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Holocaust-Forscher H. G. Adler: Alle waren froh, nicht alles zu wissen",
+    "text": "H. G. Adlers berühmtes Buch 'Der verwaltete Mensch', das nach Auschwitz entstand, erscheint neu und vertritt die These, dass der Holocaust 'in barbarisch ziviler Ordnung' ablief. Der Autor argumentiert, dass die alltägliche und organisierte Durchführung des Genozids es vielen leichtmachte, die volle Tragweite der Geschehnisse zu ignorieren oder zu verdrängen. Das Werk bietet eine tiefgehende Analyse darüber, wie die scheinbar 'ordentliche' Verwaltung des Grauens zu einem 'Nicht-alles-Wissen-Wollen' in der Gesellschaft führte.",
+    "quelle": "https://www.welt.de/kultur/literarischewelt/plus6abd6e974d95225671e4ad9a/holocaust-forscher-h-g-adler-alle-waren-froh-nicht-alles-zu-wissen.html",
+    "bild": "https://images.welt.de/6abd6e974d95225671e4ad9a/68cedcccf51786808000025ec6b8bf80-master/ci23x11-w1200/laif-18904729-jbh-jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "AfD spricht von 'Zäsur' – Kandidat Rausch will als Landtagspräsident überparteilich agieren",
+    "text": "In Sachsen-Anhalt wird die konstituierende Sitzung des Landtags abgehalten, bei der der AfD-Politiker Tobias Rausch als Landtagspräsident zur Wahl steht. Die AfD bewertet dies als 'Zäsur' und den Schritt 'aus der Opposition heraus in die Regierungsverantwortung'. Rausch kündigte an, das Amt überparteilich zu führen, während der BSW-Vize Christian Leye die Wahl eines AfD-Landtagspräsidenten als Konsequenz des Wahlergebnisses verteidigt, jedoch eine Unterstützung für einen AfD-Ministerpräsidenten ausschließt. Vor dem Landtag protestieren Hunderte Menschen gegen die AfD-Präsidentenwahl.",
+    "quelle": "https://www.welt.de/politik/deutschland/article6ac484158b65780eaf13474a/sachsen-anhalt-afd-spricht-von-zaesur-kandidat-rausch-will-als-landtagspraesident-ueberparteilich-agieren-liveticker.html",
+    "bild": "https://welt.cdn.content-discovery.video/videos/f1v30ulqrgzp/rendition/3a5d612a-abc6-4fe0-918f-923987e5625b/file-v720p.mp4"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "In Siegen stinkt es – und keiner weiß, warum",
+    "text": "Zum zweiten Mal innerhalb von zwei Wochen breitet sich ein äußerst unangenehmer, metallischer und brandähnlicher Geruch über der Innenstadt von Siegen aus, dessen Ursache Feuerwehr und Umweltamt bisher nicht finden konnten. Die Bevölkerung wurde über die Warn-App Nina informiert, es gibt jedoch keine Hinweise auf gesundheitsgefährdende Stoffe. Die geringe Luftbewegung aufgrund einer Inversionswetterlage trägt dazu bei, dass der Gestank nur sehr langsam abzieht.",
+    "quelle": "https://www.spiegel.de/panorama/in-siegen-stinkt-es-und-keiner-weiss-warum-a-7c52d089-34fc-45b6-b9f4-78ceb25c73ee#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/3b8f8714-cbc4-45bd-b942-4854e8459e29_w520_r2.08_fpx38.65_fpy49.99.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "ADHS im Job: 'Man darf nicht zu denken beginnen'",
+    "text": "Der Psychiater Heiner Lachenmeier, selbst von ADHS betroffen, teilt in diesem Artikel seine besten 'Arbeitshacks' für Menschen mit ADHS im Berufsleben. Er betont, dass es oft schwierig ist, mit starren Strukturen und Routinen im Job umzugehen. Der Kern seiner Botschaft ist, nicht nach dem einen 'absolut perfekten Projekt' zu suchen, um nicht in der Analyse zu verharren, sondern pragmatisch das Beste aus sich herauszuholen.",
+    "quelle": "https://www.spiegel.de/karriere/adhs-im-job-man-darf-nicht-zu-denken-beginnen-a-28125b47-cfbd-48bf-bd71-83790bcb29d7#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/afb62cc3-ca45-45f0-8c69-62a2f596a240_w520_r2.08_fpx42_fpy34.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Kunst & Unterhaltung",
+    "titel": "Wenn Gringo Mayer Pfälzisch singt, hört man zu. Kann Mundart wirklich cool sein?",
+    "text": "Der Musiker Gringo Mayer singt im Pfälzer Dialekt, und der Artikel befasst sich mit der Frage, ob Mundart in der Musik 'cool' sein kann. Der Text ist ein kurzer Teaser für einen längeren, kostenpflichtigen Artikel, der sich mit der kulturellen Wahrnehmung und Attraktivität von Dialektmusik auseinandersetzt. Es wird angedeutet, dass Gringo Mayers Musik eine besondere Aufmerksamkeit auf sich zieht.",
+    "quelle": "https://www.spiegel.de/kultur/musik/gringo-mayer-kann-mundart-wirklich-cool-sein-a-52a6c56d-9f13-4afd-8c01-333caf9f30c7#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/3d5be8e6-e6e6-4373-89c9-3e32f2216d02_w520_r2.08_fpx48_fpy41.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Hastiger Abzug von US-Bombern – Trump widerspricht seinem Minister",
+    "text": "US-Bomber wurden hastig vom britischen Stützpunkt RAF Fairford abgezogen, und US-Präsident Donald Trump widersprach der Darstellung seines Außenministers Marco Rubio, dies sei Routine gewesen. Trump deutete an, es habe 'ein paar Drohungen' gegeben, die er mit dem Iran in Verbindung brachte, und die Flugzeuge seien 'ein wenig hin und her bewegt' worden. Medienberichte zufolge sollen Informationen über einen möglichen iranischen Drohnenangriff den überstürzten Abzug ausgelöst haben, der sogar noch vor der Startbereitschaft der Tankflugzeuge erfolgte.",
+    "quelle": "https://www.spiegel.de/ausland/raf-fairford-trump-widerspricht-rubio-nach-hastigem-abzug-von-us-bombern-a-c7632e56-a533-4209-bd86-250d594358a1#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/50e62e01-23d9-464b-9c68-7e6eb98170df_w520_r2.08_fpx69.97_fpy55.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Vergewaltigungsfall 'Jane Doe': Was den 'Cornell Seven' vorgeworfen wird",
+    "text": "Der Fall 'Jane Doe', einer anonymen Studentin der Cornell University, die eine Gruppenvergewaltigung durch sieben Studenten vor zwei Jahren zur Last legt, spaltet Amerika und hat zu Demonstrationen geführt. Die Aussagen der Studentin und der Beschuldigten widersprechen sich stark, weshalb eine Sonderstaatsanwältin ermittelt. Die Kritik richtet sich auch gegen die Universitätsleitung, die das Opfer nach eigenen Angaben nicht ausreichend schützte, sodass 'Jane Doe' die Hochschule verlassen musste, während einige mutmaßliche Täter weiterhin studieren.",
+    "quelle": "https://www.spiegel.de/ausland/cornell-university-was-den-cornell-seven-im-vergewaltigungsfall-jane-doe-vorgeworfen-wird-a-6edcfb3e-ed38-4b35-9eb7-fbd7203d0a08#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/80d259fb-26c7-4e07-ae78-2639d7e0ca10_w520_r2.08_fpx33.34_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "So läuft die erste Sitzung des neuen Landtags in Magdeburg",
+    "text": "In Sachsen-Anhalt tritt der neu gewählte Landtag zu seiner ersten Sitzung zusammen, wobei die Wahl eines AfD-Politikers zum Landtagspräsidenten im Vordergrund steht. Trotz der Einstufung der AfD als rechtsextrem durch den Verfassungsschutz könnte deren Kandidat Tobias Rausch, möglicherweise mit Unterstützung des BSW, dieses Amt erstmals in Deutschland bekleiden. Außerhalb des Parlaments finden Proteste gegen die AfD statt, während Rausch andeutete, dass bei einer fehlenden Mehrheit für einen AfD-Ministerpräsidenten im Dezember sogar eine Parlamentsauflösung in Betracht gezogen werden könnte.",
+    "quelle": "https://www.spiegel.de/politik/deutschland/sachsen-anhalt-magdeburg-so-laeuft-die-erste-sitzung-im-neuen-landtag-a-1b6b0b10-0759-4e62-a595-4b43aa6bad11#ref=rss",
+    "bild": "https://cdn.prod.www.spiegel.de/images/258e477e-8a61-49bd-997f-a4915f5d4409_w520_r2.08_fpx33.34_fpy50.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "Industrieverband warnt: 'Die AfD ist keine Wirtschaftspartei'",
+    "text": "Die Hauptgeschäftsführerin des Industrieverbands BDI, Tanja Gönner, warnt vor einer AfD-Regierung in Sachsen-Anhalt, da diese 'keinen Aufschwung' bringen und das Vertrauen in gute Rahmenbedingungen leiden würde. Sie betont, dass der wirtschaftliche Erfolg auf Offenheit, Demokratie, Welthandel und qualifizierten Mitarbeitern basiert, was sich in den Positionen der AfD nicht widerspiegelt. Die Warnung erfolgt vor der konstituierenden Landtagssitzung, bei der erstmals ein AfD-Politiker zum Landtagspräsidenten gewählt werden könnte, wobei der BDI sich für den Schutz des Rechtsstaats einsetzen will.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Industrieverband-warnt-Die-AfD-ist-keine-Wirtschaftspartei-id31385475.html",
+    "bild": "https://www.n-tv.de/img/31385380/1791276661/Img_4_3/250/617092867.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Rheinmetall stellt Satelliten her - Bundeswehr bekommt Exklusivrechte",
+    "text": "Rheinmetall hat die Serienproduktion von SAR-Satelliten in Neuss durch ein Joint Venture mit Iceye gestartet, um sein Produktportfolio zu erweitern und alle Ebenen des modernen Gefechtsfeldes abzudecken. Diese Satelliten nutzen KI, um präzise Aufnahmen von Truppenbewegungen auch bei Nacht und schlechtem Wetter zu liefern. Die Bundeswehr hat einen mehrjährigen Vertrag über 1,7 Milliarden Euro und sich exklusiven Zugriff auf eine nicht genannte Anzahl dieser Radarsysteme gesichert, was ihre Verteidigungsfähigkeit, insbesondere an der Nato-Ostflanke, deutlich verbessern soll.",
+    "quelle": "https://www.n-tv.de/wirtschaft/Rheinmetall-stellt-Satelliten-her-Bundeswehr-bekommt-Exklusivrechte-id31385798.html",
+    "bild": "https://www.n-tv.de/img/6876679/1791280999/Img_4_3/250/image.jpg"
+  },
+  {
+    "hauptkategorie": "Kultur & Gesellschaft",
+    "sub_sektor": "Gesellschaftliche Debatten",
+    "titel": "Mutmaßliche Gruppenvergewaltigung: 'Es geht um unsere Körper, um unsere Leben!'",
+    "text": "Über tausend Studenten protestieren an der Cornell University aus Solidarität mit 'Jane Doe', dem anonymen Opfer einer mutmaßlichen Gruppenvergewaltigung vor zwei Jahren, an der sieben Verbindungsstudenten beteiligt sein sollen. Die Studenten kritisieren die mangelhafte Aufklärung durch die Universitätsleitung und fordern deren Rücktritt, da 'Jane Doe' die Universität verlassen musste, während mutmaßliche Täter weiter studieren. Die Generalstaatsanwältin des Bundesstaates New York hat nun Ermittlungen aufgenommen, da der Fall die Studierendenschaft stark emotionalisiert.",
+    "quelle": "https://www.tagesschau.de/ausland/amerika/jane-doe-cornell-102.html",
+    "bild": "https://images.tagesschau.de/image/44b2d777-01f7-413f-b59e-37feeaf059b1/AAABoQ_y6-s/AAABnSSvrFg/16x9-big/proteste-jane-doe-102.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "DAX gewinnt an Schwung trotz Auftragseinbruch der Industrie",
+    "text": "Der deutsche Leitindex DAX startete mit einem Plus von 0,5 Prozent, zeitweise über 25.390 Punkte, und folgte damit einer Technologie-Rally an der Wall Street, die von KI-Euphorie getrieben wird. Dies geschah trotz eines überraschend deutlichen Einbruchs des deutschen Industrie-Auftragseingangs um 10,6 Prozent im August, hauptsächlich bedingt durch weniger Großaufträge für Militärfahrzeuge und Flugzeuge. Ökonomen sehen das grundsätzlich positive Bild der deutschen Industrie jedoch intakt, da die Auftragsbücher gut gefüllt sind und ein Polster von rund neun Monaten bieten.",
+    "quelle": "https://www.tagesschau.de/wirtschaft/finanzen/marktberichte/marktbericht-dax-dow-jones-boerse-168.html",
+    "bild": "https://images.tagesschau.de/image/9ec4f2f2-7645-46b0-ba13-bb7823f852db/AAABoK6DAQE/AAABnSSvrFg/16x9-big/boerse-336.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Weltweite Schlagzeilen",
+    "sub_sektor": "Globale Ereignisse",
+    "titel": "Trockenheit legt deutsche Gräber in Stausee frei",
+    "text": "Die anhaltende Trockenheit in Südböhmen, Tschechien, hat im Lipno-Stausee Grabsteine des versunkenen deutschen Dorfes Dolní Vltavice (Untermoldau) freigelegt, das in den 1950er-Jahren geflutet wurde. Schriftsteller Jan Štifter initiierte eine Rettungsaktion, bei der zwölf Grabsteine aus dem 19. Jahrhundert geborgen wurden, die restauriert und ausgestellt werden sollen. Dieser Fund beleuchtet den rücksichtslosen Umgang mit der Geschichte der nach dem Zweiten Weltkrieg vertriebenen deutschsprachigen Bewohner.",
+    "quelle": "https://www.tagesschau.de/ausland/europa/tschechien-trockenheit-graeber-100.html",
+    "bild": "https://images.tagesschau.de/image/e21eefde-42f7-427f-8464-3102de7c1128/AAABoRBlsM8/AAABnSSvrFg/16x9-big/dolni-vltavice-100.jpg?width=1280"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Hochzeitskorso sorgt für Stau - Motorradfahrer angegriffen",
+    "text": "Ein Hochzeitskorso in Hannover verursachte einen Stau, als rund sieben Autos plötzlich auf einer vielbefahrenen Straße anhielten. Ein 17-jähriger Motorradfahrer, der das Führungsfahrzeug filmen wollte, wurde vom 27-jährigen Fahrer des Autos angegriffen, der versuchte, ihm das Smartphone zu entreißen. Die Polizei ermittelt wegen Nötigung im Straßenverkehr und sucht Zeugen, um den Vorfall vom Samstagnachmittag aufzuklären.",
+    "quelle": "https://www.zeit.de/news/2026-10/06/hochzeitskorso-sorgt-fuer-stau-motorradfahrer-angegriffen",
+    "bild": "https://img.zeit.de/news/2026-10/06/hochzeitskorso-sorgt-fuer-stau-motorradfahrer-angegriffen-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Gert Zender wird neuer Chef der Magdeburger Staatskanzlei",
+    "text": "Gert Zender übernimmt ab sofort die Leitung der Magdeburger Staatskanzlei und koordiniert künftig die Arbeit der Landesregierung auf Verwaltungsebene. Er folgt auf Rainer Robra, der sich nach langjähriger Tätigkeit zurückgezogen hat. Zender wechselt aus dem Wirtschaftsministerium, wo er seit 2021 als Staatssekretär und Amtschef unter Sven Schulze tätig war, in seine neue Position.",
+    "quelle": "https://www.zeit.de/news/2026-10/06/gert-zender-wird-neuer-chef-der-magdeburger-staatskanzlei",
+    "bild": "https://img.zeit.de/news/2026-10/06/gert-zender-wird-neuer-chef-der-magdeburger-staatskanzlei-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Leben & Alltag",
+    "titel": "Polizei ermittelt nach Sturz von Pferd",
+    "text": "Die Polizei im Ortenaukreis ermittelt nach dem Sturz eines Pferdes in einen offenen Schacht bei Renchen, wobei der Schachtdeckel daneben lag und eine vorsätzliche Entfernung vermutet wird. Das Pferd verletzte sich bei dem Unfall am Montagabend, während die Reiterin unverletzt blieb. Da der Ort bei Reitern beliebt ist, wird der Vorfall, dessen Hintergründe unklar sind, intensiv untersucht.",
+    "quelle": "https://www.zeit.de/news/2026-10/06/polizei-ermittelt-nach-sturz-von-pferd",
+    "bild": "https://img.zeit.de/news/2026-10/06/polizei-ermittelt-nach-sturz-von-pferd-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "Landtag von Sachsen-Anhalt: Wählt das erste Parlament einen AfD-Politiker zum Präsidenten?",
+    "text": "Der neue Landtag von Sachsen-Anhalt konstituiert sich in Magdeburg, wobei die Wahl des AfD-Politikers Tobias Rausch zum Landtagspräsidenten im Fokus steht, was eine Premiere in Deutschland wäre. Die AfD, vom Verfassungsschutz als rechtsextrem eingestuft, sucht Unterstützung bei der BSW und einzelnen Abgeordneten. Rausch schloss im Falle einer fehlenden Mehrheit für einen AfD-Ministerpräsidenten im Dezember sogar eine Parlamentsauflösung nicht aus. Vor dem Gebäude demonstrieren Hunderte gegen die AfD, während die Sitzung auch durch eine geänderte Sitzordnung der AfD im Parlament geprägt ist.",
+    "quelle": "https://www.zeit.de/politik/deutschland/2026-10/landtag-sachsen-anhalt-konstituierung-afd-bsw-live",
+    "bild": "https://img.zeit.de/politik/deutschland/2026-10/landtag-sachsen-anhalt-konstituierung-afd-bsw-live-bild2/original__640x360"
+  },
+  {
+    "hauptkategorie": "Lokales & Regionales",
+    "sub_sektor": "Kommunalpolitik",
+    "titel": "Anwohner können nach Gasalarm zurück in ihre Häuser",
+    "text": "Nach einem Gasalarm in Romrod im Vogelsbergkreis können die evakuierten Anwohner wieder in ihre Häuser zurückkehren, nachdem die Feuerwehr den undichten Erdtank einer Firma erfolgreich verschlossen hat. Die Gefahr durch den Gasaustritt ist gebannt, jedoch bleibt die nähere Umgebung des beschädigten Tanks gesperrt, bis eine Fachfirma die Reparatur vornimmt. Eine mittlere zweistellige Zahl von Personen musste ihre Wohnungen für etwa eine Stunde verlassen und wurde in einem Bürgerhaus betreut.",
+    "quelle": "https://www.zeit.de/news/2026-10/06/anwohner-koennen-nach-gasalarm-zurueck-in-ihre-haeuser",
+    "bild": "https://img.zeit.de/news/2026-10/06/anwohner-koennen-nach-gasalarm-zurueck-in-ihre-haeuser-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Weltweite Schlagzeilen",
+    "sub_sektor": "Breaking News",
+    "titel": "Amokalarm an Schule - Polizisten durchsuchen Gebäude",
+    "text": "Nach einem ausgelösten Amokalarm durchsucht die Polizei mit zahlreichen Kräften eine Oberschule in Langwedel (Landkreis Verden), wobei erste Entwarnung gegeben wurde, da keine Gefahr, Verletzte oder Täter festgestellt wurden. Der Einsatz läuft noch, während die Beamten das Gebäude sichern und eine Sammelstelle für besorgte Eltern eingerichtet wurde. Die Feuerwehr ist ebenfalls vor Ort, um die Lage zu unterstützen und zu koordinieren.",
+    "quelle": "https://www.zeit.de/news/2026-10/06/grosseinsatz-an-schule-im-kreis-verden",
+    "bild": "https://img.zeit.de/news/2026-10/06/grosseinsatz-an-schule-im-kreis-verden-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Politik in Amerika",
+    "titel": "Donald Trump genehmigt erste Militärhinrichtung seit über 60 Jahren",
+    "text": "US-Präsident Donald Trump hat die Hinrichtung des Fort Hood-Attentäters Nidal Hasan durch ein Erschießungskommando angeordnet, was die erste Militärhinrichtung in den USA seit 1961 wäre. Hasan tötete 2009 bei einem Amoklauf auf dem Armeestützpunkt in Texas 13 Menschen und bezeichnete seine Tat als Vergeltung für US-Kriege in der islamischen Welt. Die Entscheidung erfolgt inmitten einer neuen Debatte über die Todesstrafe, ausgelöst durch einen gescheiterten Hinrichtungsversuch in Tennessee.",
+    "quelle": "https://www.zeit.de/politik/ausland/2026-10/nidal-hasan-hinrichtung-todesstrafe-militaer-usa-fort-hood",
+    "bild": "https://img.zeit.de/politik/ausland/2026-10/nidal-hasan-hinrichtung-todesstrafe-militaer-usa-fort-hood-foto-1/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Wahlen & Parteien",
+    "titel": "Protest vor Landtag: Hunderte gegen AfD-Präsidentenwahl",
+    "text": "Hunderte Menschen haben in Magdeburg gegen die mögliche Wahl eines AfD-Landtagspräsidenten in Sachsen-Anhalt protestiert, während die konstituierende Landtagssitzung stattfand. Die Proteste richten sich gegen den AfD-Kandidaten Tobias Rausch, dessen Partei vom Verfassungsschutz als rechtsextrem eingestuft wird. Trotz der Kritik könnte die AfD, die die Landtagswahl gewann, erstmals dieses hohe parlamentarische Amt besetzen, wobei die BSW-Fraktion ihre Unterstützung für einen AfD-Landtagspräsidenten signalisiert hat.",
+    "quelle": "https://www.zeit.de/news/2026-10/06/protest-vor-landtag-hunderte-gegen-afd-praesidentenwahl",
+    "bild": "https://img.zeit.de/news/2026-10/06/protest-vor-landtag-hunderte-gegen-afd-praesidentenwahl-image-group/original__640x360"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Zeitungsverleger fordern konkrete Zusagen von Bundesregierung",
+    "text": "Der Bundesverband Digitalpublisher und Zeitungsverleger (BDZV) fordert von der Bundesregierung konkrete Zusagen zur Stärkung journalistischer Medien und ein Spitzengespräch zur Zukunft der Presse. Die Forderungen umfassen faire Sichtbarkeit auf Plattformen, Regeln für die KI-Nutzung journalistischer Inhalte sowie einen 'Pressefolgencheck' für neue Gesetze. Dieser Check soll frühzeitig die Auswirkungen politischer Entscheidungen auf Redaktionen, Abonnements und Zustellung, insbesondere in dünn besiedelten Gebieten, sichtbar machen.",
+    "quelle": "https://www.handelsblatt.com/unternehmen/it-medien/medien-zeitungsverleger-fordern-konkrete-zusagen-von-bundesregierung/100260013.html",
+    "bild": "https://images.handelsblatt.com/twBbC1-O5pp0/cover/900/506/0/0/161/162/0.5/0.5/zeitungsstand-in-berlin.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Aktien & Börse",
+    "titel": "US-Renditen bleiben nahe höchstem Stand seit 2002",
+    "text": "Die Renditen langlaufender US-Staatsanleihen verharren nahe ihrem höchsten Niveau seit 2002, mit 10-jährigen Papieren bei 5,34 Prozent und 30-jährigen bei 5,7 Prozent. Dieser Anstieg wird durch das Wachstum der US-Wirtschaft, gestützt durch Investitionen in KI-Infrastruktur, und die anhaltende Inflation befeuert, die weitere Zinserhöhungen der Federal Reserve erwarten lässt. Ein starker Preisanstieg im US-Dienstleistungssektor unterstreicht den Inflationsdruck und das Wachstum, was Anleihekurse weiter fallen und Renditen steigen lässt.",
+    "quelle": "https://www.handelsblatt.com/finanzen/maerkte/anleihen/anleihen-us-renditen-bleiben-nahe-hoechstem-stand-seit-2002/100260002.html",
+    "bild": "https://images.handelsblatt.com/reMUuH3n2Ckc/cover/900/506/0/0/127/363/0.5/0.5/traders-work-on-the-floor-of-the-nyse-at-the-opening-bell-at-the-new-york-stock-exchange-on-wall-str.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Makroökonomie & Zinsen",
+    "titel": "Warum sich ein Mehrfamilienhaus nicht immer als Kapitalanlage lohnt",
+    "text": "Viele Deutsche erwägen die Vermietung von Mehrfamilienhäusern als Altersvorsorge, doch eine Umfrage von Haus & Grund zeigt, dass private Vermieter oft nur kostendeckend wirtschaften oder Verluste machen. Der Artikel beleuchtet die Rentabilität solcher Investitionen im aktuellen Umfeld von Mietregulierung, hohen Immobilienpreisen und gestiegenen Zinsen. Es werden Beispielrechnungen und häufige Fehler aufgezeigt, die Käufer vermeiden sollten, um eine tatsächlich lukrative Rendite zu erzielen.",
+    "quelle": "https://www.handelsblatt.com/finanzen/immobilien/immobilien-warum-sich-ein-mehrfamilienhaus-nicht-immer-als-kapitalanlage-lohnt/100180922.html",
+    "bild": "https://images.handelsblatt.com/m6mHYnwSwbxs/cover/900/506/0/0/393/2/0.5/0.5/immobilien.jpeg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Deutsche wollen Pflicht-Vorschuljahr und Kita-Sprachtests",
+    "text": "Das Ifo-Bildungsbarometer 2026 zeigt eine breite Mehrheit der Deutschen für mehr Pflichten in der frühkindlichen Bildung. Demnach befürworten 72 Prozent der Bevölkerung ein verpflichtendes Vorschuljahr und 79 Prozent bundesweit einheitliche Lernziele vor der Einschulung. Eine besonders hohe Zustimmung von 89 Prozent gibt es für verpflichtende Sprachtests im Alter von viereinhalb Jahren. Diese Ergebnisse deuten darauf hin, dass Kitas von der Bevölkerung nicht nur als Betreuungs-, sondern zunehmend als wichtige Bildungsorte wahrgenommen werden.",
+    "quelle": "https://www.handelsblatt.com/politik/deutschland/bildung-deutsche-wollen-pflicht-vorschuljahr-und-kita-sprachtests/100258616.html",
+    "bild": "https://images.handelsblatt.com/D9CXMnO2EwS1/cover/900/506/0/0/309/308/0.5/0.5/kinder-in-einer-kita-wichtiger-bildungsort..jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Geopolitik",
+    "titel": "Türkei und Pakistan wollen Truppen in Saudi-Arabien stationieren",
+    "text": "Pakistan, Saudi-Arabien und die Türkei haben im Rahmen des Mekka-Verteidigungspakts vereinbart, rasch militärische Streitkräfte und Kapazitäten in Saudi-Arabien zu stationieren. Diese Entscheidung erfolgte nach einer Dringlichkeitssitzung in Riad, um auf Bedrohungen für Saudi-Arabien, insbesondere durch die Huthi-Miliz im Jemen und Angriffe auf die Ost-West-Pipeline, zu reagieren. Der im August unterzeichnete Pakt enthält eine Beistandsklausel, ähnlich dem Nato-Vertrag, wonach ein Angriff auf eine Partei als Angriff auf alle gilt.",
+    "quelle": "https://www.handelsblatt.com/politik/international/verteidigungspakt-tuerkei-und-pakistan-wollen-truppen-in-saudi-arabien-stationieren/100260028.html",
+    "bild": "https://images.handelsblatt.com/ZX9avU8SP6-O/cover/900/506/0/0/356/355/0.5/0.5/neue-allianz.jpg"
+  },
+  {
+    "hauptkategorie": "Wirtschaft",
+    "sub_sektor": "Unternehmen & Strategien",
+    "titel": "Rheinmetall erschließt Weltall als neues Geschäftsfeld",
+    "text": "Der Rüstungskonzern Rheinmetall hat die Serienproduktion von SAR-Satelliten (Synthetic Aperture Radar) in Neuss begonnen, die ein Gemeinschaftsunternehmen mit dem finnischen Betreiber Iceye fertigt. Diese Satelliten liefern auch bei Nacht und schlechtem Wetter präzise Aufnahmen von Truppenbewegungen, wobei Künstliche Intelligenz zur Informationsfilterung eingesetzt wird. Die Bundeswehr hat einen mehrjährigen Vertrag über 1,7 Milliarden Euro und sich exklusiven Zugriff auf eine unbekannte Anzahl dieser Satelliten gesichert, um das Produktportfolio von Rheinmetall neben klassischen Rüstungsgütern um den wichtigen Bereich der Weltraumaufklärung zu erweitern.",
+    "quelle": "https://www.handelsblatt.com/unternehmen/industrie/ruestung-rheinmetall-erschliesst-weltall-als-neues-geschaeftsfeld/100260016.html",
+    "bild": "https://images.handelsblatt.com/dlvSFKO-n1qH/cover/900/506/0/0/309/308/0.5/0.5/imago-images-0867534732.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Ex-Chef des BND wegen Spionageverdachts festgenommen",
+    "text": "Der frühere Präsident des Bundesnachrichtendienstes (BND), August Hanning (1998-2005), wurde zusammen mit seinem ehemaligen Büroleiter Manfred D. wegen Spionageverdachts festgenommen. Ihnen werden unter anderem landesverräterische Ausspähung, versuchter Landesverrat und geheimdienstliche Agententätigkeit vorgeworfen. Manfred D. soll Hanning über Jahre hinweg gegen Geld etwa 2000 geheime BND-Dokumente, darunter Lageeinschätzungen und Material ausländischer Partnerdienste, überlassen haben, welche Hanning für Beratertätigkeiten genutzt haben soll. Die Ermittlungen wurden durch eine Hausdurchsuchung bei Hanning im September 2025 im Rahmen eines Kindesentführungsfalls ausgelöst, bei der die brisanten BND-Unterlagen entdeckt wurden.",
+    "quelle": "https://www.handelsblatt.com/politik/deutschland/august-hanning-ex-chef-des-bnd-wegen-spionageverdachts-festgenommen/100259997.html",
+    "bild": "https://images.handelsblatt.com/AGzSd81xwB2n/cover/900/506/0/0/0/473/0.5/0.5/archiv-01.10.2015-berlin-august-hanning-der-ehemalige-praesident-des-bundesnachrichtendienstes.jpg"
+  },
+  {
+    "hauptkategorie": "Politik",
+    "sub_sektor": "Innenpolitik",
+    "titel": "Bundesregierung kürzt internationale Klimafinanzierung deutlich",
+    "text": "Die Bundesregierung hat die internationale Klimafinanzierung aus Haushaltsmitteln für 2025 auf 4,7 Milliarden Euro gekürzt, was einem Rückgang von fast 23 Prozent gegenüber 2024 entspricht und frühere Zusagen verfehlt. Obwohl mobilisierte Kredite und private Investitionen den Gesamtbeitrag auf 10,8 Milliarden Euro stiegen, handelt es sich hierbei vorwiegend um rückzahlbare Kredite anstatt um Zuschüsse aus dem Bundeshaushalt. Entwicklungs- und Umweltministerium begründen dies mit sinkenden öffentlichen Haushalten und setzen auf Hebelung im Kapitalmarkt sowie private Investitionen für Projekte im Globalen Süden.",
+    "quelle": "https://www.handelsblatt.com/politik/deutschland/umweltpolitik-bundesregierung-kuerzt-internationale-klimafinanzierung-deutlich/100260049.html",
+    "bild": "https://images.handelsblatt.com/IpRRJK0uJRUd/cover/900/506/0/98/75/73/0.5/0.5/klimaschutz.jpg"
+  },
+  {
     "hauptkategorie": "Wirtschaft",
     "sub_sektor": "Aktien & Börse",
     "titel": "Brasilien: Wahlausgang treibt Märkte an – Abseits der KI-Rallye: Das sind unsere Anlagetipps",
@@ -1016,22 +1360,6 @@
     "bild": "https://img.zeit.de/news/2026-10/06/minister-keine-unterlassung-zu-linken-und-clankriminalitaet-image-group/original__640x360"
   },
   {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Politik in Amerika",
-    "titel": "Präsidentschaftswahl in Brasilien: Trump nach Wahlerfolg von Bolsonaro-Sohn in Brasilien erfreut",
-    "text": "US-Präsident Donald Trump zeigte sich erfreut über den Erfolg von Flávio Bolsonaro in der ersten Runde der Präsidentschaftswahl in Brasilien. Bolsonaro erreichte rund 47 Prozent der Stimmen, während der amtierende linke Präsident Lula da Silva 45 Prozent erhielt; beide treten nun in einer Stichwahl am 25. Oktober an. Flávio Bolsonaro, Sohn des wegen Putschversuchs verurteilten Ex-Präsidenten Jair Bolsonaro, hat angekündigt, seinen Vater im Falle eines Sieges aus dem Hausarrest zu befreien. Trumps anfängliche Zurückhaltung wird als strategische Entscheidung gewertet.",
-    "quelle": "https://www.zeit.de/politik/ausland/2026-10/praesidentschaftswahl-brasilien-flavio-bolsonaro-lula-da-silva-stichwahl",
-    "bild": "https://img.zeit.de/politik/ausland/2026-10/praesidentschaftswahl-brasilien-flavio-bolsonaro-lula-da-silva-stichwahl-foto-1/original__640x360"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Geopolitik",
-    "titel": "Israel versetzt Armee vor 7. Oktober in Alarmbereitschaft",
-    "text": "Israel hat seine Armee vor dem Jahrestag des 7. Oktober in höchste Alarmbereitschaft versetzt, basierend auf Geheimdienstinformationen über mögliche Hamas-Angriffe im Gazastreifen. Verteidigungsminister Israel Katz drohte der Hamas und den Menschen in Gaza mit einem 'hohen Preis' im Falle israelischer Verluste. Die Jugend im Nahen Osten leidet weiterhin unter den Traumata des 7. Oktobers und des folgenden Gazakrieges, mit einer Verdopplung psychiatrischer Notfälle bei Kindern in Israel. Premierminister Netanjahu schloss eine Hamas-Herrschaft in Gaza aus und drohte, alle Beteiligten zur Rechenschaft zu ziehen.",
-    "quelle": "https://www.zeit.de/politik/ausland/2025-10/krieg-gaza-israel-hamas-liveblog",
-    "bild": "https://img.zeit.de/politik/ausland/2026-10/israeli-settlers-weekly-tour-in-hebron-in-the-israeli-occupied-west-bank-bild/original__640x360"
-  },
-  {
     "hauptkategorie": "Wirtschaft",
     "sub_sektor": "Aktien & Börse",
     "titel": "Dax aktuell: Dax öffnet im Plus – Rally an der Wall Street gibt Aufwind",
@@ -1064,14 +1392,6 @@
     "bild": "https://images.handelsblatt.com/JiEJATtxjLqw/cover/900/506/0/0/0/0/0.5/0.5/uber.jpg"
   },
   {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Außenpolitik",
-    "titel": "Ukraine: Warum der Kampf gegen die Korruption in Kiew nicht vorangeht",
-    "text": "In der Ukraine reißen Korruptionsskandale in der Politik nicht ab, was zu wiederholten Entlassungen hochrangiger Mitarbeiter führte. Diese Fälle bereiten der EU-Kommission und Deutschland Sorge, da Milliardensummen an Hilfskrediten an neue Antikorruptionsgesetze geknüpft sind. Die stockenden Reformen im ukrainischen Parlament und die Warnungen vor Zweckentfremdung der Gelder erhöhen den Druck auf Kiew. Eine entscheidende Abstimmung nächste Woche steht bevor.",
-    "quelle": "https://www.handelsblatt.com/politik/international/ukraine-warum-der-kampf-gegen-die-korruption-in-kiew-nicht-vorangeht/100258229.html",
-    "bild": "https://images.handelsblatt.com/1XzxyGfDSi3D/cover/900/506/0/0/0/608/0.5/0.5/archiv-16.06.2026-frankreich-evian-ursula-von-der-leyen-praesidentin-der-eu-kommission-begruesst.jpg"
-  },
-  {
     "hauptkategorie": "Wirtschaft",
     "sub_sektor": "Makroökonomie & Zinsen",
     "titel": "Anleihen: US-Renditen bleiben nahe höchstem Stand seit 2002",
@@ -1094,22 +1414,6 @@
     "text": "Eine Mehrheit der Deutschen befürwortet laut Ifo-Bildungsbarometer 2026 die Einführung eines verpflichtenden Vorschuljahrs und bundesweit einheitlicher Lernziele für Kitas. 89 Prozent sprechen sich zudem für verpflichtende Sprachtests im Alter von viereinhalb Jahren aus, um frühe Bildungsungleichheiten auszugleichen. Trotz des Konsenses, dass Kitas eine wichtige Bildungsrolle spielen, zeigt die Studie eine paradoxe Ablehnung bei der bevorzugten Vergabe von Kita-Plätzen an Familien mit Migrationshintergrund. Die Ergebnisse der Pisa-Studie unterstreichen die Dringlichkeit von Reformen in der frühkindlichen Bildung.",
     "quelle": "https://www.handelsblatt.com/politik/deutschland/bildung-deutsche-wollen-pflicht-vorschuljahr-und-kita-sprachtests/100258616.html",
     "bild": "https://images.handelsblatt.com/D9CXMnO2EwS1/cover/900/506/0/0/309/308/0.5/0.5/kinder-in-einer-kita-wichtiger-bildungsort..jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Innenpolitik",
-    "titel": "BND: Ehemaliger BND-Chef wegen Spionageverdacht festgenommen",
-    "text": "Der ehemalige Präsident des Bundesnachrichtendienstes (BND), August Hanning, wurde wegen Spionageverdachts festgenommen. Ihm wird vorgeworfen, von 1998 bis 2005 geheime Informationen aus dem BND an einen ausländischen Nachrichtendienst weitergegeben zu haben, wobei ein früherer Büroleiter als Zuträger fungiert haben soll. Die Ermittlungen des Generalbundesanwalts umfassen mutmaßliche landesverräterische Ausspähung und geheimdienstliche Agententätigkeit. Der Fall wurde im Zuge einer anderen Untersuchung zur Entführung der Kinder von Unternehmerin Christina Block aufgedeckt.",
-    "quelle": "https://www.handelsblatt.com/politik/deutschland/bnd-ehemaliger-bnd-chef-wegen-spionageverdacht-festgenommen/100259997.html",
-    "bild": "https://images.handelsblatt.com/AGzSd81xwB2n/cover/900/506/0/0/0/473/0.5/0.5/archiv-01.10.2015-berlin-august-hanning-der-ehemalige-praesident-des-bundesnachrichtendienstes.jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Geopolitik",
-    "titel": "Verteidigungspakt: Türkei und Pakistan wollen Truppen in Saudi-Arabien stationieren",
-    "text": "Pakistan, Saudi-Arabien und die Türkei haben im Rahmen des Mekka-Verteidigungspakts die rasche Stationierung militärischer Streitkräfte und Kapazitäten in Saudi-Arabien vereinbart. Diese Entscheidung erfolgte nach einer Dringlichkeitssitzung in Riad aufgrund der Bedrohungen durch die Huthi-Miliz im Jemen. Der Pakt enthält eine Beistandsklausel, ähnlich dem Nato-Vertrag, wobei Pakistan und die Türkei hauptsächlich eine unterstützende Rolle spielen sollen. Pakistanische Einheiten sind bereits in Saudi-Arabien stationiert.",
-    "quelle": "https://www.handelsblatt.com/politik/international/verteidigungspakt-tuerkei-und-pakistan-wollen-truppen-in-saudi-arabien-stationieren/100260028.html",
-    "bild": "https://images.handelsblatt.com/ZX9avU8SP6-O/cover/900/506/0/0/356/355/0.5/0.5/neue-allianz.jpg"
   },
   {
     "hauptkategorie": "Wirtschaft",
@@ -1144,52 +1448,12 @@
     "bild": "https://cdn.prod.www.manager-magazin.de/images/f723e95b-d65a-4adf-84f4-9a8d60b0e34a_w520_r2.08_fpx68.66_fpy45.jpg"
   },
   {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Die innovativsten Mittelständler Deutschlands 2026 im Wettbewerb TOP 100 ausgezeichnet",
-    "text": "Der Wettbewerb TOP 100 zeichnet 282 mittelständische Unternehmen als Deutschlands innovativste aus, die trotz wirtschaftlicher Herausforderungen als Treiber des Wandels agieren. Innovationsforscher Nikolaus Franke betont, dass schnelle kreative Anpassung entscheidend für Erfolg, Wachstum und Arbeitsplatzschaffung ist. Die ausgezeichneten Unternehmen haben Innovation als strategisches Grundprinzip verankert und zeigen eine Unternehmenskultur, die Veränderungen als Normalzustand begreift, um Herausforderungen wie KI, Klimawandel und den Rüstungswettlauf zu begegnen.",
-    "quelle": "https://www.manager-magazin.de/unternehmen/industrie/mittelstand-wettbewerb-top-100-das-sind-die-innovativsten-mittelstaendler-deutschlands-2026-a-829420bb-9f5f-415b-b686-9da8bebe6875#ref=rss",
-    "bild": "https://cdn.prod.www.manager-magazin.de/images/74ab2608-cdf9-4ba7-9c9b-0bb7b970d394_w520_r2.08_fpx65.33_fpy49.99.jpg"
-  },
-  {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Podcast „Lead Forward“: Wenn Führungskräfte zu nett sind und Probleme verschlimmern",
-    "text": "Der Podcast „Lead Forward“ thematisiert, wie zu „nette“ Führungskräfte Probleme verschärfen, indem sie unangenehme Gespräche, Kritik oder schwierige Entscheidungen vermeiden, um die Teamharmonie zu wahren. Dies führt zu unklaren Erwartungen, geringerer Teamleistung und ungelösten Konflikten. Gesine Braun und Wiebke Harms besprechen mit Experten, wie Chefs klare Ansagen machen können, ohne Mitarbeiter vor den Kopf zu stoößen, und betonen transparente Erwartungen, konkretes Feedback und rechtzeitiges Beenden von Projekten.",
-    "quelle": "https://www.manager-magazin.de/hbm/fuehrung/podcast-lead-forward-wenn-fuehrungskraefte-zu-nett-sind-a-b081edb2-31b4-403b-aa05-80f6866b4778#ref=rss",
-    "bild": "https://cdn.prod.www.manager-magazin.de/images/3d219cee-1900-40ed-b44f-4bc2809f4412_w520_r2.08_fpx52.66_fpy52.97.jpg"
-  },
-  {
     "hauptkategorie": "Technologie & Wissenschaft",
     "sub_sektor": "Künstliche Intelligenz & Software",
     "titel": "Theaterabend enthüllt den fundamentalen Unterschied zwischen Mensch und KI in der Führung",
     "text": "Der Artikel reflektiert über einen Theaterabend, um den fundamentalen Unterschied zwischen Mensch und Künstlicher Intelligenz in der Führung zu verdeutlichen. Die Autorin betont die menschliche Fähigkeit, vielfältige Rollen und Emotionen zu verkörpern, im Gegensatz zu KI, die ein Werkzeug ist, dessen Potenzial vom menschlichen Einsatz abhängt. Sie argumentiert, dass KI zwar nützlich ist, aber Menschen entscheidend bleiben, um Wissen, Daten und kulturelle Werte in die Technologie zu integrieren. Es geht darum, nicht nur zu fragen, was KI kann, sondern welche Rolle wir ihr geben wollen.",
     "quelle": "https://www.manager-magazin.de/hbm/fuehrung-was-ein-theaterabend-ueber-den-unterschied-zwischen-mensch-und-ki-verraet-a-be45df62-42fd-464a-b17e-0a495984af5e#ref=rss",
     "bild": "https://cdn.prod.www.manager-magazin.de/images/d7837db6-4994-4c81-b708-c92a72d5720f_w520_r2.08_fpx58.64_fpy49.99.jpg"
-  },
-  {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Das sind die 500 reichsten Deutschen 2026: Neuer Spitzenreiter und viele Newcomer",
-    "text": "Das manager magazin hat sein exklusives Ranking der 500 reichsten Deutschen für 2026 veröffentlicht, das einen neuen Spitzenreiter und überraschend viele Newcomer aus der Gründerszene aufzeigt. Die Liste umfasst sowohl bekannte Unternehmerfamilien wie Schwarz und Porsche als auch Industrielle. Diese detaillierte Recherche bietet einen umfassenden Einblick in die deutsche Wirtschaftsspitze und die Entwicklung von Vermögen im Land.",
-    "quelle": "https://www.manager-magazin.de/lifestyle/leute/milliardaere-das-sind-die-500-reichsten-deutschen-2026-neuer-spitzenreiter-a-67d8dc0f-7723-4c1e-b3ac-77e446dcb124#ref=rss",
-    "bild": "https://cdn.prod.www.manager-magazin.de/images/383c30af-0fa9-4b88-bab7-4c36e204e6e0_w520_r2.08_fpx51_fpy44.jpg"
-  },
-  {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Manager magazin öffnet Archiv der reichsten Deutschen: 25 Jahre Vermögensentwicklung",
-    "text": "Das manager magazin hat sein Archiv der reichsten Deutschen geöffnet und ermöglicht einen interaktiven Einblick in die Entwicklung der größten Vermögen über 25 Jahre. Seit 2001 veröffentlicht das Magazin jährlich diese Liste, die nun umfassende Erkenntnisse über Deutschlands Wirtschaftsgeschichte bietet. Sie zeigt, wie sich die Vermögen von Unternehmerfamilien, Industriellen und Newcomern aus der Gründerszene in einem Vierteljahrhundert entwickelt haben.",
-    "quelle": "https://www.manager-magazin.de/lifestyle/leute/top-500-archiv-das-manager-magazin-macht-erstmals-das-archiv-der-reichsten-deutschen-online-zugaenglich-a-0583c44d-99f8-40a0-b2ba-f9c9a16b321e#ref=rss",
-    "bild": "https://cdn.prod.www.manager-magazin.de/images/8357df39-951d-4899-a346-58bfc2141ef7_w520_r2.08_fpx50_fpy50.jpg"
-  },
-  {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Aktien & Börse",
-    "titel": "Finanzgrößen wie KKR und Apollo warnen vor drohendem KI-Crash",
-    "text": "Finanzgiganten wie KKR und Apollo warnen trotz gigantischer Investitionen zunehmend vor einem möglichen KI-Marktcrash mit unabsehbaren Folgen. Die Nervosität an der Wall Street wächst aufgrund steigender Zinsen, undurchsichtiger Verflechtungen und komplexer Finanzierungstaktiken im KI-Sektor. Diese Bedenken unterstreichen die Sorge vor der Nachhaltigkeit des aktuellen KI-Booms und seine potenziellen Auswirkungen auf die globale Wirtschaft.",
-    "quelle": "https://www.manager-magazin.de/unternehmen/tech/kuenstliche-intelligenz-kkr-apollo-und-andere-warnen-vorm-ki-crash-a-75f3a754-3299-40a7-8c7a-417c681db166#ref=rss",
-    "bild": "https://cdn.prod.www.manager-magazin.de/images/1170b384-8f55-49b6-adec-386e8ef6da95_w520_r2.08_fpx49.13_fpy55.01.jpg"
   },
   {
     "hauptkategorie": "Technologie & Wissenschaft",
@@ -1264,14 +1528,6 @@
     "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/10/Michal-Irani-Weizmann-Institute-KI-Tool.png?class=hero"
   },
   {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "L’Oréal führt eigenes GPT-Modell für 90.000 Beschäftigte ein, um Datenschutz zu gewährleisten",
-    "text": "L’Oréal führt generative KI bei 90.000 Mitarbeitern weltweit mit einem dreistufigen Plan ein, beginnend mit Bewusstseinsschulung und Weiterbildung, gefolgt von der Nutzung interner Tools wie „L’Oréal GPT“ und „CreateTech“. Das Unternehmen entschied sich für ein eigenes, On-Premise-GPT-Modell, um strenge Datenschutzvorschriften einzuhalten und das Vertrauen der Mitarbeiter zu stärken. Dadurch wird sichergestellt, dass sensible Daten innerhalb des Unternehmens bleiben und nicht an externe KI-Anbieter weitergegeben werden.",
-    "quelle": "https://t3n.de/news/eigenes-gpt-statt-chatgpt-so-fuehrt-loreal-ki-bei-90-000-beschaeftigten-ein-1766586/?utm_source=rss&utm_medium=newsFeed&utm_campaign=newsFeed",
-    "bild": "https://cdn.t3n.de/news/wp-content/uploads/2026/10/t3n_Podcast_AIP_Arooj_Humayun_Artikel-1.png?class=hero"
-  },
-  {
     "hauptkategorie": "Technologie & Wissenschaft",
     "sub_sektor": "Künstliche Intelligenz & Software",
     "titel": "Studie enthüllt: KI-Anbieter geben sensible Nutzerdaten und Chatverläufe an Dritte weiter",
@@ -1304,14 +1560,6 @@
     "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/3/2/2/6/_DSC4046-174e392c080abe06.JPG?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
   },
   {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Amazon Prime Deal Days 2026 starten mit Rabatten auf Technik und Haushaltsgeräte",
-    "text": "Die Amazon Prime Deal Days 2026 finden am 6. und 7. Oktober statt und bieten Prime-Mitgliedern Rabatte auf Technik, Haushaltsgeräte und weitere Produkte. Es wird empfohlen, die Preise sorgfältig zu vergleichen, da ein Gerichtsurteil von 2025 Amazon wegen irreführender Rabattwerbung beanstandete. Nur tatsächlich günstige Angebote, die anderswo nicht billiger zu haben sind, werden in der Übersicht berücksichtigt.",
-    "quelle": "https://www.heise.de/bestenlisten/ratgeber/amazon-prime-deal-days-heissluftfritteusen-rasenmaehroboter-und-co-zu-bestpreisen/s5bv9x1?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
-    "bild": "https://ocdn.eu/pulscms-transforms/1/QaUk9kqTURBXy8xOGVlY2ZkYzBmNmVlZjUyOWZjNzNkNmVhNmNiNmJiOC5qcGVnkZUCzQSwzQJ2w8PeAAGhMAI"
-  },
-  {
     "hauptkategorie": "Technologie & Wissenschaft",
     "sub_sektor": "Hardware & Robotik",
     "titel": "Winduction entwickelt induktives Ladesystem für Elektrobusse über die Räder",
@@ -1328,22 +1576,6 @@
     "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/5/6/8/0/9/IMG_20260722_23221527_niwe-a6c350542b1bbad0.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
   },
   {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Entlassungen beginnen bei Microsoft-Studio Ninja Theory trotz jüngster Spielpräsentation",
-    "text": "Mitarbeiter des \"Hellblade\"-Studios Ninja Theory melden Entlassungen, nachdem Microsoft Ende September die Schließung des Unternehmens in Betracht zog, nachdem zwei Übernahmedeals gescheitert waren. Ninja Theory hatte erst im Juni sein neues Spiel „Senua“, den dritten Teil der „Hellblade“-Reihe, groß für Xbox, PC und Playstation 5 präsentiert und dafür erstmals seit zwölf Jahren die gesamte Belegschaft auf ein einziges Projekt angesetzt. Dies unterstreicht die Turbulenzen in der Gaming-Branche trotz jüngster Produktankündigungen.",
-    "quelle": "https://www.heise.de/news/Ninja-Theory-Beim-Hellblade-Studio-beginnen-die-Entlassungen-11477009.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
-    "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/1/5/3/ss_1d4bdcff22d37c9607beda20bf2d5bb2989b55f6.1920x1080-638aaaf0e9479bcc.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
-  },
-  {
-    "hauptkategorie": "Wirtschaft",
-    "sub_sektor": "Unternehmen & Strategien",
-    "titel": "Apothekerkammer pfändet 110.000 Euro bei DocMorris wegen Verstoßes gegen deutsche Urteile",
-    "text": "Die Apothekerkammer Nordrhein hat in den Niederlanden erfolgreich 110.000 Euro bei der Online-Apotheke DocMorris gepfändet, da das Unternehmen gegen rechtskräftige deutsche Urteile zu Werbung und Rabatten verstoßen haben soll. DocMorris hatte nach Ansicht der Kläger trotz Gerichtsniederlagen in Stuttgart seine Praktiken fortgesetzt. Die Apothekerkammer betont die Wichtigkeit der Rechtsstaatlichkeit gegen Unternehmen, die sich durch grenzüberschreitende Standorte Urteilen entziehen. DocMorris bezeichnet den Rechtsstreit als administrativ und hat Berufung eingelegt.",
-    "quelle": "https://www.heise.de/news/Apothekerkammer-laesst-Geld-bei-DocMorris-pfaenden-11477095.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
-    "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/1/9/6/shutterstock_1333516676-5bb4cc88d8a442da.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
-  },
-  {
     "hauptkategorie": "Technologie & Wissenschaft",
     "sub_sektor": "Künstliche Intelligenz & Software",
     "titel": "Python 3.16 plant optionale Rust-Implementierung für zlib-Modul",
@@ -1352,28 +1584,12 @@
     "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/1/8/8/AufmacherPythonRust-6815b458e4cae709.png?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
   },
   {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Innenpolitik",
-    "titel": "Kanzler Merz: Instabile deutsche Regierung wäre Gefahr für Europa – Öffentliche Meinung dazu",
-    "text": "Kanzler Merz mahnte in Kiew den Zusammenhalt der Koalition an und warnte, dass eine instabile deutsche Regierung eine Gefahr für ganz Europa darstellen würde. WELT TV befragte deutsche Bürger zu dieser These, um die öffentliche Meinung zur Stabilität der Bundesrepublik und ihrer europäischen Tragweite zu erfassen. Die Diskussion spiegelt die Sorge um die innenpolitische Lage und ihre Auswirkungen auf die internationale Rolle Deutschlands wider.",
-    "quelle": "https://www.welt.de/politik/deutschland/video6ac483a67ca0bfd8ca155978/ihre-stimme-instabile-regierung-der-deutschen-bundesrepublik-waere-eine-gefahr-fuer-europa.html",
-    "bild": "https://welt.cdn.content-discovery.video/videos/q5pp29ak0odl/rendition/e15af6e1-60d9-497d-b1ae-b409a721b054/file-v720p.mp4"
-  },
-  {
     "hauptkategorie": "Kultur & Gesellschaft",
     "sub_sektor": "Gesellschaftliche Debatten",
     "titel": "Neue Theorie: Umweltfaktoren könnten Serienmörder der Siebzigerjahre beeinflusst haben",
     "text": "Eine neue Theorie untersucht, ob Umweltfaktoren die Perversionen von drei berüchtigten US-Serienmördern, die als Kinder am selben Ort lebten, beeinflusst haben könnten. Der Artikel beleuchtet die Gründe für eine \"Massenmord-Epidemie\" in den 1970er-Jahren in den USA. Es wird der Zusammenhang zwischen frühen Lebensumständen und extremem kriminellen Verhalten diskutiert, um die Ursprünge solcher Taten besser zu verstehen.",
     "quelle": "https://www.welt.de/kultur/plus6abe434009fefadd71a54881/der-stoff-der-menschen-zu-serienmoerdern-macht.html",
     "bild": "https://images.welt.de/6abe434009fefadd71a54881/264f04aa3d0aef88ac90a96f7860f690-master/ci23x11-w1200/369544732-jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Innenpolitik",
-    "titel": "SPD-Fraktionsvize Limbacher warnt vor reinen Sozialkürzungen und Reformmüdigkeit",
-    "text": "SPD-Fraktionsvize Esra Limbacher betonte im WELT-Interview die Stabilität der Regierung, warnte aber davor, sich ausschließlich auf soziale Kürzungen zu konzentrieren. Er hob hervor, dass dem Reformpfad des Kanzlers immer weniger Menschen folgen würden, wenn dieser nur aus Streichungen bestünde. Limbacher signalisierte damit interne Debatten innerhalb der Koalition bezüglich der Finanzpolitik und der sozialen Sicherungssysteme.",
-    "quelle": "https://www.welt.de/politik/video6ac486ee7ca0bfd8ca155995/esra-limbacher-wir-koennen-nicht-nur-dinge-streichen-und-kuerzen.html",
-    "bild": "https://welt.cdn.content-discovery.video/videos/lkdq3pdtuvau/rendition/9b929dc7-5f49-4f57-80ed-2908c8fae394/file-v720p.mp4"
   },
   {
     "hauptkategorie": "Sport",
@@ -1392,36 +1608,12 @@
     "bild": "https://images.welt.de/6ac4929879f581bdf3e72aa3/aaf8cc29f3a310991e464abd0961b930-master/ci23x11-w1200/2026-10-05t181922z-1842067888-rc2np7a2o4bl-rtrmadp-3-nobel-prize-medicine-jpg"
   },
   {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Innenpolitik",
-    "titel": "Ex-Linken-Politiker Klaus Lederer kritisiert Partei für Antizionismus und Geschichtsvergessenheit",
-    "text": "Der frühere Linken-Politiker Klaus Lederer rechnet mit seiner ehemaligen Partei ab und kritisiert ihren \"obsessiven Blick Richtung Nahost\" sowie die Verankerung von Antizionismus als Identitätsmerkmal. Er warnt vor einer \"fatalen Geschichtsvergessenheit\", insbesondere nach dem Hamas-Massaker 2023, wo linke Stimmen die Verbrechen relativierten statt Empathie zu zeigen. Lederer, der 2024 austrat, zeichnet antisemitische Strömungen innerhalb linker Bewegungen nach und bezeichnet den heutigen Antizionismus als \"Brückenideologie\".",
-    "quelle": "https://www.welt.de/politik/deutschland/article6ac494327ca0bfd8ca155ad8/klaus-lederer-obsessiver-blick-richtung-nahost-ex-linken-politiker-rechnet-mit-seiner-frueheren-partei-ab.html",
-    "bild": "https://images.welt.de/6ac494327ca0bfd8ca155ad8/c6a89554b8e790aa1e5d8cd0cd5cdc10-master/ci23x11-w1200/597338954-jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Innenpolitik",
-    "titel": "Politologe zur AfD-Landtagspräsidentenwahl: „Die Wähler haben diese Brandmauer jetzt niedergerissen“",
-    "text": "Die bevorstehende mögliche Wahl eines AfD-Landtagspräsidenten in Magdeburg wird von Politikwissenschaftler Christian Stecker als Zäsur analysiert, da die Wähler die „Brandmauer“ gegen die Partei niedergerissen hätten. Der Artikel beleuchtet die Rolle des BSW und der CDU in diesem Prozess sowie die weitreichenden Konsequenzen für die politische Landschaft und die kommende Ministerpräsidentenwahl. Dieses Ereignis wird als symbolisch für die Verschiebung politischer Grenzen in Deutschland betrachtet.",
-    "quelle": "https://www.welt.de/politik/deutschland/video6ac49e0d0a14891ddd2b3f9b/wahl-von-afd-landtagspraesident-die-waehler-haben-diese-brandmauer-jetzt-niedergerissen.html",
-    "bild": "https://welt.cdn.content-discovery.video/videos/1u9cz6gizure/rendition/a962686e-9f6f-4773-89db-1e381dec733b/file-v720p.mp4"
-  },
-  {
     "hauptkategorie": "Lokales & Regionales",
     "sub_sektor": "Kommunalpolitik",
     "titel": "\"Investoren töten\"-Graffiti am Kottbusser Tor empört Berliner Startup-Szene",
     "text": "Ein provokantes Graffiti mit der Aufschrift „Investoren töten“ am Kottbusser Tor in Berlin-Kreuzberg, dem Wahlkreis der Linken-Spitzenkandidatin Elif Eralp, sorgt für Empörung in der Berliner Startup-Szene. Die Botschaft wird als Zeichen wachsenden Hasses gegenüber der Branche interpretiert. Der Vorfall unterstreicht die zunehmenden Spannungen zwischen Teilen der lokalen Bevölkerung und der Investorengemeinschaft in der Stadt.",
     "quelle": "https://www.welt.de/wirtschaft/plus6ac3b52a5a0c502f20298418/graffiti-am-kottbusser-tor-investoren-toeten-prangt-im-wahlkreis-von-elif-eralp-und-die-startup-szene-ist-empoert.html",
     "bild": "https://images.welt.de/6ac3b52a5a0c502f20298418/733ba1b772878357af133bbe55ef19fa-master/ci23x11-w1200/img-2859-jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Außenpolitik",
-    "titel": "Kanzler Merz: Scheitern des EU-Finanzrahmens wäre für Deutschland finanziell am günstigsten",
-    "text": "Bundeskanzler Friedrich Merz erhöht den Druck in den EU-Haushaltsverhandlungen und erklärt, dass ein Scheitern des neuen billionenschweren Finanzrahmens für 2028-2034 für Deutschland finanziell am günstigsten wäre. Ohne eine Einigung könnte die EU keine neuen Programme auflegen, was Nettozahler wie Deutschland begünstigen würde. Merz fordert zusammen mit fünf anderen Ländern eine Kürzung des von der EU-Kommission vorgeschlagenen Entwurfs um mehrere hundert Milliarden Euro.",
-    "quelle": "https://www.welt.de/politik/article6ac488898b65780eaf13477f/streit-ueber-eu-haushalt-deutschland-wuerde-vom-scheitern-profitieren-sagt-merz.html",
-    "bild": "https://images.welt.de/6ac488898b65780eaf13477f/68037bf1efca2b5f396719dce4385ca9-master/ci23x11-w1200/dpa-com-261005-936-111762-jpg"
   },
   {
     "hauptkategorie": "Sport",
@@ -1438,14 +1630,6 @@
     "text": "Eine Untersuchung der Deutschen Umwelthilfe (DUH) zeigt, dass 70 Prozent der Busse in Deutschlands 39 größten Städten weiterhin mit Diesel betrieben werden. Obwohl Elektrobusse erheblich weniger Treibhausgase verursachen, verläuft die Umstellung in vielen Städten schleppend; einige, wie Magdeburg und Augsburg, setzen gar keine batterieelektrischen Busse ein. Die DUH kritisiert, dass der Kauf neuer Verbrennerbusse den Abschied von fossilen Antrieben bis in die 2040er-Jahre verzögert und fordert eine vollständige Umstellung auf Elektroantrieb bis 2030.",
     "quelle": "https://www.spiegel.de/mobilitaet/bus-bahn/elektromobilitaet-verkehrsbetriebe-fahren-groesstenteils-verbrennerbusse-a-b82b9f8c-84e4-4b9d-b743-d6aca8c3299e#ref=rss",
     "bild": "https://cdn.prod.www.spiegel.de/images/fd5fc01d-fe5b-4612-9f41-1cfffed9c1e8_w520_r2.08_fpx51.67_fpy50.jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Politik in Amerika",
-    "titel": "Republikanischer Senator Thom Tillis bereut Unterstützung für Trumps Kabinettsmitglieder",
-    "text": "Der republikanische Senator Thom Tillis bereut in seinem neuen Buch, mehrere Parteifreunde in ihre Ämter verholfen zu haben, darunter Verteidigungsminister Pete Hegseth. Tillis kritisiert die Personalentscheidungen von Donald Trump und die mangelnde öffentliche Opposition innerhalb seiner Partei. Er äußert sich auch kritisch über andere prominente Trump-Vertreter und prognostiziert ein \"Blutbad\" für die Republikaner bei den kommenden Zwischenwahlen, bei denen er selbst nicht mehr antreten wird.",
-    "quelle": "https://www.spiegel.de/ausland/usa-prominenter-parteifreund-von-donald-trump-bereut-unterstuetzung-fuer-hegseth-a-6c16577e-6389-4c1f-b3f8-3ecaf58712cb#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/34c34537-b923-44e6-a957-bd49d655a4e5_w520_r2.08_fpx49.99_fpy44.99.jpg"
   },
   {
     "hauptkategorie": "Lokales & Regionales",
@@ -1480,30 +1664,6 @@
     "bild": "https://cdn.prod.www.spiegel.de/images/3d5be8e6-e6e6-4373-89c9-3e32f2216d02_w520_r2.08_fpx48_fpy41.jpg"
   },
   {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Geopolitik",
-    "titel": "US-Start-up Covenant plant Cruise-Missile-Produktion bei Leipzig mit Peter Thiel-Investition",
-    "text": "Das US-Start-up Covenant plant mit finanzieller Unterstützung von Investor Peter Thiel die Produktion von Cruise Missiles nahe Leipzig. Dieses Vorhaben soll Deutschlands Verteidigungsfähigkeit gegenüber russischen Bedrohungen stärken und die Abhängigkeit von den USA reduzieren. Die Eröffnung der Fabrik ist ein strategischer Schritt, um die größten Rüstungslücken schnellstmöglich mit weitreichenden Waffen zu schließen.",
-    "quelle": "https://www.spiegel.de/wirtschaft/unternehmen/covenant-us-start-up-plant-cruise-missiles-produktion-bei-leipzig-mit-geld-von-peter-thiel-a-8781204e-c8d9-41b9-a86f-cea474b85781#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/1b6d5536-a9c4-4216-a70a-76c81234c231_w520_r2.08_fpx30_fpy36.jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Außenpolitik",
-    "titel": "Trump widerspricht Rubio: Hastiger Abzug von US-Bombern aus UK wegen iranischer Drohungsgefahr",
-    "text": "US-Bomber wurden hastig vom britischen Stützpunkt RAF Fairford abgezogen, was US-Präsident Trump auf Bedrohungen, möglicherweise aus dem Iran, zurückführt und damit Außenminister Rubios Behauptung einer Routineverlegung widerspricht. US-Medien berichten unter Berufung auf Beamte, dass Informationen über einen geplanten iranischen Drohnenangriff der Auslöser für den eiligen Rückzug waren. Die Dringlichkeit des Abzugs war so hoch, dass einige Bomber sogar vor der Startbereitschaft der benötigten Tankflugzeuge abhoben, was Fragen zur offiziellen Darstellung aufwirft.",
-    "quelle": "https://www.spiegel.de/ausland/raf-fairford-trump-widerspricht-rubio-nach-hastigem-abzug-von-us-bombern-a-c7632e56-a533-4209-bd86-250d594358a1#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/50e62e01-23d9-464b-9c68-7e6eb98170df_w520_r2.08_fpx69.97_fpy55.jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Innenpolitik",
-    "titel": "Sachsen-Anhalt wählt ersten AfD-Landtagspräsidenten; neue Studie zur Demografie und Bahn-Plan vorgestellt",
-    "text": "In Sachsen-Anhalt soll heute Tobias Rausch (AfD) zum ersten rechtsextremen Landtagspräsidenten gewählt werden, mit Unterstützung des BSW, was für große Proteste sorgt. Gleichzeitig wird eine Studie des Berlin-Instituts zur \"demografischen Lage der Nation\" die wachsende Kluft zwischen prosperierenden Städten und schrumpfenden ländlichen Regionen, besonders im Osten, beleuchten. Das Verkehrsministerium legt zudem einen Plan zur Verbesserung des maroden Schienennetzes vor, um die Pünktlichkeit und Infrastruktur der Deutschen Bahn zu stärken.",
-    "quelle": "https://www.spiegel.de/politik/deutschland/news-afd-praesident-fuer-sachsen-anhalts-landtag-wachsende-staedte-vs-abgehaengte-doerfer-plan-fuer-die-bahn-a-f5f2ede2-cd79-4e9c-ae65-21d445aad2d1#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/dd17189a-707c-4b57-af32-bf59855d3d25_w520_r2.08_fpx28.09_fpy49.93.png"
-  },
-  {
     "hauptkategorie": "Kultur & Gesellschaft",
     "sub_sektor": "Gesellschaftliche Debatten",
     "titel": "Vergewaltigungsfall „Jane Doe“ an Cornell University: Widersprüchliche Aussagen und öffentliche Empörung",
@@ -1534,30 +1694,6 @@
     "text": "Die Deutsche Bahn hat einen neuen \"Infraplan\" für die Jahre 2026 bis 2030 vorgestellt, um den massiven Sanierungsstau des Schienennetzes transparent zu beheben. Das 160-seitige Papier detailliert Maßnahmen zur Sanierung, Digitalisierung und Elektrifizierung von Strecken, den Umbau von Bahnhöfen und Lärmschutz, mit dem Ziel, die Infrastruktur verlässlicher zu machen. Obwohl konkrete Zielvorgaben für die nächsten fünf Jahre existieren, bleiben Fragen zur Umsetzung von \"Korridorsanierungen\" und einem \"Zielnetz 2035\" offen, welche für die angestrebte Pünktlichkeit entscheidend sind.",
     "quelle": "https://www.n-tv.de/wirtschaft/Deutsche-Bahn-legt-neuen-Plan-fuer-Infrastruktur-vor-id31384843.html",
     "bild": "https://www.n-tv.de/img/31384818/1791266260/Img_4_3/250/612730649.jpg"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Außenpolitik",
-    "titel": "Lettland verbietet Russisch als Fremdsprache in Schulen und fördert Deutsch",
-    "text": "Lettland hat ab diesem Schuljahr Russisch als Fremdsprache in Schulen verboten, um sich stärker von Russland zu lösen und Europa anzunähern. Als Folge gewinnt Deutsch massiv an Popularität und wird von rund 57.000 Kindern gelernt, was die Zahl der Deutschlehrkräfte verdoppelt hat. Obwohl ein Drittel der Bevölkerung Russisch als Muttersprache spricht, will die Regierung die sowjetische Vergangenheit überwinden und die Beziehungen zu europäischen Partnern stärken. Das Goethe-Institut in Riga beobachtet einen Boom und sieht darin eine große Chance für die EU.",
-    "quelle": "https://www.tagesschau.de/ausland/europa/lettland-schulen-russisch-deutsch-100.html",
-    "bild": "https://images.tagesschau.de/image/7fc049a8-8fe5-41d1-9583-5846dcc983a9/AAABoQwo8sw/AAABnSSvrFg/16x9-big/lettland-schulunterricht-100.jpg?width=1280"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Politik in Amerika",
-    "titel": "Meinungsfreiheit an US-Universitäten unter Druck: Viele Studierende üben Selbstzensur",
-    "text": "Obwohl Meinungsfreiheit in den USA ein nationales Selbstverständnis ist, fühlen sich immer mehr Studierende und Bürger eingeschränkt, ihre politischen Ansichten zu äußern. Studien zeigen einen Rückgang von 30 Prozent seit 2016 bei Studierenden, die ihre Meinungsfreiheit geschützt sehen, viele praktizieren Selbstzensur auf dem Campus. Wissenschaftler wie Cullum Clark sehen eine Gefahr, dass politischer Druck und ideologische Lagerbildung den offenen Austausch erschweren, und fordern Universitäten auf, wieder Orte freier Debatte zu werden. Dieser Trend ist auch außerhalb der Universitäten zu beobachten, wo Angst vor negativen sozialen oder beruflichen Konsequenzen zu Zurückhaltung führt.",
-    "quelle": "https://www.tagesschau.de/ausland/amerika/free-speech-usa-100.html",
-    "bild": "https://images.tagesschau.de/image/ae7bbcd9-44a2-41be-891e-4fe01ea27480/AAABoQ_GxmU/AAABnSSvrFg/16x9-big/universitaet-dallas-100.jpg?width=1280"
-  },
-  {
-    "hauptkategorie": "Politik",
-    "sub_sektor": "Politik in Amerika",
-    "titel": "Trump erlaubt Autofahrern Nutzung von steuerfreiem \"rotem\" Diesel",
-    "text": "Angesichts der seit Monaten steigenden Spritpreise in den USA hat US-Präsident Donald Trump per Dekret die Nutzung von steuerfreiem \"rotem\" Diesel für Autofahrer erlaubt, der bisher der Landwirtschaft vorbehalten war. Diese Maßnahme soll die hohen Lebenshaltungskosten lindern, die Trumps Umfragewerte vor den Zwischenwahlen beeinträchtigen. Die Preisanstiege werden offiziell dem Russland-Ukraine-Krieg und Raffinerieengpässen zugeschrieben.",
-    "quelle": "https://www.tagesschau.de/ausland/amerika/usa-trump-diesel-100.html",
-    "bild": "https://images.tagesschau.de/image/058e8a24-4658-4180-9ce5-ce30304585d2/AAABoQ-xMYg/AAABnSSvrFg/16x9-big/trump-dekret-diesel-100.jpg?width=1280"
   },
   {
     "hauptkategorie": "Kultur & Gesellschaft",
@@ -1784,28 +1920,12 @@
     "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/1/0/8/shutterstock_580970338-724e6a2d888399b0.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
   },
   {
-    "hauptkategorie": "Technologie & Wissenschaft",
-    "sub_sektor": "Medizin & Forschung",
-    "titel": "Medizin-Nobelpreis 2026 für Optogenetik zur lichtgesteuerten Nervenzellforschung",
-    "text": "Der Medizin-Nobelpreis 2026 geht an Karl Deisseroth, Peter Hegemann und Georg Nagel für die Entwicklung der Optogenetik, einer Methode, die es ermöglicht, Nervenzellen im Gehirn präzise mit Licht an- und auszuschalten. Grundlage ist das Algenprotein Channelrhodopsin, das als Lichtsensor und Ionenkanal dient, um elektrische Impulse in Nervenzellen auszulösen. Diese bahnbrechende Technik verspricht Fortschritte im Verständnis von Gehirnfunktionen und spannende Anwendungen wie die Wiederherstellung der Sehkraft bei Blinden.",
-    "quelle": "https://www.heise.de/hintergrund/Nobelpreis-fuer-Medizin-Wie-ein-Algenprotein-Nervenzellen-per-Licht-steuert-11476866.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
-    "bild": "https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/7/7/0/8/0/NP_POM_2026_3-2_01-55d1ff3b9973a9f0.webp?func=bound&height=1200&org_if_sml=1&q=85&width=1200"
-  },
-  {
     "hauptkategorie": "Kultur & Gesellschaft",
     "sub_sektor": "Leben & Alltag",
     "titel": "Pflegeheimkosten in Deutschland steigen, regionale Unterschiede bleiben groß",
     "text": "Die Pflegekosten in Deutschland steigen weiterhin an, wobei die Eigenbeteiligung der Pflegebedürftigen an Heimkosten im Bundesdurchschnitt bei 3.237 Euro monatlich – ein Plus von 7,7 Prozent seit Jahresanfang – liegt. Die Kosten variieren stark regional; Sachsen-Anhalt und Sachsen sind am günstigsten, während Bremen am teuersten ist, hauptsächlich bedingt durch niedrigere Personalkosten in Ostdeutschland. Die schwarz-rote Koalition ringt weiterhin um eine Pflegereform, die im kommenden Frühjahr auf Basis eines Gutachtens von Pflegeexperten erfolgen könnte.",
     "quelle": "https://www.wiwo.de/finanzen/vorsorge/pflegekosten-in-deutschland-wo-pflegeheime-teurer-oder-guenstiger-sind/100259717.html",
     "bild": "https://images.wiwo.de/cpDCNfq2h79T/cover/900/506/0/0/179/179/0.5/0.5/archiv-23.08.2018-baden-wuerttemberg-stuttgart-eine-pflegekraft-geht-in-einem-pflegeheim-mit-ein.jpg"
-  },
-  {
-    "hauptkategorie": "Technologie & Wissenschaft",
-    "sub_sektor": "Hardware & Robotik",
-    "titel": "Münchner KI-Roboterbauer RobCo wird jüngstes deutsches \"Einhorn\"",
-    "text": "Das Münchner Roboter-Start-up RobCo hat eine Bewertung von über einer Milliarde Dollar erreicht und ist damit Deutschlands jüngstes \"Einhorn\", bekräftigt durch eine 40-Millionen-Dollar-Finanzierungserweiterung. Das Unternehmen, das modulare Industrieroboter entwickelt, plant die Markteinführung seines zweiarmigen, autonomen Roboters \"Alfie\" im März. RobCo fokussiert sich auf den wachstumsstarken US-Markt und strebt an, Marktführer in Europa und den USA im Mittelstandsgeschäft zu werden, indem es kleinen und mittleren Firmen bei der Automatisierung hilft.",
-    "quelle": "https://www.wiwo.de/unternehmen/industrie/robco-ki-roboterbauer-steigt-zum-einhorn-auf/100259874.html",
-    "bild": "https://images.wiwo.de/1Zg-C9IoM1sU/cover/900/506/0/0/0/508/0.5/0.5/co-founder-and-ceo-of-robco-roman-hoelzl-reviews-robot-functions-with-a-colleague-at-the-companys-f.jpg"
   },
   {
     "hauptkategorie": "Lokales & Regionales",
@@ -2152,22 +2272,6 @@
     "bild": "https://cdn.prod.www.spiegel.de/images/5a0d618a-fe4e-4850-82bc-eb758b5711b3_w520_r2.08_fpx33.34_fpy50.jpg"
   },
   {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Gesellschaftliche Debatten",
-    "titel": "Frankreich: Polizeigranate reißt 15-Jährigem die Hand ab",
-    "text": "Bei Schülerprotesten in Nordfrankreich wurde einem 15-jährigen Gymnasiasten durch eine Polizeigranate eine Hand abgerissen, was zu heftiger Kritik am Polizeieinsatz führte. Der Vorfall in Lens ist Teil einer Serie von teils gewalttätigen Demonstrationen für bessere Schulbedingungen, bei denen seit Beginn über 5000 Menschen festgenommen und Hunderte verletzt wurden. Menschenrechtsorganisationen wie Amnesty International verurteilen den unverhältnismäßigen Einsatz der Polizei gegen Minderjährige und fordern eine Deeskalation der Lage.",
-    "quelle": "https://www.spiegel.de/ausland/frankreich-polizeigranate-reisst-15-jaehrigem-die-hand-ab-a-51fea002-aec0-4c08-bdde-1c4a545a10b7#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/08edd76d-bab1-44f5-b7b6-2df67896894a_w520_r2.08_fpx51.22_fpy54.98.jpg"
-  },
-  {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Kunst & Unterhaltung",
-    "titel": "Dinosaurier: Sotheby's hofft auf bis zu 9 Millionen Dollar für Skelett",
-    "text": "Das Auktionshaus Sotheby's versteigert Ende Oktober in New York das seltene Nanotyrannus-Skelett \"Jodi\" und erwartet einen Erlös von 6 bis 9 Millionen Dollar, obwohl frühere Schätzungen in dem boomenden Markt für Dinosaurierskelette oft übertroffen wurden. Dies folgt auf eine Rekordauktion im Juli, bei der ein Tyrannosaurus rex für 50,1 Millionen Dollar den Besitzer wechselte, was die hohe Nachfrage und die Rolle solcher Skelette als \"Trophy-Assets\" für Superreiche unterstreicht. Die klare Herkunft und die wissenschaftliche Bedeutung von \"Jodi\" machen es zu einem begehrten Sammlerstück.",
-    "quelle": "https://www.manager-magazin.de/finanzen/dinosaurier-sothebys-hofft-auf-bis-zu-9-milliarden-dollar-fuer-skelett-a-4a1cc848-281d-4860-a669-2d32a220e4ea#ref=rss",
-    "bild": "https://cdn.prod.www.manager-magazin.de/images/a8388592-fa85-4a64-b9ff-5d18fe1e8797_w520_r2.08_fpx43.98_fpy50.jpg"
-  },
-  {
     "hauptkategorie": "Weltweite Schlagzeilen",
     "sub_sektor": "Globale Ereignisse",
     "titel": "Flydubai: Co-Pilot soll Anschlag auf Flughafen Ben Gurion geplant haben",
@@ -2176,52 +2280,12 @@
     "bild": "https://cdn.prod.www.spiegel.de/images/cdbd8237-1c02-4b14-8c8e-a438886c1942_w520_r2.08_fpx61.99_fpy44.97.jpg"
   },
   {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Gesellschaftliche Debatten",
-    "titel": "Wohnungskrise in Spanien: Gewerkschaften kündigen Generalstreik an",
-    "text": "Die großen spanischen Gewerkschaftsbünde CCOO und UGT haben wegen der anhaltenden Wohnungsnot und hoher Mieten einen Generalstreik angekündigt, der vor den Neuwahlen am 29. November stattfinden soll. Die Ankündigung folgt auf wachsende Proteste, die durch die Zwangsräumung einer 87-jährigen Frau in Madrid ausgelöst wurden. Premierminister Pedro Sánchez hatte zuvor Neuwahlen ausgerufen, nachdem seine Initiativen zum Mieterschutz im Parlament gescheitert waren, was die Dringlichkeit der Forderung nach bezahlbarem Wohnraum unterstreicht.",
-    "quelle": "https://www.spiegel.de/ausland/wohnungskrise-in-spanien-gewerkschaften-rufen-zum-generalstreik-auf-a-21d19ec4-f67e-4c73-a11b-7e0c36481f34#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/5a0d618a-fe4e-4850-82bc-eb758b5711b3_w520_r2.08_fpx33.34_fpy50.jpg"
-  },
-  {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Gesellschaftliche Debatten",
-    "titel": "Polizeigranate reißt 15-Jährigem bei Schülerprotest in Frankreich die Hand ab",
-    "text": "Ein 15-jähriger Schüler hat bei gewalttätigen Schülerprotesten in Lens, Frankreich, seine Hand durch eine Polizeigranate verloren, was zu weiterer Empörung über Polizeigewalt führt. Dieser Vorfall, bei dem der Junge Medienberichten zufolge eine Blendgranate aufhob, ist Teil einer Reihe von Verletzungen und rund 5.060 Festnahmen, meist Minderjähriger, seit Beginn der Proteste. Menschenrechtsorganisationen kritisieren den unverhältnismäßigen Einsatz der Polizei und fordern eine Deeskalation, während die Schüler für bessere Schulbedingungen demonstrieren.",
-    "quelle": "https://www.spiegel.de/ausland/frankreich-polizeigranate-reisst-15-jaehrigem-die-hand-ab-a-51fea002-aec0-4c08-bdde-1c4a545a10b7#ref=rss",
-    "bild": "https://cdn.prod.www.spiegel.de/images/08edd76d-bab1-44f5-b7b6-2df67896894a_w520_r2.08_fpx51.22_fpy54.98.jpg"
-  },
-  {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Gesellschaftliche Debatten",
-    "titel": "Frankreich erwartet neuen Höhepunkt der Schülerproteste",
-    "text": "Frankreich bereitet sich auf einen neuen Höhepunkt landesweiter Schülerproteste am Dienstag vor, bei denen eine bessere Schulausstattung und Lernbedingungen gefordert werden. Im Großraum Paris sollen vorsorglich 200 Gymnasien geschlossen bleiben, während in anderen Großstädten Kundgebungen geplant sind. Die Proteste sind von teils drastischer Gewalt geprägt, mit über 5.000 Festnahmen und zahlreichen Verletzten, darunter ein 15-Jähriger, dem eine Polizeigranate die Hand abriss, was die Kritik am Polizeieinsatz weiter anheizt.",
-    "quelle": "https://www.zeit.de/news/2026-10/06/frankreich-erwartet-neuen-hoehepunkt-der-schuelerproteste",
-    "bild": "https://img.zeit.de/news/2026-10/06/frankreich-erwartet-neuen-hoehepunkt-der-schuelerproteste-image-group/original__640x360"
-  },
-  {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Gesellschaftliche Debatten",
-    "titel": "Zehntausende protestieren in Barcelona gegen Wohnungsnot",
-    "text": "Zehntausende Menschen haben in Barcelona gegen die Wohnungsnot protestiert und mehr bezahlbaren Wohnraum gefordert, wobei die Teilnehmerzahlen zwischen 20.000 und 120.000 variierten. Die Demonstration, die hauptsächlich friedlich verlief, erlebte zum Ende hin vereinzelte Zusammenstöße mit der Polizei und mehrere Festnahmen. Die Proteste finden statt, nachdem Spaniens Ministerpräsident Pedro Sánchez Neuwahlen für den 29. November angekündigt hatte, da seine Dekrete zur Bekämpfung der Wohnungsnot im Parlament gescheitert waren.",
-    "quelle": "https://www.zeit.de/news/2026-10/06/zehntausende-protestieren-in-barcelona-gegen-wohnungsnot",
-    "bild": "https://img.zeit.de/news/2026-10/06/zehntausende-protestieren-in-barcelona-gegen-wohnungsnot-image-group/original__640x360"
-  },
-  {
     "hauptkategorie": "Weltweite Schlagzeilen",
     "sub_sektor": "Globale Ereignisse",
     "titel": "Warum den Palästinensern der Kollaps ihres Bankensystems droht",
     "text": "Dem palästinensischen Bankensystem droht der Kollaps, da zwei israelische Banken, die Zahlungen auf palästinensische Konten abwickeln, ihre Dienste bis Jahresende einstellen wollen. Diese Entwicklung könnte laut Diplomatenkreisen und internationalen Finanzinstitutionen zu einer „präzedenzlosen und systembedrohenden“ Katastrophe führen. Die Krise im Finanzmarkt verschärft die ohnehin prekäre Lage der Palästinenser zusätzlich zu den Zerstörungen im Gazastreifen und der Gewalt im Westjordanland.",
     "quelle": "https://www.handelsblatt.com/finanzen/banken-versicherungen/banken-warum-den-palaestinensern-der-kollaps-ihres-bankensystems-droht/100256782.html",
     "bild": "https://images.handelsblatt.com/Fzvuq9gdmDoS/cover/900/506/0/0/0/0/0.5/0.5/das-westjordanland-steht-vor-einer-bankenkrise.jpg"
-  },
-  {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Kunst & Unterhaltung",
-    "titel": "Buchpreis für „Die Lücken“: Dass dieser Roman so aktuell wirkt, ist wahrlich kein Grund zur Freude",
-    "text": "Shida Bazyar wurde mit dem Deutschen Buchpreis 2026 für ihren Roman „Die Lücken“ ausgezeichnet, der die NS-Geschichte ihres Heimatortes Hermeskeil im Hunsrück akribisch aufarbeitet und mit einer Migrationserzählung verknüpft. Das Werk schildert eindringlich die Vertreibung und Ermordung von Juden, die Profitgier der Nachbarn und die Verdrängung der Taten nach 1945. In ihrer Dankesrede betonte Bazyar die beunruhigende Aktualität des Romans angesichts eines erneuten Anstiegs antisemitischer und rassistischer Straftaten und rief zum Widerstand gegen eine „Schlussstrichmentalität“ auf.",
-    "quelle": "https://www.welt.de/kultur/article6ac24ae6656315bd2f814a2f/buchpreis-fuer-die-luecken-dass-dieser-roman-so-aktuell-wirkt-ist-wahrlich-kein-grund-zur-freude.html",
-    "bild": "https://images.welt.de/6ac24ae6656315bd2f814a2f/358558f93f0d28dc607eaf4cb599e657-master/ci23x11-w1200/dpa-com-261005-936-111813-jpg"
   },
   {
     "hauptkategorie": "Lokales & Regionales",
@@ -2238,14 +2302,6 @@
     "text": "Bei einem Frontalzusammenstoß eines Pkw mit einem Lkw in Mittelhessen, auf der Landesstraße 3042, ist ein 18-jähriger Autofahrer ums Leben gekommen. Zwei weitere Pkw-Insassen wurden schwer und die beiden Lkw-Insassen leicht verletzt. Nach ersten Erkenntnissen geriet der Wagen des 18-Jährigen in einer Kurve ins Schleudern, was zur tödlichen Kollision führte. Die Straße war für mehrere Stunden voll gesperrt und die Polizei sucht weitere Zeugen.",
     "quelle": "https://www.zeit.de/news/2026-10/05/toedlicher-frontalzusammenstoss-in-mittelhessen",
     "bild": "https://img.zeit.de/news/2026-10/05/toedlicher-frontalzusammenstoss-in-mittelhessen-image-group/original__640x360"
-  },
-  {
-    "hauptkategorie": "Kultur & Gesellschaft",
-    "sub_sektor": "Leben & Alltag",
-    "titel": "Was geschah am 6. Oktober?",
-    "text": "Das Kalenderblatt vom 6. Oktober erinnert an verschiedene historische Ereignisse. Im Jahr 2021 erhielten Benjamin List und David MacMillan den Chemie-Nobelpreis für die Entwicklung von Katalysatoren, die die organische Molekülkonstruktion revolutionierten. Weitere Ereignisse umfassen den ersten Auftritt von Käpt'n Blaubär 1991, das Attentat auf den ägyptischen Präsidenten Anwar el Sadat 1981, die Verhaftung der chinesischen \"Viererbande\" 1976 und die erste Herzschrittmacher-Operation in Deutschland 1961.",
-    "quelle": "https://www.zeit.de/news/2026-10/05/was-geschah-am-6-oktober",
-    "bild": "https://img.zeit.de/news/2026-10/05/was-geschah-am-6-oktober-image-group/original__640x360"
   },
   {
     "hauptkategorie": "Weltweite Schlagzeilen",
@@ -2864,14 +2920,6 @@
     "bild": "https://img.zeit.de/news/2026-10/03/lkw-unfall-sorgt-fuer-verzoegerungen-auf-a1-richtung-hamburg-image-group/original__640x360"
   },
   {
-    "hauptkategorie": "Lokales & Regionales",
-    "sub_sektor": "Kommunalpolitik",
-    "titel": "Mieten: Was kann Berlin vom Mieterparadies Wien lernen?",
-    "text": "Wien, bekannt als Mieterparadies, empfängt zahlreiche Delegationen, die das Modell des sozialen Wohnungsbaus studieren möchten, das dort über Jahrzehnte hinweg aufgebaut wurde. Rund 60 Prozent der Wiener leben in geförderten oder kommunalen Wohnungen, da die Stadt nie im großen Stil Wohnungen verkauft und stark in Objektförderung investiert hat. Berlin, das mit Wohnungsknappheit und Enteignungsforderungen kämpft, könnte zwar Anregungen erhalten, das Wiener Modell lässt sich jedoch aufgrund historisch gewachsener Strukturen und unterschiedlicher Förderlogiken nicht schnell imitieren.",
-    "quelle": "https://www.wiwo.de/finanzen/immobilien/mieten-was-kann-berlin-vom-mieterparadies-wien-lernen/100258920.html",
-    "bild": "https://images.wiwo.de/R8I3zxgZ3mWf/cover/900/506/0/0/0/281/0.5/0.5/wien.jpg"
-  },
-  {
     "hauptkategorie": "Weltweite Schlagzeilen",
     "sub_sektor": "Breaking News",
     "titel": "FlyDubai co-pilot used crash ax to attack captain, UAE says",
@@ -2880,36 +2928,12 @@
     "bild": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/IWXHXRV5BII7DAP4TN3PQNB3NQ.jpg&w=1440"
   },
   {
-    "hauptkategorie": "Lokales & Regionales",
-    "sub_sektor": "Regionale Wirtschaft",
-    "titel": "Niedriger Rhein bei Düsseldorf: Frachtschiff kämpft sich nach fünf Tagen von Sandbank frei",
-    "text": "Ein Frachtschiff mit Mercedes-Sprintern saß im Düsseldorfer Hafen aufgrund des Niedrigwassers fünf Tage lang auf einer Sandbank fest und konnte erst nach teilweiser Entladung und leicht gestiegenen Pegelständen seine Fahrt fortsetzen. Das Logistikunternehmen Mosolf wirft der Hafenverwaltung vor, der Hafen sei nicht ausreichend ausgebaggert, während die Hafenverwaltung eine Fehleinschätzung des Kapitäns vermutete. Der Rhein führt weiterhin extrem wenig Wasser, und die Wetterprognosen lassen keine schnelle Entspannung erwarten.",
-    "quelle": "https://www.n-tv.de/wirtschaft/Frachtschiff-kaempft-sich-nach-fuenf-Tagen-von-Sandbank-frei-id31376937.html",
-    "bild": "https://www.n-tv.de/img/31376953/1791030195/Img_4_3/250/622979518.jpg"
-  },
-  {
     "hauptkategorie": "Weltweite Schlagzeilen",
     "sub_sektor": "Breaking News",
     "titel": "US-Medienberichte: Flydubai-Co-Pilot galt zuvor als Sicherheitsrisiko",
     "text": "Der Co-Pilot, der den Piloten eines Flydubai-Flugs nach Tel Aviv angriff, galt laut US-Medienberichten bei seinem früheren Arbeitgeber Oman Air wegen extremistischer Ansichten als Sicherheitsrisiko und wurde entlassen. Die Behörden der Vereinigten Arabischen Emirate bezeichnen den Vorfall, bei dem der Co-Pilot den Piloten mit einer Notaxt angriff und die Kontrolle über das Flugzeug übernehmen wollte, als \"Terrorakt\". Die Ermittlungen laufen, um Motive und mögliche Verbindungen zu klären und herauszufinden, wie der Mann trotz seines Flugverbots wieder eine Anstellung finden konnte.",
     "quelle": "https://www.tagesschau.de/ausland/flydubai-co-pilot-sicherheitsrisiko-100.html",
     "bild": "https://images.tagesschau.de/image/9dcae517-638d-49de-874d-468158dfb685/AAABoPvg3cc/AAABnSSvrFg/16x9-big/flugzeug-flydubai-102.jpg?width=1280"
-  },
-  {
-    "hauptkategorie": "Lokales & Regionales",
-    "sub_sektor": "Infrastruktur",
-    "titel": "Wohnungsnot: Kommunen fordern Konzept für ländlichen Raum",
-    "text": "Angesichts der Wohnungsnot in Ballungsräumen und 1,9 Millionen leerstehenden Wohnungen im ländlichen Raum fordern die Kommunen ein umfassendes Gesamtkonzept von Bund und Ländern zur Attraktivitätssteigerung ländlicher Regionen. Der Deutsche Städte- und Gemeindebund schlägt vor, neue Verkehrswege wie Bahntrassen zu schaffen und die Gesundheitsversorgung, Nahversorgungs- sowie Kultur- und Freizeitangebote auszubauen. Ziel ist es, ländliche Räume als Wohn- und Lebensräume attraktiver zu machen und so zur Lösung der Wohnungsnot beizutragen.",
-    "quelle": "https://www.tagesschau.de/inland/gesellschaft/wohnungsnot-168.html",
-    "bild": "https://images.tagesschau.de/image/d01d0bb2-19b4-4d09-b5b1-40d874e7b2e5/AAABld1RmwQ/AAABnSSvrFg/16x9-big/reihenhaus-102.jpg?width=1280"
-  },
-  {
-    "hauptkategorie": "Lokales & Regionales",
-    "sub_sektor": "Regionale Wirtschaft",
-    "titel": "Niedrigwasser: Frachtschiff schafft es wieder auf den Rhein",
-    "text": "Ein Frachtschiff, beladen mit Mercedes-Sprintern, saß aufgrund des Niedrigwassers im Düsseldorfer Hafen fünf Tage lang auf einer Sandbank fest und konnte erst nach Reduzierung der Ladung und leicht gestiegenen Pegelständen seine Fahrt fortsetzen. Die Logistikfirma Mosolf kritisiert, der Hafen sei nicht ausreichend ausgebaggert, während die Hafenverwaltung eine Fehleinschätzung des Kapitäns annahm. Der Rhein führt weiterhin ungewöhnlich wenig Wasser, und eine deutliche Entspannung der Lage wird in den kommenden Tagen nicht erwartet.",
-    "quelle": "https://www.handelsblatt.com/politik/deutschland/niedrigwasser-frachtschiff-schafft-es-wieder-auf-den-rhein/100259479.html",
-    "bild": "https://images.handelsblatt.com/i29bdjAj1oov/cover/900/506/0/0/313/312/0.5/0.5/02.10.2026-nordrhein-westfalen-duesseldorf-das-frachtschiff-terra-2-liegt-im-hafen-an-dem-pier..jpg"
   },
   {
     "hauptkategorie": "Weltweite Schlagzeilen",
@@ -2926,14 +2950,6 @@
     "text": "Der mysteriöse Tod der 42-jährigen deutschen Staatsbürgerin Sibel T. in der Türkei, der zunächst als verdächtig und potenziell auf Vergiftung zurückgeführt wurde, scheint sich nach SPIEGEL-Recherchen als natürliche Todesursache zu erweisen. Sibel T. war stark übergewichtig, litt unter langjährigem Bluthochdruck und hatte bereits eine Herzoperation hinter sich. Die Frau, die in der Türkei lebte und als Übersetzerin tätig war, war entgegen ersten Berichten keine Staatsanwältin oder im Urlaub. Die gerichtsmedizinischen Untersuchungen zur endgültigen Klärung der Todesursache dauern noch an, es gibt jedoch keine Hinweise auf Fremdverschulden oder Vergiftung.",
     "quelle": "https://www.spiegel.de/panorama/tote-deutsche-sibel-t-in-der-tuerkei-war-es-doch-eine-natuerliche-todesursache-a-a6298c65-264c-4309-a2be-5cadd82ac76e#ref=rss",
     "bild": "https://cdn.prod.www.spiegel.de/images/aefd1fd0-9360-40d9-9700-e002a66731ce_w520_r2.08_fpx70_fpy45.jpg"
-  },
-  {
-    "hauptkategorie": "Lokales & Regionales",
-    "sub_sektor": "Infrastruktur",
-    "titel": "Schlechter Zustand bremst aus: Fast jeder zweite Fernzug im September zu spät",
-    "text": "Im September 2026 war nahezu jeder zweite Fernzug der Deutschen Bahn verspätet, mit einer Pünktlichkeitsquote von lediglich 52,4 Prozent, dem zweitschlechtesten Wert des Jahres. Hohe Zahlen von Anlagenstörungen und schlechter Streckenzustand, etwa zwischen Berlin und Wolfsburg, wurden als Hauptursachen genannt, was auch das Jahresziel von mindestens 60 Prozent unerreichbar macht. Die Bahn saniert derzeit Dutzende vielbefahrene Strecken mit Milliardenmitteln des Bundes, um das Netz langfristig zu stabilisieren, wobei die Generalsanierungen bis in die 2030er Jahre andauern werden.",
-    "quelle": "https://www.n-tv.de/wirtschaft/Fast-jeder-zweite-Fernzug-im-September-zu-spaet-id31375005.html",
-    "bild": "https://www.n-tv.de/img/31374985/1790954025/Img_4_3/250/621098113.jpg"
   },
   {
     "hauptkategorie": "Weltweite Schlagzeilen",
@@ -3080,28 +3096,12 @@
     "bild": "https://img.zeit.de/news/2026-10/01/keidel-nicht-im-spieltagskader-laeuft-s-wie-bei-cont-image-group/original__640x360"
   },
   {
-    "hauptkategorie": "Weltweite Schlagzeilen",
-    "sub_sektor": "Globale Ereignisse",
-    "titel": "Kalenderblatt: Was geschah am 2. Oktober?",
-    "text": "Am 2. Oktober 2025 ereignete sich am höchsten jüdischen Feiertag Jom Kippur in Manchester ein mutmaßlicher Terroranschlag, bei dem ein Mann mit seinem Auto in eine Menschengruppe vor einer Synagoge fuhr und zwei Menschen tötete. Zu weiteren historischen Daten des 2. Oktober gehören die Ablehnung des Friedensabkommens in Kolumbien 2016 in einer Volksabstimmung und die erste Erklärung des Bündnisfalls der Nato 2001 nach den Terroranschlägen in den USA, wodurch alle Nato-Länder zum Beistand verpflichtet waren. Auch die Rückkehr Charles Darwins von seiner Weltreise 1836 und die Eröffnung des Deutschen Doms in Berlin 1996 fallen auf dieses Datum.",
-    "quelle": "https://www.zeit.de/news/2026-10/01/was-geschah-am-2-oktober",
-    "bild": "https://img.zeit.de/news/2026-10/01/was-geschah-am-2-oktober-image-group/original__640x360"
-  },
-  {
     "hauptkategorie": "Sport",
     "sub_sektor": "Fußball",
     "titel": "«Klopp atmet auf»: Pressestimmen zum DFB-Sieg gegen Serbien",
     "text": "Die deutsche Fußball-Nationalmannschaft feierte unter dem neuen Bundestrainer Jürgen Klopp ihren ersten Sieg mit einem 2:0 gegen Serbien in München, wobei Florian Wirtz eine herausragende Leistung zeigte. Internationale Pressestimmen lobten den souveränen Erfolg und den attraktiven, an Klopps \"Heavy-Metal-Fußball\" erinnernden Spielstil. Der Sieg, erzielt durch Tore von Tom Bischof und Florian Wirtz, wird als Befreiungsschlag nach zuvor schwachen Leistungen und als wichtiger Schritt für die \"nächste Generation\" im DFB-Team gewertet. Die Mannschaft dominierte ihren Gegner und konnte erstmals seit sieben Länderspielen wieder ohne Gegentor bleiben.",
     "quelle": "https://www.zeit.de/news/2026-10/02/klopp-atmet-auf-pressestimmen-zum-dfb-sieg-gegen-serbien",
     "bild": "https://img.zeit.de/news/2026-10/02/klopp-atmet-auf-pressestimmen-zum-dfb-sieg-gegen-serbien-image-group/original__640x360"
-  },
-  {
-    "hauptkategorie": "Weltweite Schlagzeilen",
-    "sub_sektor": "Globale Ereignisse",
-    "titel": "Indian pilot Smit Machchhar hailed as hero after cockpit stabbing on Flydubai flight",
-    "text": "Kapitän Smit Machchhar, der indische Pilot eines Flydubai-Fluges, wird als Held gefeiert, weil er den Angriff seines Co-Piloten im Cockpit abwehrte und damit über 170 Menschenleben rettete. Nach der Attacke, die den Jet in einen steilen Sinkflug zwang, übernahm eine andere Crew die Kontrolle und landete das Flugzeug not. Machchhar erholt sich derzeit in einem Krankenhaus in Tabuk, Saudi-Arabien.",
-    "quelle": "https://www.washingtonpost.com/world/2026/10/01/flydubai-indian-pilot-smit-machchhar-hailed-hero-after-cockpit-stabbing/",
-    "bild": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/SRHWIMGMPDLHUBTQTX5USFRQYI.jpg&w=1440"
   },
   {
     "hauptkategorie": "Sport",
