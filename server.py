@@ -1,6 +1,7 @@
 import os
 import json
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
@@ -11,6 +12,11 @@ import yfinance as yf
 import edge_tts
 
 app = FastAPI()
+
+class LogMessage(BaseModel):
+    message: str
+
+active_websockets = []
 
 app.add_middleware(
     CORSMiddleware,
@@ -107,6 +113,34 @@ async def get_tts(text: str = ""):
                 yield chunk["data"]
                 
     return StreamingResponse(audio_stream(), media_type="audio/mpeg")
+
+@app.websocket("/ws/terminal")
+async def websocket_terminal(websocket: WebSocket):
+    await websocket.accept()
+    active_websockets.append(websocket)
+    try:
+        while True:
+            await websocket.receive_text()
+    except WebSocketDisconnect:
+        active_websockets.remove(websocket)
+
+@app.post("/api/log")
+async def receive_log(log: LogMessage):
+    for ws in active_websockets:
+        try:
+            await ws.send_json({"type": "log", "message": log.message})
+        except:
+            pass
+    return {"status": "ok"}
+
+@app.post("/api/news-updated")
+async def news_updated():
+    for ws in active_websockets:
+        try:
+            await ws.send_json({"type": "news_updated"})
+        except:
+            pass
+    return {"status": "ok"}
 
 if __name__ == "__main__":
     # Startet den lokalen Server auf http://localhost:8000
