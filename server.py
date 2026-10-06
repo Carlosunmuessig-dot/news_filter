@@ -52,7 +52,7 @@ Struktur: {"nachrichten": [{"hauptkategorie": "...", "sub_sektor": "...", "titel
 # 2. FUNKTION: Artikel an Gemini senden und filtern
 def filter_news_with_gemini(raw_articles_text):
     model = genai.GenerativeModel(
-        model_name="gemini-3.8-flash",
+        model_name="gemini-1.5-flash",
         generation_config={"response_mime_type": "application/json"},
         system_instruction=SYSTEM_PROMPT
     )
@@ -163,7 +163,7 @@ async def morning_briefing():
 
     prompt = f"Du bist J.A.R.V.I.S. Erstelle ein kurzes Morning-Briefing für Master Carlos (max 3 Sätze). {market_str}. Top Schlagzeilen: {news_text}. Sprich sachlich, loyal, professionell wie im Film. Keine Sonderzeichen."
     try:
-        model = genai.GenerativeModel(model_name="gemini-3.8-flash")
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
         resp = model.generate_content(prompt)
         text = resp.text.strip()
     except:
@@ -189,7 +189,7 @@ async def chat_with_jarvis(msg: ChatMessage):
     global jarvis_chat_history
     try:
         model = genai.GenerativeModel(
-            model_name="gemini-3.8-flash",
+            model_name="gemini-1.5-flash",
             system_instruction=JARVIS_SYSTEM_PROMPT
         )
         chat = model.start_chat(history=jarvis_chat_history)

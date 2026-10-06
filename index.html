@@ -1473,7 +1473,7 @@ async function testApiKey() {
     const key = localStorage.getItem('hq_gemini_key');
     if (!key) return toast('Kein API Key gespeichert');
     try {
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents: [{ parts: [{ text: 'Say OK' }] }] })
         });
@@ -2266,7 +2266,7 @@ Antworte in exakt diesem JSON-Format:
 Antworte NUR mit dem JSON, kein Markdown, keine Erklärung.`;
 
     try {
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
         });
@@ -2855,7 +2855,7 @@ async function processCommand(input) {
         const newsSnippets = STATE.news.slice(0, 8).map(a => a.title).join('; ');
         showJarvisReply('Erstelle dein Briefing…');
         try {
-            const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
+            const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     contents: [{ parts: [{ text: `Fasse diese Nachrichten in einem kurzen Briefing (5-6 Sätze, deutsch) zusammen: ${newsSnippets}` }] }]

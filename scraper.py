@@ -184,7 +184,7 @@ async def scrape_and_summarize():
 
     send_log("Sende geballte Artikel an Gemini zur Analyse...")
     model = genai.GenerativeModel(
-        model_name="gemini-3.8-flash",
+        model_name="gemini-1.5-flash",
         generation_config={"response_mime_type": "application/json"},
         system_instruction=SYSTEM_PROMPT
     )
