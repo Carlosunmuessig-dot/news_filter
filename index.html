@@ -1370,6 +1370,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
    ========================================================================== */
 
 // ==================== GLOBAL STATE ====================
+const BACKEND_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") ? window.location.origin : "http://127.0.0.1:8000";
 const STATE = {
     news: [],
     bookmarks: new Set(JSON.parse(localStorage.getItem('hq_bookmarks') || '[]')),
@@ -2003,7 +2004,7 @@ async function renderStockGrid() {
     const tickers = stocks.map(s => s.ticker).join(',');
     if (tickers) {
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${encodeURIComponent(tickers)}`);
+            const res = await fetch(`${BACKEND_URL}/api/stocks?tickers=${encodeURIComponent(tickers)}`);
             const data = await res.json();
             if (data && data.stocks) {
                 stocks.forEach(s => {
@@ -2067,7 +2068,7 @@ async function renderHqMarketWidgets() {
     const tickersToFetch = topStocks.map(s => s.ticker).join(',');
     if (tickersToFetch) {
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${encodeURIComponent(tickersToFetch)}`);
+            const res = await fetch(`${BACKEND_URL}/api/stocks?tickers=${encodeURIComponent(tickersToFetch)}`);
             const data = await res.json();
             if (data && data.stocks) {
                 topStocks.forEach(s => {
@@ -2259,7 +2260,7 @@ async function runBlackstoneAnalyzer() {
     }
 
     try {
-        const r = await fetch('http://127.0.0.1:8000/api/analyze-stock', {
+        const r = await fetch(`${BACKEND_URL}/api/analyze-stock`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ticker: ticker })
@@ -2652,6 +2653,7 @@ function updateMetrics() {
 // ==================== JARVIS VOICE ====================
 let isJarvisAwake = false;
 let jarvisAwakeTimer = null;
+let isJarvisSpeaking = false;
 
 function initJarvisVoice() {
     if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
@@ -2689,7 +2691,7 @@ function initJarvisVoice() {
     
     STATE.recognition.onerror = () => {};
     STATE.recognition.onend = () => {
-        if (!STATE.jarvisMuted) {
+        if (!STATE.jarvisMuted && !isJarvisSpeaking) {
             try { STATE.recognition.start(); } catch(e){}
         }
     };
@@ -2740,7 +2742,7 @@ function stopRecording() {
     try { STATE.recognition?.stop(); } catch {}
 }
 
-function speakJarvis(text) {
+async function speakJarvis(text) {
     if (STATE.jarvisMuted || !STATE.settings.ttsEnabled) return;
     
     // Stop any currently playing audio
@@ -2748,23 +2750,49 @@ function speakJarvis(text) {
         window.jarvisAudio.pause();
     }
     
+    // Pause mic while speaking to avoid self-feedback
+    isJarvisSpeaking = true;
+    try { STATE.recognition?.stop(); } catch(e){}
+    
     const core = document.querySelector('.jarvis-core');
     if (core) core.classList.add('speaking');
     
-    // Fetch and play new audio via edge-tts on the backend
-    const url = `http://127.0.0.1:8000/api/tts?text=${encodeURIComponent(text)}`;
-    window.jarvisAudio = new Audio(url);
-    window.jarvisAudio.onended = () => {
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/tts`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: text })
+        });
+        
+        if (!response.ok) throw new Error('TTS fetch failed');
+        
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        
+        window.jarvisAudio = new Audio(url);
+        window.jarvisAudio.onended = () => {
+            if (core) core.classList.remove('speaking');
+            isJarvisSpeaking = false;
+            // Resume mic automatically if awake
+            if (isJarvisAwake && !STATE.jarvisMuted) {
+                try { STATE.recognition?.start(); } catch(e){}
+            }
+        };
+        window.jarvisAudio.onerror = () => {
+            console.warn('Audio play failed');
+            if (core) core.classList.remove('speaking');
+            isJarvisSpeaking = false;
+        };
+        window.jarvisAudio.play().catch(e => {
+            console.warn('Audio play blocked:', e);
+            if (core) core.classList.remove('speaking');
+            isJarvisSpeaking = false;
+        });
+    } catch(err) {
+        console.error('Error fetching TTS:', err);
         if (core) core.classList.remove('speaking');
-    };
-    window.jarvisAudio.onerror = () => {
-        console.warn('Audio play failed');
-        if (core) core.classList.remove('speaking');
-    };
-    window.jarvisAudio.play().catch(e => {
-        console.warn('Audio play blocked:', e);
-        if (core) core.classList.remove('speaking');
-    });
+        isJarvisSpeaking = false;
+    }
 }
 
 function showJarvisReply(text, who = 'J.A.R.V.I.S.') {
@@ -2833,7 +2861,7 @@ async function processCommand(input) {
     if (cmd.includes('briefing') || cmd.includes('zusammenfas')) {
         showJarvisReply('Erstelle dein Briefing…');
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/morning-briefing');
+            const r = await fetch(`${BACKEND_URL}/api/morning-briefing`);
             const data = await r.json();
             const reply = data?.text || 'Kein Briefing verfügbar.';
             showJarvisReply(reply);
@@ -2846,7 +2874,7 @@ async function processCommand(input) {
     // AI fallback via backend
     try {
         showJarvisReply('Denke nach…');
-        const r = await fetch('http://127.0.0.1:8000/api/chat', {
+        const r = await fetch(`${BACKEND_URL}/api/chat`, {
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: input })
@@ -3111,7 +3139,7 @@ window.addEventListener('load', async () => {
         const lastPlayed = localStorage.getItem('lastBriefingDate');
         if (lastPlayed !== today) {
             try {
-                const res = await fetch('http://127.0.0.1:8000/api/morning-briefing');
+                const res = await fetch(`${BACKEND_URL}/api/morning-briefing`);
                 const data = await res.json();
                 if (data.text) {
                     speakJarvis(data.text);
@@ -3140,7 +3168,7 @@ window.addEventListener('beforeunload', () => {
 
 // ==================== WEBSOCKET TERMINAL & AUTO-UPDATE ====================
 function initWebSocket() {
-    const ws = new WebSocket('ws://127.0.0.1:8000/ws/terminal');
+    const ws = new WebSocket(`${BACKEND_URL.replace("http", "ws")}/ws/terminal`);
     const term = document.getElementById('terminal-content');
     
     ws.onopen = () => {
@@ -3242,7 +3270,7 @@ async function initGlobe() {
     // Fetch real data for pins
     try {
         const tickers = marketData.map(d => d.ticker).join(',');
-        const res = await fetch(`http://127.0.0.1:8000/api/stocks?tickers=${tickers}`);
+        const res = await fetch(`${BACKEND_URL}/api/stocks?tickers=${tickers}`);
         const apiData = await res.json();
         if (apiData && apiData.stocks) {
             marketData.forEach(d => {

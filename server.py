@@ -4,7 +4,7 @@ import asyncio
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, StreamingResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from openai import OpenAI
@@ -31,8 +31,9 @@ templates = Jinja2Templates(directory=".")
 
 # ==========================================
 # ⚙️ OPENJARVIS CONFIGURATION
+# OpenJarvis läuft standardmäßig auf Port 8008 (damit kein Konflikt mit Port 8000 entsteht!)
 # ==========================================
-OPENJARVIS_URL = os.getenv("OPENJARVIS_URL", "http://localhost:8000/v1")
+OPENJARVIS_URL = os.getenv("OPENJARVIS_URL", "http://localhost:8008/v1")
 OPENJARVIS_MODEL = os.getenv("OPENJARVIS_MODEL", "chat-simple")
 OPENJARVIS_API_KEY = os.getenv("OPENJARVIS_API_KEY", "not-needed")
 
@@ -79,13 +80,24 @@ def filter_news_with_gemini(raw_articles_text):
 async def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="index.html")
 
+@app.get("/nachrichten.json")
 @app.get("/api/news")
 async def get_news():
     try:
         with open("nachrichten.json", "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            return JSONResponse(content=data)
     except FileNotFoundError:
-        return {"nachrichten": []}
+        return JSONResponse(content={"nachrichten": []})
+
+@app.get("/vokabeln.json")
+async def get_vokabeln():
+    try:
+        with open("vokabeln.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return JSONResponse(content=data)
+    except FileNotFoundError:
+        return JSONResponse(content=[])
 
 @app.get("/api/stocks")
 async def get_stocks(tickers: str = ""):
@@ -108,13 +120,16 @@ async def get_stocks(tickers: str = ""):
             pass
     return {"stocks": results}
 
-@app.get("/api/tts")
-async def get_tts(text: str = ""):
-    if not text:
+class TTSRequest(BaseModel):
+    text: str
+
+@app.post("/api/tts")
+async def post_tts(req: TTSRequest):
+    if not req.text:
         return {"error": "No text provided"}
     
     voice = "de-DE-ConradNeural"
-    communicate = edge_tts.Communicate(text, voice)
+    communicate = edge_tts.Communicate(req.text, voice)
     
     async def audio_stream():
         async for chunk in communicate.stream():
@@ -138,15 +153,6 @@ async def receive_log(log: LogMessage):
     for ws in active_websockets:
         try:
             await ws.send_json({"type": "log", "message": log.message})
-        except:
-            pass
-    return {"status": "ok"}
-
-@app.post("/api/news-updated")
-async def news_updated():
-    for ws in active_websockets:
-        try:
-            await ws.send_json({"type": "news_updated"})
         except:
             pass
     return {"status": "ok"}
@@ -178,13 +184,21 @@ Antworte NUR mit dem JSON, kein Markdown, keine Erklärung."""
     except Exception as e:
         print(f"Stock analysis error: {e}")
         return {
-            "p1": f"Analyse für {ticker} konnte nicht geladen werden.",
-            "p2": "Bitte stelle sicher, dass OpenJarvis ('jarvis serve') gestartet ist.",
-            "p3": "OpenJarvis muss erreichbar sein.",
-            "p4": "Keine Daten.",
-            "p5": f"Fehler: {str(e)}"
+            "p1": f"Analyse für {ticker} fehlgeschlagen.",
+            "p2": "Bitte stelle sicher, dass OpenJarvis auf Port 8008 läuft (jarvis serve --port 8008).",
+            "p3": f"URL: {OPENJARVIS_URL}",
+            "p4": "Keine Verbindung zum KI-Server.",
+            "p5": f"Fehlerdetails: {str(e)}"
         }
 
+@app.post("/api/news-updated")
+async def news_updated():
+    for ws in active_websockets:
+        try:
+            await ws.send_json({"type": "news_updated"})
+        except:
+            pass
+    return {"status": "ok"}
 
 @app.get("/api/morning-briefing")
 async def morning_briefing():
@@ -213,7 +227,7 @@ async def morning_briefing():
         )
         text = resp.choices[0].message.content.strip()
     except Exception as e:
-        text = f"Guten Morgen Sir. {market_str}. Die wichtigsten Schlagzeilen liegen bereit."
+        text = f"Guten Morgen Sir. {market_str}. Die wichtigsten Schlagzeilen liegen bereit. (Hinweis: OpenJarvis KI-Server unter {OPENJARVIS_URL} nicht erreichbar)."
         
     return {"text": text}
 
@@ -251,7 +265,7 @@ async def chat_with_jarvis(msg: ChatMessage):
             jarvis_chat_history = jarvis_chat_history[-20:]
     except Exception as e:
         print(f"Error in chat_with_jarvis: {e}")
-        reply = "Entschuldigung Sir, ich habe derzeit keine Verbindung zu OpenJarvis."
+        reply = f"Entschuldigung Sir, ich kann keine Verbindung zum OpenJarvis Engine Server unter {OPENJARVIS_URL} aufbauen. Bitte stelle sicher, dass 'jarvis serve --port 8008' gestartet ist."
     return {"reply": reply}
 
 async def proactive_market_monitor():
